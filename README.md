@@ -210,4 +210,4 @@ MIT License - Feel free to use this for your own portfolio!
 
 ---
 
-**Built with ❤️
+**Built with ❤️**
