@@ -1,0 +1,82 @@
+@import './variables';
+
+// ============================================
+// RESPONSIVE BREAKPOINTS
+// ============================================
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+// ============================================
+// GLASS EFFECT
+// ============================================
+
+@mixin glass-effect($bg-color, $opacity: 0.8) {
+  background: rgba($bg-color, $opacity);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+// ============================================
+// CARD STYLE
+// ============================================
+
+@mixin card-base {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: $transition-smooth;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to(mobile) {
+    padding: 1.5rem;
+  }
+}
+
+@mixin card-hover {
+  &:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ============================================
+// ACCENT BAR
+// ============================================
+
+@mixin accent-bar-left {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}

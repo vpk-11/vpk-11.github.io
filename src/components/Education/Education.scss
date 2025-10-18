@@ -1,0 +1,56 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.education-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.education-card {
+  @include card-base;
+  @include accent-bar-left;
+  background: rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    border-color: var(--accent-color);
+    transform: translateX(10px);
+  }
+
+  .theme-dark & {
+    background: rgba(255, 255, 255, 0.03);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .theme-light & {
+    background: rgba(0, 0, 0, 0.02);
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+.card-duration {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  // opacity: 0.6;
+  font-style: italic;
+  // font-weight: bold;
+
+  .theme-dark & {
+    color: $dark-text-secondary;
+  }
+
+  .theme-light & {
+    color: $light-text-secondary;
+  }
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}

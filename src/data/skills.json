@@ -1,0 +1,58 @@
+[
+  {
+    "category": "Programming Languages",
+    "items": [
+      "C",
+      "C++",
+      "JavaScript",
+      "Python",
+      "C#",
+      "SQL"
+    ]
+  },
+  {
+    "category": "Frontend",
+    "items": [
+      "React",
+      "TypeScript",
+      "Redux",
+      "HTML5",
+      "CSS3",
+      "SCSS/SASS",
+      "Responsive Design"
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      "Node.js",
+      "Express.js",
+      "ASP.NET",
+      "Python Flask",
+      "MongoDB",
+      "MySQL",
+      "REST APIs",
+      "Authentication",
+      "Database Design"
+    ]
+  },
+  {
+    "category": "Design & UX",
+    "items": [
+      "Figma",
+      "UI/UX Design",
+      "Wireframing"
+    ]
+  },
+  {
+    "category": "Tools & Others",
+    "items": [
+      "Git & GitHub",
+      "Webpack",
+      "VS Code",
+      "Chrome DevTools",
+      "Postman",
+      "Agile/Scrum"
+    ]
+  }
+]

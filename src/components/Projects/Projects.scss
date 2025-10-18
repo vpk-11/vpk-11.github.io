@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  @include card-base;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .theme-dark & {
+    background: rgba(255, 255, 255, 0.03);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .theme-light & {
+    background: rgba(0, 0, 0, 0.02);
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.tech-tag {
+  padding: 0.4rem 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  .theme-dark & {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .theme-light & {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.project-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: $transition-quick;
+
+  &:hover {
+    transform: translateX(5px);
+  }
+}

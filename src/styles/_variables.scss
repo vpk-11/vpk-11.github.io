@@ -1,0 +1,59 @@
+// ============================================
+// COLOR PALETTE
+// ============================================
+
+// Light Mode Colors
+$light-bg: #ffffff;
+$light-surface: #f8f9fa;
+$light-text: #202124;
+$light-text-secondary: rgb(20, 20, 21);
+
+// Dark Mode Colors (Material Design)
+$dark-bg: #121212;
+$dark-surface: #1e1e1e;
+$dark-text: #e8eaed;
+$dark-text-secondary: rgb(238, 239, 242);
+
+// Vibrant Accent Colors - Light Mode
+$red-light: #EA4335;
+$blue-light: #4285F4;
+$yellow-light: #FBBC04;
+$green-light: #34A853;
+$purple-light: #A142F4;  // New: Google purple
+
+// Vibrant Accent Colors - Dark Mode
+$red-dark: #FF6B6B;
+$blue-dark: #4D9FFF;
+$yellow-dark: #FFD93D;
+$green-dark: #6BCF7F;
+$purple-dark: #C77DFF;  // New: Lighter purple for dark mode
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1440px;
+
+// ============================================
+// TRANSITIONS
+// ============================================
+
+$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-quick: all 0.2s ease;
+
+// ============================================
+// SPACING
+// ============================================
+
+$section-padding: 120px;
+$section-padding-mobile: 60px;
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
