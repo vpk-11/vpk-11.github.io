@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { Menu, X } from 'lucide-react';
-import type { RootState } from '../../store/store';
+// import type { RootState } from '../../store/store';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navbar.scss';
 
@@ -9,8 +9,9 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const theme = useSelector((state: RootState) => state.theme.mode);
-
+  // const theme = useSelector((state: RootState) => state.theme.mode); 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
