@@ -8,8 +8,8 @@
   width: 100vw;
   z-index: 1000;
   padding: 1.5rem 0;
-  background: transparent;  // Changed from solid
-  backdrop-filter: blur(80px);  // Increased blur
+  background: transparent;
+  backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(80px);
   transition: $transition-smooth;
   box-sizing: border-box;
@@ -17,9 +17,16 @@
   &.scrolled {
     padding: 1rem 0;
   }
+  
+  // Hide brand when on hero section
+  &.hide-brand {
+    .nav-brand {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
 }
 
-// Rest of navbar styles stay the same
 .nav-container {
   width: calc(100% - 4rem);
   max-width: 1400px;
@@ -53,7 +60,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  transition: $transition-quick;
+  transition: opacity 0.5s ease;  // Smooth fade transition
   
   .brand-short {
     display: none;

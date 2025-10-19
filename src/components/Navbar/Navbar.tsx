@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
   // const theme = useSelector((state: RootState) => state.theme.mode); 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
- 
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track active section - FIXED
+  // Track active section
   useEffect(() => {
     const sections = ['hero', 'experience', 'skills', 'projects', 'education', 'contact'];
     
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`}>
       <div className="nav-container">
         <div className="nav-brand">
           <span className="brand-full">Kaushik Parthasarathy</span>
