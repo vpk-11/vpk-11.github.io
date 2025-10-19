@@ -1,6 +1,12 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+.education-section{
+  // Fixed purple accent for education
+  --section-accent-light: #{$purple-light};
+  --section-accent-dark: #{$purple-dark};
+}
+
 .education-grid {
   display: grid;
   gap: 2rem;
@@ -11,7 +17,6 @@
   @include accent-bar-left;
 
   &:hover {
-    border-color: var(--accent-color);
     transform: translateX(10px);
   }
 
@@ -20,6 +25,7 @@
     
     &:hover {
       background: rgba($dark-text, 0.05);
+      border-color: $purple-dark;
     }
   }
 
@@ -28,7 +34,47 @@
     
     &:hover {
       background: rgba($light-text, 0.03);
+      border-color: $purple-light;
     }
+  }
+  &::before{
+    .theme-light & {
+      background: $purple-light;
+    }
+    
+    .theme-dark & {
+      background: $purple-dark;
+    }
+  }
+}
+
+.ed-t {
+  .theme-light & {
+    color: $purple-light;
+  }
+  
+  .theme-dark & {
+    color: $purple-dark;
+  }
+  &::after {
+    background: var(--accent-color);
+    .theme-light & {
+      background: $purple-light;
+    }
+
+    .theme-dark & {
+      background: $purple-dark;
+    }
+  }
+}
+
+.ed-ct {
+  .theme-light & {
+    color: $purple-light;
+  }
+  
+  .theme-dark & {
+    color: $purple-dark;
   }
 }
 
@@ -71,7 +117,6 @@
 }
 
 .meta-icon {
-  color: var(--accent-color);
   flex-shrink: 0;
 }
 
@@ -90,7 +135,7 @@
   }
 }
 
-.card-gpa {
+.ed-gpa.card-gpa {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -109,14 +154,24 @@
 }
 
 .gpa-icon {
-  color: var(--accent-color);
   flex-shrink: 0;
+  .theme-dark & {
+    color: $purple-dark;
+  }
+  .theme-light & {
+    color: $purple-light;
+  }
 }
 
 .gpa-text {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--accent-color);
+  .theme-dark & {
+    color: $purple-dark;
+  }
+  .theme-light & {
+    color: $purple-light;
+  }
   letter-spacing: 0.3px;
 }
 
@@ -124,4 +179,14 @@
   font-size: 1rem;
   line-height: 1.7;
   opacity: 0.85;
+}
+
+.ed-mi{
+  .theme-light & {
+    color: $purple-light;
+  }
+  
+  .theme-dark & {
+    color: $purple-dark;
+  }
 }

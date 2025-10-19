@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="section contact-section" data-accent="red">
       <div className="container">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="co-t section-title">Get In Touch</h2>
         <p className="contact-text">
           I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!
         </p>

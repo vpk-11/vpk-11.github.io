@@ -1,6 +1,12 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+.project-section{
+  // Fixed green accent for hero
+  --section-accent-light: #{$green-light};
+  --section-accent-dark: #{$green-dark};
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -17,7 +23,7 @@
   flex-direction: column;
 
   &:hover {
-    border-color: var(--accent-color);
+    // border-color: var(--accent-color);
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   }
@@ -27,6 +33,7 @@
     
     &:hover {
       background: rgba($dark-text, 0.05);
+      border-color: $green-dark;
     }
   }
 
@@ -35,7 +42,37 @@
     
     &:hover {
       background: rgba($light-text, 0.03);
+      border-color: $green-light;
     }
+  }
+}
+.pr-title{
+  .theme-light & {
+    color: $green-light;
+  }
+  
+  .theme-dark & {
+    color: $green-dark;
+  }
+  &::after {
+    background: var(--accent-color);
+    .theme-light & {
+      background: $green-light;
+    }
+
+    .theme-dark & {
+      background: $green-dark;
+    }
+  }
+}
+
+.pr-ct{
+  .theme-light & {
+    color: $green-light;
+  }
+  
+  .theme-dark & {
+    color: $green-dark;
   }
 }
 
@@ -43,7 +80,6 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
 }
 
 .card-description {
@@ -62,18 +98,21 @@
 
 .tech-tag {
   padding: 0.4rem 0.9rem;
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color);
+  border: 1px solid;
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
 
   .theme-dark & {
     background: rgba($dark-text, 0.05);
+    border-color: $green-dark;
+    color: $green-dark;
   }
 
   .theme-light & {
     background: rgba($light-text, 0.05);
+    border-color: $green-light;
+    color: $green-light;
   }
 }
 
@@ -81,12 +120,18 @@
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  color: var(--accent-color);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
   transition: $transition-quick;
 
+  .theme-light & {
+    color: $green-light;
+  }
+  
+  .theme-dark & {
+    color: $green-dark;
+  }
   &:hover {
     transform: translateX(5px);
   }

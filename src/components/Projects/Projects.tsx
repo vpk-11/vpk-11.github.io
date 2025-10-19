@@ -31,11 +31,11 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="section projects-section" data-accent="green">
       <div className="container">
-        <h2 className="section-title">Projects</h2>
+        <h2 className="pr-title section-title">Projects</h2>
         <div className="projects-grid">
           {projects.map(project => (
             <div key={project.id} className="project-card">
-              <h3 className="card-title">{project.title}</h3>
+              <h3 className="pr-ct card-title">{project.title}</h3>
               <p className="card-description">{formatText(project.description)}</p>
               <div className="tech-stack">
                 {project.tech.map(tech => (

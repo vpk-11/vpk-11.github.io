@@ -33,12 +33,12 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="section skills-section" data-accent="yellow">
       <div className="container">
-        <h2 className="section-title">Skills & Certifications</h2>
+        <h2 className="sk-t section-title">Skills & Certifications</h2>
         
         <div className="skills-certifications-wrapper">
           {/* Skills Grid - 2 columns */}
           <div className="skills-container">
-            <h3 className="subsection-title">
+            <h3 className="sk-st subsection-title">
               <Wrench size={24} />
               Skills
             </h3>
@@ -58,7 +58,7 @@ const Skills: React.FC = () => {
 
           {/* Certifications - 1 column */}
           <div className="certifications-container">
-            <h3 className="subsection-title">
+            <h3 className="sk-st subsection-title">
               <Award size={24} />
               Certifications
             </h3>

@@ -1,6 +1,12 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+.experience-section{
+  // Fixed blue accent for experience
+  --section-accent-light: #{$blue-light};
+  --section-accent-dark: #{$blue-dark};
+}
+
 .experience-grid {
   display: grid;
   gap: 2rem;
@@ -11,8 +17,28 @@
   @include accent-bar-left;
 
   &:hover {
-    border-color: var(--accent-color);
     transform: translateX(10px);
+  }
+  
+  // Fixed blue accent bar
+  &::before {
+    .theme-light & {
+      background: $blue-light;
+    }
+    
+    .theme-dark & {
+      background: $blue-dark;
+    }
+  }
+  
+  &:hover {
+    .theme-light & {
+      border-color: $blue-light;
+    }
+    
+    .theme-dark & {
+      border-color: $blue-dark;
+    }
   }
 
   .theme-dark & {
@@ -32,11 +58,40 @@
   }
 }
 
+.ex-t{
+  .theme-light & {
+    color: $blue-light;
+  }
+  
+  .theme-dark & {
+    color: $blue-dark;
+  }
+  &::after {
+    background: var(--accent-color);
+    .theme-light & {
+      background: $blue-light;
+    }
+
+    .theme-dark & {
+      background: $blue-dark;
+    }
+  }
+}
+
+.ex-ct{
+  .theme-light & {
+    color: $blue-light;
+  }
+  
+  .theme-dark & {
+    color: $blue-dark;
+  }
+}
+
 .card-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
 }
 
 .card-subtitle {
@@ -71,8 +126,17 @@
 }
 
 .meta-icon {
-  color: var(--accent-color);
   flex-shrink: 0;
+}
+
+.ex-mi {
+  .theme-light & {
+    color: $blue-light;
+  }
+  
+  .theme-dark & {
+    color: $blue-dark;
+  }
 }
 
 .card-duration,
@@ -94,4 +158,21 @@
   font-size: 1rem;
   line-height: 1.7;
   opacity: 0.85;
+  
+  // strong {
+  //   font-weight: 700;
+  //   opacity: 1;
+  // }
 }
+
+// .ex-cd{
+//   strong{
+//     .theme-light & {
+//       background: $blue-light;
+//     }
+
+//     .theme-dark & {
+//       background: $blue-dark;
+//     }
+//   }
+// }
