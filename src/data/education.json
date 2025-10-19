@@ -4,13 +4,15 @@
     "degree": "Masters of Science in Computer Science",
     "institution": "University of Massachusetts, Amherst",
     "duration": "Aug 2025 - Present (Exp Jun 2027)",
-    "description": "Machine Learning, Software Engineering, Cryptography"
+    "description": "Machine Learning, Software Engineering, Cryptography",
+    "location": "Amherst, MA"
   },
   {
     "id": 2,
     "degree": "Bachelor's of Technology in Computer Science & Engineering",
     "institution": "National Institute of Technology, Tiruchirappalli",
     "duration": "Dec 2020 - May 2024",
-    "description": "Data Structures & Algorithms, Database Management Systems, Computer Networks & Security, Operating Systems, Artificial Intelligence, Machine Learning, Deep Learning, NLP, Cryptography"
+    "description": "Data Structures & Algorithms, Database Management Systems, Computer Networks & Security, Operating Systems, Artificial Intelligence, Machine Learning, Deep Learning, NLP, Cryptography",  
+    "location": "Tiruchirappalli, India"
   }
 ]

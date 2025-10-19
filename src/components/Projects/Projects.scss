@@ -13,7 +13,6 @@
 
 .project-card {
   @include card-base;
-  background: rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
 
@@ -24,20 +23,34 @@
   }
 
   .theme-dark & {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba($dark-text, 0.03);
     
     &:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba($dark-text, 0.05);
     }
   }
 
   .theme-light & {
-    background: rgba(0, 0, 0, 0.02);
+    background: rgba($light-text, 0.02);
     
     &:hover {
-      background: rgba(0, 0, 0, 0.03);
+      background: rgba($light-text, 0.03);
     }
   }
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 1rem;
 }
 
 .tech-stack {
@@ -49,7 +62,6 @@
 
 .tech-tag {
   padding: 0.4rem 0.9rem;
-  background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
   border-radius: 15px;
@@ -57,11 +69,11 @@
   font-weight: 500;
 
   .theme-dark & {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba($dark-text, 0.05);
   }
 
   .theme-light & {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba($light-text, 0.05);
   }
 }
 

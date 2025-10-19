@@ -4,8 +4,9 @@
     "items": [
       "C",
       "C++",
-      "JavaScript",
       "Python",
+      "JavaScript",
+      "TypeScript",
       "C#",
       "SQL"
     ]
@@ -14,7 +15,6 @@
     "category": "Frontend",
     "items": [
       "React",
-      "TypeScript",
       "Redux",
       "HTML5",
       "CSS3",
@@ -37,6 +37,16 @@
     ]
   },
   {
+    "category": "Machine Learning",
+    "items": [
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "Computer Vision",
+      "Natural Language Processing"
+    ]
+  },
+  {
     "category": "Design & UX",
     "items": [
       "Figma",
@@ -52,7 +62,11 @@
       "VS Code",
       "Chrome DevTools",
       "Postman",
-      "Agile/Scrum"
+      "Agile/Scrum",
+      "Blockchain",
+      "DevOps",
+      "OpenShift",
+      "CI/CD"
     ]
   }
 ]

@@ -18,14 +18,6 @@ export interface ProfileData {
   resume: string;
 }
 
-export interface Experience {
-  id: number;
-  role: string;
-  company: string;
-  duration: string;
-  description: string;
-}
-
 export interface Project {
   id: number;
   title: string;
@@ -39,11 +31,29 @@ export interface Skill {
   items: string[];
 }
 
+export interface Experience {
+  id: number;
+  role: string;
+  company: string;
+  duration: string;
+  location: string;  // Add this
+  description: string;
+}
+
 export interface Education {
   id: number;
   degree: string;
   institution: string;
   duration: string;
-  description: string;
   location: string;
+  gpa?: string;  // Optional field
+  description: string;
+}
+
+export interface Certification {
+  id: number;
+  name: string;
+  issuer: string;
+  issueDate: string;
+  link: string;
 }

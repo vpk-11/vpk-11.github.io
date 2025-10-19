@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Linkedin } from 'lucide-react';
 import { setAccent } from '../../store/accentSlice';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
@@ -32,10 +33,16 @@ const Contact: React.FC = () => {
       <div className="container">
         <h2 className="section-title">Get In Touch</h2>
         <p className="contact-text">
-          I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out!
+          I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!
         </p>
-        <a href={`mailto:${profile.email}`} className="contact-button">
-          Say Hello
+        <a 
+          href={profile.linkedin} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="contact-button"
+        >
+          <Linkedin size={24} />
+          <span>Message on LinkedIn</span>
         </a>
       </div>
     </section>
