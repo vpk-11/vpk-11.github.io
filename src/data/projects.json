@@ -4,20 +4,20 @@
     "title": "Deepfake Deconstruction",
     "description": "Designed a modular deep-learning pipeline to reverse-engineer face-swap deepfakes, identifying the original source image with 85%+ accuracy on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling component-level model swapping for improved scalability. Addressed a real-world AI safety problem by going beyond detection to trace the origins of manipulation.",
     "tech": ["Python", "PyTorch", "Computer Vision", "Machine Learning"],
-    "link": "https://github.com/yourusername/ecommerce-platform"
+    "link": "https://github.com/vpk-11/fyp-deepfake-decon"
   },
   {
     "id": 2,
     "title": "DKeeper",
     "description": "Designed a modular deep-learning pipeline to reverse-engineer face-swap deepfakes, identifying the original source image with 85%+ accuracy on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling component-level model swapping for improved scalability. Addressed a real-world AI safety problem by going beyond detection to trace the origins of manipulation.",
     "tech": ["React", "JavaScript", "Motoko", "DFinity ICP", "Blockchain"],
-    "link": "https://github.com/yourusername/task-manager"
+    "link": "https://github.com/vpk-11/dkeeper"
   },
   {
     "id": 3,
     "title": "File Hosting Service",
     "description": "Built a file hosting service with user authentication, enabling secure access to individual files. Implemented a unique ID system stored in MongoDB, associating each file with its user for efficient retrieval. Developed server-side storage for uploaded files with REST API routes to upload, list, and download files.",
     "tech": ["Node.JS", "MongoDB", "HTML", "CSS", "Express"],
-    "link": "https://github.com/yourusername/weather-app"
+    "link": "https://github.com/vpk-11/file-hosting-service"
   }
 ]
