@@ -20,21 +20,24 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track active section
+  // Track active section - FIXED
   useEffect(() => {
-    const sections = ['hero', 'experience', 'skills', 'projects', 'education', 'contact'];
+    const sections = ['hero', 'education', 'experience', 'skills', 'projects', 'contact'];
     
     const observerOptions = {
-      threshold: 0.3,  // Lowered threshold
-      rootMargin: '-80px 0px -60% 0px'  // Adjusted margins
+      threshold: 0.1,  // Section needs to be 20% visible
+      rootMargin: '-100px 0px -50% 0px'  // Account for navbar height and center focus
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
+      // Find the section that's most visible
+      const visibleSections = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      
+      if (visibleSections.length > 0) {
+        setActiveSection(visibleSections[0].target.id);
+      }
     }, observerOptions);
 
     sections.forEach(id => {
