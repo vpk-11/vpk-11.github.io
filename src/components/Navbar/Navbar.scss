@@ -49,12 +49,25 @@
   }
 }
 
-// ... rest of the styles remain the same
 .nav-brand {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
   transition: $transition-quick;
+  
+  .brand-short {
+    display: none;
+  }
+  
+  @include respond-to(mobile) {
+    .brand-full {
+      display: none;
+    }
+    
+    .brand-short {
+      display: inline;
+    }
+  }
 }
 
 .nav-desktop {

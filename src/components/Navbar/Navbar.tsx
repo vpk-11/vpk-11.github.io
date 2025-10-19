@@ -65,7 +65,10 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <div className="nav-brand">Portfolio</div>
+        <div className="nav-brand">
+          <span className="brand-full">Kaushik Parthasarathy</span>
+          <span className="brand-short">KP</span>
+        </div>
         
         <div className="nav-desktop">
           {navItems.map(item => (
