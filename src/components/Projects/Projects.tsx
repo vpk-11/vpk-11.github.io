@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAccent } from '../../store/accentSlice';
 import projectsData from '../../data/projects.json';
+import { formatText } from '../../utils/formatText';
 import type { Project } from '../../types';
 import './Projects.scss';
 
@@ -35,7 +36,7 @@ const Projects: React.FC = () => {
           {projects.map(project => (
             <div key={project.id} className="project-card">
               <h3 className="card-title">{project.title}</h3>
-              <p className="card-description">{project.description}</p>
+              <p className="card-description">{formatText(project.description)}</p>
               <div className="tech-stack">
                 {project.tech.map(tech => (
                   <span key={tech} className="tech-tag">{tech}</span>

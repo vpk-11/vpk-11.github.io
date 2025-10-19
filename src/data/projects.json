@@ -9,7 +9,7 @@
   {
     "id": 2,
     "title": "DKeeper",
-    "description": "Built a decentralized note-taking app with Google Keep–style UI using React and state hooks, allowing users to create, delete, and persist notes on the ICP blockchain. Integrated secure, tamper-proof storage leveraging blockchain smart contracts, ensuring 100% data immutability. Applied frontend best practices: responsive design, accessibility compliance, and component-based architecture.",
+    "description": "Built a decentralized note-taking app with **Google Keep–style UI** using React and state hooks, allowing users to create, delete, and persist notes on the ICP blockchain. Integrated secure, tamper-proof storage leveraging blockchain smart contracts, ensuring 100% data immutability. Applied frontend best practices: responsive design, accessibility compliance, and component-based architecture.",
     "tech": ["React", "JavaScript", "Motoko", "DFinity ICP", "Blockchain"],
     "link": "https://github.com/vpk-11/dkeeper"
   },

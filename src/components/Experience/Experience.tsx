@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Calendar, MapPin } from 'lucide-react';
 import { setAccent } from '../../store/accentSlice';
 import experiencesData from '../../data/experiences.json';
+import { formatText } from '../../utils/formatText';
 import type { Experience as ExperienceType } from '../../types';
 import './Experience.scss';
 
@@ -49,7 +50,7 @@ const Experience: React.FC = () => {
                 </div>
               </div>
               
-              <p className="card-description">{exp.description}</p>
+              <p className="card-description">{formatText(exp.description)}</p>
             </div>
           ))}
         </div>
