@@ -13,7 +13,7 @@
     "company": "NIT Trichy - ISRO Yukthi Sanchita",
     "location": "Trichy, India",
     "duration": "Mar 2024 - Jul 2024",
-    "description": "Developed **a modular computer vision pipeline** integrating four image processing models in Python (**PyTorch & TensorFlow**), enabling seamless model swapping across frameworks. **Optimized real-time system performance**, reducing image-processing latency by over **90%** using threading, **parallel processing**, and internal **REST API** calls. Designed for **high availability and scalability**, strengthening skills in advanced image processing, algorithm optimization, and collaborative problem solving"
+    "description": "As a **Research Intern under Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *“Development of Computer Vision System for an AI Assistant.”* Developed **a modular computer vision pipeline** integrating four image processing models in Python (**PyTorch & TensorFlow**), enabling seamless model swapping across frameworks. **Optimized real-time system performance**, reducing image-processing latency by over **90%** using threading, **parallel processing**, and internal **REST API** calls. Designed for **high availability and scalability**, strengthening skills in advanced image processing, algorithm optimization, and collaborative problem solving."
   },
   {
     "id": 3,
