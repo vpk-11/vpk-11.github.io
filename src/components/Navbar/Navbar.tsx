@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Menu, X } from 'lucide-react';
-// import type { RootState } from '../../store/store';
+import type { RootState } from '../../store/store';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navbar.scss';
 
@@ -9,8 +9,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  // const theme = useSelector((state: RootState) => state.theme.mode); 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const accent = useSelector((state: RootState) => state.accent.color);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,32 +19,36 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track active section - FIXED
+  // Track active section for navbar highlighting
   useEffect(() => {
     const sections = ['hero', 'education', 'experience', 'skills', 'projects', 'contact'];
     
-    const observerOptions = {
-      threshold: 0.1,  // Section needs to be 20% visible
-      rootMargin: '-100px 0px -50% 0px'  // Account for navbar height and center focus
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      // Find the section that's most visible
-      const visibleSections = entries
-        .filter(entry => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+      let currentSection = 'hero';
       
-      if (visibleSections.length > 0) {
-        setActiveSection(visibleSections[0].target.id);
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            currentSection = sectionId;
+            break;
+          }
+        }
       }
-    }, observerOptions);
-
-    sections.forEach(id => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
+      
+      setActiveSection(currentSection);
+    };
+    
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const navItems = [
@@ -60,13 +63,23 @@ const Navbar: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navbarHeight = 80;
+      const offsetPosition = element.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       setIsOpen(false);
     }
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`}>
+    <nav 
+      className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`} 
+      data-section={activeSection}
+      data-accent={accent}
+    >
       <div className="nav-container">
         <div className="nav-brand">
           <span className="brand-full">Kaushik Parthasarathy</span>

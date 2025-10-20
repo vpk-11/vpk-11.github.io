@@ -8,11 +8,61 @@
   width: 100vw;
   z-index: 1000;
   padding: 1.5rem 0;
+  transition: $transition-smooth;
+  box-sizing: border-box;
+
+  // Transparent background with blur effect (original settings)
   background: transparent;
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(80px);
-  transition: $transition-smooth;
-  box-sizing: border-box;
+
+  // ============================================
+  // SECTION-BASED ACCENT COLORS
+  // ============================================
+  &[data-accent="red"] {
+    .theme-light & {
+      --accent-color: #{$red-light};
+    }
+    .theme-dark & {
+      --accent-color: #{$red-dark};
+    }
+  }
+
+  &[data-accent="blue"] {
+    .theme-light & {
+      --accent-color: #{$blue-light};
+    }
+    .theme-dark & {
+      --accent-color: #{$blue-dark};
+    }
+  }
+
+  &[data-accent="yellow"] {
+    .theme-light & {
+      --accent-color: #{$yellow-light};
+    }
+    .theme-dark & {
+      --accent-color: #{$yellow-dark};
+    }
+  }
+
+  &[data-accent="green"] {
+    .theme-light & {
+      --accent-color: #{$green-light};
+    }
+    .theme-dark & {
+      --accent-color: #{$green-dark};
+    }
+  }
+
+  &[data-accent="purple"] {
+    .theme-light & {
+      --accent-color: #{$purple-light};
+    }
+    .theme-dark & {
+      --accent-color: #{$purple-dark};
+    }
+  }
 
   &.scrolled {
     padding: 1rem 0;
@@ -60,7 +110,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  transition: opacity 0.5s ease;  // Smooth fade transition
+  transition: opacity 0.5s ease;
   
   .brand-short {
     display: none;

@@ -8,6 +8,18 @@
   // Fixed red accent for hero
   --section-accent-light: #{$red-light};
   --section-accent-dark: #{$red-dark};
+  
+  // Mobile-specific adjustments to push content down
+  @include respond-to(mobile) {
+    padding-top: clamp(140px, 20vh, 200px); // Increased top padding for mobile
+    min-height: 100vh; // Ensure full viewport height
+    display: flex;
+    align-items: center; // Center content vertically in remaining space
+  }
+  
+  @include respond-to(tablet) {
+    padding-top: clamp(120px, 18vh, 190px);
+  }
 }
 
 .hero-content {
@@ -15,6 +27,11 @@
   
   @media (min-width: 1600px) {
     max-width: 90%;
+  }
+  
+  // Extra spacing for mobile to prevent navbar overlap
+  @include respond-to(mobile) {
+    padding-top: 1rem;
   }
 }
 
@@ -32,6 +49,12 @@
   .theme-dark & {
     color: $red-dark;
   }
+  
+  // Adjust font size for small mobile screens
+  @include respond-to(mobile) {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 0.75rem;
+  }
 }
 
 .hero-subtitle {
@@ -40,6 +63,11 @@
   margin-bottom: 2rem;
   opacity: 0.95;
   animation: fadeInUp 0.8s ease 0.2s both;
+  
+  @include respond-to(mobile) {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    margin-bottom: 1.5rem;
+  }
 }
 
 .hero-bio {
@@ -49,6 +77,12 @@
   max-width: 800px;
   opacity: 0.9;
   animation: fadeInUp 0.8s ease 0.4s both;
+  
+  @include respond-to(mobile) {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
 }
 
 .hero-links {
@@ -56,6 +90,10 @@
   gap: clamp(1rem, 2vw, 2rem);
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease 0.6s both;
+  
+  @include respond-to(mobile) {
+    gap: 0.75rem;
+  }
 }
 
 .hero-link {
@@ -99,6 +137,17 @@
   
   svg {
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+  }
+  
+  @include respond-to(mobile) {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    gap: 0.5rem;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 
