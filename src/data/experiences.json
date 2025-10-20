@@ -5,7 +5,7 @@
     "company": "Wells Fargo",
     "location": "Bengaluru, India",
     "duration": "Aug 2024 - Jul 2025",
-    "description": "Software Developer in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking). Designed and implemented React + TypeScript UI components, .NET APIs, and Python backend utilities, delivering new functionality for portfolio management applications. Led OpenShift deployment initiatives for the team, contributing to the deployment architecture, now adopted across the division, and migrating applications, improving performance, and reducing dependencies. Supported production operations through on-call rotations, investigating business-user issues, analyzing logs, applying fixes, and ensuring stable application availability."
+    "description": "**Software Developer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking). Designed and implemented **React + TypeScript UI** components, **.NET APIs**, and **Python** backend utilities, delivering new functionality for portfolio management applications. **Led OpenShift deployment initiatives** for the team, contributing to the deployment architecture, now **adopted across the division**, and migrating applications, improving performance, and reducing dependencies. Supported **production operations** through on-call rotations, investigating business-user issues, analyzing logs, applying fixes, and ensuring stable application availability."
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "company": "NIT Trichy - ISRO Yukthi Sanchita",
     "location": "Trichy, India",
     "duration": "Mar 2024 - Jul 2024",
-    "description": "Developed a modular computer vision pipeline integrating four image processing models in Python (PyTorch & TensorFlow), enabling seamless model swapping across frameworks. Optimized real-time system performance, reducing image-processing latency by over 90% using threading, parallel processing, and internal REST API calls. Designed for high availability and scalability, strengthening skills in advanced image processing, algorithm optimization, and collaborative problem solving"
+    "description": "Developed **a modular computer vision pipeline** integrating four image processing models in Python (**PyTorch & TensorFlow**), enabling seamless model swapping across frameworks. **Optimized real-time system performance**, reducing image-processing latency by over **90%** using threading, **parallel processing**, and internal **REST API** calls. Designed for **high availability and scalability**, strengthening skills in advanced image processing, algorithm optimization, and collaborative problem solving"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "company": "Wells Fargo",
     "location": "Bengaluru, India",
     "duration": "May 2023 - Jul 2023",
-    "description": "Software Development Intern in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking). Developed a full-stack MERN application, building React components, integrating REST APIs, managing backend flow, and designing UI/UX. Integrated ML modules for financial analysis and prediction, delivering a fully functional prototype supporting end-to-end workflows."
+    "description": "**Software Development Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking). Developed a **full-stack MERN application**, building React components, integrating REST APIs, managing backend flow, and designing UI/UX. **Integrated ML modules** for financial analysis and prediction, delivering a **fully functional prototype** supporting end-to-end workflows."
   }
 ]
