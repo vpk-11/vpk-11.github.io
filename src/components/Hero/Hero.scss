@@ -4,34 +4,35 @@
 .hero-section {
   padding-top: clamp(100px, 15vh, 180px);
   text-align: left;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   
   // Fixed red accent for hero
   --section-accent-light: #{$red-light};
   --section-accent-dark: #{$red-dark};
   
-  // Mobile-specific adjustments to push content down
   @include respond-to(mobile) {
-    padding-top: clamp(140px, 20vh, 200px); // Increased top padding for mobile
-    min-height: 100vh; // Ensure full viewport height
-    display: flex;
-    align-items: center; // Center content vertically in remaining space
+    padding-top: 80px; // Less padding since navbar is now transparent
+    align-items: flex-start;
+    padding-bottom: 2rem;
   }
   
   @include respond-to(tablet) {
-    padding-top: clamp(120px, 18vh, 190px);
+    padding-top: 100px;
   }
 }
 
 .hero-content {
   max-width: 100%;
+  width: 100%;
   
   @media (min-width: 1600px) {
     max-width: 90%;
   }
   
-  // Extra spacing for mobile to prevent navbar overlap
   @include respond-to(mobile) {
-    padding-top: 1rem;
+    margin-top: 2rem; // Add some breathing room from top
   }
 }
 
