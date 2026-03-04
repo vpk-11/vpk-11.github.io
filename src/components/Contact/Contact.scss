@@ -2,35 +2,40 @@
 @use '../../styles/mixins' as *;
 
 .contact-section {
-  text-align: center;
-  
+  --section-accent-light: #{$red-light};
+  --section-accent-dark: #{$red-dark};
+
+  // Container needs to be full height to push footer to bottom
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: calc(100vh - clamp(8rem, 20vh, 16rem)); // match section padding
+    width: 100%;
   }
-  // Fixed red accent for hero
-  --section-accent-light: #{$red-light};
-  --section-accent-dark: #{$red-dark};
 }
 
-.co-t{
-  .theme-light & {
-    color: $red-light;
-  }
-  
-  .theme-dark & {
-    color: $red-dark;
-  }
-  &::after {
-    background: var(--accent-color);
-    .theme-light & {
-      background: $red-light;
-    }
+// ============================================
+// MAIN CONTACT CONTENT
+// ============================================
 
-    .theme-dark & {
-      background: $red-dark;
-    }
+.contact-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.co-t {
+  .theme-light & { color: $red-light; }
+  .theme-dark &  { color: $red-dark; }
+
+  &::after {
+    .theme-light & { background: $red-light; }
+    .theme-dark &  { background: $red-dark; }
   }
 }
 
@@ -54,31 +59,93 @@
   font-weight: 700;
   transition: $transition-smooth;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  
-  .theme-light & {
-    background: $red-light;
-  }
+
+  .theme-light & { background: $red-light; }
+
   .theme-dark & {
-    // filter: brightness(0.75) saturate(0.9);
-    color: $light-bg;
-    font-weight: 800;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     background: $red-dark;
+    color: $dark-bg;
+    font-weight: 800;
   }
 
   &:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-    
-    // .theme-dark & {
-      // filter: brightness(0.85) saturate(0.95);
-    // }
-    .theme-light & {
-      color: rgba($light-bg, 1);
+    color: $light-bg;
+
+    .theme-dark & {
+      color: $dark-bg;
     }
   }
-  
+
+  &:visited,
+  &:link,
+  &:active {
+    color: $light-bg;
+
+    .theme-dark & {
+      color: $dark-bg;
+    }
+  }
+
   svg {
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
   }
+}
+
+// ============================================
+// FOOTER — pinned to bottom of section
+// ============================================
+
+.contact-footer {
+  margin-top: auto;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.08); }
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: $transition-quick;
+
+  .theme-light & { color: rgba($light-text, 0.35); }
+  .theme-dark &  { color: rgba($dark-text, 0.3); }
+
+  &:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+  }
+
+  // Kill browser chrome
+  &:focus:not(:focus-visible) { outline: none; }
 }
