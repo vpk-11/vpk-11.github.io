@@ -11,6 +11,10 @@ const Projects: React.FC = () => {
   const dispatch = useDispatch();
   const projects = projectsData as Project[];
 
+  // Ensures links always have a protocol so they don't resolve as relative paths
+  const toAbsolute = (url: string) =>
+    url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,26 +39,33 @@ const Projects: React.FC = () => {
               key={project.id}
               className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
             >
-              {/* Badges row */}
-              <div className="project-badges">
-                {project.demoLink && (
-                  <span className="live-badge">
-                    <span className="live-dot" aria-hidden="true" />
-                    Live
-                  </span>
-                )}
-                {project.featured && (
-                  <span className="featured-badge">★ Featured</span>
-                )}
-              </div>
+              {/* Live badge — top right indicator */}
+              {project.demoLink && (
+                <span className="live-badge">
+                  <span className="live-dot" aria-hidden="true" />
+                  Live
+                </span>
+              )}
+              {project.featured && (
+                <span className="featured-badge">★ Featured</span>
+              )}
 
               <h3 className="pr-ct card-title">{project.title}</h3>
 
-              {/* Project links — right under the title */}
+              {/* Project links — GitHub first, Live Demo second */}
               <div className="project-links">
+                <a
+                  href={toAbsolute(project.githubLink ?? project.link)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link project-link--github"
+                >
+                  <Github size={15} />
+                  <span>GitHub</span>
+                </a>
                 {project.demoLink && (
                   <a
-                    href={project.demoLink}
+                    href={toAbsolute(project.demoLink)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="project-link project-link--demo"
@@ -63,15 +74,6 @@ const Projects: React.FC = () => {
                     <span>Live Demo</span>
                   </a>
                 )}
-                <a
-                  href={project.githubLink ?? project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link project-link--github"
-                >
-                  <Github size={15} />
-                  <span>GitHub</span>
-                </a>
               </div>
 
               <p className="card-description">{formatText(project.description)}</p>

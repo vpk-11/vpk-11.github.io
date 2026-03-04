@@ -189,38 +189,22 @@
 }
 
 // ============================================
-// BADGES ROW
+// BADGES — absolute top right
 // ============================================
 
-.project-badges {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  min-height: 1.5rem; // keeps card height consistent when no badges
-}
-
 .live-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
 
-  .theme-light & {
-    background: rgba($green-light, 0.12);
-    color: $green-light;
-    border: 1px solid rgba($green-light, 0.3);
-  }
-
-  .theme-dark & {
-    background: rgba($green-dark, 0.12);
-    color: $green-dark;
-    border: 1px solid rgba($green-dark, 0.3);
-  }
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
 }
 
 .live-dot {
@@ -240,10 +224,13 @@
 }
 
 // ============================================
-// FEATURED BADGE
+// FEATURED BADGE — absolute top right (offset if live badge present)
 // ============================================
 
 .featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: inline-flex;
   align-items: center;
   font-size: 0.72rem;
@@ -271,7 +258,7 @@
 
 .project-links {
   display: flex;
-  gap: 0.75rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
@@ -283,45 +270,18 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 0.45rem 1rem;
-  border-radius: 6px;
+  padding: 0.45rem 0;
+  border: none;
+  background: none;
   transition: $transition-quick;
-  border: 1px solid;
 
-  &--demo {
-    .theme-light & {
-      color: $green-light;
-      border-color: rgba($green-light, 0.35);
-      background: rgba($green-light, 0.06);
-    }
-    .theme-dark & {
-      color: $green-dark;
-      border-color: rgba($green-dark, 0.35);
-      background: rgba($green-dark, 0.06);
-    }
+  // Both buttons same muted style by default
+  .theme-light & { color: rgba($light-text, 0.5); }
+  .theme-dark &  { color: rgba($dark-text, 0.45); }
 
-    &:hover {
-      .theme-light & { background: rgba($green-light, 0.12); }
-      .theme-dark &  { background: rgba($green-dark, 0.12); }
-      transform: translateY(-2px);
-    }
-  }
-
-  &--github {
-    border: none;
-    background: none;
-    padding: 0.45rem 0;
-
-    .theme-light & { color: rgba($light-text, 0.5); }
-    .theme-dark &  { color: rgba($dark-text, 0.45); }
-
-    &:hover {
-      background: none;
-      border: none;
-      transform: translateX(4px);
-
-      .theme-light & { color: $green-light; }
-      .theme-dark &  { color: $green-dark; }
-    }
+  &:hover {
+    transform: translateX(4px);
+    .theme-light & { color: $green-light; }
+    .theme-dark &  { color: $green-dark; }
   }
 }
