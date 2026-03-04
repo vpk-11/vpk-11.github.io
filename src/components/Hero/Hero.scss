@@ -125,9 +125,9 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     
-    .theme-dark & {
+    // .theme-dark & {
       // filter: brightness(0.85) saturate(0.95);
-    }
+    // }
   }
   
   &:visited,
