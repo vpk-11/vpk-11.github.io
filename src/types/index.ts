@@ -24,6 +24,7 @@ export interface Project {
   description: string;
   tech: string[];
   link: string;
+  featured?: boolean;  // Set to true in projects.json to show the Featured badge
 }
 
 export interface Skill {
@@ -36,8 +37,9 @@ export interface Experience {
   role: string;
   company: string;
   duration: string;
-  location: string;  // Add this
+  location: string;
   description: string;
+  achievements?: string[];  // XYZ formula bullets, supports **bold** / *italic* via formatText
 }
 
 export interface Education {
@@ -46,7 +48,7 @@ export interface Education {
   institution: string;
   duration: string;
   location: string;
-  gpa?: string;  // Optional field
+  gpa?: string;
   description: string;
 }
 

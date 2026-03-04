@@ -36,8 +36,10 @@ const Experience: React.FC = () => {
         <div className="experience-grid">
           {experiences.map(exp => (
             <div key={exp.id} className="experience-card">
+
               <h3 className="ex-ct card-title">{exp.role}</h3>
               <h4 className="card-subtitle">{exp.company}</h4>
+
               <div className="card-meta">
                 <div className="meta-item">
                   <Calendar size={16} className="ex-mi meta-icon" />
@@ -48,8 +50,22 @@ const Experience: React.FC = () => {
                   <span className="card-location">{exp.location}</span>
                 </div>
               </div>
-              
-              <p className="ex-cd card-description">{formatText(exp.description)}</p>
+
+              {/* Short description */}
+              <p className="ex-description">{formatText(exp.description)}</p>
+
+              {/* Achievements bullets */}
+              {exp.achievements && exp.achievements.length > 0 && (
+                <ul className="ex-achievements">
+                  {exp.achievements.map((item, index) => (
+                    <li key={index} className="ex-achievement-item">
+                      <span className="ex-bullet" aria-hidden="true" />
+                      <span>{formatText(item)}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
             </div>
           ))}
         </div>
