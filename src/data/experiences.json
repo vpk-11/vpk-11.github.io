@@ -3,7 +3,7 @@
     "id": 1,
     "role": "Program Associate (Assistant Vice President)",
     "company": "Wells Fargo",
-    "location": "Bengaluru, India",
+    "location": "Bengaluru, KA, India",
     "duration": "Aug 2024 - Jul 2025",
     "description": "**Software Developer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
@@ -15,10 +15,10 @@
   {
     "id": 2,
     "role": "Research Intern",
-    "company": "NIT Trichy - ISRO Yukthi Sanchita",
-    "location": "Trichy, India",
+    "company": "ISRO Yukthi Sanchita - NIT Trichy",
+    "location": "Trichy, TN, India",
     "duration": "Mar 2024 - Jul 2024",
-    "description": "As a **Research Intern under Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *“Development of Computer Vision System for an AI Assistant.”*",
+    "description": "Internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *“Development of Computer Vision System for an AI Assistant.”*",
     "achievements": [
       "Developed **a modular computer vision pipeline** integrating four image processing models in Python (**PyTorch & TensorFlow**), enabling seamless model swapping across frameworks.",
       "**Optimized real-time system performance**, reducing image-processing latency by over **90%** using threading, **parallel processing**, and internal **REST API** calls.",
@@ -29,7 +29,7 @@
     "id": 3,
     "role": "Intern Analyst",
     "company": "Wells Fargo",
-    "location": "Bengaluru, India",
+    "location": "Bengaluru, KA, India",
     "duration": "May 2023 - Jul 2023",
     "description": "**Software Development Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
