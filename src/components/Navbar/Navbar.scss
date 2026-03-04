@@ -157,6 +157,10 @@
   position: relative;
   padding: 0.5rem 0;
   
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
   // Light mode - default black, active is accent
   .theme-light & {
     color: $light-text;
