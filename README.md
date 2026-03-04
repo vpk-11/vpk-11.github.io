@@ -208,7 +208,7 @@ MIT License - Feel free to use this for your own portfolio!
 ---
 ## Changelog
 - **v2.1** (2026-03-04) — minor bump via direct push
-- **v3.0** (2026-03-04) — major bump via PR merge
+- **v2.0** (2026-03-04) — major bump via PR merge
 
 ---
 **Built with ❤️**
