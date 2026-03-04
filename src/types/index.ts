@@ -28,7 +28,9 @@ export interface Project {
   description: string;
   tech: string[];
   link: string;
-  featured?: boolean;  // Set to true in projects.json to show the Featured badge
+  featured?: boolean;   // shows ★ Featured badge
+  demoLink?: string;    // live deployed URL — shows Live badge if present
+  githubLink?: string;  // explicit github URL — replaces generic link
 }
 
 export interface Skill {
@@ -43,7 +45,7 @@ export interface Experience {
   duration: string;
   location: string;
   description: string;
-  achievements?: string[];  // XYZ formula bullets, supports **bold** / *italic* via formatText
+  achievements?: string[];
 }
 
 export interface Education {
@@ -53,7 +55,7 @@ export interface Education {
   duration: string;
   location: string;
   gpa?: string;
-  description: string;
+  coursework: string[];  // array rendered as tags
 }
 
 export interface Certification {
