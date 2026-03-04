@@ -49,15 +49,8 @@ const Projects: React.FC = () => {
               </div>
 
               <h3 className="pr-ct card-title">{project.title}</h3>
-              <p className="card-description">{formatText(project.description)}</p>
 
-              <div className="tech-stack">
-                {project.tech.map(tech => (
-                  <span key={tech} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-
-              {/* Project links */}
+              {/* Project links — right under the title */}
               <div className="project-links">
                 {project.demoLink && (
                   <a
@@ -79,6 +72,14 @@ const Projects: React.FC = () => {
                   <Github size={15} />
                   <span>GitHub</span>
                 </a>
+              </div>
+
+              <p className="card-description">{formatText(project.description)}</p>
+
+              <div className="tech-stack">
+                {project.tech.map(tech => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
               </div>
 
             </div>
