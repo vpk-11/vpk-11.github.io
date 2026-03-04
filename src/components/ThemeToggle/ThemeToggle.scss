@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .theme-toggle {
   background: none;
@@ -13,11 +13,28 @@
   cursor: pointer;
   transition: $transition-quick;
   position: relative;
-  flex-shrink: 0;  // Prevent shrinking
-  margin: 0;  // Remove any default margin
+  flex-shrink: 0;
+  margin: 0;
+
+  // Kill all browser default button chrome
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 
   &:hover {
     transform: scale(1.05);
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus,
+  &:active,
+  &:focus-visible,
+  &:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
   }
 }
 
@@ -27,27 +44,32 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 4px;
 }
 
 .toggle-icons {
   position: absolute;
-  width: 100%;
+  inset: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 6px;
+  align-items: center;
+  padding: 0 5px;
   pointer-events: none;
-  
+
   .sun-icon,
   .moon-icon {
     opacity: 0.4;
-    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 }
 
 .toggle-thumb {
+  // Explicit positioning so it's consistent across browsers
   position: absolute;
+  top: 50%;
+  left: 0;
   width: 24px;
   height: 24px;
   background: var(--accent-color);
@@ -56,14 +78,23 @@
   align-items: center;
   justify-content: center;
   color: $light-bg;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
-  
+
+  // Pull up by half its height to truly center it
+  transform: translateY(-50%) translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
   &.light {
-    transform: translateX(0);
+    transform: translateY(-50%) translateX(0);
   }
-  
+
   &.dark {
-    transform: translateX(28px);
+    transform: translateY(-50%) translateX(28px);
+  }
+
+  // Force icon to sit dead-center — no line-height bleed
+  svg {
+    display: block;
+    flex-shrink: 0;
   }
 }

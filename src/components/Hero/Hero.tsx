@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Github, Linkedin, FileText } from 'lucide-react';
+import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
 import { setAccent } from '../../store/accentSlice';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
@@ -32,10 +32,25 @@ const Hero: React.FC = () => {
     <section id="hero" className="section hero-section" data-accent="red">
       <div className="container">
         <div className="hero-content">
+
+          {/* Status bar */}
+          <div className="hero-status-bar">
+            {profile.availability && (
+              <span className="hero-status-badge">
+                <span className="status-dot" aria-hidden="true" />
+                {profile.availability}
+              </span>
+            )}
+            <span className="hero-location">
+              <MapPin size={14} />
+              {profile.location}
+            </span>
+          </div>
+
           <h1 className="hero-title">{profile.name}</h1>
           <h2 className="hero-subtitle">{profile.title}</h2>
           <p className="hero-bio">{profile.bio}</p>
-          
+
           <div className="hero-links">
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hero-link">
               <Linkedin size={24} />
@@ -50,6 +65,7 @@ const Hero: React.FC = () => {
               <span>Resume</span>
             </a>
           </div>
+
         </div>
       </div>
     </section>

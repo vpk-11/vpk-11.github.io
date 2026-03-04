@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .navbar {
   position: fixed;
@@ -156,6 +156,10 @@
   transition: $transition-quick;
   position: relative;
   padding: 0.5rem 0;
+  
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
   
   // Light mode - default black, active is accent
   .theme-light & {

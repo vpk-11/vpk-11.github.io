@@ -14,17 +14,13 @@ const Education: React.FC = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            dispatch(setAccent('purple'));
-          }
+          if (entry.isIntersecting) dispatch(setAccent('purple'));
         });
       },
       { threshold: 0.5 }
     );
-
     const section = document.getElementById('education');
     if (section) observer.observe(section);
-
     return () => observer.disconnect();
   }, [dispatch]);
 
@@ -35,9 +31,10 @@ const Education: React.FC = () => {
         <div className="education-grid">
           {education.map(edu => (
             <div key={edu.id} className="education-card">
+
               <h3 className="ed-ct card-title">{edu.degree}</h3>
               <h4 className="card-subtitle">{edu.institution}</h4>
-              
+
               <div className="card-meta">
                 <div className="meta-item">
                   <Calendar size={16} className="ed-mi meta-icon" />
@@ -48,15 +45,26 @@ const Education: React.FC = () => {
                   <span className="card-location">{edu.location}</span>
                 </div>
               </div>
-              
+
               {edu.gpa && (
                 <div className="ed-gpa card-gpa">
                   <Award size={16} className="gpa-icon" />
                   <span className="gpa-text">GPA: {edu.gpa}</span>
                 </div>
               )}
-              
-              <p className="card-description">{edu.description}</p>
+
+              {/* Coursework tags */}
+              {edu.coursework && edu.coursework.length > 0 && (
+                <div className="ed-coursework">
+                  <p className="coursework-label">Relevant Coursework</p>
+                  <div className="coursework-tags">
+                    {edu.coursework.map(course => (
+                      <span key={course} className="coursework-tag">{course}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
             </div>
           ))}
         </div>

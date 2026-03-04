@@ -16,6 +16,10 @@ export interface ProfileData {
   linkedin: string;
   github: string;
   resume: string;
+  location: string;
+  availability: string;
+  targetRoles: string[];
+  workAuthorization: string;
 }
 
 export interface Project {
@@ -24,6 +28,9 @@ export interface Project {
   description: string;
   tech: string[];
   link: string;
+  featured?: boolean;   // shows ★ Featured badge
+  demoLink?: string;    // live deployed URL — shows Live badge if present
+  githubLink?: string;  // explicit github URL — replaces generic link
 }
 
 export interface Skill {
@@ -36,8 +43,9 @@ export interface Experience {
   role: string;
   company: string;
   duration: string;
-  location: string;  // Add this
+  location: string;
   description: string;
+  achievements?: string[];
 }
 
 export interface Education {
@@ -46,8 +54,8 @@ export interface Education {
   institution: string;
   duration: string;
   location: string;
-  gpa?: string;  // Optional field
-  description: string;
+  gpa?: string;
+  coursework: string[];  // array rendered as tags
 }
 
 export interface Certification {

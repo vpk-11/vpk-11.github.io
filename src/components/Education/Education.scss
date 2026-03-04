@@ -1,8 +1,7 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.education-section{
-  // Fixed purple accent for education
+.education-section {
   --section-accent-light: #{$purple-light};
   --section-accent-dark: #{$purple-dark};
 }
@@ -16,13 +15,10 @@
   @include card-base;
   @include accent-bar-left;
 
-  &:hover {
-    transform: translateX(10px);
-  }
+  &:hover { transform: translateX(10px); }
 
   .theme-dark & {
     background: rgba($dark-text, 0.03);
-    
     &:hover {
       background: rgba($dark-text, 0.05);
       border-color: $purple-dark;
@@ -31,72 +27,46 @@
 
   .theme-light & {
     background: rgba($light-text, 0.02);
-    
     &:hover {
       background: rgba($light-text, 0.03);
       border-color: $purple-light;
     }
   }
-  &::before{
-    .theme-light & {
-      background: $purple-light;
-    }
-    
-    .theme-dark & {
-      background: $purple-dark;
-    }
+
+  &::before {
+    .theme-light & { background: $purple-light; }
+    .theme-dark &  { background: $purple-dark; }
   }
 }
 
 .ed-t {
-  .theme-light & {
-    color: $purple-light;
-  }
-  
-  .theme-dark & {
-    color: $purple-dark;
-  }
-  &::after {
-    background: var(--accent-color);
-    .theme-light & {
-      background: $purple-light;
-    }
+  .theme-light & { color: $purple-light; }
+  .theme-dark &  { color: $purple-dark; }
 
-    .theme-dark & {
-      background: $purple-dark;
-    }
+  &::after {
+    .theme-light & { background: $purple-light; }
+    .theme-dark &  { background: $purple-dark; }
   }
 }
 
 .ed-ct {
-  .theme-light & {
-    color: $purple-light;
-  }
-  
-  .theme-dark & {
-    color: $purple-dark;
-  }
+  .theme-light & { color: $purple-light; }
+  .theme-dark &  { color: $purple-dark; }
 }
 
 .card-title {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--accent-color);
 }
 
 .card-subtitle {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  
-  .theme-dark & {
-    opacity: 0.9;
-  }
-  
-  .theme-light & {
-    opacity: 0.85;
-  }
+
+  .theme-dark & { opacity: 0.9; }
+  .theme-light & { opacity: 0.85; }
 }
 
 .card-meta {
@@ -104,10 +74,8 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-bottom: 1.25rem;
-  
-  @include respond-to(mobile) {
-    gap: 1rem;
-  }
+
+  @include respond-to(mobile) { gap: 1rem; }
 }
 
 .meta-item {
@@ -116,8 +84,11 @@
   gap: 0.5rem;
 }
 
-.meta-icon {
-  flex-shrink: 0;
+.meta-icon { flex-shrink: 0; }
+
+.ed-mi {
+  .theme-light & { color: $purple-light; }
+  .theme-dark &  { color: $purple-dark; }
 }
 
 .card-duration,
@@ -125,68 +96,80 @@
   font-size: 0.95rem;
   font-weight: 500;
   font-style: italic;
-  
-  .theme-dark & {
-    color: rgba($dark-text, 0.75);
-  }
 
-  .theme-light & {
-    color: rgba($light-text, 0.7);
-  }
+  .theme-dark & { color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.7); }
 }
 
 .ed-gpa.card-gpa {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   padding: 0.75rem 1rem;
   border-radius: 6px;
   width: fit-content;
-  
-  .theme-dark & {
-    background: rgba($purple-dark, 0.1);
-  }
-  
-  .theme-light & {
-    background: rgba($purple-light, 0.08);
-  }
+
+  .theme-dark & { background: rgba($purple-dark, 0.1); }
+  .theme-light & { background: rgba($purple-light, 0.08); }
 }
 
 .gpa-icon {
   flex-shrink: 0;
-  .theme-dark & {
-    color: $purple-dark;
-  }
-  .theme-light & {
-    color: $purple-light;
-  }
+  .theme-dark & { color: $purple-dark; }
+  .theme-light & { color: $purple-light; }
 }
 
 .gpa-text {
   font-size: 0.95rem;
   font-weight: 700;
-  .theme-dark & {
-    color: $purple-dark;
-  }
-  .theme-light & {
-    color: $purple-light;
-  }
   letter-spacing: 0.3px;
+  .theme-dark & { color: $purple-dark; }
+  .theme-light & { color: $purple-light; }
 }
 
-.card-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  opacity: 0.85;
+// ============================================
+// COURSEWORK TAGS
+// ============================================
+
+.ed-coursework {
+  margin-top: 0.25rem;
 }
 
-.ed-mi{
+.coursework-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+}
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.coursework-tag {
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid;
+  transition: $transition-quick;
+
   .theme-light & {
+    background: rgba($purple-light, 0.07);
+    border-color: rgba($purple-light, 0.25);
     color: $purple-light;
   }
-  
+
   .theme-dark & {
+    background: rgba($purple-dark, 0.07);
+    border-color: rgba($purple-dark, 0.25);
     color: $purple-dark;
   }
 }

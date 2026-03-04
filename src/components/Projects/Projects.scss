@@ -1,8 +1,7 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.project-section{
-  // Fixed green accent for hero
+.project-section {
   --section-accent-light: #{$green-light};
   --section-accent-dark: #{$green-dark};
 }
@@ -17,45 +16,29 @@
   }
 }
 
+// ============================================
+// PROJECT CARD
+// ============================================
+
 .project-card {
   @include card-base;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 
-  &:hover {
-    // border-color: var(--accent-color);
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  }
+  // Top accent bar — slides in from left on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-  .theme-dark & {
-    background: rgba($dark-text, 0.03);
-    
-    &:hover {
-      background: rgba($dark-text, 0.05);
-      border-color: $green-dark;
-    }
-  }
-
-  .theme-light & {
-    background: rgba($light-text, 0.02);
-    
-    &:hover {
-      background: rgba($light-text, 0.03);
-      border-color: $green-light;
-    }
-  }
-}
-.pr-title{
-  .theme-light & {
-    color: $green-light;
-  }
-  
-  .theme-dark & {
-    color: $green-dark;
-  }
-  &::after {
-    background: var(--accent-color);
     .theme-light & {
       background: $green-light;
     }
@@ -64,16 +47,103 @@
       background: $green-dark;
     }
   }
+
+  // Shimmer overlay — sweeps diagonally on hover
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+
+  // Base backgrounds
+  .theme-dark & {
+    background: rgba($dark-text, 0.03);
+  }
+
+  .theme-light & {
+    background: rgba($light-text, 0.02);
+  }
+
+  // ── Hover state ──────────────────────────────
+  &:hover {
+    transform: translateY(-8px);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    &::after {
+      transform: translateX(100%);
+    }
+
+    .theme-dark & {
+      background: rgba($dark-text, 0.055);
+      border-color: rgba($green-dark, 0.5);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba($green-dark, 0.15),
+        0 0 30px rgba($green-dark, 0.06);
+    }
+
+    .theme-light & {
+      background: rgba($light-text, 0.03);
+      border-color: rgba($green-light, 0.4);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba($green-light, 0.12),
+        0 0 30px rgba($green-light, 0.06);
+    }
+
+    .project-link-arrow {
+      transform: translateX(6px);
+      opacity: 1;
+    }
+
+    .tech-tag {
+      opacity: 1;
+    }
+  }
+
+  // ── Featured variant ─────────────────────────
+  &--featured {
+    .theme-dark & {
+      background: rgba($green-dark, 0.05);
+      border-color: rgba($green-dark, 0.2);
+    }
+
+    .theme-light & {
+      background: rgba($green-light, 0.04);
+      border-color: rgba($green-light, 0.18);
+    }
+  }
 }
 
-.pr-ct{
-  .theme-light & {
-    color: $green-light;
+// ============================================
+// CARD INTERNALS
+// ============================================
+
+.pr-title {
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
+
+  &::after {
+    .theme-light & { background: $green-light; }
+    .theme-dark &  { background: $green-dark; }
   }
-  
-  .theme-dark & {
-    color: $green-dark;
-  }
+}
+
+.pr-ct {
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
 }
 
 .card-title {
@@ -102,6 +172,8 @@
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
+  transition: $transition-quick;
+  opacity: 0.8;
 
   .theme-dark & {
     background: rgba($dark-text, 0.05);
@@ -116,23 +188,100 @@
   }
 }
 
-.project-link {
-  margin-top: auto;
+// ============================================
+// BADGES — absolute top right
+// ============================================
+
+.live-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: $transition-quick;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: livePulse 2.5s ease-in-out infinite;
+
+  .theme-light & { background: $green-light; }
+  .theme-dark &  { background: $green-dark; }
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+// ============================================
+// FEATURED BADGE — absolute top right (offset if live badge present)
+// ============================================
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
 
   .theme-light & {
+    background: rgba($green-light, 0.12);
     color: $green-light;
+    border: 1px solid rgba($green-light, 0.3);
   }
-  
+
   .theme-dark & {
+    background: rgba($green-dark, 0.12);
     color: $green-dark;
+    border: 1px solid rgba($green-dark, 0.3);
   }
+}
+
+// ============================================
+// PROJECT LINKS
+// ============================================
+
+.project-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 0;
+  border: none;
+  background: none;
+  transition: $transition-quick;
+
+  // Both buttons same muted style by default
+  .theme-light & { color: rgba($light-text, 0.5); }
+  .theme-dark &  { color: rgba($dark-text, 0.45); }
+
   &:hover {
-    transform: translateX(5px);
+    transform: translateX(4px);
+    .theme-light & { color: $green-light; }
+    .theme-dark &  { color: $green-dark; }
   }
 }

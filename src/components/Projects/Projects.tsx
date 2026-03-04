@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { ExternalLink, Github } from 'lucide-react';
 import { setAccent } from '../../store/accentSlice';
 import projectsData from '../../data/projects.json';
 import { formatText } from '../../utils/formatText';
@@ -10,21 +11,21 @@ const Projects: React.FC = () => {
   const dispatch = useDispatch();
   const projects = projectsData as Project[];
 
+  // Ensures links always have a protocol so they don't resolve as relative paths
+  const toAbsolute = (url: string) =>
+    url.startsWith('http://') || url.startsWith('https://') ? url : `https://${url}`;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            dispatch(setAccent('green'));
-          }
+          if (entry.isIntersecting) dispatch(setAccent('green'));
         });
       },
       { threshold: 0.5 }
     );
-
     const section = document.getElementById('projects');
     if (section) observer.observe(section);
-
     return () => observer.disconnect();
   }, [dispatch]);
 
@@ -34,17 +35,55 @@ const Projects: React.FC = () => {
         <h2 className="pr-title section-title">Projects</h2>
         <div className="projects-grid">
           {projects.map(project => (
-            <div key={project.id} className="project-card">
+            <div
+              key={project.id}
+              className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
+            >
+              {/* Live badge — top right indicator */}
+              {project.demoLink && (
+                <span className="live-badge">
+                  <span className="live-dot" aria-hidden="true" />
+                  Live
+                </span>
+              )}
+              {project.featured && (
+                <span className="featured-badge">★ Featured</span>
+              )}
+
               <h3 className="pr-ct card-title">{project.title}</h3>
+
+              {/* Project links — GitHub first, Live Demo second */}
+              <div className="project-links">
+                <a
+                  href={toAbsolute(project.githubLink ?? project.link)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link project-link--github"
+                >
+                  <Github size={15} />
+                  <span>GitHub</span>
+                </a>
+                {project.demoLink && (
+                  <a
+                    href={toAbsolute(project.demoLink)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link project-link--demo"
+                  >
+                    <ExternalLink size={15} />
+                    <span>Live Demo</span>
+                  </a>
+                )}
+              </div>
+
               <p className="card-description">{formatText(project.description)}</p>
+
               <div className="tech-stack">
                 {project.tech.map(tech => (
                   <span key={tech} className="tech-tag">{tech}</span>
                 ))}
               </div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                View Project →
-              </a>
+
             </div>
           ))}
         </div>
