@@ -16,6 +16,10 @@ export interface ProfileData {
   linkedin: string;
   github: string;
   resume: string;
+  location: string;
+  availability: string;
+  targetRoles: string[];
+  workAuthorization: string;
 }
 
 export interface Project {

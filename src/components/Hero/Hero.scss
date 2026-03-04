@@ -2,56 +2,117 @@
 @use '../../styles/mixins' as *;
 
 .hero-section {
-  padding-top: clamp(100px, 15vh, 180px);
+  padding-top: clamp(80px, 10vh, 120px);
   text-align: left;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  
-  // Fixed red accent for hero
+
   --section-accent-light: #{$red-light};
   --section-accent-dark: #{$red-dark};
-  
+
+  @include respond-to(tablet) { padding-top: 90px; }
+
   @include respond-to(mobile) {
-    padding-top: 80px; // Less padding since navbar is now transparent
+    padding-top: 70px;
     align-items: flex-start;
     padding-bottom: 2rem;
-  }
-  
-  @include respond-to(tablet) {
-    padding-top: 100px;
   }
 }
 
 .hero-content {
   max-width: 100%;
   width: 100%;
-  
-  @media (min-width: 1600px) {
-    max-width: 90%;
-  }
-  
+
+  @media (min-width: 1600px) { max-width: 90%; }
+
+  @include respond-to(mobile) { margin-top: 1.5rem; }
+}
+
+// ============================================
+// STATUS BAR
+// ============================================
+
+.hero-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease;
+
   @include respond-to(mobile) {
-    margin-top: 2rem; // Add some breathing room from top
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
   }
 }
+
+.hero-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  .theme-light & {
+    background: rgba($green-light, 0.2);
+    color: $green-light;
+    border: 1px solid rgba($green-light, 1);
+  }
+
+  .theme-dark & {
+    background: rgba($green-dark, 0.1);
+    color: $green-dark;
+    border: 1px solid rgba($green-dark, 1);
+  }
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2.5s ease-in-out infinite;
+
+  .theme-light & { background: $green-light; }
+  .theme-dark &  { background: $green-dark; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  .theme-light & { color: rgba($light-text, 0.55); }
+  .theme-dark &  { color: rgba($dark-text, 0.45); }
+
+  svg { flex-shrink: 0; }
+}
+
+// ============================================
+// HERO TEXT
+// ============================================
 
 .hero-title {
   font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem);
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.1;
-  animation: fadeInUp 0.8s ease;
-  
-  .theme-light & {
-    color: $red-light;
-  }
-  
-  .theme-dark & {
-    color: $red-dark;
-  }
-  
-  // Adjust font size for small mobile screens
+  animation: fadeInUp 0.8s ease 0.1s both;
+
+  .theme-light & { color: $red-light; }
+  .theme-dark &  { color: $red-dark; }
+
   @include respond-to(mobile) {
     font-size: clamp(2rem, 8vw, 3.5rem);
     margin-bottom: 0.75rem;
@@ -64,7 +125,7 @@
   margin-bottom: 2rem;
   opacity: 0.95;
   animation: fadeInUp 0.8s ease 0.2s both;
-  
+
   @include respond-to(mobile) {
     font-size: clamp(1.2rem, 5vw, 1.8rem);
     margin-bottom: 1.5rem;
@@ -77,8 +138,8 @@
   margin-bottom: 3rem;
   max-width: 800px;
   opacity: 0.9;
-  animation: fadeInUp 0.8s ease 0.4s both;
-  
+  animation: fadeInUp 0.8s ease 0.3s both;
+
   @include respond-to(mobile) {
     font-size: clamp(1rem, 4vw, 1.2rem);
     margin-bottom: 2rem;
@@ -86,15 +147,17 @@
   }
 }
 
+// ============================================
+// HERO LINKS
+// ============================================
+
 .hero-links {
   display: flex;
   gap: clamp(1rem, 2vw, 2rem);
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease 0.6s both;
-  
-  @include respond-to(mobile) {
-    gap: 0.75rem;
-  }
+  animation: fadeInUp 0.8s ease 0.4s both;
+
+  @include respond-to(mobile) { gap: 0.75rem; }
 }
 
 .hero-link {
@@ -109,56 +172,41 @@
   font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   transition: $transition-quick;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  
-  .theme-light & {
-    background: $red-light;
-  }
-  
+
+  .theme-light & { background: $red-light; }
+
   .theme-dark & {
     background: $red-dark;
-    // filter: brightness(0.85) saturate(0.95);
+    color: $dark-bg;
     font-weight: 800;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    
-    // .theme-dark & {
-      // filter: brightness(0.85) saturate(0.95);
-    // }
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: $light-bg;
+
+    .theme-dark & { color: $dark-bg; }
   }
-  
+
   &:visited,
   &:link,
   &:active {
     color: $light-bg;
+    .theme-dark & { color: $dark-bg; }
   }
-  
-  svg {
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
-  }
-  
+
+  svg { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15)); }
+
   @include respond-to(mobile) {
     padding: 0.875rem 1.5rem;
     font-size: 0.95rem;
     gap: 0.5rem;
-    
-    svg {
-      width: 18px;
-      height: 18px;
-    }
+    svg { width: 18px; height: 18px; }
   }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

@@ -39,6 +39,23 @@ const Contact: React.FC = () => {
           <p className="contact-text">
             I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!
           </p>
+
+          {/* What I'm looking for */}
+          <div className="contact-looking-for">
+            <div className="looking-for-roles">
+              <p className="looking-for-label">Open to</p>
+              <div className="looking-for-tags">
+                {profile.targetRoles.map(role => (
+                  <span key={role} className="looking-for-tag">{role}</span>
+                ))}
+              </div>
+            </div>
+            <div className="looking-for-auth">
+              <p className="looking-for-label">Work Authorization</p>
+              <p className="auth-text">{profile.workAuthorization}</p>
+            </div>
+          </div>
+
           <a
             href={profile.linkedin}
             target="_blank"

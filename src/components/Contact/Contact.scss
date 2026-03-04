@@ -47,6 +47,85 @@
   opacity: 0.85;
 }
 
+// ============================================
+// WHAT I'M LOOKING FOR
+// ============================================
+
+.contact-looking-for {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+}
+
+.looking-for-roles,
+.looking-for-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.looking-for-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+}
+
+.looking-for-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.looking-for-tag {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid;
+
+  .theme-light & {
+    background: rgba($red-light, 0.07);
+    border-color: rgba($red-light, 0.25);
+    color: $red-light;
+  }
+
+  .theme-dark & {
+    background: rgba($red-dark, 0.08);
+    border-color: rgba($red-dark, 0.25);
+    color: $red-dark;
+  }
+}
+
+.auth-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.6;
+
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
+}
+
+// ============================================
+// BUTTON
+// ============================================
+
 .contact-button {
   display: inline-flex;
   align-items: center;
