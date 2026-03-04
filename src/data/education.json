@@ -5,14 +5,15 @@
     "institution": "University of Massachusetts, Amherst",
     "duration": "Aug 2025 - Present (Exp May 2027)",
     "description": "Relavent Coursework: Machine Learning, Software Engineering, Advanced Cryptography, Neural Networks, Data Science, Computing for Digital Biomarkers in Healthcare",
-    "location": "Amherst, MA",
+    "location": "Amherst, MA, USA",
     "gpa": "4.0 / 4.0",
     "coursework": [
       "Machine Learning",
       "Software Engineering",
       "Advanced Cryptography",
       "Neural Networks",
-      "Data Science"
+      "Data Science",
+      "Computing for Digital Biomarkers in Healthcare"
     ]
   },
   {
@@ -21,14 +22,10 @@
     "institution": "National Institute of Technology, Tiruchirappalli",
     "duration": "Dec 2020 - May 2024",
     "gpa": "8.41 / 10.0",
-    "description": "Relavent Coursework: Data Structures & Algorithms, Database Management Systems, Computer Networks & Security, Operating Systems, Artificial Intelligence, Machine Learning, Deep Learning, NLP, Cryptography",
+    "description": "Relavent Coursework: ",
     "location": "Tiruchirappalli, TN, India",
     "coursework": [
-      "Machine Learning",
-      "Software Engineering",
-      "Advanced Cryptography",
-      "Neural Networks",
-      "Data Science"
+      "Data Structures & Algorithms", "Database Management Systems", "Computer Networks & Security", "Operating Systems", "Artificial Intelligence", "Machine Learning", "Deep Learning", "NLP", "Cryptography"
     ]
   }
 ]
