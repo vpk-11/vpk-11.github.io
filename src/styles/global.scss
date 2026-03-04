@@ -1,6 +1,5 @@
-@import './variables';
-@import './mixins';
-
+@use './variables' as *;
+@use './mixins' as *;
 // ============================================
 // GLOBAL RESETS
 // ============================================
