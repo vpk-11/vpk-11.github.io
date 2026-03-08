@@ -10,6 +10,7 @@ import Experience from './components/Experience/Experience';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
+import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import './App.scss';
 
@@ -18,9 +19,9 @@ const AppContent: React.FC = () => {
   const accent = useSelector((state: RootState) => state.accent.color);
   const dispatch = useDispatch();
 
-  // Define section-to-accent mapping
   const sectionAccents: { [key: string]: string } = {
     hero: 'red',
+    about: 'orange',
     education: 'purple',
     experience: 'blue',
     skills: 'yellow',
@@ -29,7 +30,6 @@ const AppContent: React.FC = () => {
   };
 
   useEffect(() => {
-    // Detect system theme preference
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
     dispatch(setTheme(darkModeQuery.matches ? 'dark' : 'light'));
 
@@ -41,14 +41,13 @@ const AppContent: React.FC = () => {
     return () => darkModeQuery.removeEventListener('change', handleChange);
   }, [dispatch]);
 
-  // Track active section and update accent color in Redux
   useEffect(() => {
-    const sections = ['hero', 'education', 'experience', 'skills', 'projects', 'contact'];
-    
+    const sections = ['hero', 'about', 'education', 'experience', 'skills', 'projects', 'contact'];
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150; // 150px from top
+      const scrollPosition = window.scrollY + 150;
       let currentSection = 'hero';
-      
+
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -59,19 +58,17 @@ const AppContent: React.FC = () => {
           }
         }
       }
-      
-      // Update Redux store with new accent color
+
       const newAccent = sectionAccents[currentSection];
       if (newAccent !== accent) {
         dispatch(setAccent(newAccent));
       }
     };
-    
-    // Run on mount and on scroll
+
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
@@ -86,6 +83,7 @@ const AppContent: React.FC = () => {
     <div className="app">
       <Navbar />
       <Hero />
+      <About />
       <Education />
       <Experience />
       <Skills />

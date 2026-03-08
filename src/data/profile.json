@@ -19,5 +19,14 @@
     "Systems Engineering",
     "Project / Product Management"
   ],
-  "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship"
+  "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship",
+  "tagline": "",
+  "principles": [
+    "Clean abstractions beat clever code",
+    "Scalable systems should be boring in production",
+    "ML is engineering, not magic",
+    "Deployment is part of the feature",
+    "Ship early, iterate deliberately",
+    "Good architecture makes the next change easier"
+  ]
 }

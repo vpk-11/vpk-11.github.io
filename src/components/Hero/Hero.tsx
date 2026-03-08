@@ -49,7 +49,6 @@ const Hero: React.FC = () => {
 
           <h1 className="hero-title">{profile.name}</h1>
           <h2 className="hero-subtitle">{profile.title}</h2>
-          <p className="hero-bio">{profile.bio}</p>
 
           <div className="hero-links">
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="hero-link">
