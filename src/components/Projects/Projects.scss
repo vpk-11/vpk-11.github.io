@@ -112,19 +112,6 @@
       opacity: 1;
     }
   }
-
-  // ── Featured variant ─────────────────────────
-  &--featured {
-    .theme-dark & {
-      background: rgba($green-dark, 0.05);
-      border-color: rgba($green-dark, 0.2);
-    }
-
-    .theme-light & {
-      background: rgba($green-light, 0.04);
-      border-color: rgba($green-light, 0.18);
-    }
-  }
 }
 
 // ============================================
@@ -223,34 +210,6 @@
   50%       { opacity: 0.5; transform: scale(0.8); }
 }
 
-// ============================================
-// FEATURED BADGE — absolute top right (offset if live badge present)
-// ============================================
-
-.featured-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
-
-  .theme-light & {
-    background: rgba($green-light, 0.12);
-    color: $green-light;
-    border: 1px solid rgba($green-light, 0.3);
-  }
-
-  .theme-dark & {
-    background: rgba($green-dark, 0.12);
-    color: $green-dark;
-    border: 1px solid rgba($green-dark, 0.3);
-  }
-}
 
 // ============================================
 // PROJECT LINKS
@@ -284,4 +243,41 @@
     .theme-light & { color: $green-light; }
     .theme-dark &  { color: $green-dark; }
   }
+}
+// ============================================
+// TABS (added)
+// ============================================
+
+.pr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.pr-tab {
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  .theme-light & {
+    border-color: rgba($light-text, 0.15);
+    color: rgba($light-text, 0.55);
+    &:hover   { border-color: $green-light; color: $green-light; }
+    &.active  { background: $green-light; border-color: $green-light; color: #fff; }
+  }
+
+  .theme-dark & {
+    border-color: rgba($dark-text, 0.15);
+    color: rgba($dark-text, 0.5);
+    &:hover   { border-color: $green-dark; color: $green-dark; }
+    &.active  { background: $green-dark; border-color: $green-dark; color: $dark-bg; }
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
 }

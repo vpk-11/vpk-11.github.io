@@ -30,6 +30,7 @@ export interface Project {
   description: string;
   tech: string[];
   link: string;
+  categories?: string[];   // used for tab filtering
   featured?: boolean;   // shows ★ Featured badge
   demoLink?: string;    // live deployed URL — shows Live badge if present
   githubLink?: string;  // explicit github URL — replaces generic link
@@ -56,8 +57,8 @@ export interface Education {
   institution: string;
   duration: string;
   location: string;
+  coursework: string[];
   gpa?: string;
-  coursework: string[];  // array rendered as tags
 }
 
 export interface Certification {
