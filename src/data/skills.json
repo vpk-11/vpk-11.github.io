@@ -32,6 +32,7 @@
       "MongoDB",
       "MySQL",
       "REST APIs",
+      "gRPC",
       "Authentication",
       "Database Design"
     ]
