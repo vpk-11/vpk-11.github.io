@@ -207,8 +207,8 @@ MIT License - Feel free to use this for your own portfolio!
 
 ---
 ## Changelog
+- **v3.0.0** (2026-03-13) — major bump (Test bump)
 - **v3.0.0** (2026-03-13) — major bump
-- **v2.7.0** (2026-03-13) — minor bump
 - **v2.6.1** (2026-03-08) — patch bump
 - **v2.6.0** (2026-03-08) — minor bump
 - **v2.5** (2026-03-04) — minor bump via direct push
