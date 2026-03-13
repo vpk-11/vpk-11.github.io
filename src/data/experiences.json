@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "role": "Program Associate (Assistant Vice President)",
+    "role": "Program Associate - Software Engineer",
     "company": "Wells Fargo",
     "location": "Bengaluru, KA, India",
     "duration": "Aug 2024 - Jul 2025",
-    "description": "**Software Developer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
+    "description": "**Software Engineer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
       "Designed and implemented **React + TypeScript UI** components, **.NET APIs**, and **Python** backend utilities, delivering new functionality for portfolio management applications.",
       "**Led OpenShift deployment initiatives** for the team, contributing to the deployment architecture, now **adopted across the division**.",
