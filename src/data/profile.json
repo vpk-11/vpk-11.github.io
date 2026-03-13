@@ -5,7 +5,6 @@
   "linkedin": "https://linkedin.com/in/kaushikparthasarathy",
   "github": "https://github.com/vpk-11",
   "resume": "https://drive.google.com/file/d/1dGTLIkyNHbv8OMUUEAz_KWescgxd_f3J/view?usp=drive_link",
-
   "location": "Amherst, MA · MS CS @ UMass",
   "availability": "Open to Work",
   "targetRoles": [
@@ -19,5 +18,14 @@
     "Systems Engineering",
     "Project / Product Management"
   ],
-  "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship"
+  "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship",
+  "tagline": "Software engineer focused on building systems that scale and stay maintainable. Full-stack platforms, AI/ML systems, and architectures designed for the real world.",
+  "principles": [
+    "Clean abstractions beat clever code",
+    "Scalable systems should be boring in production",
+    "ML is engineering, not magic",
+    "Deployment is part of the feature",
+    "Ship early, iterate deliberately",
+    "Good architecture makes the next change easier"
+  ]
 }

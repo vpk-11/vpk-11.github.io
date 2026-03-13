@@ -10,9 +10,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
+  min-height: 420px;
+  align-items: stretch;
 
   @include respond-to(mobile) {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 }
 
@@ -24,6 +27,7 @@
   @include card-base;
   display: flex;
   flex-direction: column;
+  height: 100%;
   position: relative;
   overflow: hidden;
 
@@ -284,4 +288,117 @@
     .theme-light & { color: $green-light; }
     .theme-dark &  { color: $green-dark; }
   }
+}
+// ============================================
+// TABS (added)
+// ============================================
+
+.pr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.pr-tab {
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  .theme-light & {
+    border-color: rgba($light-text, 0.15);
+    color: rgba($light-text, 0.55);
+    &:hover   { border-color: $green-light; color: $green-light; }
+    &.active  { background: $green-light; border-color: $green-light; color: #fff; }
+  }
+
+  .theme-dark & {
+    border-color: rgba($dark-text, 0.15);
+    color: rgba($dark-text, 0.5);
+    &:hover   { border-color: $green-dark; color: $green-dark; }
+    &.active  { background: $green-dark; border-color: $green-dark; color: $dark-bg; }
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.pr-tab-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 10px;
+ 
+  .theme-light & { background: rgba($light-text, 0.08); color: rgba($light-text, 0.6); }
+  .theme-dark &  { background: rgba($dark-text, 0.08);  color: rgba($dark-text, 0.55); }
+ 
+  .pr-tab.active & {
+    .theme-light & { background: rgba($light-bg, 0.3); color: $light-bg; }
+    .theme-dark &  { background: rgba($dark-bg, 0.25); color: $dark-bg; }
+  }
+}
+// ============================================
+// TABS (added)
+// ============================================
+
+.pr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.pr-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  .theme-light & {
+    border-color: rgba($light-text, 0.15);
+    color: rgba($light-text, 0.55);
+    &:hover { border-color: $green-light; color: $green-light; }
+    &.active {
+      background: $green-light; border-color: $green-light; color: #fff;
+      .pr-tab-count { background: rgba(255,255,255,0.25); color: #fff; }
+    }
+  }
+
+  .theme-dark & {
+    border-color: rgba($dark-text, 0.15);
+    color: rgba($dark-text, 0.5);
+    &:hover { border-color: $green-dark; color: $green-dark; }
+    &.active {
+      background: $green-dark; border-color: $green-dark; color: $dark-bg;
+      .pr-tab-count { background: rgba($dark-bg, 0.2); color: $dark-bg; }
+    }
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.pr-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.55); }
+  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.5); }
 }

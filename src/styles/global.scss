@@ -1,5 +1,5 @@
-@use './variables' as *;
-@use './mixins' as *;
+@use "./variables" as *;
+@use "./mixins" as *;
 // ============================================
 // GLOBAL RESETS
 // ============================================
@@ -62,7 +62,13 @@ body {
     --bg-tint: rgba(52, 168, 83, 0.03);
   }
 
-  &.accent-purple {  // New
+  &.accent-orange {
+    --accent-color: #{$orange-light};
+    --bg-tint: rgba(255, 109, 0, 0.04);
+  }
+
+  &.accent-purple {
+    // New
     --accent-color: #{$purple-light};
     --bg-tint: rgba(161, 66, 244, 0.03);
   }
@@ -92,7 +98,13 @@ body {
     --bg-tint: rgba(107, 207, 127, 0.05);
   }
 
-  &.accent-purple {  // New
+  &.accent-orange {
+    --accent-color: #{$orange-dark};
+    --bg-tint: rgba(255, 152, 0, 0.06);
+  }
+
+  &.accent-purple {
+    // New
     --accent-color: #{$purple-dark};
     --bg-tint: rgba(199, 125, 255, 0.05);
   }
@@ -106,9 +118,9 @@ body {
 // SECTIONS - Full width backgrounds
 // ============================================
 
-.section {  
+.section {
   min-height: 100vh;
-  width: 100vw;
+  width: 100vw; // Use viewport width
   padding: clamp(4rem, 10vh, 8rem) 0;
   display: flex;
   align-items: center;
@@ -121,35 +133,38 @@ body {
     padding: clamp(3rem, 8vh, 5rem) 0;
   }
 
+  // In your local src/styles/global.scss — find this block and add orange:
+
   &[data-accent="red"],
   &[data-accent="blue"],
   &[data-accent="yellow"],
   &[data-accent="green"],
-  &[data-accent="purple"] {
+  &[data-accent="purple"],
+  &[data-accent="orange"] {
     background: var(--bg-tint);
   }
 }
 
 .container {
-  width: calc(100% - 4rem);  // Subtract padding
+  width: calc(100% - 4rem); // Subtract padding
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
   box-sizing: border-box;
-  
+
   @media (min-width: 1600px) {
     max-width: 1500px;
   }
-  
+
   @media (min-width: 2000px) {
     max-width: 1600px;
   }
-  
+
   @include respond-to(tablet) {
     width: calc(100% - 4rem);
     padding: 0 2rem;
   }
-  
+
   @include respond-to(mobile) {
     width: calc(100% - 3rem);
     padding: 0 1.5rem;
@@ -170,7 +185,7 @@ body {
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;

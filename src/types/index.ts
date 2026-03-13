@@ -11,7 +11,8 @@ export interface AccentState {
 export interface ProfileData {
   name: string;
   title: string;
-  bio: string;
+  tagline: string;   // short 1-2 sentence hero tagline
+  bio: string;       // longer bio for About section
   email: string;
   linkedin: string;
   github: string;
@@ -20,6 +21,7 @@ export interface ProfileData {
   availability: string;
   targetRoles: string[];
   workAuthorization: string;
+  principles: string[];
 }
 
 export interface Project {
@@ -28,6 +30,7 @@ export interface Project {
   description: string;
   tech: string[];
   link: string;
+  categories?: string[];   // used for tab filtering
   featured?: boolean;   // shows ★ Featured badge
   demoLink?: string;    // live deployed URL — shows Live badge if present
   githubLink?: string;  // explicit github URL — replaces generic link
@@ -54,8 +57,8 @@ export interface Education {
   institution: string;
   duration: string;
   location: string;
+  coursework: string[];
   gpa?: string;
-  coursework: string[];  // array rendered as tags
 }
 
 export interface Certification {

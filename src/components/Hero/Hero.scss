@@ -3,8 +3,9 @@
 
 .hero-section {
   padding-top: clamp(80px, 10vh, 120px);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
   text-align: left;
-  min-height: 100vh;
+  min-height: auto;  // no longer needs full viewport — About follows immediately
   display: flex;
   align-items: center;
 
@@ -139,7 +140,7 @@
   }
 }
 
-.hero-bio {
+.hero-tagline {
   font-size: clamp(1.1rem, 1.5vw + 0.3rem, 1.5rem);
   line-height: 1.8;
   margin-bottom: 3rem;
