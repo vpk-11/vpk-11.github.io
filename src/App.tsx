@@ -42,7 +42,7 @@ const AppContent: React.FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const sections = ['hero', 'about', 'education', 'experience', 'skills', 'projects', 'contact'];
+    const sections = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
@@ -86,8 +86,8 @@ const AppContent: React.FC = () => {
       <About />
       <Education />
       <Experience />
-      <Skills />
       <Projects />
+      <Skills />
       <Contact />
     </div>
   );
