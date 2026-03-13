@@ -64,6 +64,7 @@ const Projects: React.FC = () => {
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
+                <span className="pr-tab-count">{projects.filter(p => (p.categories ?? []).includes(tab)).length}</span>
               </button>
             ))}
           </div>
