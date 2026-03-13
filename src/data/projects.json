@@ -7,7 +7,7 @@
     "link": "https://github.com/vpk-11/fyp-deepfake-decon",
     "demoLink": "", 
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon",
-    "categories": ["Featured", "ML"]
+    "categories": ["Featured"]
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "link": "https://github.com/vpk-11/dkeeper",
     "demoLink": "", 
     "githubLink": "https://github.com/vpk-11/dkeeper",
-    "categories": ["Featured", "Full Stack", "Blockchain"]
+    "categories": ["Featured"]
   },
   {
     "id": 3,
@@ -27,6 +27,6 @@
     "link": "https://github.com/vpk-11/file-hosting-service",
     "demoLink": "", 
     "githubLink": "https://github.com/vpk-11/file-hosting-service",
-    "categories": ["Featured", "Full Stack"]
+    "categories": ["Featured"]
   }
 ]
