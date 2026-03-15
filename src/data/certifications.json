@@ -8,20 +8,27 @@
   },
   {
     "id": 2,
+    "name": "AI Fluency for students",
+    "issuer": "Anthropic",
+    "link": "https://verify.skilljar.com/c/99ttkg6r3q36",
+    "issueDate": "March 2026"
+  },
+  {
+    "id": 3,
     "name": "Machine Learning with Python",
     "issuer": "IBM (eDX)",
     "issueDate": "October 2023",
     "link": "https://courses.edx.org/certificates/41c8516b32174ad1bcdde8eccd5c8e3f"
   },
   {
-    "id": 3,
+    "id": 4,
     "name": "Web Development Bootcamp",
     "issuer": "Udemy - Angela Yu",
     "issueDate": "September 2023",
     "link": "https://ude.my/UC-b6eb6181-8475-4f6d-be5d-6ff4b917c633"
   },
   {
-    "id": 4,
+    "id": 5,
     "name": "Mastering Data Structures & Algorithms using C and C++",
     "issuer": "Udemy - Abdul Bari",
     "issueDate": "June 2022",
