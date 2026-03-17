@@ -70,27 +70,36 @@ const Skills: React.FC = () => {
           </div>
         )}
 
-        {/* Certifications panel — original layout unchanged */}
-        {tab === 'certifications' && (
-          <div className="certifications-list sk-panel">
-            {certifications.map(cert => (
-              <a
-                key={cert.id}
-                href={cert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="certification-item"
-              >
-                <div className="cert-content">
-                  <h4 className="cert-name">{cert.name}</h4>
-                  <p className="cert-issuer">{cert.issuer}</p>
-                  <p className="cert-date">{cert.issueDate}</p>
-                </div>
-                <ExternalLink size={20} className="cert-icon" />
-              </a>
-            ))}
-          </div>
-        )}
+        {/* Certifications panel — 3-col grid, first row spans remainder */}
+        {tab === 'certifications' && (() => {
+          const total = certifications.length;
+          const remainder = total % 3;
+          const getSpanClass = (i: number) => {
+            if (remainder === 0 || i >= remainder) return '';
+            if (remainder === 1) return 'cert-span-full';
+            return 'cert-span-half';
+          };
+          return (
+            <div className="certifications-list sk-panel">
+              {certifications.map((cert, i) => (
+                <a
+                  key={cert.id}
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`certification-item ${getSpanClass(i)}`}
+                >
+                  <div className="cert-content">
+                    <h4 className="cert-name">{cert.name}</h4>
+                    <p className="cert-issuer">{cert.issuer}</p>
+                    <p className="cert-date">{cert.issueDate}</p>
+                  </div>
+                  <ExternalLink size={20} className="cert-icon" />
+                </a>
+              ))}
+            </div>
+          );
+        })()}
 
       </div>
     </section>

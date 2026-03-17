@@ -147,9 +147,38 @@
 }
 
 .certifications-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// First-row spanning when total not divisible by 3
+.cert-span-half { grid-column: span 3; }   // remainder 2 — takes half row each
+.cert-span-full { grid-column: span 6; }   // remainder 1 — takes full row
+
+@include respond-to(tablet) {
+  .cert-span-half { grid-column: span 2; }
+  .cert-span-full { grid-column: span 4; }
+}
+
+@include respond-to(mobile) {
+  .cert-span-half,
+  .cert-span-full { grid-column: span 1; }
+}
+
+// Normal cards span 2; span classes override via :not()
+.certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 2; }
+
+@include respond-to(mobile) {
+  .certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 1; }
 }
 
 .certification-item {
@@ -277,6 +306,56 @@
 }
 // ============================================
 // TABS (added)
+// ============================================
+
+.sk-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.sk-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  .theme-light & {
+    border-color: rgba($light-text, 0.15);
+    color: rgba($light-text, 0.55);
+    &:hover  { border-color: $yellow-light; color: $yellow-light; }
+    &.active { background: $yellow-light; border-color: $yellow-light; color: $light-bg; }
+  }
+
+  .theme-dark & {
+    border-color: rgba($dark-text, 0.15);
+    color: rgba($dark-text, 0.5);
+    &:hover  { border-color: $yellow-dark; color: $yellow-dark; }
+    &.active { background: $yellow-dark; border-color: $yellow-dark; color: $dark-bg; }
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.sk-panel {
+  animation: skPanelEnter 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes skPanelEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ============================================
+// TABS
 // ============================================
 
 .sk-tabs {
