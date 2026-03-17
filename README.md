@@ -1,6 +1,6 @@
 # Portfolio Website
-<!-- version: v3.2.2 -->
-![Version](https://img.shields.io/badge/version-v3.2.2-blue)
+<!-- version: v3.3.0 -->
+![Version](https://img.shields.io/badge/version-v3.3.0-blue)
 
 A modern, responsive portfolio website built with React, TypeScript, Redux, and SCSS. Features vibrant Google-inspired color scheme with seamless dark/light mode transitions.
 
@@ -203,6 +203,7 @@ MIT License - Feel free to use this for your own portfolio!
 
 ---
 ## Changelog
+- **v3.3.0** (2026-03-17) — minor bump
 - **v3.2.2** (2026-03-16) — patch bump
 - **v3.2.1** (2026-03-13) — patch bump
 - **v3.2.0** (2026-03-13) — minor bump
