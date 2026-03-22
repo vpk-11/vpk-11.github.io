@@ -28,13 +28,16 @@
       "Node.js",
       "Express.js",
       "ASP.NET",
-      "Python Flask",
+      "Flask",
+      "FastAPI",
       "MongoDB",
       "MySQL",
+      "OracleSQL",
       "REST APIs",
       "gRPC",
       "Authentication",
-      "Database Design"
+      "Database Design",
+      "Model Context Protocol (MCP)"
     ]
   },
   {
@@ -58,12 +61,11 @@
   {
     "category": "Tools & Others",
     "items": [
-      "Git & GitHub",
+      "Git",
+      "GitHub",
       "Webpack",
-      "VS Code",
-      "Chrome DevTools",
       "Postman",
-      "Agile/Scrum",
+      "Agile",
       "Blockchain",
       "DevOps",
       "OpenShift",
