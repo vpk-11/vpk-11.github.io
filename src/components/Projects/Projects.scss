@@ -8,14 +8,21 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  min-height: 420px;
   align-items: stretch;
 
+  &.pr-cols-1 { grid-template-columns: 1fr; }
+  &.pr-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.pr-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+  @include respond-to(tablet) {
+    &.pr-cols-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @include respond-to(mobile) {
-    grid-template-columns: 1fr;
-    min-height: 0;
+    &.pr-cols-1,
+    &.pr-cols-2,
+    &.pr-cols-3 { grid-template-columns: 1fr; }
   }
 }
 
@@ -29,6 +36,7 @@
   flex-direction: column;
   height: 100%;
   position: relative;
+  cursor: default;
   overflow: hidden;
 
   // Top accent bar — slides in from left on hover
@@ -341,8 +349,175 @@
     .theme-dark &  { background: rgba($dark-bg, 0.25); color: $dark-bg; }
   }
 }
+
 // ============================================
-// TABS (added)
+// VIEW DETAILS BUTTON
+// ============================================
+
+.pr-view-btn {
+  align-self: flex-start;
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  transition: $transition-quick;
+  margin-top: 1.25rem;
+
+  .theme-light & {
+    border-color: rgba($green-light, 0.4);
+    color: $green-light;
+    &:hover { background: $green-light; color: #fff; }
+  }
+  .theme-dark & {
+    border-color: rgba($green-dark, 0.4);
+    color: $green-dark;
+    &:hover { background: $green-dark; color: $dark-bg; }
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+// ============================================
+// MODAL
+// ============================================
+
+.pr-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: backdropIn 0.2s ease both;
+
+  .theme-light & { background: rgba(0, 0, 0, 0.45); }
+  .theme-dark &  { background: rgba(0, 0, 0, 0.65); }
+
+  // Fix 5: mobile — bottom sheet
+  @include respond-to(mobile) {
+    padding: 0;
+    align-items: flex-end;
+  }
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.pr-modal {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 2rem 2.25rem;
+  animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+
+  .theme-light & {
+    background: $light-bg;
+    border-color: rgba($light-text, 0.12);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+  }
+  .theme-dark & {
+    background: $dark-surface;
+    border-color: rgba($dark-text, 0.1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  }
+
+  // Fix 5: mobile — full-width bottom sheet, slides up
+  @include respond-to(mobile) {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: 16px 16px 0 0;
+    padding: 1.75rem 1.25rem 2rem;
+    animation: modalInMobile 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes modalInMobile {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// Fix 4: X close button — plain, no border
+.pr-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-quick;
+  z-index: 1;
+  padding: 0;
+  opacity: 0.5;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+
+  &:hover { opacity: 1; }
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.pr-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  padding-right: 2.5rem;  // clear of close button
+
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
+}
+
+.pr-modal-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+// Fix 2: live indicator — inline in links row, same dot style as card
+.pr-modal-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+
+  .theme-light & { color: $green-light; }
+  .theme-dark &  { color: $green-dark; }
+}
+
+.pr-modal-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.87;
+  margin-bottom: 1.5rem;
+}
+
+// ============================================
+// TABS
 // ============================================
 
 .pr-tabs {
@@ -374,7 +549,6 @@
       .pr-tab-count { background: rgba(255,255,255,0.25); color: #fff; }
     }
   }
-
   .theme-dark & {
     border-color: rgba($dark-text, 0.15);
     color: rgba($dark-text, 0.5);
