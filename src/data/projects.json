@@ -2,50 +2,65 @@
   {
     "id": 1,
     "title": "Narada",
-    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability** — every value links to its origin URL, enforced at the data model level. Designed a **provider abstraction layer** supporting **4 LLM providers** (Groq, Ollama, OpenAI, Anthropic) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step multi-model configuration** so each stage of the **AI agent** pipeline can run on a different model for cost/quality tradeoffs. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
-    "tech": [
-      "Python",
-      "FastAPI",
-      "React",
-      "Agentic Search",
-      "LLM",
-      "Groq",
-      "Ollama",
-      "Tavily"
-    ],
-    "link": "https://github.com/vpk-11/narada",
+    "shortDescription": "7-step **agentic AI search** pipeline that extracts LLM-traced, source-attributed entity tables from the web.",
+    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level. Designed a **provider abstraction layer** supporting **4 LLM providers** (Groq, Ollama, OpenAI, Anthropic) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step multi-model configuration** so each stage of the **AI agent** pipeline can run on a different model for cost/quality tradeoffs. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
+    "tech": ["Python", "FastAPI", "React", "LLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
     "demoLink": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
-    "categories": ["Featured", "ML", "Fullstack", "Agentic AI"]
+    "featured": true,
+    "categories": ["Fullstack", "ML", "Agentic AI"]
   },
   {
     "id": 2,
     "title": "Deepfake Deconstruction",
+    "shortDescription": "**Modular deep-learning pipeline** to reverse-engineer face-swap **deepfakes**, identifying source images with **85%+** accuracy on 10,000+ images.",
     "description": "Designed a modular deep-learning pipeline to **reverse-engineer face-swap deepfakes**, identifying the original source image with **85%+ accuracy** on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling **component-level model swapping** for improved scalability. Addressed a **real-world AI safety problem** by going beyond detection to trace the origins of manipulation.",
-    "tech": ["Python", "PyTorch", "Computer Vision", "Machine Learning"],
-    "link": "https://github.com/vpk-11/fyp-deepfake-decon",
+    "tech": ["Python", "PyTorch", "Computer Vision", "Machine Learning", "AI Safety"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon",
-    "categories": ["Featured", "ML"]
+    "featured": true,
+    "categories": ["ML"]
   },
   {
     "id": 3,
     "title": "DKeeper",
+    "shortDescription": "**Decentralized note-taking app** with Google Keep-style UI backed by ICP blockchain smart contracts, achieving **100% data immutability**.",
     "description": "Built a decentralized note-taking app with **Google Keep–style UI** using React and state hooks, allowing users to create, delete, and persist notes on the ICP blockchain. Integrated secure, tamper-proof storage leveraging blockchain smart contracts, ensuring **100% data immutability**. Applied **frontend best practices:** responsive design, accessibility compliance, and component-based architecture.",
-    "tech": ["React", "JavaScript", "Motoko", "DFinity ICP", "Blockchain"],
-    "link": "https://github.com/vpk-11/dkeeper",
+    "tech": ["React", "JavaScript", "Motoko", "DFinity ICP", "Blockchain", "Smart Contracts"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/dkeeper",
-    "categories": ["Featured", "Fullstack", "Blockchain"]
+    "featured": true,
+    "categories": ["Fullstack", "Blockchain"]
   },
   {
     "id": 4,
     "title": "File Hosting Service",
+    "shortDescription": "**Secure file hosting service** with user authentication, MongoDB-backed unique file IDs, and REST API routes to upload, list, and download.",
     "description": "Built a file hosting service with **user authentication**, enabling secure access to individual files. Implemented a **unique ID system** stored in **MongoDB**, associating each file with its user for efficient retrieval. Developed **server-side storage** for uploaded files with **REST API** routes to upload, list, and download files.",
-    "tech": ["Node.JS", "MongoDB", "HTML", "CSS", "Express"],
-    "link": "https://github.com/vpk-11/file-hosting-service",
+    "tech": ["Node.JS", "MongoDB", "HTML", "CSS", "Express", "REST API"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/file-hosting-service",
-    "categories": ["Featured", "Fullstack"]
+    "featured": true,
+    "categories": ["Fullstack"]
+  },
+  {
+    "id": 5,
+    "title": "URL Shortener",
+    "shortDescription": "**URL shortener** with unique ID-based redirection, MongoDB-backed URL mapping, and a clean interface for link submission and retrieval.",
+    "description": "Built a URL shortener with **unique ID-based redirection logic**, storing original URL mappings in **MongoDB** with fast lookup design. Implemented a simple user-facing interface for URL submission and retrieval, with **REST API** routes handling redirect resolution server-side.",
+    "tech": ["Node.JS", "Express", "MongoDB", "HTML", "CSS", "REST API"],
+    "demoLink": "",
+    "githubLink": "https://github.com/vpk-11/url-shortener",
+    "categories": ["Fullstack"]
+  },
+  {
+    "id": 6,
+    "title": "Data Compression Analysis",
+    "shortDescription": "Comparative analysis of **Huffman Encoding**, **LZW**, and **LZ77** algorithms, evaluating time and space complexity tradeoffs across test cases.",
+    "description": "Implemented and compared **Huffman Encoding, LZW, and LZ77** compression algorithms in C/C++, analyzing **time and space complexity** across multiple test cases. Tabulated results to identify efficiency tradeoffs across algorithm types and input characteristics, highlighting conditions where each approach performs best.",
+    "tech": ["C", "C++", "Algorithms", "Data Structures", "Systems"],
+    "demoLink": "",
+    "githubLink": "",
+    "categories": ["Systems"]
   }
 ]

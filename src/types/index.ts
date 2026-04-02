@@ -30,11 +30,10 @@ export interface Project {
   shortDescription?: string;  // shown on card — max 150 chars
   description: string;        // shown in modal — full detail
   tech: string[];
-  link: string;
   categories?: string[];   // used for tab filtering
   featured?: boolean;   // shows ★ Featured badge
   demoLink?: string;    // live deployed URL — shows Live badge if present
-  githubLink?: string;  // explicit github URL — replaces generic link
+  githubLink: string;  // explicit github URL — replaces generic link
 }
 
 export interface Skill {
