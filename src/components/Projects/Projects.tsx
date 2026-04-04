@@ -125,33 +125,6 @@ const Projects: React.FC = () => {
 
                 <h3 className="pr-ct card-title">{project.title}</h3>
 
-                <div className="project-links">
-                  {project.githubLink && (
-                  <a
-                    href={toAbsolute(project.githubLink)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                    onClick={e => e.stopPropagation()}
-                  >
-                    <Github size={14} />
-                    GitHub
-                  </a>
-                  )}
-                  {project.demoLink && (
-                    <a
-                      href={toAbsolute(project.demoLink)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link"
-                      onClick={e => e.stopPropagation()}
-                    >
-                      <ExternalLink size={14} />
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-
                 {/* Fix 1: formatText applied to truncated string */}
                 <p className="card-description">{formatText(rawShort)}</p>
 
@@ -161,9 +134,37 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                <button className="pr-view-btn" onClick={() => setSelected(project)}>
-                  View Details
-                </button>
+                <div className="pr-card-footer">
+                  <div className="project-links">
+                    {project.githubLink && (
+                      <a
+                        href={toAbsolute(project.githubLink)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        <Github size={14} />
+                        GitHub
+                      </a>
+                    )}
+                    {project.demoLink && (
+                      <a
+                        href={toAbsolute(project.demoLink)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                        onClick={e => e.stopPropagation()}
+                      >
+                        <ExternalLink size={14} />
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                  <button className="pr-view-btn" onClick={() => setSelected(project)}>
+                    View Details
+                  </button>
+                </div>
               </div>
             );
           })}
