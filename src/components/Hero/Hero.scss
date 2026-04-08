@@ -9,9 +9,6 @@
   display: flex;
   align-items: center;
 
-  --section-accent-light: #{$red-light};
-  --section-accent-dark: #{$red-dark};
-
   @include respond-to(tablet) { padding-top: 120px; }
 
   @include respond-to(mobile) {
@@ -53,6 +50,7 @@
   }
 }
 
+// "Open to Work" badge — always green, intentionally not section accent
 .hero-status-badge {
   display: inline-flex;
   align-items: center;
@@ -76,6 +74,7 @@
   }
 }
 
+// Always green — open to work indicator
 .status-dot {
   width: 7px;
   height: 7px;
@@ -116,9 +115,7 @@
   line-height: 1.1;
   animation: fadeInUp 0.8s ease 0.1s both;
   order: 1;
-
-  .theme-light & { color: $red-light; }
-  .theme-dark &  { color: $red-dark; }
+  color: var(--section-accent);
 
   @include respond-to(mobile) {
     font-size: clamp(2rem, 8vw, 3.5rem);
@@ -175,35 +172,29 @@
   align-items: center;
   gap: 0.75rem;
   padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1.5rem, 3vw, 2.5rem);
-  color: $light-bg;
   text-decoration: none;
   border-radius: 8px;
   font-weight: 700;
   font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   transition: $transition-quick;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: var(--section-accent);
 
-  .theme-light & { background: $red-light; }
-
-  .theme-dark & {
-    background: $red-dark;
-    color: $dark-bg;
-    font-weight: 800;
-  }
+  .theme-light & { color: $light-bg; }
+  .theme-dark &  { color: $dark-bg; font-weight: 800; }
 
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    color: $light-bg;
-
-    .theme-dark & { color: $dark-bg; }
+    .theme-light & { color: $light-bg; }
+    .theme-dark &  { color: $dark-bg; }
   }
 
   &:visited,
   &:link,
   &:active {
-    color: $light-bg;
-    .theme-dark & { color: $dark-bg; }
+    .theme-light & { color: $light-bg; }
+    .theme-dark &  { color: $dark-bg; }
   }
 
   svg { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15)); }

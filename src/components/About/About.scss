@@ -1,18 +1,11 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.about-section {
-  --section-accent-light: #{$orange-light};
-  --section-accent-dark: #{$orange-dark};
-}
-
 .ab-t {
-  .theme-light & { color: $orange-light; }
-  .theme-dark &  { color: $orange-dark; }
+  color: var(--section-accent);
 
   &::after {
-    .theme-light & { background: $orange-light; }
-    .theme-dark &  { background: $orange-dark; }
+    background: var(--section-accent);
   }
 }
 
@@ -77,9 +70,7 @@
     width: 4px;
     height: 100%;
     border-radius: 2px 0 0 2px;
-
-    .theme-light & { background: $orange-light; }
-    .theme-dark &  { background: $orange-dark; }
+    background: var(--section-accent);
   }
 }
 
@@ -121,7 +112,5 @@
   height: 5px;
   border-radius: 50%;
   margin-top: 0.55rem;
-
-  .theme-light & { background: $orange-light; }
-  .theme-dark &  { background: $orange-dark; }
+  background: var(--section-accent);
 }

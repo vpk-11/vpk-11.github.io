@@ -1,11 +1,6 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.experience-section {
-  --section-accent-light: #{$blue-light};
-  --section-accent-dark: #{$blue-dark};
-}
-
 // ============================================
 // OUTER LAYOUT
 // ============================================
@@ -93,17 +88,11 @@
     border-color: rgba($dark-text, 0.25);
     background: $dark-bg;
   }
-
-  .exp-tl-item.active & {
-    .theme-light & { border-color: $blue-light; background: $blue-light; }
-    .theme-dark &  { border-color: $blue-dark;  background: $blue-dark;  }
-  }
 }
 
-// Scope dot color change under active item
 .exp-tl-item.active .etl-dot {
-  .theme-light & { border-color: $blue-light; background: $blue-light; }
-  .theme-dark &  { border-color: $blue-dark;  background: $blue-dark;  }
+  border-color: var(--section-accent);
+  background: var(--section-accent);
 }
 
 // Text stack
@@ -121,16 +110,10 @@
 
   .theme-light & { color: rgba($light-text, 0.5); }
   .theme-dark &  { color: rgba($dark-text, 0.45); }
-
-  .exp-tl-item:hover & {
-    .theme-light & { color: rgba($light-text, 0.75); }
-    .theme-dark &  { color: rgba($dark-text, 0.7); }
-  }
 }
 
 .exp-tl-item.active .etl-company {
-  .theme-light & { color: $blue-light; }
-  .theme-dark &  { color: $blue-dark; }
+  color: var(--section-accent);
 }
 
 .exp-tl-item:hover:not(.active) .etl-company {
@@ -183,13 +166,8 @@
   @include card-base;
   @include accent-bar-left;
 
-  &::before {
-    .theme-light & { background: $blue-light; }
-    .theme-dark &  { background: $blue-dark; }
-  }
   &:hover {
-    .theme-light & { border-color: $blue-light; }
-    .theme-dark &  { border-color: $blue-dark; }
+    border-color: var(--section-accent);
   }
   .theme-dark & {
     background: rgba($dark-text, 0.03);
@@ -206,17 +184,14 @@
 // ============================================
 
 .ex-t {
-  .theme-light & { color: $blue-light; }
-  .theme-dark &  { color: $blue-dark; }
+  color: var(--section-accent);
   &::after {
-    .theme-light & { background: $blue-light; }
-    .theme-dark &  { background: $blue-dark; }
+    background: var(--section-accent);
   }
 }
 
 .ex-ct {
-  .theme-light & { color: $blue-light; }
-  .theme-dark &  { color: $blue-dark; }
+  color: var(--section-accent);
 }
 
 .card-title {
@@ -249,8 +224,7 @@
 .meta-icon { flex-shrink: 0; }
 
 .ex-mi {
-  .theme-light & { color: $blue-light; }
-  .theme-dark &  { color: $blue-dark; }
+  color: var(--section-accent);
 }
 
 .card-duration,
@@ -294,8 +268,7 @@
   height: 6px;
   border-radius: 1px;
   margin-top: 0.55rem;
-  .theme-light & { background: $blue-light; }
-  .theme-dark &  { background: $blue-dark; }
+  background: var(--section-accent);
 }
 
 // ============================================
@@ -327,14 +300,10 @@
   padding: 0;
   transition: $transition-quick;
 
-  .theme-light & {
-    background: rgba($light-text, 0.2);
-    &.active { background: $blue-light; width: 22px; border-radius: 4px; }
-  }
-  .theme-dark & {
-    background: rgba($dark-text, 0.2);
-    &.active { background: $blue-dark; width: 22px; border-radius: 4px; }
-  }
+  .theme-light & { background: rgba($light-text, 0.2); }
+  .theme-dark &  { background: rgba($dark-text, 0.2); }
+
+  &.active { background: var(--section-accent); width: 22px; border-radius: 4px; }
 
   &:focus:not(:focus-visible) { outline: none; }
 }

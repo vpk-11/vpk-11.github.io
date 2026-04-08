@@ -1,11 +1,6 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.project-section {
-  --section-accent-light: #{$green-light};
-  --section-accent-dark: #{$green-dark};
-}
-
 .projects-grid {
   display: grid;
   gap: 2rem;
@@ -54,17 +49,10 @@
     left: 0;
     width: 100%;
     height: 3px;
+    background: var(--section-accent);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    .theme-light & {
-      background: $green-light;
-    }
-
-    .theme-dark & {
-      background: $green-dark;
-    }
   }
 
   // Shimmer overlay — sweeps diagonally on hover
@@ -96,30 +84,25 @@
   &:hover {
     transform: translateY(-8px);
 
-    &::before {
-      transform: scaleX(1);
-    }
-
-    &::after {
-      transform: translateX(100%);
-    }
+    &::before { transform: scaleX(1); }
+    &::after  { transform: translateX(100%); }
 
     .theme-dark & {
       background: rgba($dark-text, 0.055);
-      border-color: rgba($green-dark, 0.5);
+      border-color: color-mix(in srgb, var(--section-accent) 50%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba($green-dark, 0.15),
-        0 0 30px rgba($green-dark, 0.06);
+        0 0 0 1px color-mix(in srgb, var(--section-accent) 15%, transparent),
+        0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
     }
 
     .theme-light & {
       background: rgba($light-text, 0.03);
-      border-color: rgba($green-light, 0.4);
+      border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba($green-light, 0.12),
-        0 0 30px rgba($green-light, 0.06);
+        0 0 0 1px color-mix(in srgb, var(--section-accent) 12%, transparent),
+        0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
     }
 
     .project-link-arrow {
@@ -135,13 +118,13 @@
   // ── Featured variant ─────────────────────────
   &--featured {
     .theme-dark & {
-      background: rgba($green-dark, 0.05);
-      border-color: rgba($green-dark, 0.2);
+      background: color-mix(in srgb, var(--section-accent) 5%, transparent);
+      border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
     }
 
     .theme-light & {
-      background: rgba($green-light, 0.04);
-      border-color: rgba($green-light, 0.18);
+      background: color-mix(in srgb, var(--section-accent) 4%, transparent);
+      border-color: color-mix(in srgb, var(--section-accent) 18%, transparent);
     }
   }
 }
@@ -151,18 +134,15 @@
 // ============================================
 
 .pr-title {
-  .theme-light & { color: $green-light; }
-  .theme-dark &  { color: $green-dark; }
+  color: var(--section-accent);
 
   &::after {
-    .theme-light & { background: $green-light; }
-    .theme-dark &  { background: $green-dark; }
+    background: var(--section-accent);
   }
 }
 
 .pr-ct {
-  .theme-light & { color: $green-light; }
-  .theme-dark &  { color: $green-dark; }
+  color: var(--section-accent);
 }
 
 .card-title {
@@ -196,14 +176,14 @@
 
   .theme-dark & {
     background: rgba($dark-text, 0.05);
-    border-color: $green-dark;
-    color: $green-dark;
+    border-color: var(--section-accent);
+    color: var(--section-accent);
   }
 
   .theme-light & {
     background: rgba($light-text, 0.05);
-    border-color: $green-light;
-    color: $green-light;
+    border-color: var(--section-accent);
+    color: var(--section-accent);
   }
 }
 
@@ -221,9 +201,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.5px;
-
-  .theme-light & { color: $green-light; }
-  .theme-dark &  { color: $green-dark; }
+  color: var(--section-accent);
 }
 
 .live-dot {
@@ -232,9 +210,7 @@
   border-radius: 50%;
   flex-shrink: 0;
   animation: livePulse 2.5s ease-in-out infinite;
-
-  .theme-light & { background: $green-light; }
-  .theme-dark &  { background: $green-dark; }
+  background: var(--section-accent);
 }
 
 @keyframes livePulse {
@@ -257,18 +233,9 @@
   letter-spacing: 0.5px;
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
-
-  .theme-light & {
-    background: rgba($green-light, 0.12);
-    color: $green-light;
-    border: 1px solid rgba($green-light, 0.3);
-  }
-
-  .theme-dark & {
-    background: rgba($green-dark, 0.12);
-    color: $green-dark;
-    border: 1px solid rgba($green-dark, 0.3);
-  }
+  color: var(--section-accent);
+  background: color-mix(in srgb, var(--section-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--section-accent) 30%, transparent);
 }
 
 // ============================================
@@ -304,22 +271,22 @@
 
   svg {
     flex-shrink: 0;
+    color: var(--section-accent);
   }
 
   .theme-light & {
     color: rgba($light-text, 0.7);
-    svg { color: $green-light; }
-    &:hover { color: $green-light; }
+    &:hover { color: var(--section-accent); }
   }
 
   .theme-dark & {
     color: rgba($dark-text, 0.65);
-    svg { color: $green-dark; }
-    &:hover { color: $green-dark; }
+    &:hover { color: var(--section-accent); }
   }
 }
+
 // ============================================
-// TABS (added)
+// TABS
 // ============================================
 
 .pr-tabs {
@@ -330,6 +297,9 @@
 }
 
 .pr-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.4rem 1.1rem;
   border-radius: 20px;
   border: 1px solid;
@@ -342,33 +312,38 @@
   .theme-light & {
     border-color: rgba($light-text, 0.15);
     color: rgba($light-text, 0.55);
-    &:hover   { border-color: $green-light; color: $green-light; }
-    &.active  { background: $green-light; border-color: $green-light; color: #fff; }
+    &:hover { border-color: var(--section-accent); color: var(--section-accent); }
+    &.active {
+      background: var(--section-accent); border-color: var(--section-accent); color: #fff;
+      .pr-tab-count { background: rgba(255,255,255,0.25); color: #fff; }
+    }
   }
-
   .theme-dark & {
     border-color: rgba($dark-text, 0.15);
     color: rgba($dark-text, 0.5);
-    &:hover   { border-color: $green-dark; color: $green-dark; }
-    &.active  { background: $green-dark; border-color: $green-dark; color: $dark-bg; }
+    &:hover { border-color: var(--section-accent); color: var(--section-accent); }
+    &.active {
+      background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg;
+      .pr-tab-count { background: rgba($dark-bg, 0.2); color: $dark-bg; }
+    }
   }
 
   &:focus:not(:focus-visible) { outline: none; }
 }
 
 .pr-tab-count {
-  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.1rem 0.45rem;
-  border-radius: 10px;
- 
-  .theme-light & { background: rgba($light-text, 0.08); color: rgba($light-text, 0.6); }
-  .theme-dark &  { background: rgba($dark-text, 0.08);  color: rgba($dark-text, 0.55); }
- 
-  .pr-tab.active & {
-    .theme-light & { background: rgba($light-bg, 0.3); color: $light-bg; }
-    .theme-dark &  { background: rgba($dark-bg, 0.25); color: $dark-bg; }
-  }
+
+  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.55); }
+  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.5); }
 }
 
 // ============================================
@@ -385,16 +360,11 @@
   cursor: pointer;
   background: transparent;
   transition: $transition-quick;
-  .theme-light & {
-    border-color: rgba($green-light, 0.4);
-    color: $green-light;
-    &:hover { background: $green-light; color: #fff; }
-  }
-  .theme-dark & {
-    border-color: rgba($green-dark, 0.4);
-    color: $green-dark;
-    &:hover { background: $green-dark; color: $dark-bg; }
-  }
+  color: var(--section-accent);
+  border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
+
+  .theme-light & { &:hover { background: var(--section-accent); color: #fff; } }
+  .theme-dark &  { &:hover { background: var(--section-accent); color: $dark-bg; } }
 
   &:focus:not(:focus-visible) { outline: none; }
 }
@@ -416,7 +386,6 @@
   .theme-light & { background: rgba(0, 0, 0, 0.45); }
   .theme-dark &  { background: rgba(0, 0, 0, 0.65); }
 
-  // Fix 5: mobile — bottom sheet
   @include respond-to(mobile) {
     padding: 0;
     align-items: flex-end;
@@ -439,18 +408,18 @@
   padding: 2rem 2.25rem;
   animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
 
+  // Accent tint blended into surface — matches dark mode feel without harming readability
   .theme-light & {
-    background: $light-bg;
-    border-color: rgba($light-text, 0.12);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+    background: color-mix(in srgb, var(--section-accent) 2%, #{$light-surface});
+    border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
   }
   .theme-dark & {
-    background: $dark-surface;
-    border-color: rgba($dark-text, 0.1);
+    background: color-mix(in srgb, var(--section-accent) 2%, #{$dark-surface});
+    border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   }
 
-  // Fix 5: mobile — full-width bottom sheet, slides up
   @include respond-to(mobile) {
     max-width: 100%;
     max-height: 88vh;
@@ -470,7 +439,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-// Fix 4: X close button — plain, no border
 .pr-modal-close {
   position: absolute;
   top: 1rem;
@@ -501,9 +469,7 @@
   line-height: 1.25;
   margin-bottom: 0.75rem;
   padding-right: 2.5rem;  // clear of close button
-
-  .theme-light & { color: $green-light; }
-  .theme-dark &  { color: $green-dark; }
+  color: var(--section-accent);
 }
 
 .pr-modal-links {
@@ -514,7 +480,6 @@
   flex-wrap: wrap;
 }
 
-// Fix 2: live indicator — inline in links row, same dot style as card
 .pr-modal-live {
   display: inline-flex;
   align-items: center;
@@ -523,9 +488,7 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-left: auto;
-
-  .theme-light & { color: $green-light; }
-  .theme-dark &  { color: $green-dark; }
+  color: var(--section-accent);
 }
 
 .pr-modal-body {
@@ -533,65 +496,4 @@
   line-height: 1.8;
   opacity: 0.87;
   margin-bottom: 1.5rem;
-}
-
-// ============================================
-// TABS
-// ============================================
-
-.pr-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.pr-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: transparent;
-  transition: all 0.2s ease;
-
-  .theme-light & {
-    border-color: rgba($light-text, 0.15);
-    color: rgba($light-text, 0.55);
-    &:hover { border-color: $green-light; color: $green-light; }
-    &.active {
-      background: $green-light; border-color: $green-light; color: #fff;
-      .pr-tab-count { background: rgba(255,255,255,0.25); color: #fff; }
-    }
-  }
-  .theme-dark & {
-    border-color: rgba($dark-text, 0.15);
-    color: rgba($dark-text, 0.5);
-    &:hover { border-color: $green-dark; color: $green-dark; }
-    &.active {
-      background: $green-dark; border-color: $green-dark; color: $dark-bg;
-      .pr-tab-count { background: rgba($dark-bg, 0.2); color: $dark-bg; }
-    }
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
-}
-
-.pr-tab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 9px;
-  font-size: 0.7rem;
-  font-weight: 700;
-
-  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.55); }
-  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.5); }
 }

@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: 'Home', id: 'hero' },
-    { name: 'About', id: 'about' },
+    { name: 'About Me', id: 'about' },
     { name: 'Education', id: 'education' },
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },

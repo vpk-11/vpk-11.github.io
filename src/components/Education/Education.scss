@@ -1,11 +1,6 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.education-section {
-  --section-accent-light: #{$purple-light};
-  --section-accent-dark: #{$purple-dark};
-}
-
 .education-grid {
   display: grid;
   gap: 2rem;
@@ -21,7 +16,7 @@
     background: rgba($dark-text, 0.03);
     &:hover {
       background: rgba($dark-text, 0.05);
-      border-color: $purple-dark;
+      border-color: var(--section-accent);
     }
   }
 
@@ -29,29 +24,21 @@
     background: rgba($light-text, 0.02);
     &:hover {
       background: rgba($light-text, 0.03);
-      border-color: $purple-light;
+      border-color: var(--section-accent);
     }
-  }
-
-  &::before {
-    .theme-light & { background: $purple-light; }
-    .theme-dark &  { background: $purple-dark; }
   }
 }
 
 .ed-t {
-  .theme-light & { color: $purple-light; }
-  .theme-dark &  { color: $purple-dark; }
+  color: var(--section-accent);
 
   &::after {
-    .theme-light & { background: $purple-light; }
-    .theme-dark &  { background: $purple-dark; }
+    background: var(--section-accent);
   }
 }
 
 .ed-ct {
-  .theme-light & { color: $purple-light; }
-  .theme-dark &  { color: $purple-dark; }
+  color: var(--section-accent);
 }
 
 .card-title {
@@ -87,8 +74,7 @@
 .meta-icon { flex-shrink: 0; }
 
 .ed-mi {
-  .theme-light & { color: $purple-light; }
-  .theme-dark &  { color: $purple-dark; }
+  color: var(--section-accent);
 }
 
 .card-duration,
@@ -110,22 +96,19 @@
   border-radius: 6px;
   width: fit-content;
 
-  .theme-dark & { background: rgba($purple-dark, 0.1); }
-  .theme-light & { background: rgba($purple-light, 0.08); }
+  background: color-mix(in srgb, var(--section-accent) 9%, transparent);
 }
 
 .gpa-icon {
   flex-shrink: 0;
-  .theme-dark & { color: $purple-dark; }
-  .theme-light & { color: $purple-light; }
+  color: var(--section-accent);
 }
 
 .gpa-text {
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.3px;
-  .theme-dark & { color: $purple-dark; }
-  .theme-light & { color: $purple-light; }
+  color: var(--section-accent);
 }
 
 // ============================================
@@ -161,15 +144,7 @@
   border: 1px solid;
   transition: $transition-quick;
 
-  .theme-light & {
-    background: rgba($purple-light, 0.07);
-    border-color: rgba($purple-light, 0.25);
-    color: $purple-light;
-  }
-
-  .theme-dark & {
-    background: rgba($purple-dark, 0.07);
-    border-color: rgba($purple-dark, 0.25);
-    color: $purple-dark;
-  }
+  background: color-mix(in srgb, var(--section-accent) 7%, transparent);
+  border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
+  color: var(--section-accent);
 }

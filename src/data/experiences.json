@@ -7,9 +7,9 @@
     "duration": "Aug 2024 - Jul 2025",
     "description": "**Software Engineer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
-      "Designed and implemented **React + TypeScript UI** components, **.NET APIs**, and **Python** backend utilities, delivering new functionality for portfolio management applications.",
-      "**Led OpenShift deployment initiatives** for the team, contributing to the deployment architecture, now **adopted across the division**.",
-      "Supported **production operations** through on-call rotations, investigating business-user issues, analyzing logs, applying fixes, and ensuring stable application availability."
+      "Built **React UI components**, **.NET APIs**, and **Python** backend utilities for portfolio management applications handling **$400B+ in assets**, owning each feature from API design and component architecture through backend logic and deployment.",
+      "Designed the **OpenShift deployment architecture** for the team, **achieving 100% adoption** across the division, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
+      "Owned **on-call production operations** across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable."
     ]
   },
   {
@@ -20,9 +20,9 @@
     "duration": "Mar 2024 - Jul 2024",
     "description": "Internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *“Development of Computer Vision System for an AI Assistant.”*",
     "achievements": [
-      "Developed **a modular computer vision pipeline** integrating four image processing models in Python (**PyTorch & TensorFlow**), enabling seamless model swapping across frameworks.",
-      "**Optimized real-time system performance**, reducing image-processing latency by over **90%** using threading, **parallel processing**, and internal **REST API** calls.",
-      "Designed for **high availability and scalability**, strengthening skills in advanced image processing, algorithm optimization, and collaborative problem solving."
+      "Designed a **modular computer vision pipeline** integrating four image-processing models in **Python (PyTorch and TensorFlow)**, with a unified interface enabling seamless model swapping across frameworks without modifying pipeline logic.",
+      "Reduced real-time image-processing **latency** by over **90%** using threading, parallel processing, and internal REST API calls, enabling four models to run concurrently rather than sequentially.",
+      "Architected the system for **high availability and scalability**, with independently upgradeable components so models can be replaced without destabilizing the pipeline."
     ]
   },
   {
@@ -33,8 +33,8 @@
     "duration": "May 2023 - Jul 2023",
     "description": "**Software Development Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
-      "Developed a **full-stack MERN application**, building React components, integrating REST APIs, managing backend flow, and designing UI/UX.",
-      "**Integrated ML modules** for financial analysis and prediction, delivering a **fully functional prototype** supporting end-to-end workflows."
+      "Built a **full-stack MERN application** for Capital Markets Technology, owning UI components, REST APIs, backend logic, and UX design end-to-end.",
+      "**Integrated ML modules** for financial analysis and prediction, extending the application into a **fully functional prototype** supporting complete end-to-end workflows."
     ]
   }
 ]

@@ -2,9 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .contact-section {
-  --section-accent-light: #{$red-light};
-  --section-accent-dark: #{$red-dark};
-
   // Container needs to be full height to push footer to bottom
   .container {
     display: flex;
@@ -30,12 +27,10 @@
 }
 
 .co-t {
-  .theme-light & { color: $red-light; }
-  .theme-dark &  { color: $red-dark; }
+  color: var(--section-accent);
 
   &::after {
-    .theme-light & { background: $red-light; }
-    .theme-dark &  { background: $red-dark; }
+    background: var(--section-accent);
   }
 }
 
@@ -99,17 +94,9 @@
   font-weight: 600;
   border: 1px solid;
 
-  .theme-light & {
-    background: rgba($red-light, 0.07);
-    border-color: rgba($red-light, 0.25);
-    color: $red-light;
-  }
-
-  .theme-dark & {
-    background: rgba($red-dark, 0.08);
-    border-color: rgba($red-dark, 0.25);
-    color: $red-dark;
-  }
+  background: color-mix(in srgb, var(--section-accent) 7%, transparent);
+  border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
+  color: var(--section-accent);
 }
 
 .auth-text {
@@ -131,40 +118,29 @@
   align-items: center;
   gap: 0.75rem;
   padding: clamp(1rem, 1.5vw, 1.5rem) clamp(2rem, 4vw, 3.5rem);
-  color: $light-bg;
   text-decoration: none;
   border-radius: 8px;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
   font-weight: 700;
   transition: $transition-smooth;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: var(--section-accent);
 
-  .theme-light & { background: $red-light; }
-
-  .theme-dark & {
-    background: $red-dark;
-    color: $dark-bg;
-    font-weight: 800;
-  }
+  .theme-light & { color: $light-bg; }
+  .theme-dark &  { color: $dark-bg; font-weight: 800; }
 
   &:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-    color: $light-bg;
-
-    .theme-dark & {
-      color: $dark-bg;
-    }
+    .theme-light & { color: $light-bg; }
+    .theme-dark &  { color: $dark-bg; }
   }
 
   &:visited,
   &:link,
   &:active {
-    color: $light-bg;
-
-    .theme-dark & {
-      color: $dark-bg;
-    }
+    .theme-light & { color: $light-bg; }
+    .theme-dark &  { color: $dark-bg; }
   }
 
   svg {

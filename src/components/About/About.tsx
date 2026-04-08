@@ -26,7 +26,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="section about-section" data-accent="orange">
       <div className="container">
-        <h2 className="ab-t section-title">About</h2>
+        <h2 className="ab-t section-title">About Me</h2>
         <div className="about-grid">
 
           {/* Left — bio */}

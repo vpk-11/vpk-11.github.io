@@ -1,42 +1,16 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.skills-section{
-  // Fixed yellow accent for hero
-  --section-accent-light: #{$yellow-light};
-  --section-accent-dark: #{$yellow-dark};
-}
+.sk-t {
+  color: var(--section-accent);
 
-
-
-.sk-t{
-  .theme-light & {
-    color: $yellow-light;
-  }
-  
-  .theme-dark & {
-    color: $yellow-dark;
-  }
   &::after {
-    background: var(--accent-color);
-    .theme-light & {
-      background: $yellow-light;
-    }
-
-    .theme-dark & {
-      background: $yellow-dark;
-    }
+    background: var(--section-accent);
   }
 }
 
-.sk-st{
-  .theme-light & {
-    color: $yellow-light;
-  }
-  
-  .theme-dark & {
-    color: $yellow-dark;
-  }
+.sk-st {
+  color: var(--section-accent);
 }
 
 .subsection-title {
@@ -46,7 +20,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  
+
   @include respond-to(mobile) {
     font-size: 1.5rem;
   }
@@ -61,7 +35,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);  // 2 columns side by side
   gap: 1.5rem;
-  
+
   @include respond-to(mobile) {
     grid-template-columns: 1fr;  // Stack on mobile
   }
@@ -69,27 +43,25 @@
 
 .skill-category {
   @include card-base;
-  
+
   .theme-dark & {
     background: rgba($dark-text, 0.04);
-
     &:hover {
       background: rgba($dark-text, 0.06);
-      border-color: $yellow-dark;
+      border-color: var(--section-accent);
     }
   }
 
   .theme-light & {
     background: rgba($light-text, 0.03);
-
     &:hover {
       background: rgba($light-text, 0.05);
-      border-color: $yellow-light;
+      border-color: var(--section-accent);
     }
   }
-  
+
   transition: $transition-smooth;
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
@@ -100,13 +72,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  .theme-light & {
-    color: $yellow-light;
-  }
-  
-  .theme-dark & {
-    color: $yellow-dark;
-  }
+  color: var(--section-accent);
 }
 
 .skill-tags {
@@ -117,23 +83,14 @@
 
 .skill-tag {
   padding: 0.5rem 1rem;
-  // background: var(--accent-color);
-  color: white;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
   transition: $transition-quick;
-  
-  .theme-dark & {
-    background: $yellow-dark;
-    color: $dark-bg;
-    font-weight: 700;
-  }
-  
-  .theme-light & {
-    background: $yellow-light;
-    color: $light-bg;
-  }
+  background: var(--section-accent);
+
+  .theme-dark & { color: $dark-bg; font-weight: 700; }
+  .theme-light & { color: $light-bg; }
 
   &:hover {
     transform: scale(1.05);
@@ -190,27 +147,25 @@
   text-decoration: none;
   cursor: pointer;
   transition: $transition-smooth;
-  
+
   .theme-dark & {
     background: rgba($dark-text, 0.04);
-    
     &:hover {
       background: rgba($dark-text, 0.06);
-      border-color: $yellow-dark;
+      border-color: var(--section-accent);
       transform: translateX(8px);
     }
   }
 
   .theme-light & {
     background: rgba($light-text, 0.03);
-    
     &:hover {
       background: rgba($light-text, 0.05);
-      border-color: $yellow-light;
+      border-color: var(--section-accent);
       transform: translateX(8px);
     }
   }
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -218,20 +173,12 @@
     top: 0;
     height: 100%;
     width: 4px;
-    // background: var(--accent-color);
+    background: var(--section-accent);
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 0.3s ease;
-    
-    .theme-light & {
-      background: $yellow-light;
-    }
-  
-    .theme-dark & {
-      background: $yellow-dark;
-    }
   }
-  
+
   &:hover::before {
     transform: scaleY(1);
     transform-origin: top;
@@ -246,14 +193,8 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  .theme-light & {
-    color: $yellow-light;
-  }
-  
-  .theme-dark & {
-    color: $yellow-dark;
-  }
-  
+  color: var(--section-accent);
+
   @include respond-to(mobile) {
     font-size: 1rem;
   }
@@ -264,94 +205,27 @@
   margin-bottom: 0.25rem;
   font-weight: 600;
   opacity: 0.85;
-  .theme-dark & {
-    color: rgba($dark-text, 1);
-  }
-  
-  .theme-light & {
-    color: rgba($light-text, 1);
-  }
+  .theme-dark & { color: rgba($dark-text, 1); }
+  .theme-light & { color: rgba($light-text, 1); }
 }
 
 .cert-date {
   font-size: 0.85rem;
-  // opacity: 0.6;
   font-style: italic;
   font-weight: 700;
-  
-  .theme-dark & {
-    color: rgba($dark-text, 0.6);
-  }
-  
-  .theme-light & {
-    color: rgba($light-text, 0.6);
-  }
+
+  .theme-dark & { color: rgba($dark-text, 0.6); }
+  .theme-light & { color: rgba($light-text, 0.6); }
 }
 
 .cert-icon {
   flex-shrink: 0;
   transition: $transition-quick;
-  
+  color: var(--section-accent);
+
   .certification-item:hover & {
     transform: translate(4px, -4px);
   }
-
-  .theme-light & {
-    color: $yellow-light;
-  }
-  
-  .theme-dark & {
-    color: $yellow-dark;
-  }
-}
-// ============================================
-// TABS (added)
-// ============================================
-
-.sk-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.sk-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: transparent;
-  transition: all 0.2s ease;
-
-  .theme-light & {
-    border-color: rgba($light-text, 0.15);
-    color: rgba($light-text, 0.55);
-    &:hover  { border-color: $yellow-light; color: $yellow-light; }
-    &.active { background: $yellow-light; border-color: $yellow-light; color: $light-bg; }
-  }
-
-  .theme-dark & {
-    border-color: rgba($dark-text, 0.15);
-    color: rgba($dark-text, 0.5);
-    &:hover  { border-color: $yellow-dark; color: $yellow-dark; }
-    &.active { background: $yellow-dark; border-color: $yellow-dark; color: $dark-bg; }
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
-}
-
-.sk-panel {
-  animation: skPanelEnter 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-@keyframes skPanelEnter {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 // ============================================
@@ -381,15 +255,15 @@
   .theme-light & {
     border-color: rgba($light-text, 0.15);
     color: rgba($light-text, 0.55);
-    &:hover  { border-color: $yellow-light; color: $yellow-light; }
-    &.active { background: $yellow-light; border-color: $yellow-light; color: $light-bg; }
+    &:hover  { border-color: var(--section-accent); color: var(--section-accent); }
+    &.active { background: var(--section-accent); border-color: var(--section-accent); color: $light-bg; }
   }
 
   .theme-dark & {
     border-color: rgba($dark-text, 0.15);
     color: rgba($dark-text, 0.5);
-    &:hover  { border-color: $yellow-dark; color: $yellow-dark; }
-    &.active { background: $yellow-dark; border-color: $yellow-dark; color: $dark-bg; }
+    &:hover  { border-color: var(--section-accent); color: var(--section-accent); }
+    &.active { background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg; }
   }
 
   &:focus:not(:focus-visible) { outline: none; }

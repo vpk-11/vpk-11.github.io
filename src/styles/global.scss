@@ -42,72 +42,50 @@ body {
   background: $light-bg;
   color: $light-text;
 
-  &.accent-red {
-    --accent-color: #{$red-light};
-    --bg-tint: rgba(234, 67, 53, 0.03);
-  }
-
-  &.accent-blue {
-    --accent-color: #{$blue-light};
-    --bg-tint: rgba(66, 133, 244, 0.03);
-  }
-
-  &.accent-yellow {
-    --accent-color: #{$yellow-light};
-    --bg-tint: rgba(251, 188, 4, 0.03);
-  }
-
-  &.accent-green {
-    --accent-color: #{$green-light};
-    --bg-tint: rgba(52, 168, 83, 0.03);
-  }
-
-  &.accent-orange {
-    --accent-color: #{$orange-light};
-    --bg-tint: rgba(255, 109, 0, 0.04);
-  }
-
-  &.accent-purple {
-    // New
-    --accent-color: #{$purple-light};
-    --bg-tint: rgba(161, 66, 244, 0.03);
-  }
+  &.accent-red    { --accent-color: #{$red-light};    --bg-tint: rgba(234, 67, 53, 0.015); }
+  &.accent-blue   { --accent-color: #{$blue-light};   --bg-tint: rgba(66, 133, 244, 0.015); }
+  &.accent-yellow { --accent-color: #{$yellow-light}; --bg-tint: rgba(251, 188, 4, 0.015); }
+  &.accent-green  { --accent-color: #{$green-light};  --bg-tint: rgba(52, 168, 83, 0.015); }
+  &.accent-orange { --accent-color: #{$orange-light}; --bg-tint: rgba(255, 109, 0, 0.015); }
+  &.accent-purple { --accent-color: #{$purple-light}; --bg-tint: rgba(161, 66, 244, 0.015); }
 }
 
 .theme-dark {
   background: $dark-bg;
   color: $dark-text;
 
-  &.accent-red {
-    --accent-color: #{$red-dark};
-    --bg-tint: rgba(255, 107, 107, 0.05);
-  }
+  &.accent-red    { --accent-color: #{$red-dark};    --bg-tint: rgba(255, 107, 107, 0.025); }
+  &.accent-blue   { --accent-color: #{$blue-dark};   --bg-tint: rgba(77, 159, 255, 0.025); }
+  &.accent-yellow { --accent-color: #{$yellow-dark}; --bg-tint: rgba(255, 217, 61, 0.025); }
+  &.accent-green  { --accent-color: #{$green-dark};  --bg-tint: rgba(107, 207, 127, 0.025); }
+  &.accent-orange { --accent-color: #{$orange-dark}; --bg-tint: rgba(255, 152, 0, 0.03); }
+  &.accent-purple { --accent-color: #{$purple-dark}; --bg-tint: rgba(199, 125, 255, 0.025); }
+}
 
-  &.accent-blue {
-    --accent-color: #{$blue-dark};
-    --bg-tint: rgba(77, 159, 255, 0.05);
-  }
+// ============================================
+// SECTION ACCENT COLORS
+// To retheme a section: change only its two lines below (light + dark).
+// Components read var(--section-accent) — no component SCSS needs to change.
+// ============================================
 
-  &.accent-yellow {
-    --accent-color: #{$yellow-dark};
-    --bg-tint: rgba(255, 217, 61, 0.05);
-  }
+.theme-light {
+  .hero-section       { --section-accent: #{$red-light}; }
+  .about-section      { --section-accent: #{$orange-light}; }
+  .education-section  { --section-accent: #{$purple-light}; }
+  .experience-section { --section-accent: #{$blue-light}; }
+  .projects-section   { --section-accent: #{$green-light}; }
+  .skills-section     { --section-accent: #{$yellow-light}; }
+  .contact-section    { --section-accent: #{$red-light}; }
+}
 
-  &.accent-green {
-    --accent-color: #{$green-dark};
-    --bg-tint: rgba(107, 207, 127, 0.05);
-  }
-
-  &.accent-orange {
-    --accent-color: #{$orange-dark};
-    --bg-tint: rgba(255, 152, 0, 0.06);
-  }
-
-  &.accent-purple {
-    // New
-    --accent-color: #{$purple-dark};
-    --bg-tint: rgba(199, 125, 255, 0.05);
-  }
+.theme-dark {
+  .hero-section       { --section-accent: #{$red-dark}; }
+  .about-section      { --section-accent: #{$orange-dark}; }
+  .education-section  { --section-accent: #{$purple-dark}; }
+  .experience-section { --section-accent: #{$blue-dark}; }
+  .projects-section   { --section-accent: #{$green-dark}; }
+  .skills-section     { --section-accent: #{$yellow-dark}; }
+  .contact-section    { --section-accent: #{$red-dark}; }
 }
 
 // ============================================
@@ -175,7 +153,7 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  color: var(--accent-color);
+  color: var(--section-accent);
   position: relative;
   display: inline-block;
 
@@ -191,7 +169,7 @@ body {
     left: 0;
     width: 60px;
     height: 4px;
-    background: var(--accent-color);
+    background: var(--section-accent);
     border-radius: 2px;
   }
 }
@@ -209,15 +187,13 @@ body {
 // SELECTION COLORS
 // ============================================
 
-::selection {
-  background: var(--accent-color);
-  color: white;
-}
+// Section-scoped selection — each section gets its own fixed accent color
+[data-accent] ::selection  { background: var(--section-accent); color: #fff; }
+[data-accent] ::-moz-selection { background: var(--section-accent); color: #fff; }
 
-::-moz-selection {
-  background: var(--accent-color);
-  color: white;
-}
+// Fallback for elements outside sections (e.g. navbar)
+::selection     { background: var(--accent-color); color: white; }
+::-moz-selection { background: var(--accent-color); color: white; }
 
 // ============================================
 // ACCESSIBILITY
