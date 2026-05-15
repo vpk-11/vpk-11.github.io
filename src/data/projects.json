@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Narada",
     "shortDescription": "7-step **agentic AI search** pipeline that extracts LLM-traced, source-attributed entity tables from the web.",
-    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level. Designed a **provider abstraction layer** supporting **4 LLM providers** (Groq, Ollama, OpenAI, Anthropic) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step multi-model configuration** so each stage of the **AI agent** pipeline can run on a different model for cost/quality tradeoffs. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
+    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level.\n\nDesigned a **provider abstraction layer** supporting **4 LLM providers** (Groq, Ollama, OpenAI, Anthropic) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step multi-model configuration** so each stage of the **AI agent** pipeline can run on a different model for cost/quality tradeoffs.\n\nDeployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
     "tech": ["Python", "FastAPI", "React", "LLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
     "demoLink": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
@@ -12,6 +12,17 @@
   },
   {
     "id": 2,
+    "title": "Donna",
+    "shortDescription": "**AI business assistant** over iMessage that routes admin commands, client replies, and cold inbound leads through separate **LLM-powered handlers**.",
+    "description": "Built a **multi-party conversational AI assistant** in Python/FastAPI that routes messages from the admin, active clients, and cold inbound leads through separate **LLM-powered handlers**, managing bookings, conflict resolution, emergency cancellations, and client onboarding entirely over natural language.\n\nEnforced **async-only LLM discipline** throughout: all LiteLLM calls use `acompletion()` to prevent event loop blocking, and every send writes `last_donna_message` to **ConversationState** so the intent parser resolves follow-up replies correctly. Built a **dynamic handoff** that detects stuck cold leads and relays live admin messages to the client with no pipeline disruption.\n\nDesigned a **MessagingClient abstraction layer** (WebSocket for V1, Linq stub for V2) keeping all core logic transport-agnostic, mirroring Narada's provider abstraction pattern. Ships with full **conflict resolution**: slot detection, swap proposals, client confirmation flows, and one-time vs. recurring booking logic.",
+    "tech": ["Python", "FastAPI", "SQLite", "LLM", "Pydantic", "LiteLLM", "WebSockets", "Conversational AI"],
+    "demoLink": "",
+    "githubLink": "https://github.com/vpk-11/donna",
+    "featured": true,
+    "categories": ["ML", "Agentic AI"]
+  },
+  {
+    "id": 3,
     "title": "Deepfake Deconstruction",
     "shortDescription": "**Modular deep-learning pipeline** to reverse-engineer face-swap **deepfakes**, identifying source images with **85%+** accuracy on 10,000+ images.",
     "description": "Designed a modular deep-learning pipeline to **reverse-engineer face-swap deepfakes**, identifying the original source image with **85%+ accuracy** on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling **component-level model swapping** for improved scalability. Addressed a **real-world AI safety problem** by going beyond detection to trace the origins of manipulation.",
@@ -22,7 +33,7 @@
     "categories": ["ML"]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "DKeeper",
     "shortDescription": "**Decentralized note-taking app** with Google Keep-style UI backed by ICP blockchain smart contracts, achieving **100% data immutability**.",
     "description": "Built a decentralized note-taking app with **Google Keep–style UI** using React and state hooks, allowing users to create, delete, and persist notes on the ICP blockchain. Integrated secure, tamper-proof storage leveraging blockchain smart contracts, ensuring **100% data immutability**. Applied **frontend best practices:** responsive design, accessibility compliance, and component-based architecture.",
@@ -33,18 +44,17 @@
     "categories": ["Fullstack", "Blockchain"]
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "File Hosting Service",
     "shortDescription": "**Secure file hosting service** with user authentication, MongoDB-backed unique file IDs, and REST API routes to upload, list, and download.",
     "description": "Built a file hosting service with **user authentication**, enabling secure access to individual files. Implemented a **unique ID system** stored in **MongoDB**, associating each file with its user for efficient retrieval. Developed **server-side storage** for uploaded files with **REST API** routes to upload, list, and download files.",
     "tech": ["Node.JS", "MongoDB", "HTML", "CSS", "Express", "REST API"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/file-hosting-service",
-    "featured": true,
     "categories": ["Fullstack"]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "URL Shortener",
     "shortDescription": "**URL shortener** with unique ID-based redirection, MongoDB-backed URL mapping, and a clean interface for link submission and retrieval.",
     "description": "Built a URL shortener with **unique ID-based redirection logic**, storing original URL mappings in **MongoDB** with fast lookup design. Implemented a simple user-facing interface for URL submission and retrieval, with **REST API** routes handling redirect resolution server-side.",
@@ -54,7 +64,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Data Compression Analysis",
     "shortDescription": "Comparative analysis of **Huffman Encoding**, **LZW**, and **LZ77** algorithms, evaluating time and space complexity tradeoffs across test cases.",
     "description": "Implemented and compared **Huffman Encoding, LZW, and LZ77** compression algorithms in C/C++, analyzing **time and space complexity** across multiple test cases. Tabulated results to identify efficiency tradeoffs across algorithm types and input characteristics, highlighting conditions where each approach performs best.",
