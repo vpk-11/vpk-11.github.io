@@ -109,7 +109,7 @@ const ParticleWave: React.FC = () => {
     let raf = 0;
     const animate = () => {
       raf = requestAnimationFrame(animate);
-      material.uniforms.uTime.value += 0.003; // very slow wave
+      material.uniforms.uTime.value += 0.008;
       renderer.render(scene, camera);
     };
     animate();
