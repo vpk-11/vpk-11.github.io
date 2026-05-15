@@ -16,54 +16,6 @@
   backdrop-filter: blur(80px);
   -webkit-backdrop-filter: blur(80px);
 
-  // ============================================
-  // SECTION-BASED ACCENT COLORS
-  // ============================================
-  &[data-accent="red"] {
-    .theme-light & {
-      --accent-color: #{$red-light};
-    }
-    .theme-dark & {
-      --accent-color: #{$red-dark};
-    }
-  }
-
-  &[data-accent="blue"] {
-    .theme-light & {
-      --accent-color: #{$blue-light};
-    }
-    .theme-dark & {
-      --accent-color: #{$blue-dark};
-    }
-  }
-
-  &[data-accent="yellow"] {
-    .theme-light & {
-      --accent-color: #{$yellow-light};
-    }
-    .theme-dark & {
-      --accent-color: #{$yellow-dark};
-    }
-  }
-
-  &[data-accent="green"] {
-    .theme-light & {
-      --accent-color: #{$green-light};
-    }
-    .theme-dark & {
-      --accent-color: #{$green-dark};
-    }
-  }
-
-  &[data-accent="purple"] {
-    .theme-light & {
-      --accent-color: #{$purple-light};
-    }
-    .theme-dark & {
-      --accent-color: #{$purple-dark};
-    }
-  }
-
   &.scrolled {
     padding: 1rem 0;
   }
