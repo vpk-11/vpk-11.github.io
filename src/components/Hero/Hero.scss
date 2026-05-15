@@ -1,83 +1,176 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+// ── Section ───────────────────────────────────────────────────────────────────
+
 .hero-section {
+  min-height: 100vh;
   padding-top: clamp(80px, 10vh, 120px);
-  padding-bottom: clamp(4rem, 8vh, 6rem);
-  text-align: left;
-  min-height: auto;  // no longer needs full viewport — About follows immediately
+  padding-bottom: clamp(4rem, 8vh, 8rem);
   display: flex;
   align-items: center;
-
-  @include respond-to(tablet) { padding-top: 120px; }
+  position: relative;
+  overflow: hidden;
 
   @include respond-to(mobile) {
     padding-top: 90px;
-    margin-top: 1em;
     align-items: flex-start;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
+  }
+
+}
+
+// ── VPK Watermark ─────────────────────────────────────────────────────────────
+
+.hero-watermark {
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(8rem, 22vw, 22rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+
+  .theme-light & {
+    -webkit-text-stroke-color: rgba($light-text, 0.1);
+  }
+
+  .theme-dark & {
+    -webkit-text-stroke-color: rgba($dark-text, 0.1);
+  }
+
+  @include respond-to(tablet) {
+    font-size: clamp(6rem, 28vw, 16rem);
+  }
+
+  @include respond-to(mobile) {
+    display: none;
   }
 }
 
+// ── Content ───────────────────────────────────────────────────────────────────
+
 .hero-content {
-  max-width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 1600px) { max-width: 90%; }
-
-  @include respond-to(mobile) { margin-top: 1.5rem; }
+  position: relative;
+  z-index: 1;
 }
 
-// ============================================
-// STATUS BAR
-// ============================================
+// ── Name ──────────────────────────────────────────────────────────────────────
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3rem, 8.5vw + 0.5rem, 9rem);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.5rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.08s both;
+}
+
+.hero-fn {
+  display: block;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: #ffffff; }
+}
+
+.hero-ln {
+  display: block;
+
+  .theme-light & {
+    color: var(--accent-color);
+  }
+
+  .theme-dark & {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-color);
+  }
+}
+
+// ── Accent divider ────────────────────────────────────────────────────────────
+
+.hero-divider {
+  width: 3rem;
+  height: 2px;
+  background: var(--accent-color);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.16s both;
+}
+
+// ── Role / subtitle ───────────────────────────────────────────────────────────
+
+.hero-role {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  margin: 0 0 1.75rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.22s both;
+
+  .theme-light & { color: rgba($light-text, 0.88); }
+  .theme-dark &  { color: rgba($dark-text, 0.92); }
+}
+
+.hero-role-line {
+  display: inline;
+
+  &::after {
+    content: ' ';
+  }
+}
+
+// ── Status bar ────────────────────────────────────────────────────────────────
 
 .hero-status-bar {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 1.75rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease;
-  order: 3; // below subtitle on ALL layouts
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
 
   @include respond-to(mobile) {
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
-    gap: 0.75rem;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
   }
 }
 
-// "Open to Work" badge — always green, intentionally not section accent
-.hero-status-badge {
+.hero-avail-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.2px;
+  gap: 0.45rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
 
   .theme-light & {
-    background: rgba($green-light, 0.1);
+    border: 1px solid $green-light;
     color: $green-light;
-    border: 1px solid rgba($green-light, 1);
+    background: rgba($green-light, 0.1);
   }
-
   .theme-dark & {
-    background: rgba($green-dark, 0.1);
+    border: 1px solid $green-dark;
     color: $green-dark;
-    border: 1px solid rgba($green-dark, 1);
+    background: rgba($green-dark, 0.1);
   }
 }
 
-// Always green — open to work indicator
 .status-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
   animation: pulse 2.5s ease-in-out infinite;
@@ -86,128 +179,109 @@
   .theme-dark &  { background: $green-dark; }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.6; transform: scale(0.85); }
+.hero-meta-sep {
+  font-size: 0.75rem;
+
+  .theme-light & { color: rgba($light-text, 0.38); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
 }
 
-.hero-location {
+.hero-meta {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-
-  .theme-light & { color: rgba($light-text, 0.55); }
-  .theme-dark &  { color: rgba($dark-text, 0.45); }
-
-  svg { flex-shrink: 0; }
-}
-
-// ============================================
-// HERO TEXT
-// ============================================
-
-.hero-title {
-  font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  animation: fadeInUp 0.8s ease 0.1s both;
-  order: 1;
-  color: var(--section-accent);
-
-  @include respond-to(mobile) {
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    margin-bottom: 0.75rem;
-  }
-}
-
-.hero-subtitle {
-  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.5rem);
+  gap: 0.3rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 2rem;
-  opacity: 0.95;
-  animation: fadeInUp 0.8s ease 0.2s both;
-  order: 2;
 
-  @include respond-to(mobile) {
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
-    margin-bottom: 0.5rem;
-  }
+  .theme-light & { color: rgba($light-text, 0.7); }
+  .theme-dark &  { color: rgba($dark-text, 0.6); }
 }
 
-.hero-tagline {
-  font-size: clamp(1.1rem, 1.5vw + 0.3rem, 1.5rem);
-  line-height: 1.8;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  opacity: 0.9;
-  animation: fadeInUp 0.8s ease 0.3s both;
-  order: 4;
-
-  @include respond-to(mobile) {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-}
-
-// ============================================
-// HERO LINKS
-// ============================================
+// ── Links ─────────────────────────────────────────────────────────────────────
 
 .hero-links {
   display: flex;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: 0.875rem;
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease 0.4s both;
-  order: 5;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.38s both;
 
-  @include respond-to(mobile) { gap: 0.75rem; }
+  @include respond-to(mobile) {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .hero-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: clamp(0.75rem, 1.5vw, 1.25rem) clamp(1.5rem, 3vw, 2.5rem);
+  gap: 0.6rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  letter-spacing: 0.02em;
   transition: $transition-quick;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  background: var(--section-accent);
 
-  .theme-light & { color: $light-bg; }
-  .theme-dark &  { color: $dark-bg; font-weight: 800; }
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    .theme-light & { color: $light-bg; }
-    .theme-dark &  { color: $dark-bg; }
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
-
-  &:visited,
-  &:link,
-  &:active {
-    .theme-light & { color: $light-bg; }
-    .theme-dark &  { color: $dark-bg; }
-  }
-
-  svg { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15)); }
 
   @include respond-to(mobile) {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.95rem;
-    gap: 0.5rem;
-    svg { width: 18px; height: 18px; }
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
   }
 }
 
+.hero-link-primary {
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+
+  .theme-light & { color: #fff; }
+  .theme-dark &  { color: $dark-bg; font-weight: 700; }
+
+  &:hover {
+    opacity: 0.86;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.hero-link-secondary {
+  background: transparent;
+
+  .theme-light & {
+    border: 1px solid rgba($light-text, 0.18);
+    color: rgba($light-text, 0.75);
+  }
+
+  .theme-dark & {
+    border: 1px solid rgba($dark-text, 0.16);
+    color: rgba($dark-text, 0.7);
+  }
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+}
+
+// ── Animations ────────────────────────────────────────────────────────────────
+
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.78); }
 }
