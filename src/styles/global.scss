@@ -39,53 +39,17 @@ body {
 // ============================================
 
 .theme-light {
-  background: $light-bg;
+  background-color: $light-bg;
   color: $light-text;
-
-  &.accent-red    { --accent-color: #{$red-light};    --bg-tint: rgba(234, 67, 53, 0.015); }
-  &.accent-blue   { --accent-color: #{$blue-light};   --bg-tint: rgba(66, 133, 244, 0.015); }
-  &.accent-yellow { --accent-color: #{$yellow-light}; --bg-tint: rgba(251, 188, 4, 0.015); }
-  &.accent-green  { --accent-color: #{$green-light};  --bg-tint: rgba(52, 168, 83, 0.015); }
-  &.accent-orange { --accent-color: #{$orange-light}; --bg-tint: rgba(255, 109, 0, 0.015); }
-  &.accent-purple { --accent-color: #{$purple-light}; --bg-tint: rgba(161, 66, 244, 0.015); }
+  --accent-color: #{$accent-light};
+  --section-accent: #{$accent-light};
 }
 
 .theme-dark {
-  background: $dark-bg;
+  background-color: $dark-bg;
   color: $dark-text;
-
-  &.accent-red    { --accent-color: #{$red-dark};    --bg-tint: rgba(255, 107, 107, 0.025); }
-  &.accent-blue   { --accent-color: #{$blue-dark};   --bg-tint: rgba(77, 159, 255, 0.025); }
-  &.accent-yellow { --accent-color: #{$yellow-dark}; --bg-tint: rgba(255, 217, 61, 0.025); }
-  &.accent-green  { --accent-color: #{$green-dark};  --bg-tint: rgba(107, 207, 127, 0.025); }
-  &.accent-orange { --accent-color: #{$orange-dark}; --bg-tint: rgba(255, 152, 0, 0.03); }
-  &.accent-purple { --accent-color: #{$purple-dark}; --bg-tint: rgba(199, 125, 255, 0.025); }
-}
-
-// ============================================
-// SECTION ACCENT COLORS
-// To retheme a section: change only its two lines below (light + dark).
-// Components read var(--section-accent) — no component SCSS needs to change.
-// ============================================
-
-.theme-light {
-  .hero-section       { --section-accent: #{$red-light}; }
-  .about-section      { --section-accent: #{$orange-light}; }
-  .education-section  { --section-accent: #{$purple-light}; }
-  .experience-section { --section-accent: #{$blue-light}; }
-  .projects-section   { --section-accent: #{$green-light}; }
-  .skills-section     { --section-accent: #{$yellow-light}; }
-  .contact-section    { --section-accent: #{$red-light}; }
-}
-
-.theme-dark {
-  .hero-section       { --section-accent: #{$red-dark}; }
-  .about-section      { --section-accent: #{$orange-dark}; }
-  .education-section  { --section-accent: #{$purple-dark}; }
-  .experience-section { --section-accent: #{$blue-dark}; }
-  .projects-section   { --section-accent: #{$green-dark}; }
-  .skills-section     { --section-accent: #{$yellow-dark}; }
-  .contact-section    { --section-accent: #{$red-dark}; }
+  --accent-color: #{$accent-dark};
+  --section-accent: #{$accent-dark};
 }
 
 // ============================================
@@ -111,16 +75,6 @@ body {
     padding: clamp(3rem, 8vh, 5rem) 0;
   }
 
-  // In your local src/styles/global.scss — find this block and add orange:
-
-  &[data-accent="red"],
-  &[data-accent="blue"],
-  &[data-accent="yellow"],
-  &[data-accent="green"],
-  &[data-accent="purple"],
-  &[data-accent="orange"] {
-    background: var(--bg-tint);
-  }
 }
 
 .container {
@@ -153,9 +107,11 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  color: var(--section-accent);
   position: relative;
   display: inline-block;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 
   @include respond-to(mobile) {
     font-size: 2rem;
@@ -187,11 +143,6 @@ body {
 // SELECTION COLORS
 // ============================================
 
-// Section-scoped selection — each section gets its own fixed accent color
-[data-accent] ::selection  { background: var(--section-accent); color: #fff; }
-[data-accent] ::-moz-selection { background: var(--section-accent); color: #fff; }
-
-// Fallback for elements outside sections (e.g. navbar)
 ::selection     { background: var(--accent-color); color: white; }
 ::-moz-selection { background: var(--accent-color); color: white; }
 

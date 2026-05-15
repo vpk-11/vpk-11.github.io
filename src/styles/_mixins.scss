@@ -45,7 +45,12 @@
   overflow: hidden;
 
   .theme-light & {
+    background: $light-surface;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .theme-dark & {
+    background: $dark-surface;
   }
 
   @include respond-to(mobile) {
