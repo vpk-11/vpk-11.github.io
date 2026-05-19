@@ -424,14 +424,13 @@
   padding: 2rem 2.25rem;
   animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
 
-  // Accent tint blended into surface — matches dark mode feel without harming readability
   .theme-light & {
-    background: color-mix(in srgb, var(--section-accent) 2%, #{$light-surface});
+    background: $light-surface;
     border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
   }
   .theme-dark & {
-    background: color-mix(in srgb, var(--section-accent) 2%, #{$dark-surface});
+    background: $dark-surface;
     border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   }
