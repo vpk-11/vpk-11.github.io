@@ -73,11 +73,11 @@
 
   // Base backgrounds
   .theme-dark & {
-    background: rgba($dark-text, 0.03);
+    background: $dark-surface;
   }
 
   .theme-light & {
-    background: rgba($light-text, 0.02);
+    background: $light-surface;
   }
 
   // ── Hover state ──────────────────────────────
@@ -88,7 +88,7 @@
     &::after  { transform: translateX(100%); }
 
     .theme-dark & {
-      background: rgba($dark-text, 0.055);
+      background: #1e1e1e;
       border-color: color-mix(in srgb, var(--section-accent) 50%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.3),
@@ -97,7 +97,7 @@
     }
 
     .theme-light & {
-      background: rgba($light-text, 0.03);
+      background: #e6e6e9;
       border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.12),
@@ -134,15 +134,14 @@
 // ============================================
 
 .pr-title {
-  color: var(--section-accent);
-
   &::after {
     background: var(--section-accent);
   }
 }
 
 .pr-ct {
-  color: var(--section-accent);
+  .theme-dark & { color: $dark-text; }
+  .theme-light & { color: $light-text; }
 }
 
 .card-title {
@@ -249,6 +248,10 @@
   margin-top: auto;
   padding-top: 1.25rem;
   gap: 1rem;
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.08); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.08); }
 }
 
 .project-links {
@@ -310,8 +313,9 @@
   transition: all 0.2s ease;
 
   .theme-light & {
-    border-color: rgba($light-text, 0.15);
-    color: rgba($light-text, 0.55);
+    background: $light-bg;
+    border-color: rgba($light-text, 0.3);
+    color: rgba($light-text, 0.75);
     &:hover { border-color: var(--section-accent); color: var(--section-accent); }
     &.active {
       background: var(--section-accent); border-color: var(--section-accent); color: #fff;
@@ -319,8 +323,9 @@
     }
   }
   .theme-dark & {
-    border-color: rgba($dark-text, 0.15);
-    color: rgba($dark-text, 0.5);
+    background: $dark-surface;
+    border-color: rgba($dark-text, 0.25);
+    color: rgba($dark-text, 0.75);
     &:hover { border-color: var(--section-accent); color: var(--section-accent); }
     &.active {
       background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg;
@@ -342,8 +347,8 @@
   font-size: 0.7rem;
   font-weight: 700;
 
-  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.55); }
-  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.5); }
+  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.72); }
+  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.7); }
 }
 
 // ============================================
@@ -351,20 +356,31 @@
 // ============================================
 
 .pr-view-btn {
-  align-self: flex-start;
-  padding: 0.45rem 1.1rem;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.93rem;
   font-weight: 600;
   cursor: pointer;
-  background: transparent;
   transition: $transition-quick;
-  color: var(--section-accent);
-  border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
 
-  .theme-light & { &:hover { background: var(--section-accent); color: #fff; } }
-  .theme-dark &  { &:hover { background: var(--section-accent); color: $dark-bg; } }
+  svg {
+    flex-shrink: 0;
+    color: var(--section-accent);
+    transition: transform $transition-quick;
+  }
+
+  .theme-light & {
+    color: rgba($light-text, 0.7);
+    &:hover { color: var(--section-accent); svg { transform: translateX(4px); } }
+  }
+  .theme-dark & {
+    color: rgba($dark-text, 0.65);
+    &:hover { color: var(--section-accent); svg { transform: translateX(4px); } }
+  }
 
   &:focus:not(:focus-visible) { outline: none; }
 }
@@ -408,14 +424,13 @@
   padding: 2rem 2.25rem;
   animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
 
-  // Accent tint blended into surface — matches dark mode feel without harming readability
   .theme-light & {
-    background: color-mix(in srgb, var(--section-accent) 2%, #{$light-surface});
+    background: $light-surface;
     border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
   }
   .theme-dark & {
-    background: color-mix(in srgb, var(--section-accent) 2%, #{$dark-surface});
+    background: $dark-surface;
     border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   }
@@ -469,7 +484,9 @@
   line-height: 1.25;
   margin-bottom: 0.75rem;
   padding-right: 2.5rem;  // clear of close button
-  color: var(--section-accent);
+
+  .theme-dark & { color: $dark-text; }
+  .theme-light & { color: $light-text; }
 }
 
 .pr-modal-links {
@@ -496,4 +513,10 @@
   line-height: 1.8;
   opacity: 0.87;
   margin-bottom: 1.5rem;
+
+  p {
+    margin-bottom: 1rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
 }

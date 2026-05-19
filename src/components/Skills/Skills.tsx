@@ -1,34 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { ExternalLink, Award, Wrench } from 'lucide-react';
-import { setAccent } from '../../store/accentSlice';
 import skillsData from '../../data/skills.json';
 import certificationsData from '../../data/certifications.json';
 import type { Skill, Certification } from '../../types';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
-  const dispatch = useDispatch();
   const skills = skillsData as Skill[];
   const certifications = certificationsData as Certification[];
   const [tab, setTab] = useState<'skills' | 'certifications'>('skills');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) dispatch(setAccent('yellow'));
-        });
-      },
-      { threshold: 0.5 }
-    );
-    const section = document.getElementById('skills');
-    if (section) observer.observe(section);
-    return () => observer.disconnect();
-  }, [dispatch]);
-
   return (
-    <section id="skills" className="section skills-section" data-accent="yellow">
+    <section id="skills" className="section skills-section">
       <div className="container">
         <h2 className="sk-t section-title">Skills & Certifications</h2>
 

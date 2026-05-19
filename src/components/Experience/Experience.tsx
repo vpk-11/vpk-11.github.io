@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import { Calendar, MapPin } from 'lucide-react';
-import { setAccent } from '../../store/accentSlice';
 import experiencesData from '../../data/experiences.json';
 import { formatText } from '../../utils/formatText';
 import type { Experience as ExperienceType } from '../../types';
@@ -32,7 +30,7 @@ function useWindowWidth() {
 const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
   <div className="experience-card enter">
     <h3 className="ex-ct card-title">{exp.role}</h3>
-    <h4 className="card-subtitle">{exp.company}</h4>
+    <h4 className="ex-cs card-subtitle">{exp.company}</h4>
     <div className="card-meta">
       <div className="meta-item">
         <Calendar size={14} className="ex-mi meta-icon" />
@@ -48,11 +46,18 @@ const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
       <ul className="ex-achievements">
         {exp.achievements.map((item, i) => (
           <li key={i} className="ex-achievement-item">
-            <span className="ex-bullet" aria-hidden="true" />
+            <span className="ex-bullet" aria-hidden="true">—</span>
             <span>{formatText(item)}</span>
           </li>
         ))}
       </ul>
+    )}
+    {exp.tech && exp.tech.length > 0 && (
+      <div className="ex-tech-stack">
+        {exp.tech.map(t => (
+          <span key={t} className="ex-tech-tag">{t}</span>
+        ))}
+      </div>
     )}
   </div>
 );
@@ -60,7 +65,6 @@ const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 const Experience: React.FC = () => {
-  const dispatch    = useDispatch();
   const experiences = experiencesData as ExperienceType[];
   const total       = experiences.length;
   const viewH       = useWindowHeight();
@@ -77,16 +81,6 @@ const Experience: React.FC = () => {
   const [mobileIdx, setMobileIdx] = useState(0);
 
   const touchStartX = useRef<number | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) dispatch(setAccent('blue')); }),
-      { threshold: 0.3 }
-    );
-    const el = document.getElementById('experience');
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, [dispatch]);
 
   const handleTimelineClick = useCallback((i: number) => {
     if (isMobile) { setMobileIdx(i); return; }
@@ -114,7 +108,7 @@ const Experience: React.FC = () => {
     .filter(i => i < total);
 
   return (
-    <section id="experience" className="section experience-section" data-accent="blue">
+    <section id="experience" className="section experience-section">
       <div className="container">
         <h2 className="ex-t section-title">Experience</h2>
 

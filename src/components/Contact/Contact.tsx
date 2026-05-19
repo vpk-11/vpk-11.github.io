@@ -1,43 +1,22 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Linkedin, Github, FileText } from 'lucide-react';
-import { setAccent } from '../../store/accentSlice';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import './Contact.scss';
 
 const Contact: React.FC = () => {
-  const dispatch = useDispatch();
   const profile = profileData as ProfileData;
   const year = new Date().getFullYear();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            dispatch(setAccent('red'));
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    const section = document.getElementById('contact');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, [dispatch]);
-
   return (
-    <section id="contact" className="section contact-section" data-accent="red">
+    <section id="contact" className="section contact-section">
       <div className="container">
 
         {/* Main contact content */}
         <div className="contact-main">
           <h2 className="co-t section-title">Get In Touch</h2>
           <p className="contact-text">
-            I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!
+            {profile.txt}
           </p>
 
           {/* What I'm looking for */}

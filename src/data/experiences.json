@@ -10,7 +10,8 @@
       "Built **React UI components**, **.NET APIs**, and **Python** backend utilities for portfolio management applications handling **$400B+ in assets**, owning each feature from API design and component architecture through backend logic and deployment.",
       "Designed the **OpenShift deployment architecture** for the team, **achieving 100% adoption** across the division, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
       "Owned **on-call production operations** across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable."
-    ]
+    ],
+    "tech": ["React", ".NET", "Python", "OpenShift", "Agile", "CI/CD"]
   },
   {
     "id": 2,
@@ -18,12 +19,13 @@
     "company": "ISRO Yukthi Sanchita - NIT Trichy",
     "location": "Trichy, TN, India",
     "duration": "Mar 2024 - Jul 2024",
-    "description": "Internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *“Development of Computer Vision System for an AI Assistant.”*",
+    "description": "Internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *'Development of Computer Vision System for an AI Assistant.'*",
     "achievements": [
       "Designed a **modular computer vision pipeline** integrating four image-processing models in **Python (PyTorch and TensorFlow)**, with a unified interface enabling seamless model swapping across frameworks without modifying pipeline logic.",
       "Reduced real-time image-processing **latency** by over **90%** using threading, parallel processing, and internal REST API calls, enabling four models to run concurrently rather than sequentially.",
       "Architected the system for **high availability and scalability**, with independently upgradeable components so models can be replaced without destabilizing the pipeline."
-    ]
+    ],
+    "tech": ["Python", "PyTorch", "TensorFlow", "Computer Vision", "REST APIs", "Threading"]
   },
   {
     "id": 3,
@@ -35,6 +37,7 @@
     "achievements": [
       "Built a **full-stack MERN application** for Capital Markets Technology, owning UI components, REST APIs, backend logic, and UX design end-to-end.",
       "**Integrated ML modules** for financial analysis and prediction, extending the application into a **fully functional prototype** supporting complete end-to-end workflows."
-    ]
+    ],
+    "tech": ["React", "Node.js", "MongoDB", "Express", "REST APIs", "Python", "ML"]
   }
 ]

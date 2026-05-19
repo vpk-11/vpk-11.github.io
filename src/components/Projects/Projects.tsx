@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { ExternalLink, Github, X } from 'lucide-react';
-import { setAccent } from '../../store/accentSlice';
+import { ExternalLink, Github, X, MoveRight } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 import { formatText } from '../../utils/formatText';
 import type { Project } from '../../types';
@@ -21,7 +19,6 @@ function toAbsolute(url?: string) {
 }
 
 const Projects: React.FC = () => {
-  const dispatch = useDispatch();
   const projects = projectsData as Project[];
   const [selected, setSelected] = useState<Project | null>(null);
 
@@ -64,22 +61,12 @@ const Projects: React.FC = () => {
     };
   }, [selected, handleKeyDown]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) dispatch(setAccent('green')); }),
-      { threshold: 0.3 }
-    );
-    const section = document.getElementById('projects');
-    if (section) observer.observe(section);
-    return () => observer.disconnect();
-  }, [dispatch]);
-
   const colClass = filtered.length === 4
     ? 'pr-cols-4'
     : `pr-cols-${Math.min(filtered.length, 3)}`;
 
   return (
-    <section id="projects" className="section projects-section" data-accent="green">
+    <section id="projects" className="section projects-section">
       <div className="container">
         <h2 className="pr-title section-title">Projects</h2>
 
@@ -144,7 +131,7 @@ const Projects: React.FC = () => {
                         className="project-link"
                         onClick={e => e.stopPropagation()}
                       >
-                        <Github size={14} />
+                        <Github size={13} />
                         GitHub
                       </a>
                     )}
@@ -156,13 +143,13 @@ const Projects: React.FC = () => {
                         className="project-link"
                         onClick={e => e.stopPropagation()}
                       >
-                        <ExternalLink size={14} />
+                        <ExternalLink size={13} />
                         Live Demo
                       </a>
                     )}
                   </div>
                   <button className="pr-view-btn" onClick={() => setSelected(project)}>
-                    View Details
+                    View <MoveRight size={14} />
                   </button>
                 </div>
               </div>
@@ -226,7 +213,9 @@ const Projects: React.FC = () => {
             </div>
 
             <div className="pr-modal-body">
-              {formatText(selected.description)}
+              {selected.description.split('\n\n').map((para, i) => (
+                <p key={i}>{formatText(para)}</p>
+              ))}
             </div>
 
             <div className="tech-stack">

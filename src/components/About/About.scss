@@ -32,85 +32,85 @@
 // ============================================
 
 .about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
   p {
-    font-size: clamp(1rem, 1.2vw + 0.3rem, 1.25rem);
+    font-size: clamp(1rem, 1.2vw + 0.3rem, 1.2rem);
     line-height: 1.9;
     opacity: 0.88;
+    margin: 0;
   }
 }
 
 // ============================================
-// RIGHT — PRINCIPLES CARD
+// RIGHT — PRINCIPLES PANEL
 // ============================================
 
 .about-principles {
-  position: relative;
-  padding: 2rem 2rem 1.75rem 2.5rem;
   border-radius: 8px;
   border: 1px solid;
   overflow: hidden;
-  transition: $transition-smooth;
 
-  .theme-light & {
-    background: rgba($light-text, 0.02);
-    border-color: rgba($light-text, 0.1);
-  }
-
-  .theme-dark & {
-    background: rgba($dark-text, 0.03);
-    border-color: rgba($dark-text, 0.08);
-  }
-
-  // Accent bar on the left
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    border-radius: 2px 0 0 2px;
-    background: var(--section-accent);
-  }
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1); }
 }
 
 .principles-label {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid;
+  font-family: 'Space Grotesk', monospace;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.35); }
+  .theme-light & {
+    color: rgba($light-text, 0.4);
+    border-color: rgba($light-text, 0.08);
+  }
+  .theme-dark & {
+    color: rgba($dark-text, 0.35);
+    border-color: rgba($dark-text, 0.08);
+  }
 }
 
 .principles-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .principle-item {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  font-size: 0.975rem;
-  line-height: 1.6;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  border-bottom: 1px solid;
+  transition: $transition-quick;
 
-  .theme-light & { color: rgba($light-text, 0.85); }
-  .theme-dark &  { color: rgba($dark-text, 0.8); }
+  &:last-child { border-bottom: none; }
+
+  .theme-light & {
+    color: rgba($light-text, 0.8);
+    border-color: rgba($light-text, 0.07);
+    &:hover { background: rgba($light-text, 0.03); }
+  }
+  .theme-dark & {
+    color: rgba($dark-text, 0.75);
+    border-color: rgba($dark-text, 0.07);
+    &:hover { background: rgba($dark-text, 0.03); }
+  }
 }
 
-.principle-dot {
-  display: block;
+.principle-chevron {
   flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  margin-top: 0.55rem;
-  background: var(--section-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-top: 0.18rem;
+  color: var(--section-accent);
+  user-select: none;
 }

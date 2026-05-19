@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Menu, X } from 'lucide-react';
-import type { RootState } from '../../store/store';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navbar.scss';
 
@@ -9,7 +7,6 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const accent = useSelector((state: RootState) => state.accent.color);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,10 +73,9 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav 
-      className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`} 
+    <nav
+      className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`}
       data-section={activeSection}
-      data-accent={accent}
     >
       <div className="nav-container">
         <div className="nav-brand">

@@ -3,10 +3,6 @@ export interface ThemeState {
   mode: 'light' | 'dark';
 }
 
-export interface AccentState {
-  color: string;
-}
-
 // Data Types
 export interface ProfileData {
   name: string;
@@ -22,6 +18,7 @@ export interface ProfileData {
   targetRoles: string[];
   workAuthorization: string;
   principles: string[];
+  txt: string;
 }
 
 export interface Project {
@@ -49,6 +46,7 @@ export interface Experience {
   location: string;
   description: string;
   achievements?: string[];
+  tech?: string[];
 }
 
 export interface Education {
