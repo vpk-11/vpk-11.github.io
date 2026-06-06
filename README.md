@@ -1,6 +1,6 @@
 # Portfolio Website
-<!-- version: v4.0.0 -->
-![Version](https://img.shields.io/badge/version-v4.0.0-blue)
+<!-- version: v4.0.1 -->
+![Version](https://img.shields.io/badge/version-v4.0.1-blue)
 
 Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Three.js, Redux Toolkit, and SCSS. Features a Google-inspired section accent color system, animated Three.js particle wave background, and full dark/light mode support.
 
@@ -125,6 +125,7 @@ Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-p
 
 ---
 ## Changelog
+- **v4.0.1** (2026-06-06) — patch bump
 - **v4.0.0** (2026-05-19) — major bump
 - **v3.9.0** (2026-05-14) — minor bump
 - **v3.8.1** (2026-04-17) — patch bump
