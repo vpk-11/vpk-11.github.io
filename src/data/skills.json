@@ -2,12 +2,12 @@
   {
     "category": "Programming Languages",
     "items": [
-      "C",
-      "C++",
       "Python",
-      "JavaScript",
       "TypeScript",
+      "JavaScript",
       "C#",
+      "C++",
+      "C",
       "SQL"
     ]
   },
@@ -16,6 +16,7 @@
     "items": [
       "React",
       "Redux",
+      "Vite",
       "HTML5",
       "CSS3",
       "SCSS / SASS",
@@ -25,11 +26,13 @@
   {
     "category": "Backend",
     "items": [
+      "FastAPI",
       "Node.js",
       "Express.js",
       "ASP.NET",
       "Flask",
-      "FastAPI",
+      "LiteLLM",
+      "Pydantic v2",
       "MongoDB",
       "MySQL",
       "OracleSQL",
@@ -46,6 +49,9 @@
       "PyTorch",
       "TensorFlow",
       "Scikit-learn",
+      "Large Language Models (LLM)",
+      "Agentic AI / Pipelines",
+      "Deep Learning",
       "Computer Vision",
       "Natural Language Processing"
     ]
@@ -59,17 +65,22 @@
     ]
   },
   {
-    "category": "Tools & Others",
+    "category": "Tools & DevOps",
     "items": [
+      "Docker",
+      "Kubernetes",
+      "OpenShift",
+      "GitHub Actions",
+      "Jenkins",
+      "CI/CD",
+      "Linux",
       "Git",
       "GitHub",
-      "Webpack",
       "Postman",
+      "Webpack",
       "Agile",
       "Blockchain",
-      "DevOps",
-      "OpenShift",
-      "CI/CD"
+      "DevOps"
     ]
   }
 ]

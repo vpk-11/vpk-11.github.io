@@ -8,10 +8,10 @@
     "description": "**Software Engineer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
       "Built **React UI components**, **.NET APIs**, and **Python** backend utilities for portfolio management applications handling **$400B+ in assets**, owning each feature from API design and component architecture through backend logic and deployment.",
-      "Designed the **OpenShift deployment architecture** for the team, **achieving 100% adoption** across the division, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
-      "Owned **on-call production operations** across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable."
+      "Built the **OpenShift (Kubernetes)** deployment architecture for the team, achieving **100% adoption across the division**, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
+      "Managed **on-call production operations** across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable."
     ],
-    "tech": ["React", ".NET", "Python", "OpenShift", "Agile", "CI/CD"]
+    "tech": ["React", ".NET", "Python", "OpenShift", "Kubernetes", "Docker", "GitHub Actions", "Agile", "CI/CD"]
   },
   {
     "id": 2,
@@ -19,13 +19,13 @@
     "company": "ISRO Yukthi Sanchita - NIT Trichy",
     "location": "Trichy, TN, India",
     "duration": "Mar 2024 - Jul 2024",
-    "description": "Internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributed to the project *'Development of Computer Vision System for an AI Assistant.'*",
+    "description": "Research internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)** in collaboration with **ISRO Yukti Sanchita**, contributing to the project *'Development of Computer Vision System for an AI Assistant'*: a real-time **computer vision data pipeline** for AI-driven image analysis.",
     "achievements": [
       "Designed a **modular computer vision pipeline** integrating four image-processing models in **Python (PyTorch and TensorFlow)**, with a unified interface enabling seamless model swapping across frameworks without modifying pipeline logic.",
-      "Reduced real-time image-processing **latency** by over **90%** using threading, parallel processing, and internal REST API calls, enabling four models to run concurrently rather than sequentially.",
-      "Architected the system for **high availability and scalability**, with independently upgradeable components so models can be replaced without destabilizing the pipeline."
+      "Reduced real-time image-processing **latency** by over **90%** using threading, **parallel processing**, and internal REST API calls, enabling four models to run concurrently rather than sequentially.",
+      "Engineered each model component for independent retraining and replacement, enabling **continuous pipeline improvement** without restarting the full system or modifying upstream or downstream logic."
     ],
-    "tech": ["Python", "PyTorch", "TensorFlow", "Computer Vision", "REST APIs", "Threading"]
+    "tech": ["Python", "PyTorch", "TensorFlow", "Computer Vision", "Deep Learning", "REST APIs", "Parallel Processing", "Data Pipelines"]
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "description": "**Software Development Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
       "Built a **full-stack MERN application** for Capital Markets Technology, owning UI components, REST APIs, backend logic, and UX design end-to-end.",
-      "**Integrated ML modules** for financial analysis and prediction, extending the application into a **fully functional prototype** supporting complete end-to-end workflows."
+      "Integrated **ML modules** for financial time-series analysis and prediction into the MERN application, enabling end-to-end prototype workflows demonstrated to Capital Markets Technology stakeholders."
     ],
     "tech": ["React", "Node.js", "MongoDB", "Express", "REST APIs", "Python", "ML"]
   }
