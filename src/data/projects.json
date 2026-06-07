@@ -12,6 +12,17 @@
   },
   {
     "id": 2,
+    "title": "RiskWise",
+    "shortDescription": "Maritime supply chain intelligence platform with **3-agent LLM orchestration** that evaluates shipping route risk in **11-17 seconds** by aggregating **4 live data sources** and returning structured risk assessments with trend history.",
+    "description": "Built a **production-ready maritime risk intelligence platform** that takes a shipping route and returns a comprehensive real-time risk assessment. Input a route (\"Shanghai to Rotterdam\") and the system fetches live disruptions from **4 public sources in parallel** (NASA EONET, USGS Earthquakes, BBC/AJZ/NYT RSS, Osiris geopolitical intel), runs three specialized **LLM agents** that each process the data differently, and returns a **0-100 risk score** with 4-factor breakdown, narrative explanation, alternative routes, and historical trend analysis.\n\n**Three agents, three concerns:** Athena gathers intelligence (which disruptions affect this specific route). Hermes quantifies risk across 4 independent factors (weather, labor, geopolitical, congestion). Apollo generates safer alternatives if risk exceeds threshold. Each agent takes structured JSON in, produces structured JSON out, making the pipeline modular and independently improvable.\n\nDesigned a **cascading fallback system** for reliability: live sources → database → LLM synthesis, ensuring zero-failure evaluations even when external APIs are unavailable. Built a **4-page React 19 dashboard** (MapView with Google Maps visualization, RouteAnalyzer with live agent terminal, ActiveDisruptions threat feed with freshness metadata, RouteHistory with trend sparklines). Type-safe end-to-end with **tRPC** and **Drizzle ORM** on MySQL, supporting 5 relational tables and persistent evaluation history.",
+    "tech": ["React", "TypeScript", "tRPC", "Express", "Drizzle ORM", "MySQL", "Google Maps", "Recharts", "Tailwind CSS", "LLM", "Agentic AI", "Real-time Data"],
+    "demoLink": "",
+    "githubLink": "",
+    "featured": true,
+    "categories": ["Fullstack", "ML", "Agentic AI", "Real-time"]
+  },
+  {
+    "id": 3,
     "title": "Donna",
     "shortDescription": "**AI business assistant** over iMessage that routes admin commands, client replies, and cold inbound leads through separate **LLM-powered handlers**.",
     "description": "Built a **multi-party conversational AI assistant** in Python/FastAPI that routes messages from the admin, active clients, and cold inbound leads through separate **LLM-powered handlers**, managing bookings, conflict resolution, emergency cancellations, and client onboarding entirely over natural language.\n\nEnforced **async-only LLM discipline** throughout: all LiteLLM calls use `acompletion()` to prevent event loop blocking, and every send writes `last_donna_message` to **ConversationState** so the intent parser resolves follow-up replies correctly. Built a **dynamic handoff** that detects stuck cold leads and relays live admin messages to the client with no pipeline disruption.\n\nDesigned a **MessagingClient abstraction layer** (WebSocket for V1, Linq stub for V2) keeping all core logic transport-agnostic, mirroring Narada's provider abstraction pattern. Ships with full **conflict resolution**: slot detection, swap proposals, client confirmation flows, and one-time vs. recurring booking logic.",
@@ -22,7 +33,7 @@
     "categories": ["ML", "Agentic AI"]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Deepfake Deconstruction",
     "shortDescription": "**Modular deep-learning pipeline** to reverse-engineer face-swap **deepfakes**, identifying source images with **85%+** accuracy on 10,000+ images.",
     "description": "Designed a modular deep-learning pipeline to **reverse-engineer face-swap deepfakes**, identifying the original source image with **85%+ accuracy** on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling **component-level model swapping** for improved scalability. Addressed a **real-world AI safety problem** by going beyond detection to trace the origins of manipulation.",
@@ -33,7 +44,7 @@
     "categories": ["ML"]
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "DKeeper",
     "shortDescription": "**Decentralized note-taking app** with Google Keep-style UI backed by ICP blockchain smart contracts, achieving **100% data immutability**.",
     "description": "Built a decentralized note-taking app with **Google Keep-style UI** using React and state hooks, allowing users to create, delete, and persist notes on the ICP blockchain. Integrated secure, tamper-proof storage leveraging blockchain smart contracts, ensuring **100% data immutability**. Applied **frontend best practices:** responsive design, accessibility compliance, and component-based architecture.",
@@ -44,7 +55,7 @@
     "categories": ["Fullstack", "Blockchain"]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "File Hosting Service",
     "shortDescription": "**Secure file hosting service** with user authentication, MongoDB-backed unique file IDs, and REST API routes to upload, list, and download.",
     "description": "Built a file hosting service with **user authentication**, enabling secure access to individual files. Implemented a **unique ID system** stored in **MongoDB**, associating each file with its user for efficient retrieval. Developed **server-side storage** for uploaded files with **REST API** routes to upload, list, and download files.",
@@ -54,7 +65,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "URL Shortener",
     "shortDescription": "**URL shortener** with unique ID-based redirection, MongoDB-backed URL mapping, and a clean interface for link submission and retrieval.",
     "description": "Built a URL shortener with **unique ID-based redirection logic**, storing original URL mappings in **MongoDB** with fast lookup design. Implemented a simple user-facing interface for URL submission and retrieval, with **REST API** routes handling redirect resolution server-side.",
@@ -64,7 +75,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Data Compression Analysis",
     "shortDescription": "Comparative analysis of **Huffman Encoding**, **LZW**, and **LZ77** algorithms, evaluating time and space complexity tradeoffs across test cases.",
     "description": "Implemented and compared **Huffman Encoding, LZW, and LZ77** compression algorithms in C/C++, analyzing **time and space complexity** across multiple test cases. Tabulated results to identify efficiency tradeoffs across algorithm types and input characteristics, highlighting conditions where each approach performs best.",
