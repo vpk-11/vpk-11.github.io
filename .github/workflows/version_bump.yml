@@ -33,7 +33,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Skip if push is a PR merge commit
+      - name: Skip if push is a PR merge commit or graphify-only
         id: guard
         if: github.event_name == 'push'
         run: |
@@ -43,6 +43,15 @@ jobs:
           if [ "$PARENT_COUNT" -gt "1" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
             echo "Merge commit detected — skipping push bump, PR event will handle major bump."
+            exit 0
+          fi
+
+          # Skip if all changed files are under graphify-out/.
+          CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD)
+          NON_GRAPHIFY=$(echo "$CHANGED" | grep -v '^graphify-out/' | grep -v '^$' || true)
+          if [ -z "$NON_GRAPHIFY" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "graphify-out only changes — skipping version bump."
           else
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
@@ -69,14 +78,14 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED"
 
-          NON_DATA=$(echo "$CHANGED" | grep -v '^src/data/' | grep -v '^$' || true)
+          NON_DATA=$(echo "$CHANGED" | grep -v '^src/data/' | grep -v '^graphify-out/' | grep -v '^$' || true)
 
           if [ -z "$NON_DATA" ]; then
             echo "type=patch" >> $GITHUB_OUTPUT
-            echo "All changes are data-only → patch bump"
+            echo "All changes are data-only — patch bump"
           else
             echo "type=minor" >> $GITHUB_OUTPUT
-            echo "Code changes detected → minor bump"
+            echo "Code changes detected — minor bump"
           fi
 
       - name: Compute new version
