@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Narada",
     "shortDescription": "7-step **agentic AI search** pipeline that extracts source-traced entity tables from the web through a single **LiteLLM** integration.",
-    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level.\n\nDesigned a **provider abstraction layer over a single LiteLLM integration**, supporting **4 LLM providers** (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step model configuration** so each stage of the pipeline can run on a different model for cost and quality tradeoffs.\n\nDeployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
+    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level.\n\nDesigned a **provider abstraction layer over a single LiteLLM integration**, supporting **major LLM providers** (like OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step model configuration** so each stage of the pipeline can run on a different model for cost and quality tradeoffs.\n\nDeployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
     "tech": ["Python", "FastAPI", "React", "Pydantic v2", "LLM", "LiteLLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
     "demoLink": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "title": "Donna",
-    "shortDescription": "**AI executive assistant** for service businesses that routes admin and client conversations through a central orchestrator and isolated **per-client agents**, validated by an **MCP tool layer**.",
+    "shortDescription": "**AI executive assistant** for service businesses: isolated **per-client agents**, central orchestrator, and **MCP-gated** mutations.",
     "description": "Built an **AI executive assistant** for service businesses (gyms, studios, consultants) in Python/FastAPI: a **central orchestrator** handles admin-facing requests while an **isolated agent spawns per active client conversation**, eliminating cross-client context bleed and resolving scheduling conflicts without manual intervention.\n\nGated every database mutation (booking, rescheduling, cancellation) behind a **typed MCP tool layer**, so LLM output is validated before it ever reaches the database, backed by **Redis** for the agent registry and per-conversation state.\n\nLayered an **LLM judge** that routes each client message to autonomous handling, admin notification, or escalation, alongside a **two-stage LLM firewall** screening inbound messages for prompt injection and outbound messages for hallucinated bookings.",
     "tech": ["Python", "FastAPI", "Redis", "FastMCP", "LiteLLM", "SQLAlchemy", "Pydantic v2", "Multi-Agent Systems"],
     "demoLink": "",
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "title": "Clinical Copilot",
-    "shortDescription": "**Multi-agent clinical chart analyzer** that converts patient notes into a SOAP note, red-flag list, and medication reconciliation, with deterministic fallback in every agent.",
+    "shortDescription": "**6-agent clinical chart pipeline** that outputs a SOAP note, red-flag list, and medication reconciliation, with **deterministic fallback** per agent.",
     "description": "Built a **6-agent clinical chart analysis pipeline** in Python/FastAPI that converts raw patient notes into a structured SOAP note, red-flag list, medication reconciliation, and medical timeline, with **deterministic fallback extraction** in every agent so the system returns clinically usable output even on LLM failure.\n\nRan **medication and timeline agents in parallel** while sequencing risk and synthesis downstream, and integrated the **OpenFDA drug label API** to enrich LLM-extracted medication data with real interaction lookups beyond text summarization.\n\nWired **W&B Weave observability** into every agent call at the framework level and generated **two distinct report formats** from a single analysis run: a clinician-facing structured report and a patient-facing plain-language explanation.",
     "tech": ["Python", "FastAPI", "LiteLLM", "W&B Weave", "OpenFDA API", "React", "Tailwind CSS", "Multi-Agent Systems"],
     "demoLink": "",
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "title": "DKeeper",
-    "shortDescription": "**Decentralized note-taking app** on the Internet Computer, with a React frontend calling a Motoko canister directly through generated Candid bindings.",
+    "shortDescription": "**Decentralized note-taking app** on the Internet Computer: React calls a Motoko canister directly via **Candid bindings**, no REST API.",
     "description": "Built a decentralized note-taking app on the **Internet Computer**, with a **React** frontend calling a **Motoko** backend canister directly through generated **Candid bindings**, removing the need for a REST API or any backend server in between.\n\nPersisted every note in **canister stable memory** instead of a database or browser storage, so data survives canister upgrades and the app has zero dependency on centralized server infrastructure.\n\nEnforced **type safety end-to-end** via the canister's typed Candid interface, with TypeScript bindings generated directly from the contract so frontend and backend types can never drift out of sync.",
     "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain", "Smart Contracts"],
     "demoLink": "",

@@ -89,7 +89,7 @@ All portfolio data lives in `src/data/`. Edit JSON, push to main, GitHub Actions
 | `profile.json` | Name, bio, location, availability, principles, social links, target roles |
 | `experiences.json` | Work experience entries |
 | `education.json` | Degrees and coursework |
-| `projects.json` | Projects with categories, links, tech tags |
+| `projects.json` | Projects with categories, links, tech tags — `shortDescription` must be ≤ 150 chars (raw string incl. `**` markers) |
 | `skills.json` | Skill categories and items |
 | `certifications.json` | Certifications with issuer and date |
 
