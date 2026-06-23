@@ -105,11 +105,6 @@
         0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
     }
 
-    .project-link-arrow {
-      transform: translateX(6px);
-      opacity: 1;
-    }
-
     .tech-tag {
       opacity: 1;
     }
@@ -215,26 +210,6 @@
 @keyframes livePulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.5; transform: scale(0.8); }
-}
-
-// ============================================
-// FEATURED BADGE — absolute top right (offset if live badge present)
-// ============================================
-
-.featured-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
-  color: var(--section-accent);
-  background: color-mix(in srgb, var(--section-accent) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--section-accent) 30%, transparent);
 }
 
 // ============================================

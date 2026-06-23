@@ -122,14 +122,6 @@
   .theme-dark &  { color: rgba($dark-text, 0.92); }
 }
 
-.hero-role-line {
-  display: inline;
-
-  &::after {
-    content: ' ';
-  }
-}
-
 // ── Status bar ────────────────────────────────────────────────────────────────
 
 .hero-status-bar {

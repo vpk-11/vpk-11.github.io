@@ -28,7 +28,7 @@ function useWindowWidth() {
 // ─── Single card ─────────────────────────────────────────────────────────────
 
 const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
-  <div className="experience-card enter">
+  <div className="experience-card">
     <h3 className="ex-ct card-title">{exp.role}</h3>
     <h4 className="ex-cs card-subtitle">{exp.company}</h4>
     <div className="card-meta">
