@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
         )}
 
         {/* Cards */}
-        <div className={`projects-grid ${colClass}`}>
+        <div className={`projects-grid ${colClass}`} role="tabpanel" aria-label={activeTab}>
           {filtered.map(project => {
             const rawShort = project.shortDescription
               ? truncate(project.shortDescription, SHORT_DESC_LIMIT)
@@ -166,18 +166,19 @@ const Projects: React.FC = () => {
             onClick={e => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
+            aria-labelledby="modal-title"
           >
-            {/* Fix 4: X button — top right of modal */}
             <button
               className="pr-modal-close"
               onClick={() => setSelected(null)}
               aria-label="Close"
+              // eslint-disable-next-line jsx-a11y/no-autofocus
+              autoFocus
             >
               <X size={16} />
             </button>
 
-            {/* Fix 2: title row only — no live badge here */}
-            <h2 className="pr-modal-title">{selected.title}</h2>
+            <h2 id="modal-title" className="pr-modal-title">{selected.title}</h2>
 
             {/* Links row — with live dot inline if live */}
             <div className="pr-modal-links">
