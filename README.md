@@ -2,15 +2,14 @@
 <!-- version: v4.1.3 -->
 ![Version](https://img.shields.io/badge/version-v4.1.3-blue)
 
-Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Three.js, Redux Toolkit, and SCSS. Features a Google-inspired section accent color system, animated Three.js particle wave background, and full dark/light mode support.
+Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Three.js, Redux Toolkit, and SCSS. Features an animated Three.js particle wave background and full dark/light mode support.
 
 Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 
 ## Features
 
 - **Three.js Particle Wave** - Animated WebGL background that adapts to the active theme
-- **Dynamic Accent Colors** - Each section carries its own Google-palette accent color; navbar and UI elements update on scroll
-- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux
+- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux; royal blue light / copper dark accent
 - **Fully Responsive** - Mobile swipe gestures, hamburger menu, adaptive layouts at 768px and 1024px
 - **Content via JSON** - All portfolio data lives in `src/data/`; no rebuild needed for content changes
 - **TypeScript strict mode** - No `any`, interfaces throughout
@@ -21,7 +20,7 @@ Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 |---|---|
 | UI | React 19 + TypeScript |
 | Build | Vite |
-| State | Redux Toolkit (theme + accent slices) |
+| State | Redux Toolkit (theme slice) |
 | Styles | SCSS modules (`@use` not `@import`) |
 | Background | Three.js (WebGL particle wave) |
 | Icons | Lucide React |
@@ -68,7 +67,6 @@ src/
     certifications.json
   store/
     store.ts
-    accentSlice.ts
     themeSlice.ts
   styles/
     _variables.scss
@@ -95,17 +93,14 @@ All portfolio data lives in `src/data/`. Edit JSON, push to main, GitHub Actions
 | `skills.json` | Skill categories and items |
 | `certifications.json` | Certifications with issuer and date |
 
-## Section Accent Colors
+## Accent Colors
 
-| Section | Light | Dark |
-|---|---|---|
-| Hero | `#EA4335` red | `#FF6B6B` |
-| About | `#FF6D00` orange | `#FF9800` |
-| Education | `#A142F4` purple | `#C77DFF` |
-| Experience | `#4285F4` blue | `#4D9FFF` |
-| Skills | `#FBBC04` yellow | `#FFD93D` |
-| Projects | `#34A853` green | `#6BCF7F` |
-| Contact | `#4285F4` blue | `#4D9FFF` |
+Single global accent pair across all sections:
+
+| Theme | Color |
+|---|---|
+| Light | `#2563EB` (royal blue) |
+| Dark | `#E09B5F` (copper) |
 
 ## Responsive Breakpoints
 
