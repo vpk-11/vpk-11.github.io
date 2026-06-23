@@ -10,11 +10,23 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 
+  &.sk-cols-1 { grid-template-columns: 1fr; }
+  &.sk-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.sk-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &.sk-cols-4 { grid-template-columns: repeat(2, 1fr); }
+
+  @include respond-to(tablet) {
+    &.sk-cols-3,
+    &.sk-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @include respond-to(mobile) {
-    grid-template-columns: 1fr;  // Stack on mobile
+    &.sk-cols-1,
+    &.sk-cols-2,
+    &.sk-cols-3,
+    &.sk-cols-4 { grid-template-columns: 1fr; }
   }
 }
 

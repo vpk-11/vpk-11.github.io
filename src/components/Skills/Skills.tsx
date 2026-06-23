@@ -37,9 +37,12 @@ const Skills: React.FC = () => {
           </button>
         </div>
 
-        {/* Skills panel — original layout unchanged */}
-        {tab === 'skills' && (
-          <div className="skills-grid sk-panel">
+        {/* Skills panel */}
+        {tab === 'skills' && (() => {
+          const n = skills.length;
+          const colClass = n === 4 ? 'sk-cols-4' : `sk-cols-${Math.min(n, 3)}`;
+          return (
+          <div className={`skills-grid ${colClass} sk-panel`}>
             {skills.map(skillGroup => (
               <div key={skillGroup.category} className="skill-category">
                 <h4 className="category-title">{skillGroup.category}</h4>
@@ -51,7 +54,8 @@ const Skills: React.FC = () => {
               </div>
             ))}
           </div>
-        )}
+          );
+        })()}
 
         {/* Certifications panel — 3-col grid, first row spans remainder */}
         {tab === 'certifications' && (() => {
