@@ -10,7 +10,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  // 2 columns side by side
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 
   @include respond-to(mobile) {
@@ -24,7 +24,7 @@
   .theme-dark & {
     background: $dark-surface;
     &:hover {
-      background: #1b1b1b;
+      background: $dark-surface-hover;
       border-color: var(--section-accent);
     }
   }
@@ -32,7 +32,7 @@
   .theme-light & {
     background: $light-surface;
     &:hover {
-      background: #eaeaed;
+      background: $light-surface-hover;
       border-color: var(--section-accent);
     }
   }
@@ -144,7 +144,7 @@
   .theme-dark & {
     background: $dark-surface;
     &:hover {
-      background: #1b1b1b;
+      background: $dark-surface-hover;
       border-color: var(--section-accent);
       transform: translateX(8px);
     }
@@ -153,7 +153,7 @@
   .theme-light & {
     background: $light-surface;
     &:hover {
-      background: #eaeaed;
+      background: $light-surface-hover;
       border-color: var(--section-accent);
       transform: translateX(8px);
     }

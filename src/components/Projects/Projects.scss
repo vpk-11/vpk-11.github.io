@@ -88,7 +88,7 @@
     &::after  { transform: translateX(100%); }
 
     .theme-dark & {
-      background: #1e1e1e;
+      background: $dark-surface-hover;
       border-color: color-mix(in srgb, var(--section-accent) 50%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.3),
@@ -97,7 +97,7 @@
     }
 
     .theme-light & {
-      background: #e6e6e9;
+      background: $light-surface-hover;
       border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
       box-shadow:
         0 16px 40px rgba(0, 0, 0, 0.12),

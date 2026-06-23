@@ -15,7 +15,7 @@
   .theme-dark & {
     background: $dark-surface;
     &:hover {
-      background: #1b1b1b;
+      background: $dark-surface-hover;
       border-color: var(--section-accent);
     }
   }
@@ -23,7 +23,7 @@
   .theme-light & {
     background: $light-surface;
     &:hover {
-      background: #eaeaed;
+      background: $light-surface-hover;
       border-color: var(--section-accent);
     }
   }
@@ -41,56 +41,56 @@
 }
 
 .ed-cs {
-  color: var(--section-accent) !important;
-  opacity: 1 !important;
+  color: var(--section-accent);
   font-family: $font-mono;
 }
 
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+.education-card {
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    @include respond-to(mobile) { gap: 1rem; }
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .meta-icon { flex-shrink: 0; }
 }
-
-.card-subtitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-
-  .theme-dark & { opacity: 0.9; }
-  .theme-light & { opacity: 0.85; }
-}
-
-.card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 1.25rem;
-
-  @include respond-to(mobile) { gap: 1rem; }
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.meta-icon { flex-shrink: 0; }
 
 .ed-mi {
   color: var(--section-accent);
 }
 
-.card-duration,
-.card-location {
-  font-size: 0.95rem;
-  font-weight: 500;
-  font-style: italic;
-  font-family: $font-mono;
+.education-card {
+  .card-duration,
+  .card-location {
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-style: italic;
+    font-family: $font-mono;
 
-  .theme-dark & { color: rgba($dark-text, 0.75); }
-  .theme-light & { color: rgba($light-text, 0.7); }
+    .theme-dark & { color: rgba($dark-text, 0.75); }
+    .theme-light & { color: rgba($light-text, 0.7); }
+  }
 }
 
 .ed-gpa.card-gpa {

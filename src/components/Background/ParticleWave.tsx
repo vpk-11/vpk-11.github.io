@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../store/store';
+import './ParticleWave.scss';
 
 // Dark mode:  rgba(255,255,255,0.07) → white at 7%
 // Light mode: rgba(100,116,139,0.20) → slate at 20%
@@ -138,15 +139,7 @@ const ParticleWave: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      style={{
-        position: 'fixed',
-        inset: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: 0,
-        pointerEvents: 'none',
-        display: 'block',
-      }}
+      className="particle-wave-canvas"
     />
   );
 };
