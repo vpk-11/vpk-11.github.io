@@ -1,29 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import experiencesData from '../../data/experiences.json';
 import { formatText } from '../../utils/formatText';
 import type { Experience as ExperienceType } from '../../types';
+import { useWindowWidth, useWindowHeight } from '../../hooks/useViewport';
 import './Experience.scss';
-
-function useWindowHeight() {
-  const [h, setH] = useState(window.innerHeight);
-  useEffect(() => {
-    const fn = () => setH(window.innerHeight);
-    window.addEventListener('resize', fn);
-    return () => window.removeEventListener('resize', fn);
-  }, []);
-  return h;
-}
-
-function useWindowWidth() {
-  const [w, setW] = useState(window.innerWidth);
-  useEffect(() => {
-    const fn = () => setW(window.innerWidth);
-    window.addEventListener('resize', fn);
-    return () => window.removeEventListener('resize', fn);
-  }, []);
-  return w;
-}
 
 // ─── Single card ─────────────────────────────────────────────────────────────
 

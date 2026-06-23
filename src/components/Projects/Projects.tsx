@@ -7,7 +7,6 @@ import './Projects.scss';
 
 const SHORT_DESC_LIMIT = 150;
 
-// Truncate raw string THEN format — so bold/italic still renders on card
 function truncate(str: string, limit: number) {
   if (str.length <= limit) return str;
   return str.slice(0, str.lastIndexOf(' ', limit)) + '…';
@@ -17,6 +16,150 @@ function toAbsolute(url?: string) {
   if (!url) return undefined;
   return url.startsWith('http') ? url : `https://${url}`;
 }
+
+// ─── ProjectCard ──────────────────────────────────────────────────────────────
+
+interface ProjectCardProps {
+  project: Project;
+  onSelect: (p: Project) => void;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
+  const rawShort = project.shortDescription
+    ? truncate(project.shortDescription, SHORT_DESC_LIMIT)
+    : truncate(project.description, SHORT_DESC_LIMIT);
+
+  return (
+    <div
+      className="project-card"
+      onClick={() => { if (window.innerWidth > 1024) onSelect(project); }}
+    >
+      {project.demoLink && (
+        <span className="live-badge">
+          <span className="live-dot" aria-hidden="true" />
+          Live
+        </span>
+      )}
+
+      <h3 className="pr-ct card-title">{project.title}</h3>
+      <p className="card-description">{formatText(rawShort)}</p>
+
+      <div className="tech-stack">
+        {project.tech.map(t => (
+          <span key={t} className="tech-tag">{t}</span>
+        ))}
+      </div>
+
+      <div className="pr-card-footer">
+        <div className="project-links">
+          {project.githubLink && (
+            <a
+              href={toAbsolute(project.githubLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+              onClick={e => e.stopPropagation()}
+            >
+              <Github size={13} />
+              GitHub
+            </a>
+          )}
+          {project.demoLink && (
+            <a
+              href={toAbsolute(project.demoLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link"
+              onClick={e => e.stopPropagation()}
+            >
+              <ExternalLink size={13} />
+              Live Demo
+            </a>
+          )}
+        </div>
+        <button className="pr-view-btn" onClick={() => onSelect(project)}>
+          View <MoveRight size={14} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// ─── ProjectModal ─────────────────────────────────────────────────────────────
+
+interface ProjectModalProps {
+  project: Project;
+  onClose: () => void;
+}
+
+const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
+  <div className="pr-modal-backdrop" onClick={onClose}>
+    <div
+      className="pr-modal"
+      onClick={e => e.stopPropagation()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <button
+        className="pr-modal-close"
+        onClick={onClose}
+        aria-label="Close"
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus
+      >
+        <X size={16} />
+      </button>
+
+      <h2 id="modal-title" className="pr-modal-title">{project.title}</h2>
+
+      <div className="pr-modal-links">
+        {project.githubLink && (
+          <a
+            href={toAbsolute(project.githubLink)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link"
+          >
+            <Github size={14} />
+            GitHub
+          </a>
+        )}
+        {project.demoLink && (
+          <a
+            href={toAbsolute(project.demoLink)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link"
+          >
+            <ExternalLink size={14} />
+            Live Demo
+          </a>
+        )}
+        {project.demoLink && (
+          <span className="pr-modal-live">
+            <span className="live-dot" aria-hidden="true" />
+            Live
+          </span>
+        )}
+      </div>
+
+      <div className="pr-modal-body">
+        {project.description.split('\n\n').map((para, i) => (
+          <p key={i}>{formatText(para)}</p>
+        ))}
+      </div>
+
+      <div className="tech-stack">
+        {project.tech.map(t => (
+          <span key={t} className="tech-tag">{t}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+// ─── Projects ─────────────────────────────────────────────────────────────────
 
 const Projects: React.FC = () => {
   const projects = projectsData as Project[];
@@ -70,7 +213,6 @@ const Projects: React.FC = () => {
       <div className="container">
         <h2 className="pr-title section-title">Projects</h2>
 
-        {/* Tabs */}
         {tabs.length > 0 && (
           <div className="pr-tabs" role="tablist">
             {tabs.map(tab => (
@@ -88,144 +230,15 @@ const Projects: React.FC = () => {
           </div>
         )}
 
-        {/* Cards */}
         <div className={`projects-grid ${colClass}`} role="tabpanel" aria-label={activeTab}>
-          {filtered.map(project => {
-            const rawShort = project.shortDescription
-              ? truncate(project.shortDescription, SHORT_DESC_LIMIT)
-              : truncate(project.description, SHORT_DESC_LIMIT);
-
-            return (
-              <div
-                key={project.id}
-                className="project-card"
-                onClick={() => { if (window.innerWidth > 1024) setSelected(project); }}
-              >
-
-                {/* Live badge — top right, only when demoLink exists */}
-                {project.demoLink && (
-                  <span className="live-badge">
-                    <span className="live-dot" aria-hidden="true" />
-                    Live
-                  </span>
-                )}
-
-                <h3 className="pr-ct card-title">{project.title}</h3>
-
-                {/* Fix 1: formatText applied to truncated string */}
-                <p className="card-description">{formatText(rawShort)}</p>
-
-                <div className="tech-stack">
-                  {project.tech.map(t => (
-                    <span key={t} className="tech-tag">{t}</span>
-                  ))}
-                </div>
-
-                <div className="pr-card-footer">
-                  <div className="project-links">
-                    {project.githubLink && (
-                      <a
-                        href={toAbsolute(project.githubLink)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                        onClick={e => e.stopPropagation()}
-                      >
-                        <Github size={13} />
-                        GitHub
-                      </a>
-                    )}
-                    {project.demoLink && (
-                      <a
-                        href={toAbsolute(project.demoLink)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                        onClick={e => e.stopPropagation()}
-                      >
-                        <ExternalLink size={13} />
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
-                  <button className="pr-view-btn" onClick={() => setSelected(project)}>
-                    View <MoveRight size={14} />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
+          {filtered.map(project => (
+            <ProjectCard key={project.id} project={project} onSelect={setSelected} />
+          ))}
         </div>
       </div>
 
-      {/* Modal */}
       {selected && (
-        <div className="pr-modal-backdrop" onClick={() => setSelected(null)}>
-          <div
-            className="pr-modal"
-            onClick={e => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            <button
-              className="pr-modal-close"
-              onClick={() => setSelected(null)}
-              aria-label="Close"
-              // eslint-disable-next-line jsx-a11y/no-autofocus
-              autoFocus
-            >
-              <X size={16} />
-            </button>
-
-            <h2 id="modal-title" className="pr-modal-title">{selected.title}</h2>
-
-            {/* Links row — with live dot inline if live */}
-            <div className="pr-modal-links">
-              {selected.githubLink && (
-              <a
-                href={toAbsolute(selected.githubLink)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-              >
-                <Github size={14} />
-                GitHub
-              </a>
-              )}
-              {selected.demoLink && (
-                <a
-                  href={toAbsolute(selected.demoLink)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  <ExternalLink size={14} />
-                  Live Demo
-                </a>
-              )}
-              {/* Fix 2: live indicator inline with links, not floating */}
-              {selected.demoLink && (
-                <span className="pr-modal-live">
-                  <span className="live-dot" aria-hidden="true" />
-                  Live
-                </span>
-              )}
-            </div>
-
-            <div className="pr-modal-body">
-              {selected.description.split('\n\n').map((para, i) => (
-                <p key={i}>{formatText(para)}</p>
-              ))}
-            </div>
-
-            <div className="tech-stack">
-              {selected.tech.map(t => (
-                <span key={t} className="tech-tag">{t}</span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <ProjectModal project={selected} onClose={() => setSelected(null)} />
       )}
     </section>
   );
