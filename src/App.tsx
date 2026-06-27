@@ -12,11 +12,13 @@ import Education from './components/Education/Education';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import ParticleWave from './components/Background/ParticleWave';
+import { useDynamicFavicon } from './hooks/useDynamicFavicon';
 import './App.scss';
 
 const AppContent: React.FC = () => {
   const theme = useSelector((state: RootState) => state.theme.mode);
   const dispatch = useDispatch();
+  useDynamicFavicon();
 
   useEffect(() => {
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
