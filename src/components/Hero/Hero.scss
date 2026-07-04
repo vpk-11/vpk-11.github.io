@@ -162,6 +162,7 @@
   animation-name: ticker-scroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-direction: reverse;
 }
 
 .ticker-item {

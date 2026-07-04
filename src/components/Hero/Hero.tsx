@@ -5,6 +5,11 @@ import type { ProfileData } from '../../types';
 import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
 import './Hero.scss';
 
+// Repeats per half of the ticker track — keeps the loop seamless on
+// ultra-wide screens where a single pass of the phrase list is
+// narrower than the viewport.
+const TICKER_REPEAT = 6;
+
 const Hero: React.FC = () => {
   const profile = profileData as ProfileData;
   const [firstName, ...rest] = profile.name.split(' ');
@@ -38,7 +43,8 @@ const Hero: React.FC = () => {
                 className="ticker-track"
                 style={{ animationDuration: `${RIPPLE_CYCLE_SECONDS}s` }}
               >
-                {[...tickerPhrases, ...tickerPhrases].map((phrase, i) => (
+                {/* repeated enough times that one half never runs out of width on wide screens */}
+                {Array.from({ length: TICKER_REPEAT * 2 }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
                   <span className="ticker-item" key={`${phrase}-${i}`}>
                     <span className="pulse" />
                     {phrase}
