@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
 
   // Track active section for navbar highlighting
   useEffect(() => {
-    const sections = ['hero', 'about', 'education', 'experience', 'skills', 'projects', 'contact'];
+    const sections = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'resume', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
@@ -55,6 +55,7 @@ const Navbar: React.FC = () => {
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
     { name: 'Skills', id: 'skills' },
+    { name: 'Resume', id: 'resume' },
     { name: 'Contact', id: 'contact' }
   ];
 

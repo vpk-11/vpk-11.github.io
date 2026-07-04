@@ -9,6 +9,7 @@ export const SECTION_ORDER = [
   'experience',
   'projects',
   'skills',
+  'resume',
   'contact',
 ] as const;
 

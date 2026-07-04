@@ -10,6 +10,7 @@ import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import About from './components/About/About';
+import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
 import ParticleWave from './components/Background/ParticleWave';
 import { useDynamicFavicon } from './hooks/useDynamicFavicon';
@@ -48,6 +49,7 @@ const AppContent: React.FC = () => {
       <Experience />
       <Projects />
       <Skills />
+      <Resume />
       <Contact />
     </div>
     </>

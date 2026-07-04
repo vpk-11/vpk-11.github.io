@@ -44,7 +44,16 @@
     },
     "projects": {
       "headline": "Everything I've {accent}shipped{/accent}."
+    },
+    "resume": {
+      "eyebrow": "RESUME",
+      "headline": "Everything you need, {accent}one page{/accent}."
     }
+  },
+  "resumeMeta": {
+    "updated": "Jul 2026",
+    "format": "PDF · 1 page · ATS-safe",
+    "bestFor": "Backend · AI/ML · Full-Stack"
   },
   "aboutStats": [
     { "value": "3.95", "label": "GPA · MS CS, UMass" },
