@@ -11,7 +11,6 @@ import Projects from './components/Projects/Projects';
 import Education from './components/Education/Education';
 import About from './components/About/About';
 import Resume from './components/Resume/Resume';
-import Contact from './components/Contact/Contact';
 import BeyondTheCode from './components/BeyondTheCode/BeyondTheCode';
 import ClosingCTA from './components/ClosingCTA/ClosingCTA';
 import Footer from './components/Footer/Footer';
@@ -53,7 +52,6 @@ const AppContent: React.FC = () => {
       <Projects />
       <Skills />
       <Resume />
-      <Contact />
       <BeyondTheCode />
       <ClosingCTA />
       <Footer />

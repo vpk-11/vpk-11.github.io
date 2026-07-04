@@ -10,7 +10,6 @@ export const SECTION_ORDER = [
   'projects',
   'skills',
   'resume',
-  'contact',
   'beyond-the-code',
   'closing-cta',
 ] as const;
