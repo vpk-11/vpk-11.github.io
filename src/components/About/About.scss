@@ -1,12 +1,46 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.ab-t {
-  color: var(--section-accent);
+// ============================================
+// EYEBROW + HEADLINE
+// ============================================
 
-  &::after {
-    background: var(--section-accent);
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 1px;
   }
+
+  b {
+    color: var(--section-accent);
+    font-weight: 500;
+  }
+
+  .theme-light & { color: rgba($light-text, 0.4); &::before { background: rgba($light-text, 0.4); } }
+  .theme-dark &  { color: rgba($dark-text, 0.38); &::before { background: rgba($dark-text, 0.38); } }
+}
+
+.about-headline {
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.2vw + 0.5rem, 2.9rem);
+  line-height: 1.12;
+  max-width: 820px;
+  margin: 0 0 2.25rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 }
 
 // ============================================
@@ -15,102 +49,160 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3.5rem;
   align-items: start;
 
   @include respond-to(tablet) {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
-
-  @include respond-to(mobile) { gap: 2.5rem; }
 }
 
 // ============================================
-// LEFT — BIO
+// LEFT — BIO PANEL (scrim fix, About only)
 // ============================================
 
-.about-bio {
+.about-panel {
+  border-radius: 10px;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  backdrop-filter: blur(6px);
+
+  .theme-dark &  { background: rgba(10, 10, 10, 0.72); }
+  .theme-light & { background: rgba(255, 255, 255, 0.72); }
+}
+
+.dropcap-p,
+.about-body-p {
+  font-size: clamp(0.95rem, 1vw + 0.3rem, 1rem);
+  line-height: 1.85;
+  margin: 0 0 1.15rem;
+
+  .theme-light & { color: rgba($light-text, 0.75); }
+  .theme-dark &  { color: rgba($dark-text, 0.7); }
+}
+
+.dropcap-p::first-letter {
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 0.7;
+  float: left;
+  margin: 0.4rem 0.5rem -0.4rem 0;
+  color: var(--section-accent);
+}
+
+.about-pullquote {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  border-left: 2px solid var(--section-accent);
+  padding: 0.15rem 0 0.15rem 1.4rem;
+  margin: 1.6rem 0 1.75rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+// ============================================
+// RIGHT — SIDEBAR CARDS
+// ============================================
+
+.about-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-
-  p {
-    font-size: clamp(1rem, 1.2vw + 0.3rem, 1.2rem);
-    line-height: 1.9;
-    opacity: 0.88;
-    margin: 0;
-  }
+  gap: 0.9rem;
 }
 
-// ============================================
-// RIGHT — PRINCIPLES PANEL
-// ============================================
-
-.about-principles {
-  border-radius: 8px;
+.side-card {
+  border-radius: 10px;
   border: 1px solid;
-  overflow: hidden;
+  padding: 1.25rem 1.4rem;
 
   .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
   .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1); }
 }
 
-.principles-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid;
-  font-family: 'Space Grotesk', sans-serif;
+.side-card-title {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
 
-  .theme-light & {
-    color: rgba($light-text, 0.4);
-    border-color: rgba($light-text, 0.08);
-  }
-  .theme-dark & {
-    color: rgba($dark-text, 0.35);
-    border-color: rgba($dark-text, 0.08);
-  }
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 }
 
-.principles-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.principle-item {
+.side-list {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  border-bottom: 1px solid;
-  transition: $transition-quick;
+  flex-direction: column;
+  gap: 0.55rem;
+}
 
-  &:last-child { border-bottom: none; }
+.side-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  line-height: 1.5;
 
-  .theme-light & {
-    color: rgba($light-text, 0.8);
-    border-color: rgba($light-text, 0.07);
-    &:hover { background: rgba($light-text, 0.03); }
-  }
-  .theme-dark & {
-    color: rgba($dark-text, 0.75);
-    border-color: rgba($dark-text, 0.07);
-    &:hover { background: rgba($dark-text, 0.03); }
+  .theme-light & { color: rgba($light-text, 0.72); }
+  .theme-dark &  { color: rgba($dark-text, 0.68); }
+}
+
+.side-list-item .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--section-accent);
+}
+
+// ============================================
+// STAT ROW
+// ============================================
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  margin-top: 2.75rem;
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+}
+
+.stat-card {
+  padding: 1.6rem 1.75rem 0;
+  border-left: 1px solid transparent;
+
+  &:not(:first-child) {
+    .theme-light & { border-left-color: rgba($light-text, 0.1); }
+    .theme-dark &  { border-left-color: rgba($dark-text, 0.1); }
   }
 }
 
-.principle-chevron {
-  flex-shrink: 0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  margin-top: 0.18rem;
+.stat-num {
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin-bottom: 0.6rem;
   color: var(--section-accent);
-  user-select: none;
+}
+
+.stat-label {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.38); }
 }

@@ -35,7 +35,8 @@
     },
     "about": {
       "eyebrow": "PROFILE_LOG",
-      "headline": "Good systems stay {accent}boring{/accent} in production."
+      "headline": "Good systems stay {accent}boring{/accent} in production.",
+      "tagline": "If it can't survive a 2am incident, it isn't done."
     },
     "skills": {
       "headline": "The {accent}tools{/accent} I reach for."
