@@ -312,14 +312,14 @@
 }
 
 .hero-link-secondary {
-  background: transparent;
-
   .theme-light & {
+    background: $light-surface;
     border: 1px solid rgba($light-text, 0.18);
     color: rgba($light-text, 0.75);
   }
 
   .theme-dark & {
+    background: $dark-surface;
     border: 1px solid rgba($dark-text, 0.16);
     color: rgba($dark-text, 0.7);
   }

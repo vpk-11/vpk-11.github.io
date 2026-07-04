@@ -121,8 +121,8 @@
   border: 1px solid;
   padding: 1.25rem 1.4rem;
 
-  .theme-light & { background: rgba(10, 10, 10, 0.035); border-color: rgba($light-text, 0.1); }
-  .theme-dark &  { background: rgba(255, 255, 255, 0.035); border-color: rgba($dark-text, 0.1); }
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { background: $dark-surface;           border-color: rgba($dark-text, 0.1); }
 }
 
 .side-card-title {
