@@ -48,6 +48,10 @@
     "resume": {
       "eyebrow": "RESUME",
       "headline": "Everything you need, {accent}one page{/accent}."
+    },
+    "contact": {
+      "eyebrow": "CONTACT",
+      "headline": "Get in {accent}touch{/accent}."
     }
   },
   "resumeMeta": {
