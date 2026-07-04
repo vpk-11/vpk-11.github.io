@@ -1,12 +1,11 @@
 import React from 'react';
-import { Linkedin, Github, FileText } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import './Contact.scss';
 
 const Contact: React.FC = () => {
   const profile = profileData as ProfileData;
-  const year = new Date().getFullYear();
 
   return (
     <section id="contact" className="section contact-section">
@@ -44,42 +43,6 @@ const Contact: React.FC = () => {
             <Linkedin size={24} />
             <span>Message on LinkedIn</span>
           </a>
-        </div>
-
-        {/* Footer pinned to bottom */}
-        <div className="contact-footer">
-          <p className="footer-copyright">
-            © {year} Kaushik Parthasarathy. All rights reserved.
-          </p>
-          <div className="footer-links">
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={18} />
-            </a>
-            <a
-              href={profile.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-              aria-label="GitHub"
-            >
-              <Github size={18} />
-            </a>
-            <a
-              href={profile.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-              aria-label="Resume"
-            >
-              <FileText size={18} />
-            </a>
-          </div>
         </div>
 
       </div>

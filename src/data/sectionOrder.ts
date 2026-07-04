@@ -11,6 +11,7 @@ export const SECTION_ORDER = [
   'skills',
   'resume',
   'contact',
+  'beyond-the-code',
 ] as const;
 
 export type SectionId = typeof SECTION_ORDER[number];

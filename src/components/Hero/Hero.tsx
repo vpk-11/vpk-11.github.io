@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, FileText, MapPin, CalendarClock } from 'lucide-react';
+import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
@@ -98,13 +98,14 @@ const Hero: React.FC = () => {
               <FileText size={18} />
               <span>Resume</span>
             </a>
-            <a
+            {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
+            {/* <a
               href="#contact"
               className="hero-link hero-link-secondary"
             >
               <CalendarClock size={18} />
               <span>Book a Call</span>
-            </a>
+            </a> */}
           </div>
 
         </div>
