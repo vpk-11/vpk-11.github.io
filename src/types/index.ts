@@ -54,7 +54,6 @@ export interface ProfileData {
   availability: string;
   targetRoles: string[];
   workAuthorization: string;
-  principles: string[];
   txt: string;
   sectionHeadings?: SectionHeadings;
   aboutStats?: AboutStat[];
