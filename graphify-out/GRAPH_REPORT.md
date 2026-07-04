@@ -1,16 +1,16 @@
-# Graph Report - Portfolio  (2026-06-27)
+# Graph Report - Portfolio  (2026-07-04)
 
 ## Corpus Check
-- 34 files · ~12,225 words
+- 42 files · ~14,362 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 202 nodes · 242 edges · 15 communities
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.95)
+- 224 nodes · 310 edges · 16 communities (15 shown, 1 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1ce073b1`
+- Built from commit: `ee49b7ef`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,51 +26,48 @@
 - [[_COMMUNITY_Scroll + Nav Behavior|Scroll + Nav Behavior]]
 - [[_COMMUNITY_ESLint Config|ESLint Config]]
 - [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 13|Community 13]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 21 edges
 2. `compilerOptions` - 20 edges
 3. `compilerOptions` - 19 edges
-4. `Portfolio Website` - 13 edges
-5. `scripts` - 9 edges
-6. `formatText()` - 8 edges
-7. `RootState` - 6 edges
-8. `toAbsolute()` - 4 edges
-9. `ProjectCard()` - 4 edges
-10. `ProfileData` - 4 edges
+4. `sectionNumber()` - 17 edges
+5. `formatText()` - 16 edges
+6. `Portfolio Website` - 12 edges
+7. `ProfileData` - 11 edges
+8. `scripts` - 9 edges
+9. `RootState` - 6 edges
+10. `ClosingCTA()` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Red-accent favicon set for portfolio — Hanuman font, icon-red directory` --conceptually_related_to--> `Yellow-accent favicon set for portfolio — icon-yellow directory`  [INFERRED]
-  public/icon-red/about.txt → index.html
-- `index.html — Portfolio entry point` --references--> `Red-accent favicon set for portfolio — Hanuman font, icon-red directory`  [EXTRACTED]
-  index.html → public/icon-red/about.txt
+- `BeyondTheCode()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/BeyondTheCode/BeyondTheCode.tsx → src/data/sectionOrder.ts
+- `Education()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/Education/Education.tsx → src/data/sectionOrder.ts
+- `Skills()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/Skills/Skills.tsx → src/data/sectionOrder.ts
 - `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
   src/components/Experience/Experience.tsx → src/utils/formatText.tsx
-- `Wrap()` --calls--> `formatText()`  [EXTRACTED]
-  src/test/formatText.test.tsx → src/utils/formatText.tsx
-- `AppContent()` --calls--> `useDynamicFavicon()`  [EXTRACTED]
-  src/App.tsx → src/hooks/useDynamicFavicon.ts
+- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
+  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (15 total, 0 thin omitted)
+## Communities (16 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
-Cohesion: 0.15
-Nodes (10): ParticleWave(), THEME_COLORS, useDynamicFavicon(), AppContent(), AppDispatch, RootState, store, initialState (+2 more)
-
-### Community 1 - "Projects + Experience UI"
-Cohesion: 0.40
-Nodes (5): Red-accent favicon set for portfolio — Hanuman font, icon-red directory, Yellow-accent favicon set for portfolio — icon-yellow directory, Open Graph and Twitter card social sharing metadata, icon-red favicon set — Hanuman font, red accent, favicon generation metadata, index.html — Portfolio entry point
+Cohesion: 0.11
+Nodes (12): ParticleWave(), Contact(), THEME_COLORS, useDynamicFavicon(), AppContent(), AppDispatch, RootState, store (+4 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.20
-Nodes (14): ExpCard(), Experience(), useWindowHeight(), useWindowWidth(), ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps (+6 more)
+Cohesion: 0.17
+Nodes (16): About(), BeyondTheCode(), ClosingCTA(), SECTION_ORDER, SectionId, sectionNumber(), Education(), ExpCard() (+8 more)
 
 ### Community 3 - "Navbar + Redux Store"
-Cohesion: 0.16
-Nodes (9): About(), Contact(), Skills(), AccentState, Certification, Education, Experience, ProfileData (+1 more)
+Cohesion: 0.09
+Nodes (20): MINI_NAV, Skills(), AboutSidebar, AboutStat, BeyondTheCode, Certification, ClosingCta, CurrentlyBuildingItem (+12 more)
 
 ### Community 4 - "Skills + Certifications"
 Cohesion: 0.11
@@ -93,31 +90,36 @@ Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, jsx, lib, module, moduleDetection, moduleResolution (+13 more)
 
 ### Community 10 - "ESLint Config"
-Cohesion: 0.12
-Nodes (16): code:bash (pnpm install), code:bash (pnpm build      # production build → dist/), code:block3 (src/), Section Accent Colors, Accent Colors, Changelog, Deployment, Features (+8 more)
+Cohesion: 0.15
+Nodes (12): Accent Colors, Changelog, Deployment, Features, Local Development, Portfolio Website, Prerequisites, Project Structure (+4 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, moduleResolution, noEmit (+13 more)
 
+### Community 13 - "Community 13"
+Cohesion: 0.36
+Nodes (8): ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps, Projects(), toAbsolute(), truncate(), Project
+
 ## Knowledge Gaps
-- **126 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+121 more)
+- **139 isolated node(s):** `SectionHeading`, `HeroHeading`, `SectionHeadings`, `AboutStat`, `CurrentlyBuildingItem` (+134 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `App Entry + Composition` to `Skills + Certifications`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Accent + Type Definitions` to `Skills + Certifications`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **What connects `name`, `private`, `version` to the rest of the system?**
-  _126 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **What connects `SectionHeading`, `HeroHeading`, `SectionHeadings` to the rest of the system?**
+  _139 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.14624505928853754 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected._
+- **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
+  _Cohesion score 0.09057971014492754 - nodes in this community are weakly interconnected._
 - **Should `Skills + Certifications` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
 - **Should `App Entry + Composition` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
-- **Should `Particle Background` be split into smaller, more focused modules?**
-  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
