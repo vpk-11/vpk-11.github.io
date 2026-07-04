@@ -2,8 +2,8 @@
   {
     "category": "Programming Languages",
     "items": [
-      { "name": "Python" },
-      { "name": "TypeScript" },
+      { "name": "Python", "level": 3 },
+      { "name": "TypeScript", "level": 2 },
       { "name": "JavaScript" },
       { "name": "C#" },
       { "name": "C++" },
