@@ -1,16 +1,20 @@
 import React from 'react';
 import { Calendar, MapPin, Award } from 'lucide-react';
 import educationData from '../../data/education.json';
-import type { Education as EducationType } from '../../types';
+import profileData from '../../data/profile.json';
+import type { Education as EducationType, ProfileData } from '../../types';
+import { formatText } from '../../utils/formatText';
 import './Education.scss';
 
 const Education: React.FC = () => {
   const education = educationData as EducationType[];
+  const profile = profileData as ProfileData;
+  const headline = profile.sectionHeadings?.education.headline;
 
   return (
     <section id="education" className="section education-section">
       <div className="container">
-        <h2 className="ed-t section-title">Education</h2>
+        <h2 className="ed-t section-title">{headline ? formatText(headline) : 'Education'}</h2>
         <div className="education-grid">
           {education.map(edu => (
             <div key={edu.id} className="education-card">
