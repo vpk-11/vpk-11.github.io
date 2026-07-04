@@ -74,22 +74,22 @@
     flex-shrink: 0;
   }
 
-  .theme-light & { border-color: rgba($light-text, 0.18); color: rgba($light-text, 0.65); }
-  .theme-dark &  { border-color: rgba($dark-text, 0.16); color: rgba($dark-text, 0.65); }
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.18); color: #000; }
+  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.16);  color: #fff; }
 
-  // tier-focus: current focus — green dot, full-contrast text
+  // tier-focus (0): current focus — green dot + border
   &.sk-tier-focus {
-    .theme-light & { border-color: $green-light; color: $light-text; .dot { background: $green-light; box-shadow: 0 0 6px rgba($green-light, 0.5); } }
-    .theme-dark &  { border-color: $green-dark;  color: $dark-text;  .dot { background: $green-dark;  box-shadow: 0 0 6px rgba($green-dark, 0.5); } }
+    .theme-light & { border-color: $green-light; .dot { background: $green-light; box-shadow: 0 0 6px rgba($green-light, 0.5); } }
+    .theme-dark &  { border-color: $green-dark;  .dot { background: $green-dark;  box-shadow: 0 0 6px rgba($green-dark, 0.5); } }
   }
 
-  // tier-proficient: accent dot, full-contrast text
+  // tier-proficient (1): accent dot + border
   &.sk-tier-proficient {
-    .theme-light & { color: $light-text; .dot { background: var(--section-accent); } }
-    .theme-dark &  { color: $dark-text;  .dot { background: var(--section-accent); } }
+    .dot { background: var(--section-accent); }
+    border-color: var(--section-accent);
   }
 
-  // tier-exposure (default/unassigned): muted dot, muted text — see content gap note in v5-todo.md
+  // tier-exposure (2, default/unassigned): muted dot, neutral border — see content gap note in v5-todo.md
   &.sk-tier-exposure {
     .theme-light & { .dot { background: rgba($light-text, 0.3); } }
     .theme-dark &  { .dot { background: rgba($dark-text, 0.3); } }
