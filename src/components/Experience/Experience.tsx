@@ -94,7 +94,10 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="section experience-section">
       <div className="container">
-        <h2 className="ex-t section-title">{headline ? formatText(headline) : 'Experience'}</h2>
+        <div className="section-eyebrow">
+          <span>04 / EXPERIENCE</span>
+        </div>
+        <h2 className="section-headline">{headline ? formatText(headline) : 'Experience'}</h2>
 
         <div className="exp-layout">
 
