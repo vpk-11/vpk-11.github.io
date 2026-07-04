@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../store/store';
+import { RIPPLE_TIME_STEP } from '../../utils/rippleMotion';
 import './ParticleWave.scss';
 
 // Dark mode:  rgba(255,255,255,0.07) → white at 7%
@@ -110,7 +111,7 @@ const ParticleWave: React.FC = () => {
     let raf = 0;
     const animate = () => {
       raf = requestAnimationFrame(animate);
-      material.uniforms.uTime.value += 0.008;
+      material.uniforms.uTime.value += RIPPLE_TIME_STEP;
       renderer.render(scene, camera);
     };
     animate();

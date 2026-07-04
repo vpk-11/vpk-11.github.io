@@ -122,6 +122,76 @@
   .theme-dark &  { color: rgba($dark-text, 0.92); }
 }
 
+// ── Ticker ────────────────────────────────────────────────────────────────────
+// Scroll speed/direction come from RIPPLE_CYCLE_SECONDS (rippleMotion.ts),
+// derived from ParticleWave's own uTime step — kept in sync deliberately,
+// not an independently-tuned CSS duration.
+
+.hero-ticker {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.26s both;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  &::before { left: 0; }
+  &::after  { right: 0; }
+
+  .theme-light & {
+    &::before { background: linear-gradient(90deg, $light-bg, transparent); }
+    &::after  { background: linear-gradient(270deg, $light-bg, transparent); }
+  }
+  .theme-dark & {
+    &::before { background: linear-gradient(90deg, $dark-bg, transparent); }
+    &::after  { background: linear-gradient(270deg, $dark-bg, transparent); }
+  }
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation-name: ticker-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  .theme-light & { color: rgba($light-text, 0.55); }
+  .theme-dark &  { color: rgba($dark-text, 0.5); }
+}
+
+.ticker-item .pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 // ── Status bar ────────────────────────────────────────────────────────────────
 
 .hero-status-bar {
