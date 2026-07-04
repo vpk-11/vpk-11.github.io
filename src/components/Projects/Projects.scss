@@ -104,10 +104,6 @@
         0 0 0 1px color-mix(in srgb, var(--section-accent) 12%, transparent),
         0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
     }
-
-    .tech-tag {
-      opacity: 1;
-    }
   }
 
   // ── Featured variant ─────────────────────────
@@ -127,12 +123,6 @@
 // ============================================
 // CARD INTERNALS
 // ============================================
-
-.pr-title {
-  &::after {
-    background: var(--section-accent);
-  }
-}
 
 .pr-ct {
   .theme-dark & { color: $dark-text; }
@@ -165,19 +155,27 @@
   border-radius: 15px;
   font-size: 0.85rem;
   font-weight: 500;
+  background: transparent;
   transition: $transition-quick;
-  opacity: 0.8;
 
   .theme-dark & {
-    background: rgba($dark-text, 0.05);
-    border-color: var(--section-accent);
-    color: var(--section-accent);
+    border-color: rgba($dark-text, 0.18);
+    color: rgba($dark-text, 0.7);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
   }
 
   .theme-light & {
-    background: rgba($light-text, 0.05);
-    border-color: var(--section-accent);
-    color: var(--section-accent);
+    border-color: rgba($light-text, 0.18);
+    color: rgba($light-text, 0.65);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
   }
 }
 
