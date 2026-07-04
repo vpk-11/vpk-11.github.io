@@ -128,11 +128,11 @@
 .side-card-title {
   font-family: $font-serif;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   margin-bottom: 0.9rem;
 
-  .theme-light & { color: $light-text; }
-  .theme-dark &  { color: $dark-text; }
+  .theme-light & { color: #000; }
+  .theme-dark &  { color: #fff; }
 }
 
 .side-list {
@@ -146,7 +146,7 @@
   align-items: center;
   gap: 0.6rem;
   font-family: $font-mono;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   line-height: 1.5;
 
   .theme-light & { color: rgba($light-text, 0.88); }
@@ -174,6 +174,11 @@
 
   .theme-light & { border-color: rgba($light-text, 0.1); }
   .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .stat-card {
@@ -184,13 +189,28 @@
     .theme-light & { border-left-color: rgba($light-text, 0.1); }
     .theme-dark &  { border-left-color: rgba($dark-text, 0.1); }
   }
+
+  // Stacked on mobile — the divider belongs between rows, not columns.
+  @include respond-to(mobile) {
+    border-left: none;
+    padding: 1.5rem 0 0;
+    border-top: 1px solid transparent;
+
+    &:first-child { border-top: none; padding-top: 0; }
+
+    &:not(:first-child) {
+      border-left-color: transparent;
+      .theme-light & { border-top-color: rgba($light-text, 0.1); }
+      .theme-dark &  { border-top-color: rgba($dark-text, 0.1); }
+    }
+  }
 }
 
 .stat-num {
   font-family: $font-serif;
   font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
   letter-spacing: -0.01em;
   line-height: 1;
   margin-bottom: 0.6rem;
@@ -199,10 +219,10 @@
 
 .stat-label {
   font-family: $font-mono;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  .theme-light & { color: rgba($light-text, 0.55); }
-  .theme-dark &  { color: rgba($dark-text, 0.55); }
+  .theme-light & { color: rgba($light-text, 0.75); }
+  .theme-dark &  { color: rgba($dark-text, 0.78); }
 }
