@@ -2,6 +2,7 @@ import React from 'react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import './About.scss';
 
 const About: React.FC = () => {
@@ -17,7 +18,7 @@ const About: React.FC = () => {
 
         {heading?.eyebrow && (
           <div className="section-eyebrow">
-            <span>02 / ABOUT</span>
+            <span>{sectionNumber('about')} / ABOUT</span>
             <b>{heading.eyebrow}</b>
           </div>
         )}

@@ -5,6 +5,7 @@ import certificationsData from '../../data/certifications.json';
 import profileData from '../../data/profile.json';
 import type { Skill, Certification, ProfileData } from '../../types';
 import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
@@ -21,7 +22,7 @@ const Skills: React.FC = () => {
     <section id="skills" className="section skills-section">
       <div className="container">
         <div className="section-eyebrow">
-          <span>05 / STACK</span>
+          <span>{sectionNumber('skills')} / STACK</span>
         </div>
         <h2 className="section-headline">
           {heading ? formatText(heading.headline) : 'Skills & Certifications'}

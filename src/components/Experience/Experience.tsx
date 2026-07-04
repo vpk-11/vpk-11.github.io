@@ -3,6 +3,7 @@ import { Calendar, MapPin } from 'lucide-react';
 import experiencesData from '../../data/experiences.json';
 import profileData from '../../data/profile.json';
 import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import type { Experience as ExperienceType, ProfileData } from '../../types';
 import { useWindowWidth, useWindowHeight } from '../../hooks/useViewport';
 import './Experience.scss';
@@ -95,7 +96,7 @@ const Experience: React.FC = () => {
     <section id="experience" className="section experience-section">
       <div className="container">
         <div className="section-eyebrow">
-          <span>04 / EXPERIENCE</span>
+          <span>{sectionNumber('experience')} / EXPERIENCE</span>
         </div>
         <h2 className="section-headline">{headline ? formatText(headline) : 'Experience'}</h2>
 
