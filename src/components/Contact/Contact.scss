@@ -20,14 +20,10 @@
   align-items: center;
   text-align: center;
   width: 100%;
-}
 
-.co-t {
-  color: var(--section-accent);
-
-  &::after {
-    background: var(--section-accent);
-  }
+  // shared .section-eyebrow is a flex row meant for left-aligned sections —
+  // center it here since Contact is a centered layout
+  .section-eyebrow { justify-content: center; }
 }
 
 .contact-text {

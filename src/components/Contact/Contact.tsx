@@ -2,10 +2,13 @@ import React from 'react';
 import { Linkedin } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
+import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import './Contact.scss';
 
 const Contact: React.FC = () => {
   const profile = profileData as ProfileData;
+  const heading = profile.sectionHeadings?.contact;
 
   return (
     <section id="contact" className="section contact-section">
@@ -13,7 +16,14 @@ const Contact: React.FC = () => {
 
         {/* Main contact content */}
         <div className="contact-main">
-          <h2 className="co-t section-title">Get In Touch</h2>
+          {heading?.eyebrow && (
+            <div className="section-eyebrow">
+              <span>{sectionNumber('contact')} / {heading.eyebrow}</span>
+            </div>
+          )}
+          <h2 className="section-headline">
+            {heading ? formatText(heading.headline) : 'Get In Touch'}
+          </h2>
           <p className="contact-text">
             {profile.txt}
           </p>
