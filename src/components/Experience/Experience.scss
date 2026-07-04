@@ -186,12 +186,6 @@
 // CARD CONTENT
 // ============================================
 
-.ex-t {
-  &::after {
-    background: var(--section-accent);
-  }
-}
-
 .ex-ct {
   .theme-dark & { color: $dark-text; }
   .theme-light & { color: $light-text; }

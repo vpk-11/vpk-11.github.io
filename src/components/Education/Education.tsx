@@ -14,7 +14,10 @@ const Education: React.FC = () => {
   return (
     <section id="education" className="section education-section">
       <div className="container">
-        <h2 className="ed-t section-title">{headline ? formatText(headline) : 'Education'}</h2>
+        <div className="section-eyebrow">
+          <span>03 / EDUCATION</span>
+        </div>
+        <h2 className="section-headline">{headline ? formatText(headline) : 'Education'}</h2>
         <div className="education-grid">
           {education.map(edu => (
             <div key={edu.id} className="education-card">

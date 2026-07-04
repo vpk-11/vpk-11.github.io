@@ -29,12 +29,6 @@
   }
 }
 
-.ed-t {
-  &::after {
-    background: var(--section-accent);
-  }
-}
-
 .ed-ct {
   .theme-dark & { color: $dark-text; }
   .theme-light & { color: $light-text; }

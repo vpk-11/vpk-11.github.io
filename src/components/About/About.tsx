@@ -16,13 +16,13 @@ const About: React.FC = () => {
       <div className="container">
 
         {heading?.eyebrow && (
-          <div className="about-eyebrow">
+          <div className="section-eyebrow">
             <span>02 / ABOUT</span>
             <b>{heading.eyebrow}</b>
           </div>
         )}
 
-        <h2 className="about-headline">
+        <h2 className="section-headline">
           {heading ? formatText(heading.headline) : 'About Me'}
         </h2>
 
