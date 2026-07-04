@@ -1,7 +1,8 @@
 import React from 'react';
-import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
+import { Github, Linkedin, FileText, MapPin, CalendarClock } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
+import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
 import './Hero.scss';
 
 const Hero: React.FC = () => {
@@ -13,6 +14,7 @@ const Hero: React.FC = () => {
     .slice(0, 2)
     .map(s => s.trim())
     .join(' · ');
+  const tickerPhrases = profile.sectionHeadings?.hero.ticker ?? [];
   return (
     <section id="hero" className="section hero-section">
 
@@ -29,6 +31,22 @@ const Hero: React.FC = () => {
           <div className="hero-divider" aria-hidden="true" />
 
           <p className="hero-role">{profile.title}</p>
+
+          {tickerPhrases.length > 0 && (
+            <div className="hero-ticker" aria-hidden="true">
+              <div
+                className="ticker-track"
+                style={{ animationDuration: `${RIPPLE_CYCLE_SECONDS}s` }}
+              >
+                {[...tickerPhrases, ...tickerPhrases].map((phrase, i) => (
+                  <span className="ticker-item" key={`${phrase}-${i}`}>
+                    <span className="pulse" />
+                    {phrase}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="hero-status-bar">
             {profile.availability && (
@@ -73,6 +91,13 @@ const Hero: React.FC = () => {
             >
               <FileText size={18} />
               <span>Resume</span>
+            </a>
+            <a
+              href="#contact"
+              className="hero-link hero-link-secondary"
+            >
+              <CalendarClock size={18} />
+              <span>Book a Call</span>
             </a>
           </div>
 
