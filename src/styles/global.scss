@@ -58,7 +58,7 @@ body {
 
 .section {
   width: 100vw; // Use viewport width
-  padding: clamp(2.5rem, 6vh, 4.5rem) 0;
+  padding: clamp(3.5rem, 8vh, 6rem) 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,9 +67,17 @@ body {
   position: relative;
 
   @include respond-to(mobile) {
-    padding: clamp(2rem, 5vh, 3rem) 0;
+    padding: clamp(2.5rem, 6vh, 4rem) 0;
   }
 
+}
+
+// Hairline boundary between consecutive sections — same "next chapter"
+// cue used inside sections (skill rows, leadership rows, stat rows),
+// so sections read as distinct without needing full-viewport gaps.
+.section + .section {
+  .theme-light & { border-top: 1px solid rgba($light-text, 0.08); }
+  .theme-dark &  { border-top: 1px solid rgba($dark-text, 0.08); }
 }
 
 .container {
