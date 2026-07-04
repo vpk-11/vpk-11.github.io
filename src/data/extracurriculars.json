@@ -1,0 +1,40 @@
+{
+  "headline": "Beyond the {accent}Code{/accent}.",
+  "tagline": "Leadership and mentorship, not more engineering.",
+  "blocks": [
+    {
+      "role": "Team Leadership",
+      "org": "Festember, NIT Trichy's National Cultural Festival",
+      "dates": "Deputy Manager (May 2021) to Manager (Jan 2022) to Head, Media Relations (Dec 2022 to Dec 2023)",
+      "bullets": [
+        "Grew from a junior organizer into Head of a 24-person team spanning TV, radio, print, OTT, and social media."
+      ],
+      "metrics": [
+        { "label": "Team Members Led", "value": "24" }
+      ]
+    },
+    {
+      "role": "Mentorship",
+      "org": "Orientation '21 Mentor",
+      "dates": "Aug 2021 to Jan 2022",
+      "bullets": [
+        "Mentored 30-40 incoming students one-on-one through their transition to institute life."
+      ],
+      "metrics": [
+        { "label": "Students Mentored", "value": "30-40" }
+      ]
+    },
+    {
+      "role": "Sponsorship",
+      "org": "Festember, Media Relations",
+      "dates": "Dec 2022 to Dec 2023",
+      "bullets": [
+        "Secured sponsorships from partner brands including Spotify, AGS Cinemas, Suryan FM, and Women's Era."
+      ],
+      "metrics": [
+        { "label": "Raised", "value": "TBD" },
+        { "label": "Sponsors Secured", "value": "TBD" }
+      ]
+    }
+  ]
+}

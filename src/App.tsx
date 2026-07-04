@@ -12,6 +12,9 @@ import Education from './components/Education/Education';
 import About from './components/About/About';
 import Resume from './components/Resume/Resume';
 import Contact from './components/Contact/Contact';
+import BeyondTheCode from './components/BeyondTheCode/BeyondTheCode';
+import ClosingCTA from './components/ClosingCTA/ClosingCTA';
+import Footer from './components/Footer/Footer';
 import ParticleWave from './components/Background/ParticleWave';
 import { useDynamicFavicon } from './hooks/useDynamicFavicon';
 import './App.scss';
@@ -51,6 +54,9 @@ const AppContent: React.FC = () => {
       <Skills />
       <Resume />
       <Contact />
+      <BeyondTheCode />
+      <ClosingCTA />
+      <Footer />
     </div>
     </>
   );

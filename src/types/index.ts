@@ -48,6 +48,11 @@ export interface ResumeMeta {
   bestFor: string;
 }
 
+export interface ClosingCta {
+  headline: string;
+  tagline: string;
+}
+
 export interface ProfileData {
   name: string;
   title: string;
@@ -66,6 +71,7 @@ export interface ProfileData {
   aboutStats?: AboutStat[];
   aboutSidebar?: AboutSidebar;
   resumeMeta?: ResumeMeta;
+  closingCta?: ClosingCta;
 }
 
 export interface Project {
@@ -129,6 +135,20 @@ export interface Certification {
 export interface HeadlinerMetric {
   label: string;
   value: string;
+}
+
+export interface LeadershipBlock {
+  role: string;
+  org: string;
+  dates: string;
+  bullets: string[];
+  metrics: HeadlinerMetric[];
+}
+
+export interface BeyondTheCode {
+  headline: string;
+  tagline: string;
+  blocks: LeadershipBlock[];
 }
 
 export interface Headliner {
