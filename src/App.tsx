@@ -41,6 +41,7 @@ const AppContent: React.FC = () => {
       <ParticleWave />
       <div className="app">
       <Navbar />
+      {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts — reorder both together */}
       <Hero />
       <About />
       <Education />

@@ -4,6 +4,7 @@ import educationData from '../../data/education.json';
 import profileData from '../../data/profile.json';
 import type { Education as EducationType, ProfileData } from '../../types';
 import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import './Education.scss';
 
 const Education: React.FC = () => {
@@ -15,7 +16,7 @@ const Education: React.FC = () => {
     <section id="education" className="section education-section">
       <div className="container">
         <div className="section-eyebrow">
-          <span>03 / EDUCATION</span>
+          <span>{sectionNumber('education')} / EDUCATION</span>
         </div>
         <h2 className="section-headline">{headline ? formatText(headline) : 'Education'}</h2>
         <div className="education-grid">
