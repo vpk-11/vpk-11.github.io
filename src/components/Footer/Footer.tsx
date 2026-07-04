@@ -2,7 +2,6 @@ import React from 'react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import { sectionNumber } from '../../data/sectionOrder';
-import VpkMark from '../VpkMark/VpkMark';
 import './Footer.scss';
 
 const SECTION_LABELS: Record<string, string> = {
@@ -30,11 +29,9 @@ const Footer: React.FC = () => {
         <div className="footer-col footer-signature-col">
           <p className="footer-copyright">&copy; {year} {profile.name}</p>
           <div className="footer-brandmark">
-            <VpkMark size={18} />
-            <span>A VPK Product</span>
+            <span>&mdash; A VPK Product</span>
           </div>
           <p className="footer-meta">Portfolio &middot; v5</p>
-          <p className="footer-meta">React &middot; TypeScript &middot; Three.js &middot; SCSS</p>
         </div>
 
         <div className="footer-col">
