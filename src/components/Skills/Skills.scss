@@ -43,6 +43,7 @@
 .skill-row-name {
   font-family: $font-serif;
   font-style: italic;
+  font-weight: 700;
   font-size: 1.35rem;
 
   .theme-light & { color: $light-text; }
