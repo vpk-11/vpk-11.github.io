@@ -26,7 +26,7 @@
       "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
     },
     "about": {
-      "eyebrow": "PROFILE_LOG",
+      "eyebrow": "About_Me",
       "headline": "Good systems stay {accent}boring{/accent} in production.",
       "tagline": "If it can't survive a 2am incident, it isn't done."
     },
