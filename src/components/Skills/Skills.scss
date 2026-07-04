@@ -89,7 +89,7 @@
   // level 2 (middle): accent dot + border
   &.sk-level-2 {
     .dot { background: var(--section-accent); }
-    border-color: var(--section-accent);
+    // border-color: var(--section-accent);
   }
 
   // level 1 (basic, default when unassigned): muted dot, neutral border
