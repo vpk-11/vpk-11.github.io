@@ -72,11 +72,16 @@ export interface Project {
   githubLink: string;  // explicit github URL — replaces generic link
 }
 
-export type SkillTier = 'focus' | 'proficient' | 'exposure';
+// Skill proficiency legend (open content gap — mechanism built, levels
+// assigned per-skill in skills.json whenever):
+//   1 = basic     (used before, not a current focus)
+//   2 = middle    (comfortable, regularly used)
+//   3 = advanced  (current focus / strongest)
+export type SkillLevel = 1 | 2 | 3;
 
 export interface SkillItem {
   name: string;
-  tier?: SkillTier;   // open content gap — mechanism built, tiers assigned per-skill whenever
+  level?: SkillLevel;
 }
 
 export interface Skill {
