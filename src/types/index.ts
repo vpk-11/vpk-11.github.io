@@ -24,7 +24,6 @@ export interface SectionHeadings {
   experience: SectionHeading;
   projects: SectionHeading;
   resume: SectionHeading;
-  contact: SectionHeading;
 }
 
 export interface AboutStat {

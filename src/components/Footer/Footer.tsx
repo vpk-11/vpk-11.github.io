@@ -1,16 +1,23 @@
 import React from 'react';
-import { Linkedin, Github, FileText } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
+import { sectionNumber } from '../../data/sectionOrder';
+import VpkMark from '../VpkMark/VpkMark';
 import './Footer.scss';
 
-const MINI_NAV = [
-  { name: 'Home', id: 'hero' },
-  { name: 'About', id: 'about' },
-  { name: 'Projects', id: 'projects' },
-  { name: 'Resume', id: 'resume' },
-  { name: 'Contact', id: 'contact' },
-];
+const SECTION_LABELS: Record<string, string> = {
+  hero: 'Home',
+  about: 'About',
+  education: 'Education',
+  experience: 'Experience',
+  projects: 'Projects',
+  skills: 'Skills',
+  resume: 'Resume',
+  'beyond-the-code': 'Beyond the Code',
+};
+
+const NAVIGATE_IDS = ['hero', 'about', 'education', 'experience', 'projects'] as const;
+const MORE_IDS = ['skills', 'resume', 'beyond-the-code'] as const;
 
 const Footer: React.FC = () => {
   const profile = profileData as ProfileData;
@@ -18,49 +25,57 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="site-footer">
-      <div className="container footer-inner">
+      <div className="container footer-grid">
 
-        <nav className="footer-nav" aria-label="Footer">
-          {MINI_NAV.map(item => (
-            <a key={item.id} href={`#${item.id}`} className="footer-nav-link">
-              {item.name}
-            </a>
-          ))}
-        </nav>
-
-        <div className="footer-channels">
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            aria-label="GitHub"
-          >
-            <Github size={18} />
-          </a>
-          <a
-            href={profile.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            aria-label="Resume"
-          >
-            <FileText size={18} />
-          </a>
+        <div className="footer-col footer-signature-col">
+          <p className="footer-copyright">&copy; {year} {profile.name}</p>
+          <div className="footer-brandmark">
+            <VpkMark size={18} />
+            <span>A VPK Product</span>
+          </div>
+          <p className="footer-meta">Portfolio &middot; v5</p>
+          <p className="footer-meta">React &middot; TypeScript &middot; Three.js &middot; SCSS</p>
         </div>
 
-        <p className="footer-signature">
-          &copy; {year} {profile.name}. All rights reserved.
-        </p>
+        <div className="footer-col">
+          <div className="footer-col-title">Navigate</div>
+          <nav className="footer-nav" aria-label="Footer navigate">
+            {NAVIGATE_IDS.map(id => (
+              <a key={id} href={`#${id}`} className="footer-nav-link">
+                {sectionNumber(id)} / {SECTION_LABELS[id].toUpperCase()}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="footer-col">
+          <div className="footer-col-title">More</div>
+          <nav className="footer-nav" aria-label="Footer more">
+            {MORE_IDS.map(id => (
+              <a key={id} href={`#${id}`} className="footer-nav-link">
+                {sectionNumber(id)} / {SECTION_LABELS[id].toUpperCase()}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="footer-col">
+          <div className="footer-col-title">Channels</div>
+          <div className="footer-channels">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="footer-nav-link">
+              GITHUB
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="footer-nav-link">
+              LINKEDIN
+            </a>
+            {profile.availability && (
+              <span className="footer-status">
+                <span className="footer-status-dot" aria-hidden="true" />
+                {profile.availability.toUpperCase()}
+              </span>
+            )}
+          </div>
+        </div>
 
       </div>
     </footer>

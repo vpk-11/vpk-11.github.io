@@ -3,83 +3,122 @@
 
 .site-footer {
   width: 100%;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   border-top: 1px solid;
 
   .theme-light & { border-color: rgba($light-text, 0.1); }
   .theme-dark &  { border-color: rgba($dark-text, 0.08); }
 }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2rem;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
 
   @include respond-to(mobile) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
   }
 }
 
+.footer-col-title {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+// ── Signature column ──────────────────────────────────────────────────────────
+
+.footer-copyright {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+.footer-brandmark {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.footer-meta {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.35rem;
+
+  .theme-light & { color: rgba($light-text, 0.35); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+}
+
+// ── Nav columns ────────────────────────────────────────────────────────────────
+
 .footer-nav {
   display: flex;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-
-  @include respond-to(mobile) {
-    justify-content: center;
-    order: 1;
-  }
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .footer-nav-link {
   font-family: $font-mono;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: $transition-quick;
 
-  .theme-light & { color: rgba($light-text, 0.55); }
-  .theme-dark &  { color: rgba($dark-text, 0.55); }
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.6); }
 
   &:hover { color: var(--accent-color); }
   &:focus:not(:focus-visible) { outline: none; }
 }
 
+// ── Channels column ──────────────────────────────────────────────────────────
+
 .footer-channels {
   display: flex;
-  gap: 1.25rem;
-  align-items: center;
-
-  @include respond-to(mobile) { order: 0; }
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.footer-link {
-  display: flex;
+.footer-status {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: $transition-quick;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-color);
 
-  .theme-light & { color: rgba($light-text, 0.35); }
-  .theme-dark &  { color: rgba($dark-text, 0.3); }
-
-  &:hover {
-    color: var(--accent-color);
-    transform: translateY(-3px);
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
+  @include respond-to(mobile) { justify-content: center; }
 }
 
-.footer-signature {
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin: 0;
-
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.35); }
-
-  @include respond-to(mobile) { order: 2; }
+.footer-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: pulse 2.5s ease-in-out infinite;
 }
