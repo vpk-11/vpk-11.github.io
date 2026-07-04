@@ -62,7 +62,7 @@ const Skills: React.FC = () => {
                   {skillGroup.items.map(item => (
                     <span
                       key={item.name}
-                      className={`skill-pill sk-tier-${item.tier ?? 'exposure'}`}
+                      className={`skill-pill sk-level-${item.level ?? 1}`}
                     >
                       <span className="dot" aria-hidden="true" />
                       {item.name}

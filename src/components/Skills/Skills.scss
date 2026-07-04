@@ -72,25 +72,29 @@
     height: 7px;
     border-radius: 50%;
     flex-shrink: 0;
+    // fallback so the dot is never invisible if a level class doesn't match
+    .theme-light & { background: rgba($light-text, 0.3); }
+    .theme-dark &  { background: rgba($dark-text, 0.3); }
   }
 
   .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.18); color: #000; }
   .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.16);  color: #fff; }
 
-  // tier-focus (0): current focus — green dot + border
-  &.sk-tier-focus {
+  // level 3 (advanced): current focus — green dot + border
+  &.sk-level-3 {
     .theme-light & { border-color: $green-light; .dot { background: $green-light; box-shadow: 0 0 6px rgba($green-light, 0.5); } }
     .theme-dark &  { border-color: $green-dark;  .dot { background: $green-dark;  box-shadow: 0 0 6px rgba($green-dark, 0.5); } }
   }
 
-  // tier-proficient (1): accent dot + border
-  &.sk-tier-proficient {
+  // level 2 (middle): accent dot + border
+  &.sk-level-2 {
     .dot { background: var(--section-accent); }
     border-color: var(--section-accent);
   }
 
-  // tier-exposure (2, default/unassigned): muted dot, neutral border — see content gap note in v5-todo.md
-  &.sk-tier-exposure {
+  // level 1 (basic, default when unassigned): muted dot, neutral border
+  // — see content gap note in v5-todo.md
+  &.sk-level-1 {
     .theme-light & { .dot { background: rgba($light-text, 0.3); } }
     .theme-dark &  { .dot { background: rgba($dark-text, 0.3); } }
   }
