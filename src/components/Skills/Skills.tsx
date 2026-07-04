@@ -2,18 +2,30 @@ import React, { useState } from 'react';
 import { ExternalLink, Award, Wrench } from 'lucide-react';
 import skillsData from '../../data/skills.json';
 import certificationsData from '../../data/certifications.json';
-import type { Skill, Certification } from '../../types';
+import profileData from '../../data/profile.json';
+import type { Skill, Certification, ProfileData } from '../../types';
+import { formatText } from '../../utils/formatText';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
   const skills = skillsData as Skill[];
   const certifications = certificationsData as Certification[];
+  const profile = profileData as ProfileData;
   const [tab, setTab] = useState<'skills' | 'certifications'>('skills');
+
+  const heading = tab === 'skills'
+    ? profile.sectionHeadings?.skills
+    : profile.sectionHeadings?.certifications;
 
   return (
     <section id="skills" className="section skills-section">
       <div className="container">
-        <h2 className="sk-t section-title">Skills & Certifications</h2>
+        <div className="section-eyebrow">
+          <span>05 / STACK</span>
+        </div>
+        <h2 className="section-headline">
+          {heading ? formatText(heading.headline) : 'Skills & Certifications'}
+        </h2>
 
         {/* Toggle — same pill style as project tabs */}
         <div className="sk-tabs" role="tablist">
@@ -37,25 +49,30 @@ const Skills: React.FC = () => {
           </button>
         </div>
 
-        {/* Skills panel */}
-        {tab === 'skills' && (() => {
-          const n = skills.length;
-          const colClass = n === 4 ? 'sk-cols-4' : `sk-cols-${Math.min(n, 3)}`;
-          return (
-          <div className={`skills-grid ${colClass} sk-panel`}>
-            {skills.map(skillGroup => (
-              <div key={skillGroup.category} className="skill-category">
-                <h4 className="category-title">{skillGroup.category}</h4>
-                <div className="skill-tags">
-                  {skillGroup.items.map(skill => (
-                    <span key={skill.name} className="skill-tag">{skill.name}</span>
+        {/* Skills panel — numbered category rows, tiered pills */}
+        {tab === 'skills' && (
+          <div className="skill-stack sk-panel">
+            {skills.map((skillGroup, i) => (
+              <div className="skill-row" key={skillGroup.category}>
+                <div>
+                  <span className="skill-row-index">/ {String(i + 1).padStart(2, '0')}</span>
+                  <div className="skill-row-name">{skillGroup.category}</div>
+                </div>
+                <div className="skill-pills-wrap">
+                  {skillGroup.items.map(item => (
+                    <span
+                      key={item.name}
+                      className={`skill-pill sk-tier-${item.tier ?? 'exposure'}`}
+                    >
+                      <span className="dot" aria-hidden="true" />
+                      {item.name}
+                    </span>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          );
-        })()}
+        )}
 
         {/* Certifications panel — 3-col grid, first row spans remainder */}
         {tab === 'certifications' && (() => {
