@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Narada",
+    "tagline": "Agentic search that shows its work",
+    "description": "Agentic search system built around information provenance: every answer traces back to a source, not just a plausible-sounding summary.",
+    "tags": ["Agentic AI", "LLM", "Search"],
+    "metrics": [],
+    "githubLink": "https://github.com/vpk-11"
+  },
+  {
+    "id": 2,
+    "title": "Donna",
+    "tagline": "An AI executive assistant that actually delegates",
+    "description": "AI executive assistant handling scheduling, triage, and follow-through across tools, not just a chat wrapper.",
+    "tags": ["Agentic AI", "LLM", "Productivity"],
+    "metrics": [],
+    "githubLink": "https://github.com/vpk-11"
+  },
+  {
+    "id": 3,
+    "title": "RiskWise",
+    "tagline": "Route intelligence for real-world logistics",
+    "description": "Route intelligence platform combining risk modeling with live conditions to recommend safer, faster paths.",
+    "tags": ["Full-Stack", "Data", "Logistics"],
+    "metrics": [],
+    "githubLink": "https://github.com/vpk-11"
+  }
+]
