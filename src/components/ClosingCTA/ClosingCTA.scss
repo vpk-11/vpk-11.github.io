@@ -1,28 +1,15 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.closing-cta-section {
-  padding-bottom: clamp(2rem, 5vh, 4rem);
-}
-
 .closing-cta-inner {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.closing-cta-headline {
-  font-family: $font-serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.15;
-  max-width: 700px;
-  margin: 0 0 1.25rem;
-
-  .theme-light & { color: $light-text; }
-  .theme-dark &  { color: $dark-text; }
+  // shared .section-eyebrow is a flex row meant for left-aligned sections —
+  // center it here since ClosingCTA is a centered layout
+  .section-eyebrow { justify-content: center; }
 }
 
 .closing-cta-tagline {

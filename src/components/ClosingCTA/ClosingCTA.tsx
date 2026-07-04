@@ -3,6 +3,7 @@ import { Linkedin, Github } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import type { ProfileData } from '../../types';
 import { formatText } from '../../utils/formatText';
+import { sectionNumber } from '../../data/sectionOrder';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
@@ -14,7 +15,14 @@ const ClosingCTA: React.FC = () => {
   return (
     <section id="closing-cta" className="section closing-cta-section">
       <div className="container closing-cta-inner">
-        <h2 className="closing-cta-headline">{formatText(cta.headline)}</h2>
+
+        {cta.eyebrow && (
+          <div className="section-eyebrow">
+            <span>{sectionNumber('closing-cta')} / {cta.eyebrow}</span>
+          </div>
+        )}
+
+        <h2 className="section-headline">{formatText(cta.headline)}</h2>
         <p className="closing-cta-tagline">{cta.tagline}</p>
 
         <div className="closing-cta-links">
@@ -37,6 +45,7 @@ const ClosingCTA: React.FC = () => {
             <span>GitHub</span>
           </a>
         </div>
+
       </div>
     </section>
   );
