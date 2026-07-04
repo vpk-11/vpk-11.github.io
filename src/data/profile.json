@@ -28,5 +28,48 @@
     "Ship early, iterate deliberately",
     "Good architecture makes the next change easier"
   ],
-  "txt": "I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!"
+  "txt": "I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!",
+  "sectionHeadings": {
+    "hero": {
+      "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
+    },
+    "about": {
+      "eyebrow": "PROFILE_LOG",
+      "headline": "Good systems stay {accent}boring{/accent} in production."
+    },
+    "skills": {
+      "headline": "The {accent}tools{/accent} I reach for."
+    },
+    "certifications": {
+      "headline": "The {accent}certs{/accent} I earned."
+    },
+    "education": {
+      "headline": "Where the {accent}fundamentals{/accent} got built."
+    },
+    "experience": {
+      "headline": "Where the {accent}work{/accent} got done."
+    },
+    "projects": {
+      "headline": "Everything I've {accent}shipped{/accent}."
+    }
+  },
+  "aboutStats": [
+    { "value": "3.95", "label": "GPA · MS CS, UMass" },
+    { "value": "15", "label": "Public Repositories" }
+  ],
+  "aboutSidebar": {
+    "principles": [
+      "Clean abstractions beat clever code",
+      "Scalable systems should be boring in production",
+      "ML is engineering, not magic"
+    ],
+    "currentlyBuilding": [
+      { "name": "Heimdall", "description": "agentic AI applications" }
+    ],
+    "openTo": [
+      "Software Engineering",
+      "AI / ML Engineering",
+      "Full-Stack"
+    ]
+  }
 }

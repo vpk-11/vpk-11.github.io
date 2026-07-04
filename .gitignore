@@ -26,6 +26,7 @@ dist-ssr
 package-lock.json
 .claude/
 .codex/
+mockups/
 
 # Graphify runtime files (machine-local, break on clone)
 graphify-out/manifest.json

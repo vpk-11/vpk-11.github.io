@@ -4,6 +4,43 @@ export interface ThemeState {
 }
 
 // Data Types
+
+export interface SectionHeading {
+  eyebrow?: string;
+  headline: string;
+  tagline?: string;
+}
+
+export interface HeroHeading {
+  ticker: string[];
+}
+
+export interface SectionHeadings {
+  hero: HeroHeading;
+  about: SectionHeading;
+  skills: SectionHeading;
+  certifications: SectionHeading;
+  education: SectionHeading;
+  experience: SectionHeading;
+  projects: SectionHeading;
+}
+
+export interface AboutStat {
+  value: string;
+  label: string;
+}
+
+export interface CurrentlyBuildingItem {
+  name: string;
+  description: string;
+}
+
+export interface AboutSidebar {
+  principles: string[];
+  currentlyBuilding: CurrentlyBuildingItem[];
+  openTo: string[];
+}
+
 export interface ProfileData {
   name: string;
   title: string;
@@ -19,6 +56,9 @@ export interface ProfileData {
   workAuthorization: string;
   principles: string[];
   txt: string;
+  sectionHeadings?: SectionHeadings;
+  aboutStats?: AboutStat[];
+  aboutSidebar?: AboutSidebar;
 }
 
 export interface Project {
@@ -33,9 +73,16 @@ export interface Project {
   githubLink: string;  // explicit github URL — replaces generic link
 }
 
+export type SkillTier = 'focus' | 'proficient' | 'exposure';
+
+export interface SkillItem {
+  name: string;
+  tier?: SkillTier;   // open content gap — mechanism built, tiers assigned per-skill whenever
+}
+
 export interface Skill {
   category: string;
-  items: string[];
+  items: SkillItem[];
 }
 
 export interface Experience {
@@ -65,4 +112,20 @@ export interface Certification {
   issuer: string;
   issueDate: string;
   link: string;
+}
+
+export interface HeadlinerMetric {
+  label: string;
+  value: string;
+}
+
+export interface Headliner {
+  id: number;
+  title: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  metrics: HeadlinerMetric[];
+  githubLink: string;
+  demoUrl?: string;   // if present, render Content/Live-Demo tab switcher
 }
