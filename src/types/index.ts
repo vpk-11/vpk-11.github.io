@@ -49,6 +49,7 @@ export interface ResumeMeta {
 }
 
 export interface ClosingCta {
+  eyebrow?: string;
   headline: string;
   tagline: string;
 }
