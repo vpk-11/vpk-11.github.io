@@ -26,8 +26,8 @@
     font-weight: 500;
   }
 
-  .theme-light & { color: rgba($light-text, 0.4); &::before { background: rgba($light-text, 0.4); } }
-  .theme-dark &  { color: rgba($dark-text, 0.38); &::before { background: rgba($dark-text, 0.38); } }
+  .theme-light & { color: rgba($light-text, 0.55); &::before { background: rgba($light-text, 0.55); } }
+  .theme-dark &  { color: rgba($dark-text, 0.55); &::before { background: rgba($dark-text, 0.55); } }
 }
 
 .about-headline {
@@ -74,12 +74,12 @@
 
 .dropcap-p,
 .about-body-p {
-  font-size: clamp(0.95rem, 1vw + 0.3rem, 1rem);
+  font-size: clamp(1.05rem, 1.1vw + 0.35rem, 1.15rem);
   line-height: 1.85;
   margin: 0 0 1.15rem;
 
-  .theme-light & { color: rgba($light-text, 0.75); }
-  .theme-dark &  { color: rgba($dark-text, 0.7); }
+  .theme-light & { color: rgba($light-text, 0.9); }
+  .theme-dark &  { color: rgba($dark-text, 0.92); }
 }
 
 .dropcap-p::first-letter {
@@ -146,11 +146,11 @@
   align-items: center;
   gap: 0.6rem;
   font-family: $font-mono;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   line-height: 1.5;
 
-  .theme-light & { color: rgba($light-text, 0.72); }
-  .theme-dark &  { color: rgba($dark-text, 0.68); }
+  .theme-light & { color: rgba($light-text, 0.88); }
+  .theme-dark &  { color: rgba($dark-text, 0.9); }
 }
 
 .side-list-item .dot {
@@ -203,6 +203,6 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.38); }
+  .theme-light & { color: rgba($light-text, 0.55); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
 }
