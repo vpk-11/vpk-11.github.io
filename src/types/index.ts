@@ -23,6 +23,7 @@ export interface SectionHeadings {
   education: SectionHeading;
   experience: SectionHeading;
   projects: SectionHeading;
+  resume: SectionHeading;
 }
 
 export interface AboutStat {
@@ -39,6 +40,12 @@ export interface AboutSidebar {
   principles: string[];
   currentlyBuilding: CurrentlyBuildingItem[];
   openTo: string[];
+}
+
+export interface ResumeMeta {
+  updated: string;
+  format: string;
+  bestFor: string;
 }
 
 export interface ProfileData {
@@ -58,6 +65,7 @@ export interface ProfileData {
   sectionHeadings?: SectionHeadings;
   aboutStats?: AboutStat[];
   aboutSidebar?: AboutSidebar;
+  resumeMeta?: ResumeMeta;
 }
 
 export interface Project {

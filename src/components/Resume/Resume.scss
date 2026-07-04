@@ -1,0 +1,125 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.resume-card {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 2rem 2.15rem;
+
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1); }
+}
+
+.resume-card-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+.resume-name {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+
+  .role { color: var(--section-accent); }
+}
+
+.resume-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
+
+  .theme-light & { color: rgba($light-text, 0.85); }
+  .theme-dark &  { color: rgba($dark-text, 0.85); }
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--accent-color);
+  margin-bottom: 0.5rem;
+  transition: $transition-quick;
+
+  .theme-light & { color: #fff; }
+  .theme-dark &  { color: $dark-bg; font-weight: 700; }
+
+  &:hover {
+    opacity: 0.86;
+    transform: translateY(-2px);
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.resume-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid;
+
+  span:last-child {
+    .theme-light & { color: rgba($light-text, 0.85); }
+    .theme-dark &  { color: rgba($dark-text, 0.85); }
+  }
+
+  .theme-light & { border-color: rgba($light-text, 0.1); color: rgba($light-text, 0.4); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); color: rgba($dark-text, 0.4); }
+}
+
+.resume-preview-panel {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid;
+  overflow: hidden;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+}
+
+.resume-preview-tag {
+  position: absolute;
+  top: 0.85rem;
+  right: 1.1rem;
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.resume-preview-frame {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
