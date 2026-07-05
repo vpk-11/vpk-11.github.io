@@ -42,7 +42,7 @@ const NAV_ITEMS: NavItem[] = [
         title: 'Showcase',
         items: [
           { label: 'Projects', description: 'Everything I’ve shipped', icon: FolderGit2, id: 'projects' },
-          { label: 'Skills', description: 'The tools I reach for', icon: Wrench, id: 'skills' },
+          { label: 'Skills', description: 'My toolbox', icon: Wrench, id: 'skills' },
         ],
       },
     ],
@@ -137,6 +137,27 @@ const Navbar: React.FC = () => {
   const isGroupActive = (item: NavItem) =>
     item.subMenus?.some(group => group.items.some(i => i.id === activeSection)) ?? false;
 
+  const toggleMenu = (label: string) => {
+    setOpenMenu(prev => (prev === label ? null : label));
+  };
+
+  // Only devices with real hover (mouse/trackpad) get hover-to-open.
+  // Touch devices (iPad included) fire a synthetic mouseenter on tap, which
+  // was racing with the click handler and closing the menu it just opened.
+  const canHover = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+
+  // Click outside closes an open dropdown — makes the menu touch-friendly
+  // (hover alone doesn't persist on tap for touch devices).
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('.nav-item')) {
+        setOpenMenu(null);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
   return (
     <nav
       className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`}
@@ -153,14 +174,17 @@ const Navbar: React.FC = () => {
             <li
               key={item.label}
               className="nav-item"
-              onMouseEnter={() => item.subMenus && setOpenMenu(item.label)}
-              onMouseLeave={() => item.subMenus && setOpenMenu(null)}
+              onMouseEnter={() => item.subMenus && canHover && setOpenMenu(item.label)}
+              onMouseLeave={() => item.subMenus && canHover && setOpenMenu(null)}
             >
               <button
                 className={`nav-link ${item.id === activeSection || isGroupActive(item) ? 'active' : ''}`}
                 onMouseEnter={() => setHoveredLabel(item.label)}
                 onMouseLeave={() => setHoveredLabel(null)}
-                onClick={() => item.id && scrollToSection(item.id)}
+                onClick={() => {
+                  if (item.subMenus) toggleMenu(item.label);
+                  else if (item.id) scrollToSection(item.id);
+                }}
                 aria-expanded={item.subMenus ? openMenu === item.label : undefined}
               >
                 <span>{item.label}</span>

@@ -14,18 +14,12 @@
 
   .theme-dark & {
     background: $dark-surface;
-    &:hover {
-      background: $dark-surface-hover;
-      border-color: var(--section-accent);
-    }
+    &:hover { background: $dark-surface-hover; }
   }
 
   .theme-light & {
     background: $light-surface;
-    &:hover {
-      background: $light-surface-hover;
-      border-color: var(--section-accent);
-    }
+    &:hover { background: $light-surface-hover; }
   }
 }
 

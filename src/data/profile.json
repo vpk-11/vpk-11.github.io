@@ -1,7 +1,7 @@
 {
   "name": "Kaushik Parthasarathy",
   "title": "Software Engineer | AI/ML Systems | Distributed & Full-Stack",
-  "bio": "I build reliable software systems, from architecture and algorithms to production deployment. My work spans full-stack platforms, AI/ML pipelines, agentic LLM systems, and production infrastructure, with a focus on modular architectures that stay maintainable as they scale.\n\nThe thread through most of what I build is information provenance: where an answer came from, how we know it is correct, and how to make it structurally impossible for a system to lose that trace. I care about clear abstractions, concrete tradeoffs between performance and flexibility, and systems that are easy to extend and operate in real environments.\n\nPreviously, I worked on fintech systems at Wells Fargo supporting portfolio applications managing $400B+ in assets, and on computer vision data pipelines developed in collaboration with ISRO and NIT Trichy. I'm currently pursuing an MS in Computer Science at UMass Amherst, focused on AI/ML systems and scalable software engineering.",
+  "bio": "I build software systems end to end, from architecture and algorithms to the thing that's actually running in production. My work spans full stack platforms, AI/ML pipelines, agentic LLM systems, and production infrastructure, with a focus on modular architecture that stays maintainable as it scales.\n\nI break complex problems down into their simplest parts, then prioritize from there. Before I build anything, I think about who it's actually for. I see it through their lens, figure out what they actually need, and find the best way to build it. The goal is to execute their vision, not mine. That means iterating off real feedback instead of running with my own take, and learning from what goes wrong instead of repeating it.\n\nSomeone technical should be able to pick up what I build and use it. Someone with no background in the domain should be able to poke around and figure it out just from how it's laid out. If it only makes sense to the person who built it, it's not finished.\n\nPreviously, I worked on fintech systems at Wells Fargo supporting portfolio applications managing $400B+ in assets, and on computer vision data pipelines developed in collaboration with ISRO and NIT Trichy. I'm currently pursuing an MS in Computer Science at UMass Amherst, focused on AI/ML systems and scalable software engineering.",
   "linkedin": "https://linkedin.com/in/kaushikparthasarathy",
   "github": "https://github.com/vpk-11",
   "resume": "https://drive.google.com/file/d/1dGTLIkyNHbv8OMUUEAz_KWescgxd_f3J/view?usp=drive_link",
@@ -27,27 +27,26 @@
     },
     "about": {
       "eyebrow": "About_Me",
-      "headline": "Good systems stay {accent}boring{/accent} in production.",
-      "tagline": "If it can't survive a 2am incident, it isn't done."
+      "headline": "I'm an {accent}engineer{/accent}, front and center."
     },
     "skills": {
-      "headline": "The {accent}tools{/accent} I reach for."
+      "headline": "My {accent}Tool{/accent}box."
     },
     "certifications": {
-      "headline": "The {accent}certs{/accent} I earned."
+      "headline": "My Tool{accent}box{/accent}."
     },
     "education": {
-      "headline": "Where the {accent}fundamentals{/accent} got built."
+      "headline": "{accent}Edu{/accent}cation"
     },
     "experience": {
-      "headline": "Where the {accent}work{/accent} got done."
+      "headline": "{accent}Exp{/accent}erience"
     },
     "projects": {
-      "headline": "Everything I've {accent}shipped{/accent}."
+      "headline": "{accent}Pro{/accent}jects"
     },
     "resume": {
       "eyebrow": "RESUME",
-      "headline": "Everything you need, {accent}one page{/accent}."
+      "headline": "One page. No {accent}fluff{/accent}."
     }
   },
   "resumeMeta": {
@@ -57,7 +56,8 @@
   },
   "aboutStats": [
     { "value": "3.95", "label": "GPA · MS CS, UMass" },
-    { "value": "15", "label": "Public Repositories" }
+    { "value": "15", "label": "Public Repositories" },
+    { "value": "3", "label": "Languages spoken: English, Tamil, Hindi" }
   ],
   "aboutSidebar": {
     "principles": [
@@ -69,22 +69,24 @@
       "Good architecture makes the next change easier"
     ],
     "currentlyBuilding": [
-      { "name": "Heimdall", "description": "agentic AI applications" }
+      { "name": "Donna V3", "description": "AI executive assistant" },
+      { "name": "Heimdall", "description": "B2B inquiry triage agent" }
     ],
     "openTo": [
       "Software Engineering",
-      "AI / ML Engineering",
-      "Full-Stack"
+      "Full-Stack Engineering",
+      "Agentic AI Systems",
+      "ML Engineering"
     ]
   },
   "closingCta": {
     "eyebrow": "LET'S TALK",
-    "headline": "Let's {accent}build{/accent}\n{outline}something{/outline}\nthat {accent}matters{/accent}.",
-    "tagline": "Open to **Summer 2026 internships and full-time roles** in backend, AI/ML, or full-stack. Always down to chat.",
+    "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}.",
+    "tagline": "Open to **Summer 2026 internships** and **full-time** roles in software engineering, full-stack, or agentic AI. Always down to chat.",
     "channels": [
       { "label": "SOCIAL_CHANNEL", "value": "LinkedIn · in/kaushikparthasarathy", "caption": "DMs open" },
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
-      { "label": "STATUS", "value": "Open to Work", "caption": "Summer 2026 onward" }
+      { "label": "STATUS", "value": "Open to Work", "caption": "Fall 2026 onward" }
     ]
   }
 }
