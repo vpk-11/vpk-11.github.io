@@ -9,9 +9,19 @@ import './Projects.scss';
 
 const SHORT_DESC_LIMIT = 150;
 
+function stripMarkdown(str: string): string {
+  return str
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/\{accent\}(.*?)\{\/accent\}/g, '$1')
+    .replace(/\{outline\}(.*?)\{\/outline\}/g, '$1')
+    .replace(/\[(.*?)\]\(.*?\)/g, '$1');
+}
+
 function truncate(str: string, limit: number) {
-  if (str.length <= limit) return str;
-  return str.slice(0, str.lastIndexOf(' ', limit)) + '…';
+  const plain = stripMarkdown(str);
+  if (plain.length <= limit) return str;
+  return plain.slice(0, plain.lastIndexOf(' ', limit)) + '…';
 }
 
 function toAbsolute(url?: string) {
@@ -27,9 +37,9 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
-  const rawShort = project.shortDescription
-    ? truncate(project.shortDescription, SHORT_DESC_LIMIT)
-    : truncate(project.description, SHORT_DESC_LIMIT);
+  const shortLines = project.shortDescription
+    ? project.shortDescription.map(line => truncate(line, SHORT_DESC_LIMIT))
+    : [truncate(project.description, SHORT_DESC_LIMIT)];
 
   return (
     <div
@@ -44,7 +54,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
       )}
 
       <h3 className="pr-ct card-title">{project.title}</h3>
-      <p className="card-description">{formatText(rawShort)}</p>
+      <div className="card-description">
+        {shortLines.map((line, i) => (
+          <p key={i} className="card-description-line">{formatText(line)}</p>
+        ))}
+      </div>
 
       <div className="tech-stack">
         {project.tech.map(t => (

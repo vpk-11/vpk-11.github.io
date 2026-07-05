@@ -89,20 +89,12 @@
 
     .theme-dark & {
       background: $dark-surface-hover;
-      border-color: color-mix(in srgb, var(--section-accent) 50%, transparent);
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.3),
-        0 0 0 1px color-mix(in srgb, var(--section-accent) 15%, transparent),
-        0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
     }
 
     .theme-light & {
       background: $light-surface-hover;
-      border-color: color-mix(in srgb, var(--section-accent) 40%, transparent);
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.12),
-        0 0 0 1px color-mix(in srgb, var(--section-accent) 12%, transparent),
-        0 0 30px color-mix(in srgb, var(--section-accent) 6%, transparent);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     }
   }
 
@@ -136,10 +128,18 @@
 }
 
 .card-description {
+  margin-bottom: 1rem;
+}
+
+.card-description-line {
   font-size: 1rem;
   line-height: 1.7;
   opacity: 0.85;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+
+  &:last-child { margin-bottom: 0; }
 }
 
 .tech-stack {
@@ -489,6 +489,8 @@
 
   p {
     margin-bottom: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
 
     &:last-child { margin-bottom: 0; }
   }

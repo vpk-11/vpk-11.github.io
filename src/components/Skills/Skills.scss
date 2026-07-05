@@ -151,7 +151,6 @@
     background: $dark-surface;
     &:hover {
       background: $dark-surface-hover;
-      border-color: var(--section-accent);
       transform: translateX(8px);
     }
   }
@@ -160,7 +159,6 @@
     background: $light-surface;
     &:hover {
       background: $light-surface-hover;
-      border-color: var(--section-accent);
       transform: translateX(8px);
     }
   }

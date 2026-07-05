@@ -85,7 +85,7 @@ export interface ProfileData {
 export interface Project {
   id: number;
   title: string;
-  shortDescription?: string;  // shown on card — max 150 chars
+  shortDescription?: [string, string];  // shown on card, 2 lines — each max 150 chars
   description: string;        // shown in modal — full detail
   tech: string[];
   categories?: string[];   // used for tab filtering

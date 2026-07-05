@@ -169,9 +169,6 @@
   @include card-base;
   @include accent-bar-left;
 
-  &:hover {
-    border-color: var(--section-accent);
-  }
   .theme-dark & {
     background: $dark-surface;
     &:hover { background: $dark-surface-hover; }
@@ -298,18 +295,27 @@
   font-size: 0.82rem;
   font-weight: 500;
   font-family: $font-mono;
+  background: transparent;
   transition: $transition-quick;
 
   .theme-dark & {
-    background: rgba($dark-text, 0.04);
-    border-color: var(--section-accent);
-    color: var(--section-accent);
+    border-color: rgba($dark-text, 0.18);
+    color: rgba($dark-text, 0.7);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
   }
 
   .theme-light & {
-    background: rgba($accent-light, 0.05);
-    border-color: var(--section-accent);
-    color: var(--section-accent);
+    border-color: rgba($light-text, 0.18);
+    color: rgba($light-text, 0.65);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
   }
 }
 
