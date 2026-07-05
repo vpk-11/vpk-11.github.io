@@ -68,12 +68,14 @@
   .brand-short {
     display: none;
   }
-  
-  @include respond-to(mobile) {
+
+  // Shrinks to "KP" starting at tablet (not just phone) so the centered
+  // dropdown nav has room to breathe without overlapping the brand.
+  @include respond-to(tablet) {
     .brand-full {
       display: none;
     }
-    
+
     .brand-short {
       display: inline;
     }
