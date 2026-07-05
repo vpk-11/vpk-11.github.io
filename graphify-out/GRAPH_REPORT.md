@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-04)
 
 ## Corpus Check
-- 42 files · ~14,339 words
+- 42 files · ~14,850 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 227 nodes · 312 edges · 17 communities (16 shown, 1 thin omitted)
+- 234 nodes · 319 edges · 17 communities (16 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c8db99ad`
+- Built from commit: `add67510`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -44,14 +44,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
   src/components/Experience/Experience.tsx → src/utils/formatText.tsx
-- `BeyondTheCode()` --calls--> `sectionNumber()`  [EXTRACTED]
-  src/components/BeyondTheCode/BeyondTheCode.tsx → src/data/sectionOrder.ts
-- `Education()` --calls--> `sectionNumber()`  [EXTRACTED]
-  src/components/Education/Education.tsx → src/data/sectionOrder.ts
-- `Experience()` --calls--> `sectionNumber()`  [EXTRACTED]
-  src/components/Experience/Experience.tsx → src/data/sectionOrder.ts
 - `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
   src/components/Projects/Projects.tsx → src/utils/formatText.tsx
+- `Projects()` --calls--> `formatText()`  [EXTRACTED]
+  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
+- `Wrap()` --calls--> `formatText()`  [EXTRACTED]
+  src/test/formatText.test.tsx → src/utils/formatText.tsx
+- `BeyondTheCode()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/BeyondTheCode/BeyondTheCode.tsx → src/data/sectionOrder.ts
 
 ## Import Cycles
 - None detected.
@@ -59,28 +59,28 @@
 ## Communities (17 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
-Cohesion: 0.15
-Nodes (10): ParticleWave(), THEME_COLORS, useDynamicFavicon(), AppContent(), AppDispatch, RootState, store, initialState (+2 more)
+Cohesion: 0.11
+Nodes (15): ParticleWave(), THEME_COLORS, useDynamicFavicon(), MOBILE_NAV_ITEMS, NAV_ITEMS, NavItem, SubMenuGroup, SubMenuItem (+7 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.13
-Nodes (19): About(), BeyondTheCode(), ClosingCTA(), SECTION_ORDER, SectionId, sectionNumber(), Education(), MORE_IDS (+11 more)
+Cohesion: 0.15
+Nodes (18): About(), BeyondTheCode(), ClosingCTA(), SECTION_ORDER, SectionId, sectionNumber(), Education(), ExpCard() (+10 more)
 
 ### Community 3 - "Navbar + Redux Store"
 Cohesion: 0.10
-Nodes (17): AboutSidebar, AboutStat, BeyondTheCode, Certification, ClosingCta, CurrentlyBuildingItem, Headliner, HeadlinerMetric (+9 more)
+Nodes (19): Skills(), AboutSidebar, AboutStat, Certification, ClosingCta, ClosingCtaChannel, CurrentlyBuildingItem, Headliner (+11 more)
 
 ### Community 4 - "Skills + Certifications"
-Cohesion: 0.11
-Nodes (17): homepage, name, packageManager, pnpm, onlyBuiltDependencies, private, scripts, build (+9 more)
+Cohesion: 0.22
+Nodes (9): scripts, build, deploy, dev, lint, predeploy, preview, test (+1 more)
 
 ### Community 5 - "App Entry + Composition"
 Cohesion: 0.11
 Nodes (19): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, gh-pages, globals (+11 more)
 
 ### Community 6 - "Accent + Type Definitions"
-Cohesion: 0.20
-Nodes (10): dependencies, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit, sass (+2 more)
+Cohesion: 0.10
+Nodes (19): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+11 more)
 
 ### Community 7 - "Particle Background"
 Cohesion: 0.08
@@ -103,28 +103,28 @@ Cohesion: 0.36
 Nodes (8): ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps, Projects(), toAbsolute(), truncate(), Project
 
 ### Community 14 - "Community 14"
-Cohesion: 0.48
-Nodes (5): ExpCard(), Experience(), useWindowHeight(), useWindowWidth(), Experience
+Cohesion: 0.29
+Nodes (5): MORE_IDS, NAVIGATE_IDS, SECTION_LABELS, VpkMark(), VpkMarkProps
 
 ## Knowledge Gaps
-- **142 isolated node(s):** `SECTION_LABELS`, `NAVIGATE_IDS`, `MORE_IDS`, `VpkMarkProps`, `SECTION_ORDER` (+137 more)
+- **149 isolated node(s):** `SectionHeading`, `HeroHeading`, `SectionHeadings`, `AboutStat`, `CurrentlyBuildingItem` (+144 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `App Entry + Composition` to `Skills + Certifications`?**
-  _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Accent + Type Definitions` to `Skills + Certifications`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **What connects `SECTION_LABELS`, `NAVIGATE_IDS`, `MORE_IDS` to the rest of the system?**
-  _142 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `devDependencies` connect `App Entry + Composition` to `Accent + Type Definitions`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `scripts` connect `Skills + Certifications` to `Accent + Type Definitions`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **What connects `SectionHeading`, `HeroHeading`, `SectionHeadings` to the rest of the system?**
+  _149 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.14624505928853754 - nodes in this community are weakly interconnected._
-- **Should `Hero, About, Contact` be split into smaller, more focused modules?**
-  _Cohesion score 0.12688172043010754 - nodes in this community are weakly interconnected._
-- **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
-- **Should `Skills + Certifications` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
+- **Should `Hero, About, Contact` be split into smaller, more focused modules?**
+  _Cohesion score 0.1455026455026455 - nodes in this community are weakly interconnected._
+- **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
+  _Cohesion score 0.09782608695652174 - nodes in this community are weakly interconnected._
+- **Should `App Entry + Composition` be split into smaller, more focused modules?**
+  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
