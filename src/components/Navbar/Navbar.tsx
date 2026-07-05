@@ -213,8 +213,13 @@ const Navbar: React.FC = () => {
               </AnimatePresence>
             </li>
           ))}
-          <li><ThemeToggle /></li>
         </ul>
+
+        <div className="nav-actions">
+          <ThemeToggle />
+          {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
+          {/* <a href="#closing-cta" className="nav-book-call">Book a Call</a> */}
+        </div>
 
         <div className="nav-mobile">
           <ThemeToggle />
