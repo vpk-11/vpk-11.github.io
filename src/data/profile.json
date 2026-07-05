@@ -79,7 +79,12 @@
   },
   "closingCta": {
     "eyebrow": "LET'S TALK",
-    "headline": "Let's build something that {accent}matters{/accent}.",
-    "tagline": "Open to Summer 2026 internships and full-time roles in backend, AI/ML, or full-stack. Always down to chat."
+    "headline": "Let's {accent}build{/accent}\n{outline}something{/outline}\nthat {accent}matters{/accent}.",
+    "tagline": "Open to **Summer 2026 internships and full-time roles** in backend, AI/ML, or full-stack. Always down to chat.",
+    "channels": [
+      { "label": "SOCIAL_CHANNEL", "value": "LinkedIn · in/kaushikparthasarathy", "caption": "DMs open" },
+      { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
+      { "label": "STATUS", "value": "Open to Work", "caption": "Summer 2026 onward" }
+    ]
   }
 }

@@ -48,10 +48,17 @@ export interface ResumeMeta {
   bestFor: string;
 }
 
+export interface ClosingCtaChannel {
+  label: string;
+  value: string;
+  caption: string;
+}
+
 export interface ClosingCta {
   eyebrow?: string;
   headline: string;
   tagline: string;
+  channels: ClosingCtaChannel[];
 }
 
 export interface ProfileData {

@@ -129,6 +129,14 @@ body {
   color: var(--section-accent);
 }
 
+.outline-word {
+  color: transparent;
+  -webkit-text-stroke: 1.5px;
+
+  .theme-light & { -webkit-text-stroke-color: rgba($light-text, 0.6); }
+  .theme-dark &  { -webkit-text-stroke-color: rgba($dark-text, 0.6); }
+}
+
 // v5 heading system — mono eyebrow + italic serif headline, shared
 // across every section so they read as one family (About, Education,
 // Experience, Skills, ...).
