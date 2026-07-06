@@ -4,7 +4,7 @@ import educationData from '../../data/education.json';
 import generalData from '../../data/general.json';
 import type { Education as EducationType, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './Education.scss';
 
 const Education: React.FC = () => {
@@ -15,10 +15,11 @@ const Education: React.FC = () => {
   return (
     <section id="education" className="section education-section">
       <div className="container">
-        <div className="section-eyebrow">
-          <span>{sectionNumber('education')} / EDUCATION</span>
-        </div>
-        <h2 className="section-headline">{headline ? formatText(headline) : 'Education'}</h2>
+        <SectionHeader
+          sectionId="education"
+          label="EDUCATION"
+          headline={headline ? formatText(headline) : 'Education'}
+        />
         <div className="education-grid">
           {education.map(edu => (
             <div key={edu.id} className="education-card">

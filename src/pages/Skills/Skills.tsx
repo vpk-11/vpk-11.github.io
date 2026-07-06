@@ -5,7 +5,7 @@ import certificationsData from '../../data/certifications.json';
 import generalData from '../../data/general.json';
 import type { Skill, Certification, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
@@ -21,12 +21,11 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="section skills-section">
       <div className="container">
-        <div className="section-eyebrow">
-          <span>{sectionNumber('skills')} / STACK</span>
-        </div>
-        <h2 className="section-headline">
-          {heading ? formatText(heading.headline) : 'Skills & Certifications'}
-        </h2>
+        <SectionHeader
+          sectionId="skills"
+          label="STACK"
+          headline={heading ? formatText(heading.headline) : 'Skills & Certifications'}
+        />
 
         {/* Toggle — same pill style as project tabs */}
         <div className="sk-tabs" role="tablist">

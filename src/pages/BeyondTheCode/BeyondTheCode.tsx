@@ -2,7 +2,7 @@ import React from 'react';
 import extracurricularsData from '../../data/extracurriculars.json';
 import type { BeyondTheCode as BeyondTheCodeType } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './BeyondTheCode.scss';
 
 const BeyondTheCode: React.FC = () => {
@@ -12,11 +12,11 @@ const BeyondTheCode: React.FC = () => {
     <section id="beyond-the-code" className="section beyond-section">
       <div className="container">
 
-        <div className="section-eyebrow">
-          <span>{sectionNumber('beyond-the-code')} / BEYOND THE CODE</span>
-        </div>
-
-        <h2 className="section-headline">{formatText(data.headline)}</h2>
+        <SectionHeader
+          sectionId="beyond-the-code"
+          label="BEYOND THE CODE"
+          headline={formatText(data.headline)}
+        />
         <p className="beyond-tagline">{data.tagline}</p>
 
         <div className="leadership-stack">

@@ -3,7 +3,7 @@ import { ExternalLink, Github, X, MoveRight } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -229,10 +229,11 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="section projects-section">
       <div className="container">
-        <div className="section-eyebrow">
-          <span>{sectionNumber('projects')} / PROJECTS</span>
-        </div>
-        <h2 className="section-headline">{headline ? formatText(headline) : 'Projects'}</h2>
+        <SectionHeader
+          sectionId="projects"
+          label="PROJECTS"
+          headline={headline ? formatText(headline) : 'Projects'}
+        />
 
         {tabs.length > 0 && (
           <div className="pr-tabs" role="tablist">
