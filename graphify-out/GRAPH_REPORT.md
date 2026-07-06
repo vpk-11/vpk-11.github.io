@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-06)
 
 ## Corpus Check
-- 44 files · ~16,011 words
+- 45 files · ~16,058 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 241 nodes · 363 edges · 17 communities (16 shown, 1 thin omitted)
+- 244 nodes · 369 edges · 17 communities (16 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e7942aa9`
+- Built from commit: `40beaae6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,14 +42,14 @@
 10. `RootState` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
-  src/pages/Experience/Experience.tsx → src/utils/formatText.tsx
 - `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
   src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
 - `Projects()` --calls--> `sectionNumber()`  [EXTRACTED]
   src/pages/Projects/Projects.tsx → src/data/sectionOrder.ts
 - `Projects()` --calls--> `formatText()`  [EXTRACTED]
   src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
+- `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
+  src/pages/Experience/Experience.tsx → src/utils/formatText.tsx
 - `Wrap()` --calls--> `formatText()`  [EXTRACTED]
   src/test/formatText.test.tsx → src/utils/formatText.tsx
 
@@ -99,15 +99,15 @@ Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, moduleResolution, noEmit (+13 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.33
-Nodes (9): ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps, Projects(), stripMarkdown(), toAbsolute(), truncate() (+1 more)
+Cohesion: 0.24
+Nodes (11): ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps, Projects(), stripMarkdown(), toAbsolute(), truncate() (+3 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.25
 Nodes (6): MORE_IDS, { nav: NAV_ITEMS }, NAVIGATE_IDS, SECTION_LABELS, VpkMark(), VpkMarkProps
 
 ## Knowledge Gaps
-- **149 isolated node(s):** `SectionHeaderProps`, `ProjectModalProps`, `name`, `private`, `version` (+144 more)
+- **150 isolated node(s):** `TagProps`, `ProjectModalProps`, `SectionHeaderProps`, `name`, `private` (+145 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -118,8 +118,8 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `scripts` connect `Community 4` to `App Entry + Composition`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `SectionHeaderProps`, `ProjectModalProps`, `name` to the rest of the system?**
-  _149 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `TagProps`, `ProjectModalProps`, `SectionHeaderProps` to the rest of the system?**
+  _150 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
   _Cohesion score 0.1067193675889328 - nodes in this community are weakly interconnected._
 - **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
