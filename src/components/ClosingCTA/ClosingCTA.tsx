@@ -1,16 +1,16 @@
 import React from 'react';
 import { Github, Linkedin } from 'lucide-react';
 import profileData from '../../data/profile.json';
-import type { ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
   const profile = profileData as ProfileData;
-  const cta = profile.closingCta;
-
-  if (!cta) return null;
+  const general = generalData as GeneralData;
+  const cta = general.closingCta;
 
   const headlineLines = cta.headline.split('\n');
 

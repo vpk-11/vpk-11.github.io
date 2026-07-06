@@ -1,14 +1,16 @@
 import React from 'react';
 import profileData from '../../data/profile.json';
-import type { ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import './About.scss';
 
 const About: React.FC = () => {
   const profile = profileData as ProfileData;
+  const general = generalData as GeneralData;
   const bioParagraphs = profile.bio.split('\n\n');
-  const heading = profile.sectionHeadings?.about;
+  const heading = general.sectionHeadings.about;
   const sidebar = profile.aboutSidebar;
   const stats = profile.aboutStats ?? [];
 

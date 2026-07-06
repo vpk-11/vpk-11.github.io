@@ -1,16 +1,16 @@
-# Graph Report - Portfolio  (2026-07-05)
+# Graph Report - Portfolio  (2026-07-06)
 
 ## Corpus Check
-- 42 files · ~15,852 words
+- 43 files · ~15,980 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 235 nodes · 321 edges · 17 communities (16 shown, 1 thin omitted)
+- 238 nodes · 351 edges · 16 communities (15 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d9ae1c82`
+- Built from commit: `9f58b359`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,6 @@
 - [[_COMMUNITY_Projects + Experience UI|Projects + Experience UI]]
 - [[_COMMUNITY_Hero, About, Contact|Hero, About, Contact]]
 - [[_COMMUNITY_Navbar + Redux Store|Navbar + Redux Store]]
-- [[_COMMUNITY_Skills + Certifications|Skills + Certifications]]
 - [[_COMMUNITY_App Entry + Composition|App Entry + Composition]]
 - [[_COMMUNITY_Accent + Type Definitions|Accent + Type Definitions]]
 - [[_COMMUNITY_Particle Background|Particle Background]]
@@ -30,57 +29,53 @@
 - [[_COMMUNITY_Community 14|Community 14]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `compilerOptions` - 21 edges
-2. `compilerOptions` - 20 edges
-3. `compilerOptions` - 19 edges
-4. `sectionNumber()` - 17 edges
-5. `formatText()` - 15 edges
+1. `formatText()` - 21 edges
+2. `compilerOptions` - 21 edges
+3. `compilerOptions` - 20 edges
+4. `compilerOptions` - 19 edges
+5. `sectionNumber()` - 18 edges
 6. `Portfolio Website` - 12 edges
-7. `ProfileData` - 10 edges
-8. `scripts` - 9 edges
-9. `RootState` - 6 edges
-10. `toAbsolute()` - 4 edges
+7. `GeneralData` - 11 edges
+8. `ProfileData` - 10 edges
+9. `scripts` - 9 edges
+10. `RootState` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
-  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
-- `Projects()` --calls--> `formatText()`  [EXTRACTED]
-  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
 - `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
   src/components/Experience/Experience.tsx → src/utils/formatText.tsx
+- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
+  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
+- `Projects()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/Projects/Projects.tsx → src/data/sectionOrder.ts
+- `Projects()` --calls--> `formatText()`  [EXTRACTED]
+  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
 - `Wrap()` --calls--> `formatText()`  [EXTRACTED]
   src/test/formatText.test.tsx → src/utils/formatText.tsx
-- `BeyondTheCode()` --calls--> `sectionNumber()`  [EXTRACTED]
-  src/components/BeyondTheCode/BeyondTheCode.tsx → src/data/sectionOrder.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (17 total, 1 thin omitted)
+## Communities (16 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
 Cohesion: 0.11
-Nodes (15): ParticleWave(), THEME_COLORS, useDynamicFavicon(), MOBILE_NAV_ITEMS, NAV_ITEMS, NavItem, SubMenuGroup, SubMenuItem (+7 more)
+Nodes (15): ParticleWave(), THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, AppContent(), AppDispatch (+7 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.15
-Nodes (18): About(), BeyondTheCode(), ClosingCTA(), SECTION_ORDER, SectionId, sectionNumber(), Education(), ExpCard() (+10 more)
+Cohesion: 0.14
+Nodes (23): About(), BeyondTheCode(), ClosingCTA(), SECTION_ORDER, SectionId, sectionNumber(), Education(), ExpCard() (+15 more)
 
 ### Community 3 - "Navbar + Redux Store"
-Cohesion: 0.10
-Nodes (19): Skills(), AboutSidebar, AboutStat, Certification, ClosingCta, ClosingCtaChannel, CurrentlyBuildingItem, Headliner (+11 more)
-
-### Community 4 - "Skills + Certifications"
-Cohesion: 0.22
-Nodes (9): scripts, build, deploy, dev, lint, predeploy, preview, test (+1 more)
+Cohesion: 0.12
+Nodes (16): AboutSidebar, AboutStat, ClosingCta, ClosingCtaChannel, CurrentlyBuildingItem, Headliner, HeadlinerMetric, HeroHeading (+8 more)
 
 ### Community 5 - "App Entry + Composition"
 Cohesion: 0.11
 Nodes (19): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, gh-pages, globals (+11 more)
 
 ### Community 6 - "Accent + Type Definitions"
-Cohesion: 0.10
-Nodes (19): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+11 more)
+Cohesion: 0.07
+Nodes (28): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+20 more)
 
 ### Community 7 - "Particle Background"
 Cohesion: 0.08
@@ -103,11 +98,11 @@ Cohesion: 0.33
 Nodes (9): ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps, Projects(), stripMarkdown(), toAbsolute(), truncate() (+1 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.29
-Nodes (5): MORE_IDS, NAVIGATE_IDS, SECTION_LABELS, VpkMark(), VpkMarkProps
+Cohesion: 0.25
+Nodes (6): MORE_IDS, { nav: NAV_ITEMS }, NAVIGATE_IDS, SECTION_LABELS, VpkMark(), VpkMarkProps
 
 ## Knowledge Gaps
-- **149 isolated node(s):** `SubMenuItem`, `SubMenuGroup`, `NavItem`, `NAV_ITEMS`, `MOBILE_NAV_ITEMS` (+144 more)
+- **149 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+144 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -115,16 +110,16 @@ Nodes (5): MORE_IDS, NAVIGATE_IDS, SECTION_LABELS, VpkMark(), VpkMarkProps
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `App Entry + Composition` to `Accent + Type Definitions`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **Why does `scripts` connect `Skills + Certifications` to `Accent + Type Definitions`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `SubMenuItem`, `SubMenuGroup`, `NavItem` to the rest of the system?**
+  _High betweenness centrality (0.024) - this node is a cross-community bridge._
+- **What connects `name`, `private`, `version` to the rest of the system?**
   _149 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10591133004926108 - nodes in this community are weakly interconnected._
 - **Should `Hero, About, Contact` be split into smaller, more focused modules?**
-  _Cohesion score 0.1455026455026455 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13968253968253969 - nodes in this community are weakly interconnected._
 - **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
-  _Cohesion score 0.09782608695652174 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `App Entry + Composition` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
+- **Should `Accent + Type Definitions` be split into smaller, more focused modules?**
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { ExternalLink, Award, Wrench } from 'lucide-react';
 import skillsData from '../../data/skills.json';
 import certificationsData from '../../data/certifications.json';
-import profileData from '../../data/profile.json';
-import type { Skill, Certification, ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { Skill, Certification, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import './Skills.scss';
@@ -11,12 +11,12 @@ import './Skills.scss';
 const Skills: React.FC = () => {
   const skills = skillsData as Skill[];
   const certifications = certificationsData as Certification[];
-  const profile = profileData as ProfileData;
+  const general = generalData as GeneralData;
   const [tab, setTab] = useState<'skills' | 'certifications'>('skills');
 
   const heading = tab === 'skills'
-    ? profile.sectionHeadings?.skills
-    : profile.sectionHeadings?.certifications;
+    ? general.sectionHeadings.skills
+    : general.sectionHeadings.certifications;
 
   return (
     <section id="skills" className="section skills-section">

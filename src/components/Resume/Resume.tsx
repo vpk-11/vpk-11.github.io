@@ -1,7 +1,8 @@
 import React from 'react';
 import { Download } from 'lucide-react';
 import profileData from '../../data/profile.json';
-import type { ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import './Resume.scss';
@@ -12,8 +13,9 @@ function toPreviewUrl(url: string): string {
 
 const Resume: React.FC = () => {
   const profile = profileData as ProfileData;
-  const heading = profile.sectionHeadings?.resume;
-  const meta = profile.resumeMeta;
+  const general = generalData as GeneralData;
+  const heading = general.sectionHeadings.resume;
+  const meta = general.resumeMeta;
   const shortTitle = profile.title.split('|')[0].trim();
 
   return (

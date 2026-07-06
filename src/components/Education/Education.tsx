@@ -1,16 +1,16 @@
 import React from 'react';
 import { Calendar, MapPin, Award } from 'lucide-react';
 import educationData from '../../data/education.json';
-import profileData from '../../data/profile.json';
-import type { Education as EducationType, ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { Education as EducationType, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import './Education.scss';
 
 const Education: React.FC = () => {
   const education = educationData as EducationType[];
-  const profile = profileData as ProfileData;
-  const headline = profile.sectionHeadings?.education.headline;
+  const general = generalData as GeneralData;
+  const headline = general.sectionHeadings.education.headline;
 
   return (
     <section id="education" className="section education-section">
