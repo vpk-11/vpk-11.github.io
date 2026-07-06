@@ -5,6 +5,7 @@ import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
@@ -18,11 +19,12 @@ const ClosingCTA: React.FC = () => {
     <section id="closing-cta" className="section closing-cta-section">
       <div className="container">
 
-        {cta.eyebrow && (
-          <div className="section-eyebrow">
-            <span>{sectionNumber('closing-cta')} / {cta.eyebrow} &mdash; REF_{sectionNumber('closing-cta')}</span>
-          </div>
-        )}
+        <SectionHeader
+          sectionId="closing-cta"
+          label={cta.eyebrow ?? ''}
+          show={!!cta.eyebrow}
+          decoration={<> &mdash; REF_{sectionNumber('closing-cta')}</>}
+        />
 
         <h2 className="closing-cta-headline">
           {headlineLines.map((line, i) => (

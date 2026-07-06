@@ -4,7 +4,7 @@ import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './Resume.scss';
 
 function toPreviewUrl(url: string): string {
@@ -22,15 +22,12 @@ const Resume: React.FC = () => {
     <section id="resume" className="section resume-section">
       <div className="container">
 
-        {heading?.eyebrow && (
-          <div className="section-eyebrow">
-            <span>{sectionNumber('resume')} / {heading.eyebrow}</span>
-          </div>
-        )}
-
-        <h2 className="section-headline">
-          {heading ? formatText(heading.headline) : 'Resume'}
-        </h2>
+        <SectionHeader
+          sectionId="resume"
+          label={heading?.eyebrow ?? ''}
+          show={!!heading?.eyebrow}
+          headline={heading ? formatText(heading.headline) : 'Resume'}
+        />
 
         <div className="resume-grid">
           <div className="resume-card">

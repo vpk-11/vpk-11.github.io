@@ -3,7 +3,7 @@ import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
+import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import './About.scss';
 
 const About: React.FC = () => {
@@ -18,16 +18,13 @@ const About: React.FC = () => {
     <section id="about" className="section about-section">
       <div className="container">
 
-        {heading?.eyebrow && (
-          <div className="section-eyebrow">
-            <span>{sectionNumber('about')} / ABOUT</span>
-            <b>{heading.eyebrow}</b>
-          </div>
-        )}
-
-        <h2 className="section-headline">
-          {heading ? formatText(heading.headline) : 'About Me'}
-        </h2>
+        <SectionHeader
+          sectionId="about"
+          label="ABOUT"
+          show={!!heading?.eyebrow}
+          suffix={<b>{heading?.eyebrow}</b>}
+          headline={heading ? formatText(heading.headline) : 'About Me'}
+        />
 
         <div className="about-grid">
 
