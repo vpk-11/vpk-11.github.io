@@ -35,6 +35,17 @@
   }
 }
 
+// Scrim fix (same technique as About's .about-panel): the particle
+// background's ripple washes out text contrast without a solid-ish backdrop.
+.leadership-panel {
+  border-radius: 10px;
+  padding: clamp(1rem, 2vw, 1.75rem);
+  backdrop-filter: blur(6px);
+
+  .theme-dark &  { background: rgba(10, 10, 10, 0.72); }
+  .theme-light & { background: rgba(250, 250, 250, 0.85); }
+}
+
 .leadership-role {
   font-size: 1.15rem;
   font-weight: 700;
@@ -70,24 +81,25 @@
   margin: 0;
 
   li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
     font-size: clamp(1.05rem, 1.1vw + 0.35rem, 1.15rem);
     line-height: 1.85;
-    padding-left: 1.1rem;
-    position: relative;
 
     .theme-light & { color: rgba($light-text, 0.9); }
     .theme-dark &  { color: rgba($dark-text, 0.92); }
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.55rem;
-      width: 6px;
-      height: 1px;
-      background: var(--section-accent);
-    }
   }
+}
+
+// Real "—" glyph as the bullet mark, same technique as Experience's
+// .ex-bullet — reads as a thicker, bolder line than a hand-drawn CSS bar.
+.leadership-bullet-mark {
+  flex-shrink: 0;
+  color: var(--section-accent);
+  font-weight: 700;
+  line-height: 1.85;
+  user-select: none;
 }
 
 .leadership-metrics {

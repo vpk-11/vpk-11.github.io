@@ -3,14 +3,22 @@ import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
 import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
-import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
+import { RIPPLE_CYCLE_SECONDS, RIPPLE_DIRECTION } from '../../utils/rippleMotion';
 import Button from '../../components/ui/Button/Button';
+import Marquee from '../../components/ui/Marquee/Marquee';
 import './Hero.scss';
 
-// Repeats per half of the ticker track — keeps the loop seamless on
-// ultra-wide screens where a single pass of the phrase list is
-// narrower than the viewport.
-const TICKER_REPEAT = 6;
+// Marquee duplicates whatever it's given exactly once for a seamless loop,
+// but that only fills wide viewports if each half is already wider than the
+// screen. The phrase list is short, so pad it out before handing it to
+// Marquee — otherwise wide screens see a blank gap once both copies have
+// scrolled past.
+const HERO_TICKER_REPEAT = 6;
+
+// RIPPLE_CYCLE_SECONDS times the background wave's own motion, which is
+// much faster than a comfortable reading pace for this much repeated text —
+// slow the ticker down to a fraction of that cycle instead of matching it 1:1.
+const HERO_TICKER_SPEED_MULTIPLIER = 6;
 
 const Hero: React.FC = () => {
   const profile = profileData as ProfileData;
@@ -42,18 +50,14 @@ const Hero: React.FC = () => {
 
           {tickerPhrases.length > 0 && (
             <div className="hero-ticker" aria-hidden="true">
-              <div
-                className="ticker-track"
-                style={{ animationDuration: `${RIPPLE_CYCLE_SECONDS}s` }}
-              >
-                {/* repeated enough times that one half never runs out of width on wide screens */}
-                {Array.from({ length: TICKER_REPEAT * 2 }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
-                  <span className="ticker-item" key={`${phrase}-${i}`}>
+              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION}>
+                {Array.from({ length: HERO_TICKER_REPEAT * tickerPhrases.length }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
+                  <span className="ticker-item" key={i}>
                     <span className="pulse" />
                     {phrase}
                   </span>
                 ))}
-              </div>
+              </Marquee>
             </div>
           )}
 

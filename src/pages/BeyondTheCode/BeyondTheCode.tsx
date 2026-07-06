@@ -23,13 +23,16 @@ const BeyondTheCode: React.FC = () => {
         <div className="leadership-stack">
           {data.blocks.map((block, i) => (
             <div className="leadership-row" key={i}>
-              <div>
+              <div className="leadership-panel">
                 <div className="leadership-role">{block.role}</div>
                 <div className="leadership-org">{block.org}</div>
                 <div className="leadership-dates">{block.dates}</div>
                 <ul className="leadership-bullets">
                   {block.bullets.map((bullet, j) => (
-                    <li key={j}>{bullet}</li>
+                    <li key={j}>
+                      <span className="leadership-bullet-mark" aria-hidden="true">—</span>
+                      <span>{bullet}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
