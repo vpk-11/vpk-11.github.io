@@ -1,19 +1,18 @@
 import React from 'react';
 import profileData from '../../data/profile.json';
-import type { ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { ProfileData, GeneralData } from '../../types';
 import { sectionNumber } from '../../data/sectionOrder';
 import './Footer.scss';
 
-const SECTION_LABELS: Record<string, string> = {
-  hero: 'Home',
-  about: 'About',
-  education: 'Education',
-  experience: 'Experience',
-  projects: 'Projects',
-  skills: 'Skills',
-  resume: 'Resume',
-  'beyond-the-code': 'Beyond the Code',
-};
+// Derived from the same nav tree Navbar renders, so labels only live in one place.
+const { nav: NAV_ITEMS } = generalData as GeneralData;
+const SECTION_LABELS: Record<string, string> = Object.fromEntries(
+  NAV_ITEMS.flatMap(item => {
+    if (item.id) return [[item.id, item.label]];
+    return item.subMenus?.flatMap(group => group.items.map(sub => [sub.id, sub.label])) ?? [];
+  })
+);
 
 const NAVIGATE_IDS = ['hero', 'about', 'education', 'experience', 'projects'] as const;
 const MORE_IDS = ['skills', 'resume', 'beyond-the-code'] as const;

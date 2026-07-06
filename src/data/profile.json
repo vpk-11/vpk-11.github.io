@@ -20,40 +20,6 @@
   ],
   "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship",
   "tagline": "Software engineer focused on building systems that scale and stay maintainable. Full-stack platforms, AI/ML pipelines, agentic AI systems, and architectures designed for the real world.",
-  "txt": "I'm currently looking for new opportunities. Whether you have a question or just want to connect, feel free to reach out on LinkedIn!",
-  "sectionHeadings": {
-    "hero": {
-      "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
-    },
-    "about": {
-      "eyebrow": "About_Me",
-      "headline": "I'm an {accent}engineer{/accent}, front and center."
-    },
-    "skills": {
-      "headline": "My {accent}Tool{/accent}box."
-    },
-    "certifications": {
-      "headline": "My Tool{accent}box{/accent}."
-    },
-    "education": {
-      "headline": "{accent}Edu{/accent}cation"
-    },
-    "experience": {
-      "headline": "{accent}Exp{/accent}erience"
-    },
-    "projects": {
-      "headline": "{accent}Pro{/accent}jects"
-    },
-    "resume": {
-      "eyebrow": "RESUME",
-      "headline": "One page. No {accent}fluff{/accent}."
-    }
-  },
-  "resumeMeta": {
-    "updated": "Jul 2026",
-    "format": "PDF · 1 page · ATS-safe",
-    "bestFor": "Backend · AI/ML · Full-Stack"
-  },
   "aboutStats": [
     { "value": "3.95", "label": "GPA · MS CS, UMass" },
     { "value": "15", "label": "Public Repositories" },
@@ -77,16 +43,6 @@
       "Full-Stack Engineering",
       "Agentic AI Systems",
       "ML Engineering"
-    ]
-  },
-  "closingCta": {
-    "eyebrow": "LET'S TALK",
-    "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}.",
-    "tagline": "Open to **Summer 2026 internships** and **full-time** roles in software engineering, full-stack, or agentic AI. Always down to chat.",
-    "channels": [
-      { "label": "SOCIAL_CHANNEL", "value": "LinkedIn · in/kaushikparthasarathy", "caption": "DMs open" },
-      { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
-      { "label": "STATUS", "value": "Open to Work", "caption": "Fall 2026 onward" }
     ]
   }
 }

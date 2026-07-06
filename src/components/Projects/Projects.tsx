@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { ExternalLink, Github, X, MoveRight } from 'lucide-react';
 import projectsData from '../../data/projects.json';
-import profileData from '../../data/profile.json';
+import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
-import type { Project, ProfileData } from '../../types';
+import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
 const SHORT_DESC_LIMIT = 150;
@@ -179,8 +179,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
 
 const Projects: React.FC = () => {
   const projects = projectsData as Project[];
-  const profile = profileData as ProfileData;
-  const headline = profile.sectionHeadings?.projects.headline;
+  const general = generalData as GeneralData;
+  const headline = general.sectionHeadings.projects.headline;
   const [selected, setSelected] = useState<Project | null>(null);
 
   const categoryTabs = useMemo(() => {

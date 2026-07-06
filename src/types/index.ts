@@ -66,7 +66,6 @@ export interface ProfileData {
   title: string;
   tagline: string;   // short 1-2 sentence hero tagline
   bio: string;       // longer bio for About section
-  email: string;
   linkedin: string;
   github: string;
   resume: string;
@@ -74,12 +73,35 @@ export interface ProfileData {
   availability: string;
   targetRoles: string[];
   workAuthorization: string;
-  txt: string;
-  sectionHeadings?: SectionHeadings;
   aboutStats?: AboutStat[];
   aboutSidebar?: AboutSidebar;
-  resumeMeta?: ResumeMeta;
-  closingCta?: ClosingCta;
+}
+
+// Nav Types (site chrome, not profile content — see data/general.json)
+
+export interface SubMenuItem {
+  label: string;
+  description: string;
+  icon: string;   // lucide-react icon name, looked up in Navbar's ICONS map
+  id: string;
+}
+
+export interface SubMenuGroup {
+  title: string;
+  items: SubMenuItem[];
+}
+
+export interface NavItem {
+  label: string;
+  id?: string;          // plain link target
+  subMenus?: SubMenuGroup[];
+}
+
+export interface GeneralData {
+  nav: NavItem[];
+  sectionHeadings: SectionHeadings;
+  resumeMeta: ResumeMeta;
+  closingCta: ClosingCta;
 }
 
 export interface Project {

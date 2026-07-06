@@ -1,7 +1,8 @@
 import React from 'react';
 import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
 import profileData from '../../data/profile.json';
-import type { ProfileData } from '../../types';
+import generalData from '../../data/general.json';
+import type { ProfileData, GeneralData } from '../../types';
 import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
 import './Hero.scss';
 
@@ -12,6 +13,7 @@ const TICKER_REPEAT = 6;
 
 const Hero: React.FC = () => {
   const profile = profileData as ProfileData;
+  const general = generalData as GeneralData;
   const [firstName, ...rest] = profile.name.split(' ');
   const lastName = rest.join(' ');
   const shortWorkAuth = profile.workAuthorization
@@ -19,7 +21,7 @@ const Hero: React.FC = () => {
     .slice(0, 2)
     .map(s => s.trim())
     .join(' · ');
-  const tickerPhrases = profile.sectionHeadings?.hero.ticker ?? [];
+  const tickerPhrases = general.sectionHeadings.hero.ticker;
   return (
     <section id="hero" className="section hero-section">
 

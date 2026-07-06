@@ -1,10 +1,10 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import experiencesData from '../../data/experiences.json';
-import profileData from '../../data/profile.json';
+import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
-import type { Experience as ExperienceType, ProfileData } from '../../types';
+import type { Experience as ExperienceType, GeneralData } from '../../types';
 import { useWindowWidth, useWindowHeight } from '../../hooks/useViewport';
 import './Experience.scss';
 
@@ -49,8 +49,8 @@ const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
 
 const Experience: React.FC = () => {
   const experiences = experiencesData as ExperienceType[];
-  const profile     = profileData as ProfileData;
-  const headline    = profile.sectionHeadings?.experience.headline;
+  const general     = generalData as GeneralData;
+  const headline    = general.sectionHeadings.experience.headline;
   const total       = experiences.length;
   const viewH       = useWindowHeight();
   const viewW       = useWindowWidth();

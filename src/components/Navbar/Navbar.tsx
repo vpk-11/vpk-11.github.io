@@ -5,72 +5,26 @@ import {
   GraduationCap, Briefcase, FolderGit2, Wrench, FileText, Users,
 } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import generalData from '../../data/general.json';
+import type { GeneralData, NavItem } from '../../types';
+import { SECTION_ORDER } from '../../data/sectionOrder';
 import './Navbar.scss';
 
-interface SubMenuItem {
-  label: string;
-  description: string;
-  icon: React.ElementType;
-  id: string;
-}
+// String -> component lookup for icon names stored in general.json's nav data.
+const ICONS: Record<string, React.ElementType> = {
+  GraduationCap, Briefcase, FolderGit2, Wrench, FileText, Users,
+};
 
-interface SubMenuGroup {
-  title: string;
-  items: SubMenuItem[];
-}
+const { nav: NAV_ITEMS } = generalData as GeneralData;
 
-interface NavItem {
-  label: string;
-  id?: string;          // plain link target
-  subMenus?: SubMenuGroup[];
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', id: 'hero' },
-  { label: 'About', id: 'about' },
-  {
-    label: 'Work',
-    subMenus: [
-      {
-        title: 'Background',
-        items: [
-          { label: 'Education', description: 'Where the fundamentals got built', icon: GraduationCap, id: 'education' },
-          { label: 'Experience', description: 'Where the work got done', icon: Briefcase, id: 'experience' },
-        ],
-      },
-      {
-        title: 'Showcase',
-        items: [
-          { label: 'Projects', description: 'Everything I’ve shipped', icon: FolderGit2, id: 'projects' },
-          { label: 'Skills', description: 'My toolbox', icon: Wrench, id: 'skills' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'More',
-    subMenus: [
-      {
-        title: 'Extras',
-        items: [
-          { label: 'Resume', description: 'One-page PDF, plus a live preview', icon: FileText, id: 'resume' },
-          { label: 'Beyond the Code', description: 'Leadership and mentorship', icon: Users, id: 'beyond-the-code' },
-        ],
-      },
-    ],
-  },
-];
-
-const MOBILE_NAV_ITEMS = [
-  { name: 'Home', id: 'hero' },
-  { name: 'About', id: 'about' },
-  { name: 'Education', id: 'education' },
-  { name: 'Experience', id: 'experience' },
-  { name: 'Projects', id: 'projects' },
-  { name: 'Skills', id: 'skills' },
-  { name: 'Resume', id: 'resume' },
-  { name: 'Beyond the Code', id: 'beyond-the-code' },
-];
+// Mobile menu is a flat list — derive it from the same nav tree so
+// there's one source of truth for labels/ids instead of a second array.
+const MOBILE_NAV_ITEMS: { name: string; id: string }[] = NAV_ITEMS.flatMap(item => {
+  if (item.id) return [{ name: item.label, id: item.id }];
+  return item.subMenus?.flatMap(group =>
+    group.items.map(sub => ({ name: sub.label, id: sub.id }))
+  ) ?? [];
+});
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,7 +43,7 @@ const Navbar: React.FC = () => {
 
   // Track active section for navbar highlighting
   useEffect(() => {
-    const sections = ['hero', 'about', 'education', 'experience', 'projects', 'skills', 'resume', 'beyond-the-code'];
+    const sections = SECTION_ORDER.filter(id => id !== 'closing-cta');
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150;
@@ -213,7 +167,7 @@ const Navbar: React.FC = () => {
                         <h3 className="nav-submenu-title">{group.title}</h3>
                         <ul className="nav-submenu-list">
                           {group.items.map(sub => {
-                            const Icon = sub.icon;
+                            const Icon = ICONS[sub.icon];
                             return (
                               <li key={sub.label}>
                                 <button
