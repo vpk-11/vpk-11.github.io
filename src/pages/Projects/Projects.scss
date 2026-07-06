@@ -219,58 +219,6 @@
   margin-bottom: 2rem;
 }
 
-.pr-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: transparent;
-  transition: all 0.2s ease;
-
-  .theme-light & {
-    background: $light-bg;
-    border-color: rgba($light-text, 0.3);
-    color: rgba($light-text, 0.75);
-    &:hover { border-color: var(--section-accent); color: var(--section-accent); }
-    &.active {
-      background: var(--section-accent); border-color: var(--section-accent); color: #fff;
-      .pr-tab-count { background: rgba(255,255,255,0.25); color: #fff; }
-    }
-  }
-  .theme-dark & {
-    background: $dark-surface;
-    border-color: rgba($dark-text, 0.25);
-    color: rgba($dark-text, 0.75);
-    &:hover { border-color: var(--section-accent); color: var(--section-accent); }
-    &.active {
-      background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg;
-      .pr-tab-count { background: rgba($dark-bg, 0.2); color: $dark-bg; }
-    }
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
-}
-
-.pr-tab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 9px;
-  font-size: 0.7rem;
-  font-weight: 700;
-
-  .theme-light & { background: rgba($light-text, 0.1); color: rgba($light-text, 0.72); }
-  .theme-dark &  { background: rgba($dark-text, 0.1);  color: rgba($dark-text, 0.7); }
-}
-
 // ============================================
 // VIEW DETAILS BUTTON
 // ============================================

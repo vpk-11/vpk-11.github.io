@@ -8,6 +8,7 @@ import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
 import Card from '../../components/ui/Card/Card';
+import Tab from '../../components/ui/Tab/Tab';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
@@ -31,24 +32,12 @@ const Skills: React.FC = () => {
 
         {/* Toggle — same pill style as project tabs */}
         <div className="sk-tabs" role="tablist">
-          <button
-            role="tab"
-            aria-selected={tab === 'skills'}
-            className={`sk-tab ${tab === 'skills' ? 'active' : ''}`}
-            onClick={() => setTab('skills')}
-          >
-            <Wrench size={15} />
+          <Tab active={tab === 'skills'} onClick={() => setTab('skills')} className="sk-tab" icon={<Wrench size={15} />}>
             Skills
-          </button>
-          <button
-            role="tab"
-            aria-selected={tab === 'certifications'}
-            className={`sk-tab ${tab === 'certifications' ? 'active' : ''}`}
-            onClick={() => setTab('certifications')}
-          >
-            <Award size={15} />
+          </Tab>
+          <Tab active={tab === 'certifications'} onClick={() => setTab('certifications')} className="sk-tab" icon={<Award size={15} />}>
             Certifications
-          </button>
+          </Tab>
         </div>
 
         {/* Skills panel — numbered category rows, tiered pills */}

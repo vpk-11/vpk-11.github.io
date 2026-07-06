@@ -7,6 +7,7 @@ import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
 import InlineAction from '../../components/ui/InlineAction/InlineAction';
 import Modal from '../../components/ui/Modal/Modal';
+import Tab from '../../components/ui/Tab/Tab';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -212,16 +213,15 @@ const Projects: React.FC = () => {
         {tabs.length > 0 && (
           <div className="pr-tabs" role="tablist">
             {tabs.map(tab => (
-              <button
+              <Tab
                 key={tab}
-                role="tab"
-                aria-selected={activeTab === tab}
-                className={`pr-tab ${activeTab === tab ? 'active' : ''}`}
+                active={activeTab === tab}
                 onClick={() => setActiveTab(tab)}
+                className="pr-tab"
+                count={tabCount(tab)}
               >
                 {tab}
-                <span className="pr-tab-count">{tabCount(tab)}</span>
-              </button>
+              </Tab>
             ))}
           </div>
         )}

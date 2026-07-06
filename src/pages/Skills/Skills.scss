@@ -167,36 +167,13 @@
   margin-bottom: 2rem;
 }
 
-.sk-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 20px;
-  border: 1px solid;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: transparent;
-  transition: all 0.2s ease;
-
-  .theme-light & {
-    background: $light-bg;
-    border-color: rgba($light-text, 0.3);
-    color: rgba($light-text, 0.75);
-    &:hover  { border-color: var(--section-accent); color: var(--section-accent); }
-    &.active { background: var(--section-accent); border-color: var(--section-accent); color: $light-bg; }
-  }
-
-  .theme-dark & {
-    background: $dark-surface;
-    border-color: rgba($dark-text, 0.25);
-    color: rgba($dark-text, 0.75);
-    &:hover  { border-color: var(--section-accent); color: var(--section-accent); }
-    &.active { background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg; }
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
+// Override on top of ui/Tab's base .tab — light-theme active text was
+// $light-bg here, not the #fff Tab defaults to (Projects' pr-tab, which
+// uses that default, is the more common case). Compound selector
+// (.tab.sk-tab.active) so this reliably beats Tab's own rule regardless
+// of CSS load order — see CLAUDE.md's page-override specificity note.
+.tab.sk-tab {
+  .theme-light &.active { color: $light-bg; }
 }
 
 .sk-panel {
