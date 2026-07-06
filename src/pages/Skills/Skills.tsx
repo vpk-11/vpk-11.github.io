@@ -6,6 +6,7 @@ import generalData from '../../data/general.json';
 import type { Skill, Certification, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Tag from '../../components/ui/Tag/Tag';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
@@ -60,13 +61,9 @@ const Skills: React.FC = () => {
                 </div>
                 <div className="skill-pills-wrap">
                   {skillGroup.items.map(item => (
-                    <span
-                      key={item.name}
-                      className={`skill-pill sk-level-${item.level ?? 1}`}
-                    >
-                      <span className="dot" aria-hidden="true" />
+                    <Tag key={item.name} variant="tiered" level={item.level ?? 1}>
                       {item.name}
-                    </span>
+                    </Tag>
                   ))}
                 </div>
               </div>
