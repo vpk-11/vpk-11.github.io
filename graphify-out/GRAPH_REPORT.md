@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9f58b359`
+- Built from commit: `d680dbdb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,14 +41,14 @@
 10. `RootState` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
-  src/components/Experience/Experience.tsx → src/utils/formatText.tsx
-- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
-  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
 - `Projects()` --calls--> `sectionNumber()`  [EXTRACTED]
-  src/components/Projects/Projects.tsx → src/data/sectionOrder.ts
+  src/pages/Projects/Projects.tsx → src/data/sectionOrder.ts
+- `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
+  src/pages/Experience/Experience.tsx → src/utils/formatText.tsx
+- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
+  src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
 - `Projects()` --calls--> `formatText()`  [EXTRACTED]
-  src/components/Projects/Projects.tsx → src/utils/formatText.tsx
+  src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
 - `Wrap()` --calls--> `formatText()`  [EXTRACTED]
   src/test/formatText.test.tsx → src/utils/formatText.tsx
 

@@ -5,9 +5,9 @@ import {
   GraduationCap, Briefcase, FolderGit2, Wrench, FileText, Users,
 } from 'lucide-react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import generalData from '../../data/general.json';
-import type { GeneralData, NavItem } from '../../types';
-import { SECTION_ORDER } from '../../data/sectionOrder';
+import generalData from '../../../data/general.json';
+import type { GeneralData, NavItem } from '../../../types';
+import { SECTION_ORDER } from '../../../data/sectionOrder';
 import './Navbar.scss';
 
 // String -> component lookup for icon names stored in general.json's nav data.

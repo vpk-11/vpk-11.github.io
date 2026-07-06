@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Sun, Moon } from 'lucide-react';
-import { toggleTheme } from '../../store/themeSlice';
-import type { RootState } from '../../store/store';
+import { toggleTheme } from '../../../store/themeSlice';
+import type { RootState } from '../../../store/store';
 import './ThemeToggle.scss';
 
 const ThemeToggle: React.FC = () => {

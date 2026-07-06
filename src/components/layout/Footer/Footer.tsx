@@ -1,8 +1,8 @@
 import React from 'react';
-import profileData from '../../data/profile.json';
-import generalData from '../../data/general.json';
-import type { ProfileData, GeneralData } from '../../types';
-import { sectionNumber } from '../../data/sectionOrder';
+import profileData from '../../../data/profile.json';
+import generalData from '../../../data/general.json';
+import type { ProfileData, GeneralData } from '../../../types';
+import { sectionNumber } from '../../../data/sectionOrder';
 import './Footer.scss';
 
 // Derived from the same nav tree Navbar renders, so labels only live in one place.
