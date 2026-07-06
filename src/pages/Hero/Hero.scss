@@ -156,15 +156,6 @@
   }
 }
 
-.ticker-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation-name: ticker-scroll;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: reverse;
-}
-
 .ticker-item {
   display: inline-flex;
   align-items: center;
@@ -186,11 +177,6 @@
   border-radius: 50%;
   background: var(--accent-color);
   animation: pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 
 // ── Status bar ────────────────────────────────────────────────────────────────
