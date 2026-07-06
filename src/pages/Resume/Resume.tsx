@@ -5,6 +5,7 @@ import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Button from '../../components/ui/Button/Button';
 import './Resume.scss';
 
 function toPreviewUrl(url: string): string {
@@ -37,15 +38,16 @@ const Resume: React.FC = () => {
             </div>
             <p className="resume-desc">{profile.tagline}</p>
 
-            <a
+            <Button
+              variant="primary"
               href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
               className="resume-download"
+              icon={<Download size={16} />}
             >
-              <Download size={16} />
               Download PDF
-            </a>
+            </Button>
 
             {meta && (
               <>

@@ -203,32 +203,9 @@
   flex-wrap: wrap;
 }
 
+// Override on top of ui/InlineAction's base .inline-action — only the gap differs here.
 .project-link {
-  display: inline-flex;
-  align-items: center;
   gap: 0.35rem;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.93rem;
-  padding: 0;
-  border: none;
-  background: none;
-  transition: $transition-quick;
-
-  svg {
-    flex-shrink: 0;
-    color: var(--section-accent);
-  }
-
-  .theme-light & {
-    color: rgba($light-text, 0.7);
-    &:hover { color: var(--section-accent); }
-  }
-
-  .theme-dark & {
-    color: rgba($dark-text, 0.65);
-    &:hover { color: var(--section-accent); }
-  }
 }
 
 // ============================================
@@ -298,34 +275,18 @@
 // VIEW DETAILS BUTTON
 // ============================================
 
+// Overrides on top of ui/InlineAction's base .inline-action: tighter gap,
+// plus the svg hover-slide unique to this button (not shared with .project-link).
 .pr-view-btn {
-  display: inline-flex;
-  align-items: center;
   gap: 0.3rem;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 0.93rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: $transition-quick;
 
   svg {
-    flex-shrink: 0;
-    color: var(--section-accent);
     transition: transform $transition-quick;
   }
 
-  .theme-light & {
-    color: rgba($light-text, 0.7);
-    &:hover { color: var(--section-accent); svg { transform: translateX(4px); } }
+  &:hover svg {
+    transform: translateX(4px);
   }
-  .theme-dark & {
-    color: rgba($dark-text, 0.65);
-    &:hover { color: var(--section-accent); svg { transform: translateX(4px); } }
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
 }
 
 // ============================================
