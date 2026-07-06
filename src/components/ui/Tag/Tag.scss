@@ -1,0 +1,31 @@
+@use '../../../styles/variables' as *;
+
+.tag {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: transparent;
+  transition: $transition-quick;
+
+  .theme-dark & {
+    border-color: rgba($dark-text, 0.18);
+    color: rgba($dark-text, 0.7);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
+  }
+
+  .theme-light & {
+    border-color: rgba($light-text, 0.18);
+    color: rgba($light-text, 0.65);
+
+    &:hover {
+      border-color: var(--section-accent);
+      color: var(--section-accent);
+    }
+  }
+}

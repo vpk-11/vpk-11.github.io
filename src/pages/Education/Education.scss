@@ -131,33 +131,10 @@
   gap: 0.45rem;
 }
 
-.coursework-tag {
+// Overrides on top of ui/Tag's base .tag — only what differs here.
+.ed-coursework-tag {
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
-  font-weight: 500;
   font-family: $font-mono;
-  border: 1px solid;
-  background: transparent;
-  transition: $transition-quick;
-
-  .theme-dark & {
-    border-color: rgba($dark-text, 0.18);
-    color: rgba($dark-text, 0.7);
-
-    &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
-    }
-  }
-
-  .theme-light & {
-    border-color: rgba($light-text, 0.18);
-    color: rgba($light-text, 0.65);
-
-    &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
-    }
-  }
 }
