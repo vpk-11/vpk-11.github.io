@@ -6,6 +6,7 @@ import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Button from '../../components/ui/Button/Button';
+import Panel from '../../components/ui/Panel/Panel';
 import './Resume.scss';
 
 function toPreviewUrl(url: string): string {
@@ -31,7 +32,7 @@ const Resume: React.FC = () => {
         />
 
         <div className="resume-grid">
-          <div className="resume-card">
+          <Panel className="resume-card">
             <div className="resume-card-label">// resume · PDF</div>
             <div className="resume-name">
               {profile.name} <span className="role">{shortTitle}</span>
@@ -56,9 +57,9 @@ const Resume: React.FC = () => {
                 <div className="resume-meta-row"><span>Best for</span><span>{meta.bestFor}</span></div>
               </>
             )}
-          </div>
+          </Panel>
 
-          <div className="resume-preview-panel">
+          <Panel className="resume-preview-panel">
             <span className="resume-preview-tag">// live preview</span>
             <iframe
               src={toPreviewUrl(profile.resume)}
@@ -66,7 +67,7 @@ const Resume: React.FC = () => {
               className="resume-preview-frame"
               loading="lazy"
             />
-          </div>
+          </Panel>
         </div>
 
       </div>

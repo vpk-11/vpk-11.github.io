@@ -3,6 +3,7 @@ import extracurricularsData from '../../data/extracurriculars.json';
 import type { BeyondTheCode as BeyondTheCodeType } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Panel from '../../components/ui/Panel/Panel';
 import './BeyondTheCode.scss';
 
 const BeyondTheCode: React.FC = () => {
@@ -34,10 +35,10 @@ const BeyondTheCode: React.FC = () => {
               </div>
               <div className="leadership-metrics">
                 {block.metrics.map((metric, k) => (
-                  <div className="lmetric" key={k}>
+                  <Panel className="lmetric" key={k}>
                     <div className="lmetric-num">{metric.value}</div>
                     <div className="lmetric-label">{metric.label}</div>
-                  </div>
+                  </Panel>
                 ))}
               </div>
             </div>

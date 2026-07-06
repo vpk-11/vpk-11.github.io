@@ -1,0 +1,12 @@
+@use '../../../styles/variables' as *;
+
+// Defaults match side-card/cta-channel-card (the two identical consumers).
+// Resume's cards and BeyondTheCode's lmetric override padding/radius as needed.
+.panel {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 1.25rem 1.4rem;
+
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1); }
+}

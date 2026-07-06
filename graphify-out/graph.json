@@ -4,14 +4,144 @@
   "graph": {},
   "nodes": [
     {
+      "label": "Card.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "card_card",
+      "community": 3,
+      "norm_label": "card.tsx"
+    },
+    {
+      "label": "CardProps",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "card_card_cardprops",
+      "community": 3,
+      "norm_label": "cardprops"
+    },
+    {
+      "label": "Card()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "card_card_card",
+      "community": 3,
+      "norm_label": "card()"
+    },
+    {
+      "label": "CardMetaItem",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "card_card_cardmetaitem",
+      "community": 3,
+      "norm_label": "cardmetaitem"
+    },
+    {
+      "label": "CardMetaProps",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "card_card_cardmetaprops",
+      "community": 3,
+      "norm_label": "cardmetaprops"
+    },
+    {
+      "label": "CardMeta()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "card_card_cardmeta",
+      "community": 3,
+      "norm_label": "cardmeta()"
+    },
+    {
+      "label": "Education.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "education_education",
+      "community": 3,
+      "norm_label": "education.tsx"
+    },
+    {
+      "label": "Education()",
+      "file_type": "code",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "education_education_education",
+      "community": 2,
+      "norm_label": "education()"
+    },
+    {
+      "label": "Experience.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "experience_experience",
+      "community": 4,
+      "norm_label": "experience.tsx"
+    },
+    {
+      "label": "ExpCard()",
+      "file_type": "code",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "experience_experience_expcard",
+      "community": 4,
+      "norm_label": "expcard()"
+    },
+    {
+      "label": "Experience()",
+      "file_type": "code",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "experience_experience_experience",
+      "community": 4,
+      "norm_label": "experience()"
+    },
+    {
+      "label": "Skills.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "skills_skills",
+      "community": 3,
+      "norm_label": "skills.tsx"
+    },
+    {
+      "label": "Skills()",
+      "file_type": "code",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "skills_skills_skills",
+      "community": 3,
+      "norm_label": "skills()"
+    },
+    {
       "label": "Modal.tsx",
       "file_type": "code",
       "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "modal_modal",
-      "community": 13,
-      "norm_label": "modal.tsx"
+      "community": 2,
+      "norm_label": "modal.tsx",
+      "id": "modal_modal"
     },
     {
       "label": "ModalProps",
@@ -19,9 +149,9 @@
       "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "modal_modal_modalprops",
-      "community": 13,
-      "norm_label": "modalprops"
+      "community": 2,
+      "norm_label": "modalprops",
+      "id": "modal_modal_modalprops"
     },
     {
       "label": "Modal()",
@@ -29,9 +159,9 @@
       "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "modal_modal_modal",
-      "community": 13,
-      "norm_label": "modal()"
+      "community": 2,
+      "norm_label": "modal()",
+      "id": "modal_modal_modal"
     },
     {
       "label": "Projects.tsx",
@@ -39,9 +169,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "projects_projects",
-      "community": 13,
-      "norm_label": "projects.tsx"
+      "community": 2,
+      "norm_label": "projects.tsx",
+      "id": "projects_projects"
     },
     {
       "label": "stripMarkdown()",
@@ -49,9 +179,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "projects_projects_stripmarkdown",
-      "community": 13,
-      "norm_label": "stripmarkdown()"
+      "community": 2,
+      "norm_label": "stripmarkdown()",
+      "id": "projects_projects_stripmarkdown"
     },
     {
       "label": "truncate()",
@@ -59,9 +189,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "projects_projects_truncate",
-      "community": 13,
-      "norm_label": "truncate()"
+      "community": 2,
+      "norm_label": "truncate()",
+      "id": "projects_projects_truncate"
     },
     {
       "label": "toAbsolute()",
@@ -69,9 +199,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "projects_projects_toabsolute",
-      "community": 13,
-      "norm_label": "toabsolute()"
+      "community": 2,
+      "norm_label": "toabsolute()",
+      "id": "projects_projects_toabsolute"
     },
     {
       "label": "ProjectCardProps",
@@ -79,9 +209,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "projects_projects_projectcardprops",
-      "community": 13,
-      "norm_label": "projectcardprops"
+      "community": 2,
+      "norm_label": "projectcardprops",
+      "id": "projects_projects_projectcardprops"
     },
     {
       "label": "ProjectCard()",
@@ -89,9 +219,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "projects_projects_projectcard",
-      "community": 13,
-      "norm_label": "projectcard()"
+      "community": 2,
+      "norm_label": "projectcard()",
+      "id": "projects_projects_projectcard"
     },
     {
       "label": "ProjectModalProps",
@@ -99,9 +229,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L109",
       "_origin": "ast",
-      "id": "projects_projects_projectmodalprops",
-      "community": 13,
-      "norm_label": "projectmodalprops"
+      "community": 2,
+      "norm_label": "projectmodalprops",
+      "id": "projects_projects_projectmodalprops"
     },
     {
       "label": "ProjectModal()",
@@ -109,9 +239,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L114",
       "_origin": "ast",
-      "id": "projects_projects_projectmodal",
-      "community": 13,
-      "norm_label": "projectmodal()"
+      "community": 2,
+      "norm_label": "projectmodal()",
+      "id": "projects_projects_projectmodal"
     },
     {
       "label": "Projects()",
@@ -119,9 +249,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "projects_projects_projects",
-      "community": 13,
-      "norm_label": "projects()"
+      "community": 2,
+      "norm_label": "projects()",
+      "id": "projects_projects_projects"
     },
     {
       "label": "Button.tsx",
@@ -129,7 +259,7 @@
       "source_file": "src/components/ui/Button/Button.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "button.tsx",
       "id": "button_button"
     },
@@ -139,7 +269,7 @@
       "source_file": "src/components/ui/Button/Button.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "buttonprops",
       "id": "button_button_buttonprops"
     },
@@ -149,7 +279,7 @@
       "source_file": "src/components/ui/Button/Button.tsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "button()",
       "id": "button_button_button"
     },
@@ -159,7 +289,7 @@
       "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 13,
+      "community": 2,
       "norm_label": "inlineaction.tsx",
       "id": "inlineaction_inlineaction"
     },
@@ -169,7 +299,7 @@
       "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 13,
+      "community": 2,
       "norm_label": "inlineactionprops",
       "id": "inlineaction_inlineaction_inlineactionprops"
     },
@@ -179,7 +309,7 @@
       "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 13,
+      "community": 2,
       "norm_label": "inlineaction()",
       "id": "inlineaction_inlineaction_inlineaction"
     },
@@ -189,7 +319,7 @@
       "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "closingcta.tsx",
       "id": "closingcta_closingcta"
     },
@@ -199,7 +329,7 @@
       "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "closingcta()",
       "id": "closingcta_closingcta_closingcta"
     },
@@ -209,7 +339,7 @@
       "source_file": "src/pages/Hero/Hero.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "hero.tsx",
       "id": "hero_hero"
     },
@@ -219,7 +349,7 @@
       "source_file": "src/pages/Hero/Hero.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "hero()",
       "id": "hero_hero_hero"
     },
@@ -259,7 +389,7 @@
       "source_file": "src/components/ui/Tag/Tag.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 13,
+      "community": 3,
       "norm_label": "tag.tsx",
       "id": "tag_tag"
     },
@@ -269,7 +399,7 @@
       "source_file": "src/components/ui/Tag/Tag.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 13,
+      "community": 3,
       "norm_label": "tagprops",
       "id": "tag_tag_tagprops"
     },
@@ -279,49 +409,9 @@
       "source_file": "src/components/ui/Tag/Tag.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 13,
+      "community": 3,
       "norm_label": "tag()",
       "id": "tag_tag_tag"
-    },
-    {
-      "label": "Skills.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "skills.tsx",
-      "id": "skills_skills"
-    },
-    {
-      "label": "Skills()",
-      "file_type": "code",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "skills()",
-      "id": "skills_skills_skills"
-    },
-    {
-      "label": "Education.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Education/Education.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "education.tsx",
-      "id": "education_education"
-    },
-    {
-      "label": "Education()",
-      "file_type": "code",
-      "source_file": "src/pages/Education/Education.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "education()",
-      "id": "education_education_education"
     },
     {
       "label": "SectionHeader.tsx",
@@ -392,36 +482,6 @@
       "community": 2,
       "norm_label": "beyondthecode()",
       "id": "beyondthecode_beyondthecode_beyondthecode"
-    },
-    {
-      "label": "Experience.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Experience/Experience.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "experience.tsx",
-      "id": "experience_experience"
-    },
-    {
-      "label": "ExpCard()",
-      "file_type": "code",
-      "source_file": "src/pages/Experience/Experience.tsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "expcard()",
-      "id": "experience_experience_expcard"
-    },
-    {
-      "label": "Experience()",
-      "file_type": "code",
-      "source_file": "src/pages/Experience/Experience.tsx",
-      "source_location": "L50",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "experience()",
-      "id": "experience_experience_experience"
     },
     {
       "label": "eslint.config.js",
@@ -1039,7 +1099,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "navbar.tsx",
       "id": "navbar_navbar"
     },
@@ -1049,7 +1109,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "icons",
       "id": "navbar_navbar_icons"
     },
@@ -1059,7 +1119,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "{ nav: nav_items }",
       "id": "navbar_navbar_nav_nav_items"
     },
@@ -1069,7 +1129,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "mobile_nav_items",
       "id": "navbar_navbar_mobile_nav_items"
     },
@@ -1079,7 +1139,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "navbar()",
       "id": "navbar_navbar_navbar"
     },
@@ -1139,7 +1199,7 @@
       "source_file": "src/data/sectionOrder.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "sectionorder.ts",
       "id": "data_sectionorder"
     },
@@ -1149,7 +1209,7 @@
       "source_file": "src/data/sectionOrder.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "section_order",
       "id": "data_sectionorder_section_order"
     },
@@ -1219,7 +1279,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "useviewport.ts",
       "id": "hooks_useviewport"
     },
@@ -1229,7 +1289,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "usewindowwidth()",
       "id": "hooks_useviewport_usewindowwidth"
     },
@@ -1239,7 +1299,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "usewindowheight()",
       "id": "hooks_useviewport_usewindowheight"
     },
@@ -1499,7 +1559,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "profiledata",
       "id": "types_index_profiledata"
     },
@@ -1529,7 +1589,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L94",
       "_origin": "ast",
-      "community": 14,
+      "community": 0,
       "norm_label": "navitem",
       "id": "types_index_navitem"
     },
@@ -1549,7 +1609,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L107",
       "_origin": "ast",
-      "community": 13,
+      "community": 2,
       "norm_label": "project",
       "id": "types_index_project"
     },
@@ -1589,7 +1649,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L136",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "experience",
       "id": "types_index_experience"
     },
@@ -1599,7 +1659,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L147",
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "norm_label": "education",
       "id": "types_index_education"
     },
@@ -1679,7 +1739,7 @@
       "source_file": "src/utils/rippleMotion.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "ripplemotion.ts",
       "id": "utils_ripplemotion"
     },
@@ -1689,7 +1749,7 @@
       "source_file": "src/utils/rippleMotion.ts",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "ripple_direction",
       "id": "utils_ripplemotion_ripple_direction"
     },
@@ -2544,12 +2604,718 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "card_card",
+      "target": "card_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "card_card",
+      "target": "card_card_cardmeta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "card_card",
+      "target": "card_card_cardmetaitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "card_card",
+      "target": "card_card_cardmetaprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Card/Card.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "card_card",
+      "target": "card_card_cardprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "education_education",
+      "target": "card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "experience_experience",
+      "target": "card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "skills_skills",
+      "target": "card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "education_education",
+      "target": "card_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "experience_experience",
+      "target": "card_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "skills_skills",
+      "target": "card_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "education_education",
+      "target": "card_card_cardmeta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "experience_experience",
+      "target": "card_card_cardmeta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "data_sectionorder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "education_education_education"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "sectionheader_sectionheader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "tag_tag"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Education/Education.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "tag_tag_tag"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "types_index_education"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "utils_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "education_education",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "education_education"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "education_education_education",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Education/Education.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "education_education_education",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "data_sectionorder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "experience_experience_expcard"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "experience_experience_experience"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "hooks_useviewport"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "hooks_useviewport_usewindowheight"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "hooks_useviewport_usewindowwidth"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "sectionheader_sectionheader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "types_index_experience"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "utils_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "experience_experience",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "experience_experience"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "experience_experience_expcard",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "experience_experience_experience",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "experience_experience_experience",
+      "target": "hooks_useviewport_usewindowheight"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "experience_experience_experience",
+      "target": "hooks_useviewport_usewindowwidth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Experience/Experience.tsx",
+      "source_location": "L101",
+      "weight": 1.0,
+      "source": "experience_experience_experience",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "data_sectionorder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "sectionheader_sectionheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "skills_skills_skills"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "tag_tag"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "tag_tag_tag"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_certification"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_skill"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "utils_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "skills_skills"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "skills_skills_skills",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "skills_skills_skills",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "skills_skills_skills"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "modal_modal",
-      "target": "modal_modal_modal",
-      "confidence_score": 1.0
+      "target": "modal_modal_modal"
     },
     {
       "relation": "contains",
@@ -2557,9 +3323,9 @@
       "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "modal_modal",
-      "target": "modal_modal_modalprops",
-      "confidence_score": 1.0
+      "target": "modal_modal_modalprops"
     },
     {
       "relation": "imports_from",
@@ -2568,9 +3334,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_projects",
-      "target": "modal_modal",
-      "confidence_score": 1.0
+      "target": "modal_modal"
     },
     {
       "relation": "imports",
@@ -2579,9 +3345,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_projects",
-      "target": "modal_modal_modal",
-      "confidence_score": 1.0
+      "target": "modal_modal_modal"
     },
     {
       "relation": "imports_from",
@@ -3382,28 +4148,6 @@
       "target": "utils_formattext_formattext"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Education/Education.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "tag_tag"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "tag_tag"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/ui/Tag/Tag.tsx",
@@ -3422,334 +4166,6 @@
       "confidence_score": 1.0,
       "source": "tag_tag",
       "target": "tag_tag_tagprops"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Education/Education.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "tag_tag_tag"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "tag_tag_tag"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "data_sectionorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "sectionheader_sectionheader"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "skills_skills_skills"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_certification"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_skill"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "utils_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "skills_skills"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "skills_skills_skills",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "skills_skills_skills",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "skills_skills_skills"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "data_sectionorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "education_education_education"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Education/Education.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "sectionheader_sectionheader"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "types_index_education"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "utils_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "education_education",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "education_education"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "education_education_education",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Education/Education.tsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "education_education_education",
-      "target": "utils_formattext_formattext"
     },
     {
       "relation": "imports_from",
@@ -3771,17 +4187,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "beyondthecode_beyondthecode",
-      "target": "sectionheader_sectionheader"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
       "target": "sectionheader_sectionheader"
     },
     {
@@ -4064,213 +4469,6 @@
       "source_location": "L19",
       "weight": 1.0,
       "source": "beyondthecode_beyondthecode_beyondthecode",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "data_sectionorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "experience_experience_expcard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "experience_experience_experience"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "hooks_useviewport"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "hooks_useviewport_usewindowheight"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "hooks_useviewport_usewindowwidth"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "types_index_experience"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "utils_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "experience_experience",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "experience_experience"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "experience_experience_expcard",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L99",
-      "weight": 1.0,
-      "source": "experience_experience_experience",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "experience_experience_experience",
-      "target": "hooks_useviewport_usewindowheight"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L52",
-      "weight": 1.0,
-      "source": "experience_experience_experience",
-      "target": "hooks_useviewport_usewindowwidth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Experience/Experience.tsx",
-      "source_location": "L101",
-      "weight": 1.0,
-      "source": "experience_experience_experience",
       "target": "utils_formattext_formattext"
     },
     {
@@ -6587,5 +6785,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "178710876ee8b0789296008d0594419214628a20"
+  "built_at_commit": "f72d2beb67f0f4f84c5ad42be055dab289be6b12"
 }
