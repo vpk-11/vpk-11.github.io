@@ -5,6 +5,7 @@ import generalData from '../../data/general.json';
 import type { Education as EducationType, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Tag from '../../components/ui/Tag/Tag';
 import './Education.scss';
 
 const Education: React.FC = () => {
@@ -51,7 +52,7 @@ const Education: React.FC = () => {
                   <p className="coursework-label">Relevant Coursework</p>
                   <div className="coursework-tags">
                     {edu.coursework.map(course => (
-                      <span key={course} className="coursework-tag">{course}</span>
+                      <Tag key={course} className="ed-coursework-tag">{course}</Tag>
                     ))}
                   </div>
                 </div>

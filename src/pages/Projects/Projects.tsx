@@ -4,6 +4,7 @@ import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Tag from '../../components/ui/Tag/Tag';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -62,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
 
       <div className="tech-stack">
         {project.tech.map(t => (
-          <span key={t} className="tech-tag">{t}</span>
+          <Tag key={t}>{t}</Tag>
         ))}
       </div>
 
@@ -168,7 +169,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
 
       <div className="tech-stack">
         {project.tech.map(t => (
-          <span key={t} className="tech-tag">{t}</span>
+          <Tag key={t}>{t}</Tag>
         ))}
       </div>
     </div>
