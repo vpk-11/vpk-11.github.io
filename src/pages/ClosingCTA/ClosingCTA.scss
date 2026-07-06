@@ -46,15 +46,6 @@
   }
 }
 
-.cta-channel-card {
-  border-radius: 10px;
-  border: 1px solid;
-  padding: 1.25rem 1.4rem;
-
-  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); }
-  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1); }
-}
-
 .cta-channel-label {
   font-family: $font-mono;
   font-size: 0.65rem;

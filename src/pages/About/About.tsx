@@ -4,6 +4,7 @@ import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Panel from '../../components/ui/Panel/Panel';
 import './About.scss';
 
 const About: React.FC = () => {
@@ -43,7 +44,7 @@ const About: React.FC = () => {
           {/* Right — sidebar cards */}
           {sidebar && (
             <div className="about-sidebar">
-              <div className="side-card">
+              <Panel className="side-card">
                 <div className="side-card-title">Principles</div>
                 <div className="side-list">
                   {sidebar.principles.map((p, i) => (
@@ -53,9 +54,9 @@ const About: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Panel>
 
-              <div className="side-card">
+              <Panel className="side-card">
                 <div className="side-card-title">Currently Building</div>
                 <div className="side-list">
                   {sidebar.currentlyBuilding.map((item, i) => (
@@ -65,9 +66,9 @@ const About: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Panel>
 
-              <div className="side-card">
+              <Panel className="side-card">
                 <div className="side-card-title">Open To</div>
                 <div className="side-list">
                   {sidebar.openTo.map((role, i) => (
@@ -77,7 +78,7 @@ const About: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Panel>
             </div>
           )}
 

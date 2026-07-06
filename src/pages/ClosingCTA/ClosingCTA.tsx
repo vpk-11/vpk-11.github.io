@@ -7,6 +7,7 @@ import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Button from '../../components/ui/Button/Button';
+import Panel from '../../components/ui/Panel/Panel';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
@@ -38,11 +39,11 @@ const ClosingCTA: React.FC = () => {
         {cta.channels.length > 0 && (
           <div className="closing-cta-channels">
             {cta.channels.map((channel, i) => (
-              <div className="cta-channel-card" key={i}>
+              <Panel className="cta-channel-card" key={i}>
                 <div className="cta-channel-label">// {channel.label}</div>
                 <div className="cta-channel-value">{channel.value}</div>
                 <div className="cta-channel-caption">{channel.caption}</div>
-              </div>
+              </Panel>
             ))}
           </div>
         )}
