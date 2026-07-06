@@ -290,55 +290,23 @@
 }
 
 // ============================================
-// MODAL
+// MODAL — overrides on top of ui/Modal's base .modal-backdrop/.modal.
+// Mobile bottom-sheet treatment lives here, not in the shared primitive,
+// since Projects is still the only Modal consumer.
 // ============================================
 
-.pr-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  animation: backdropIn 0.2s ease both;
-
-  .theme-light & { background: rgba(0, 0, 0, 0.45); }
-  .theme-dark &  { background: rgba(0, 0, 0, 0.65); }
-
+// Compound selectors (not just .pr-modal-backdrop/.pr-modal alone) so these
+// win over ui/Modal's unconditional base rules regardless of which CSS file
+// the bundler happens to emit last — an unconditional rule with equal
+// specificity emitted after a media-scoped one would otherwise clobber it.
+.modal-backdrop.pr-modal-backdrop {
   @include respond-to(mobile) {
     padding: 0;
     align-items: flex-end;
   }
 }
 
-@keyframes backdropIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.pr-modal {
-  position: relative;
-  width: 100%;
-  max-width: 680px;
-  max-height: 85vh;
-  overflow-y: auto;
-  border-radius: 12px;
-  border: 1px solid;
-  padding: 2rem 2.25rem;
-  animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
-
-  .theme-light & {
-    background: $light-surface;
-    border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
-  }
-  .theme-dark & {
-    background: $dark-surface;
-    border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-  }
-
+.modal.pr-modal {
   @include respond-to(mobile) {
     max-width: 100%;
     max-height: 88vh;
@@ -348,38 +316,9 @@
   }
 }
 
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 @keyframes modalInMobile {
   from { opacity: 0; transform: translateY(100%); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-.pr-modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 28px;
-  height: 28px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: $transition-quick;
-  z-index: 1;
-  padding: 0;
-  opacity: 0.5;
-
-  .theme-light & { color: $light-text; }
-  .theme-dark &  { color: $dark-text; }
-
-  &:hover { opacity: 1; }
-  &:focus:not(:focus-visible) { outline: none; }
 }
 
 .pr-modal-title {

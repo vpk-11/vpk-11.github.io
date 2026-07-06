@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { ExternalLink, Github, X, MoveRight } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { ExternalLink, Github, MoveRight } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
 import InlineAction from '../../components/ui/InlineAction/InlineAction';
+import Modal from '../../components/ui/Modal/Modal';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -111,70 +112,58 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
-  <div className="pr-modal-backdrop" onClick={onClose}>
-    <div
-      className="pr-modal"
-      onClick={e => e.stopPropagation()}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-    >
-      <button
-        className="pr-modal-close"
-        onClick={onClose}
-        aria-label="Close"
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus
-      >
-        <X size={16} />
-      </button>
+  <Modal
+    isOpen
+    onClose={onClose}
+    labelledBy="modal-title"
+    className="pr-modal"
+    backdropClassName="pr-modal-backdrop"
+  >
+    <h2 id="modal-title" className="pr-modal-title">{project.title}</h2>
 
-      <h2 id="modal-title" className="pr-modal-title">{project.title}</h2>
-
-      <div className="pr-modal-links">
-        {project.githubLink && (
-          <InlineAction
-            href={toAbsolute(project.githubLink)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-            icon={<Github size={14} />}
-          >
-            GitHub
-          </InlineAction>
-        )}
-        {project.demoLink && (
-          <InlineAction
-            href={toAbsolute(project.demoLink)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link"
-            icon={<ExternalLink size={14} />}
-          >
-            Live Demo
-          </InlineAction>
-        )}
-        {project.demoLink && (
-          <span className="pr-modal-live">
-            <span className="live-dot" aria-hidden="true" />
-            Live
-          </span>
-        )}
-      </div>
-
-      <div className="pr-modal-body">
-        {project.description.split('\n\n').map((para, i) => (
-          <p key={i}>{formatText(para)}</p>
-        ))}
-      </div>
-
-      <div className="tech-stack">
-        {project.tech.map(t => (
-          <Tag key={t}>{t}</Tag>
-        ))}
-      </div>
+    <div className="pr-modal-links">
+      {project.githubLink && (
+        <InlineAction
+          href={toAbsolute(project.githubLink)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link"
+          icon={<Github size={14} />}
+        >
+          GitHub
+        </InlineAction>
+      )}
+      {project.demoLink && (
+        <InlineAction
+          href={toAbsolute(project.demoLink)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link"
+          icon={<ExternalLink size={14} />}
+        >
+          Live Demo
+        </InlineAction>
+      )}
+      {project.demoLink && (
+        <span className="pr-modal-live">
+          <span className="live-dot" aria-hidden="true" />
+          Live
+        </span>
+      )}
     </div>
-  </div>
+
+    <div className="pr-modal-body">
+      {project.description.split('\n\n').map((para, i) => (
+        <p key={i}>{formatText(para)}</p>
+      ))}
+    </div>
+
+    <div className="tech-stack">
+      {project.tech.map(t => (
+        <Tag key={t}>{t}</Tag>
+      ))}
+    </div>
+  </Modal>
 );
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
@@ -206,23 +195,6 @@ const Projects: React.FC = () => {
     if (tab === 'All') return projects.length;
     return projects.filter(p => (p.categories ?? []).includes(tab)).length;
   }
-
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') setSelected(null);
-  }, []);
-
-  useEffect(() => {
-    if (selected) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
-  }, [selected, handleKeyDown]);
 
   const colClass = filtered.length === 4
     ? 'pr-cols-4'
