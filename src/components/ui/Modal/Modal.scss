@@ -36,15 +36,33 @@
   padding: 2rem 2.25rem;
   animation: modalIn 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
 
+  // Thin themed scrollbar instead of the browser default, for the (common)
+  // case where content overflows max-height.
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+  }
+
   .theme-light & {
     background: $light-surface;
     border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
+    scrollbar-color: rgba($light-text, 0.2) transparent;
+    &::-webkit-scrollbar-thumb { background: rgba($light-text, 0.2); }
   }
   .theme-dark & {
     background: $dark-surface;
     border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    scrollbar-color: rgba($dark-text, 0.2) transparent;
+    &::-webkit-scrollbar-thumb { background: rgba($dark-text, 0.2); }
   }
 }
 

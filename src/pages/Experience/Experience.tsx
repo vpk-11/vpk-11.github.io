@@ -4,6 +4,8 @@ import experiencesData from '../../data/experiences.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Card, { CardMeta } from '../../components/ui/Card/Card';
+import Tag from '../../components/ui/Tag/Tag';
 import type { Experience as ExperienceType, GeneralData } from '../../types';
 import { useWindowWidth, useWindowHeight } from '../../hooks/useViewport';
 import './Experience.scss';
@@ -11,19 +13,15 @@ import './Experience.scss';
 // ─── Single card ─────────────────────────────────────────────────────────────
 
 const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
-  <div className="experience-card">
+  <Card className="experience-card">
     <h3 className="ex-ct card-title">{exp.role}</h3>
     <h4 className="ex-cs card-subtitle">{exp.company}</h4>
-    <div className="card-meta">
-      <div className="meta-item">
-        <Calendar size={14} className="ex-mi meta-icon" />
-        <span className="card-duration">{exp.duration}</span>
-      </div>
-      <div className="meta-item">
-        <MapPin size={14} className="ex-mi meta-icon" />
-        <span className="card-location">{exp.location}</span>
-      </div>
-    </div>
+    <CardMeta
+      items={[
+        { icon: <Calendar size={14} className="ex-mi meta-icon" />, text: exp.duration, textClassName: 'card-duration' },
+        { icon: <MapPin size={14} className="ex-mi meta-icon" />, text: exp.location, textClassName: 'card-location' },
+      ]}
+    />
     <p className="ex-description">{formatText(exp.description)}</p>
     {exp.achievements && exp.achievements.length > 0 && (
       <ul className="ex-achievements">
@@ -38,11 +36,11 @@ const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
     {exp.tech && exp.tech.length > 0 && (
       <div className="ex-tech-stack">
         {exp.tech.map(t => (
-          <span key={t} className="ex-tech-tag">{t}</span>
+          <Tag key={t} className="ex-tech-tag">{t}</Tag>
         ))}
       </div>
     )}
-  </div>
+  </Card>
 );
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

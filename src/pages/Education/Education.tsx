@@ -6,6 +6,7 @@ import type { Education as EducationType, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
+import Card, { CardMeta } from '../../components/ui/Card/Card';
 import './Education.scss';
 
 const Education: React.FC = () => {
@@ -23,21 +24,17 @@ const Education: React.FC = () => {
         />
         <div className="education-grid">
           {education.map(edu => (
-            <div key={edu.id} className="education-card">
+            <Card key={edu.id} className="education-card">
 
               <h3 className="ed-ct card-title">{edu.degree}</h3>
               <h4 className="ed-cs card-subtitle">{edu.institution}</h4>
 
-              <div className="card-meta">
-                <div className="meta-item">
-                  <Calendar size={16} className="ed-mi meta-icon" />
-                  <span className="card-duration">{edu.duration}</span>
-                </div>
-                <div className="meta-item">
-                  <MapPin size={16} className="ed-mi meta-icon" />
-                  <span className="card-location">{edu.location}</span>
-                </div>
-              </div>
+              <CardMeta
+                items={[
+                  { icon: <Calendar size={16} className="ed-mi meta-icon" />, text: edu.duration, textClassName: 'card-duration' },
+                  { icon: <MapPin size={16} className="ed-mi meta-icon" />, text: edu.location, textClassName: 'card-location' },
+                ]}
+              />
 
               {edu.gpa && (
                 <div className="ed-gpa card-gpa">
@@ -58,7 +55,7 @@ const Education: React.FC = () => {
                 </div>
               )}
 
-            </div>
+            </Card>
           ))}
         </div>
       </div>

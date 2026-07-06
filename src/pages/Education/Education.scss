@@ -6,20 +6,37 @@
   gap: 2rem;
 }
 
+// Overrides on top of ui/Card's base .card — only what differs here.
 .education-card {
-  @include card-base;
-  @include accent-bar-left;
-
   &:hover { transform: translateX(10px); }
 
-  .theme-dark & {
-    background: $dark-surface;
-    &:hover { background: $dark-surface-hover; }
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
-  .theme-light & {
-    background: $light-surface;
-    &:hover { background: $light-surface-hover; }
+  .card-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-meta {
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    @include respond-to(mobile) { gap: 1rem; }
+  }
+
+  .meta-item {
+    gap: 0.5rem;
+  }
+
+  .card-duration,
+  .card-location {
+    font-size: 0.95rem;
+
+    .theme-dark & { color: rgba($dark-text, 0.75); }
+    .theme-light & { color: rgba($light-text, 0.7); }
   }
 }
 
@@ -33,52 +50,8 @@
   font-family: $font-mono;
 }
 
-.education-card {
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-subtitle {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 1.25rem;
-
-    @include respond-to(mobile) { gap: 1rem; }
-  }
-
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .meta-icon { flex-shrink: 0; }
-}
-
 .ed-mi {
   color: var(--section-accent);
-}
-
-.education-card {
-  .card-duration,
-  .card-location {
-    font-size: 0.95rem;
-    font-weight: 500;
-    font-style: italic;
-    font-family: $font-mono;
-
-    .theme-dark & { color: rgba($dark-text, 0.75); }
-    .theme-light & { color: rgba($light-text, 0.7); }
-  }
 }
 
 .ed-gpa.card-gpa {

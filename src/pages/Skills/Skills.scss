@@ -91,48 +91,23 @@
   .certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 1; }
 }
 
+// Overrides on top of ui/Card's base .card — layout + the two values that
+// differ from Education/Experience's use of the same primitive.
 .certification-item {
-  @include card-base;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   text-decoration: none;
   cursor: pointer;
-  transition: $transition-smooth;
 
-  .theme-dark & {
-    background: $dark-surface;
-    &:hover {
-      background: $dark-surface-hover;
-      transform: translateX(8px);
-    }
+  &:hover {
+    transform: translateX(8px);
   }
 
-  .theme-light & {
-    background: $light-surface;
-    &:hover {
-      background: $light-surface-hover;
-      transform: translateX(8px);
-    }
-  }
-
+  // accent-bar-left's default transition is 0.4s; this card's was 0.3s.
   &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 4px;
-    background: var(--section-accent);
-    transform: scaleY(0);
-    transform-origin: bottom;
     transition: transform 0.3s ease;
-  }
-
-  &:hover::before {
-    transform: scaleY(1);
-    transform-origin: top;
   }
 }
 
