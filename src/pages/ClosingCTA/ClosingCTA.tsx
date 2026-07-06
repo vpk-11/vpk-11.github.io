@@ -6,6 +6,7 @@ import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import { sectionNumber } from '../../data/sectionOrder';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import Button from '../../components/ui/Button/Button';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
@@ -47,24 +48,22 @@ const ClosingCTA: React.FC = () => {
         )}
 
         <div className="closing-cta-actions">
-          <a
+          <Button
+            variant="icon-circle"
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-icon-link"
-            aria-label="GitHub"
-          >
-            <Github size={18} />
-          </a>
-          <a
+            ariaLabel="GitHub"
+            icon={<Github size={18} />}
+          />
+          <Button
+            variant="icon-circle"
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-icon-link"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={18} />
-          </a>
+            ariaLabel="LinkedIn"
+            icon={<Linkedin size={18} />}
+          />
           {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
           {/* <a href="#closing-cta" className="cta-pill">Book a Call</a> */}
         </div>

@@ -54,28 +54,11 @@
   .theme-dark &  { color: rgba($dark-text, 0.85); }
 }
 
+// Overrides on top of ui/Button's base .btn/.btn--primary — only what differs here.
 .resume-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
   padding: 0.75rem 1.4rem;
-  border-radius: 6px;
   font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: var(--accent-color);
   margin-bottom: 0.5rem;
-  transition: $transition-quick;
-
-  .theme-light & { color: #fff; }
-  .theme-dark &  { color: $dark-bg; font-weight: 700; }
-
-  &:hover {
-    opacity: 0.86;
-    transform: translateY(-2px);
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
 }
 
 .resume-meta-row {

@@ -4,6 +4,7 @@ import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { RIPPLE_CYCLE_SECONDS } from '../../utils/rippleMotion';
+import Button from '../../components/ui/Button/Button';
 import './Hero.scss';
 
 // Repeats per half of the ticker track — keeps the loop seamless on
@@ -73,41 +74,38 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="hero-links">
-            <a
+            <Button
+              variant="primary"
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-link hero-link-primary"
+              icon={<Linkedin size={18} />}
             >
-              <Linkedin size={18} />
-              <span>LinkedIn</span>
-            </a>
-            <a
+              LinkedIn
+            </Button>
+            <Button
+              variant="secondary"
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-link hero-link-secondary"
+              className="hero-link"
+              icon={<Github size={18} />}
             >
-              <Github size={18} />
-              <span>GitHub</span>
-            </a>
-            <a
+              GitHub
+            </Button>
+            <Button
+              variant="secondary"
               href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-link hero-link-secondary"
+              className="hero-link"
+              icon={<FileText size={18} />}
             >
-              <FileText size={18} />
-              <span>Resume</span>
-            </a>
+              Resume
+            </Button>
             {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
-            {/* <a
-              href="#contact"
-              className="hero-link hero-link-secondary"
-            >
-              <CalendarClock size={18} />
-              <span>Book a Call</span>
-            </a> */}
+            {/* <Button variant="secondary" href="#contact" className="hero-link" icon={<CalendarClock size={18} />}>Book a Call</Button> */}
           </div>
 
         </div>

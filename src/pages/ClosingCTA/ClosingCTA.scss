@@ -95,26 +95,6 @@
   flex-wrap: wrap;
 }
 
-.cta-icon-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: $transition-quick;
-
-  .theme-light & { background: $light-surface; color: rgba($light-text, 0.7); }
-  .theme-dark &  { background: $dark-surface;  color: rgba($dark-text, 0.7); }
-
-  &:hover {
-    color: var(--accent-color);
-    transform: translateY(-2px);
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
-}
-
 .cta-pill {
   display: inline-flex;
   align-items: center;

@@ -5,6 +5,7 @@ import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
+import InlineAction from '../../components/ui/InlineAction/InlineAction';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -70,33 +71,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
       <div className="pr-card-footer">
         <div className="project-links">
           {project.githubLink && (
-            <a
+            <InlineAction
               href={toAbsolute(project.githubLink)}
               target="_blank"
               rel="noopener noreferrer"
               className="project-link"
               onClick={e => e.stopPropagation()}
+              icon={<Github size={13} />}
             >
-              <Github size={13} />
               GitHub
-            </a>
+            </InlineAction>
           )}
           {project.demoLink && (
-            <a
+            <InlineAction
               href={toAbsolute(project.demoLink)}
               target="_blank"
               rel="noopener noreferrer"
               className="project-link"
               onClick={e => e.stopPropagation()}
+              icon={<ExternalLink size={13} />}
             >
-              <ExternalLink size={13} />
               Live Demo
-            </a>
+            </InlineAction>
           )}
         </div>
-        <button className="pr-view-btn" onClick={() => onSelect(project)}>
+        <InlineAction as="button" className="pr-view-btn" onClick={() => onSelect(project)}>
           View <MoveRight size={14} />
-        </button>
+        </InlineAction>
       </div>
     </div>
   );
@@ -132,26 +133,26 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
 
       <div className="pr-modal-links">
         {project.githubLink && (
-          <a
+          <InlineAction
             href={toAbsolute(project.githubLink)}
             target="_blank"
             rel="noopener noreferrer"
             className="project-link"
+            icon={<Github size={14} />}
           >
-            <Github size={14} />
             GitHub
-          </a>
+          </InlineAction>
         )}
         {project.demoLink && (
-          <a
+          <InlineAction
             href={toAbsolute(project.demoLink)}
             target="_blank"
             rel="noopener noreferrer"
             className="project-link"
+            icon={<ExternalLink size={14} />}
           >
-            <ExternalLink size={14} />
             Live Demo
-          </a>
+          </InlineAction>
         )}
         {project.demoLink && (
           <span className="pr-modal-live">

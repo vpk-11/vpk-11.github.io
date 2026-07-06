@@ -27,11 +27,31 @@
       "label": "Tag()",
       "file_type": "code",
       "source_file": "src/components/ui/Tag/Tag.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "tag_tag_tag",
       "community": 13,
       "norm_label": "tag()"
+    },
+    {
+      "label": "Skills.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "skills_skills",
+      "community": 2,
+      "norm_label": "skills.tsx"
+    },
+    {
+      "label": "Skills()",
+      "file_type": "code",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "skills_skills_skills",
+      "community": 2,
+      "norm_label": "skills()"
     },
     {
       "label": "Education.tsx",
@@ -39,9 +59,9 @@
       "source_file": "src/pages/Education/Education.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "education_education",
       "community": 2,
-      "norm_label": "education.tsx"
+      "norm_label": "education.tsx",
+      "id": "education_education"
     },
     {
       "label": "Education()",
@@ -49,9 +69,9 @@
       "source_file": "src/pages/Education/Education.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "education_education_education",
       "community": 2,
-      "norm_label": "education()"
+      "norm_label": "education()",
+      "id": "education_education_education"
     },
     {
       "label": "Projects.tsx",
@@ -59,9 +79,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "projects_projects",
       "community": 13,
-      "norm_label": "projects.tsx"
+      "norm_label": "projects.tsx",
+      "id": "projects_projects"
     },
     {
       "label": "stripMarkdown()",
@@ -69,9 +89,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "projects_projects_stripmarkdown",
       "community": 13,
-      "norm_label": "stripmarkdown()"
+      "norm_label": "stripmarkdown()",
+      "id": "projects_projects_stripmarkdown"
     },
     {
       "label": "truncate()",
@@ -79,9 +99,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "projects_projects_truncate",
       "community": 13,
-      "norm_label": "truncate()"
+      "norm_label": "truncate()",
+      "id": "projects_projects_truncate"
     },
     {
       "label": "toAbsolute()",
@@ -89,9 +109,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "projects_projects_toabsolute",
       "community": 13,
-      "norm_label": "toabsolute()"
+      "norm_label": "toabsolute()",
+      "id": "projects_projects_toabsolute"
     },
     {
       "label": "ProjectCardProps",
@@ -99,9 +119,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "projects_projects_projectcardprops",
       "community": 13,
-      "norm_label": "projectcardprops"
+      "norm_label": "projectcardprops",
+      "id": "projects_projects_projectcardprops"
     },
     {
       "label": "ProjectCard()",
@@ -109,9 +129,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "projects_projects_projectcard",
       "community": 13,
-      "norm_label": "projectcard()"
+      "norm_label": "projectcard()",
+      "id": "projects_projects_projectcard"
     },
     {
       "label": "ProjectModalProps",
@@ -119,9 +139,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "projects_projects_projectmodalprops",
       "community": 13,
-      "norm_label": "projectmodalprops"
+      "norm_label": "projectmodalprops",
+      "id": "projects_projects_projectmodalprops"
     },
     {
       "label": "ProjectModal()",
@@ -129,9 +149,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L112",
       "_origin": "ast",
-      "id": "projects_projects_projectmodal",
       "community": 13,
-      "norm_label": "projectmodal()"
+      "norm_label": "projectmodal()",
+      "id": "projects_projects_projectmodal"
     },
     {
       "label": "Projects()",
@@ -139,9 +159,9 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L181",
       "_origin": "ast",
-      "id": "projects_projects_projects",
       "community": 13,
-      "norm_label": "projects()"
+      "norm_label": "projects()",
+      "id": "projects_projects_projects"
     },
     {
       "label": "SectionHeader.tsx",
@@ -292,26 +312,6 @@
       "community": 2,
       "norm_label": "resume()",
       "id": "resume_resume_resume"
-    },
-    {
-      "label": "Skills.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "skills.tsx",
-      "id": "skills_skills"
-    },
-    {
-      "label": "Skills()",
-      "file_type": "code",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "skills()",
-      "id": "skills_skills_skills"
     },
     {
       "label": "eslint.config.js",
@@ -2458,9 +2458,9 @@
       "source_file": "src/pages/Education/Education.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "education_education",
-      "target": "tag_tag",
-      "confidence_score": 1.0
+      "target": "tag_tag"
     },
     {
       "relation": "imports_from",
@@ -2469,7 +2469,18 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_projects",
+      "target": "tag_tag"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "skills_skills",
       "target": "tag_tag",
       "confidence_score": 1.0
     },
@@ -2479,9 +2490,9 @@
       "source_file": "src/components/ui/Tag/Tag.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tag_tag",
-      "target": "tag_tag_tag",
-      "confidence_score": 1.0
+      "target": "tag_tag_tag"
     },
     {
       "relation": "contains",
@@ -2489,9 +2500,9 @@
       "source_file": "src/components/ui/Tag/Tag.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tag_tag",
-      "target": "tag_tag_tagprops",
-      "confidence_score": 1.0
+      "target": "tag_tag_tagprops"
     },
     {
       "relation": "imports",
@@ -2500,9 +2511,9 @@
       "source_file": "src/pages/Education/Education.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "education_education",
-      "target": "tag_tag_tag",
-      "confidence_score": 1.0
+      "target": "tag_tag_tag"
     },
     {
       "relation": "imports",
@@ -2511,9 +2522,184 @@
       "source_file": "src/pages/Projects/Projects.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_projects",
+      "target": "tag_tag_tag"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "skills_skills",
       "target": "tag_tag_tag",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "data_sectionorder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "sectionheader_sectionheader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "skills_skills_skills"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_certification"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "types_index_skill"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "utils_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "skills_skills",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "skills_skills"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "skills_skills_skills",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/Skills/Skills.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "skills_skills_skills",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "skills_skills_skills"
     },
     {
       "relation": "imports_from",
@@ -3042,17 +3228,6 @@
       "confidence_score": 1.0,
       "source": "sectionheader_sectionheader",
       "target": "sectionheader_sectionheader_sectionheaderprops"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "sectionheader_sectionheader"
     },
     {
       "relation": "contains",
@@ -3772,159 +3947,6 @@
       "weight": 1.0,
       "source": "resume_resume_resume",
       "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "data_sectionorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "skills_skills_skills"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_certification"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "types_index_skill"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "utils_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "skills_skills",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "skills_skills"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "skills_skills_skills",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Skills/Skills.tsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "skills_skills_skills",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "skills_skills_skills"
     },
     {
       "relation": "contains",
@@ -6305,5 +6327,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "40beaae629de2a91daa6105338ce981f75e18db5"
+  "built_at_commit": "1c459d5b6725962a8075f20df83007cad3da56a6"
 }

@@ -1,0 +1,77 @@
+@use '../../../styles/variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: $transition-quick;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+// ============================================
+// PRIMARY — filled accent (Hero LinkedIn, Resume download)
+// ============================================
+
+.btn--primary {
+  border-radius: 6px;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+
+  .theme-light & { color: #fff; }
+  .theme-dark &  { color: $dark-bg; font-weight: 700; }
+
+  &:hover {
+    opacity: 0.86;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================
+// SECONDARY — bordered ghost (Hero GitHub/Resume links)
+// ============================================
+
+.btn--secondary {
+  border-radius: 6px;
+
+  .theme-light & {
+    background: $light-surface;
+    border: 1px solid rgba($light-text, 0.18);
+    color: rgba($light-text, 0.75);
+  }
+
+  .theme-dark & {
+    background: $dark-surface;
+    border: 1px solid rgba($dark-text, 0.16);
+    color: rgba($dark-text, 0.7);
+  }
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================
+// ICON-CIRCLE — circular icon-only (ClosingCTA github/linkedin)
+// ============================================
+
+.btn--icon-circle {
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  .theme-light & { background: $light-surface; color: rgba($light-text, 0.7); }
+  .theme-dark &  { background: $dark-surface;  color: rgba($dark-text, 0.7); }
+
+  &:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+  }
+}
