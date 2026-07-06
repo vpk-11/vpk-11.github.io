@@ -1,5 +1,5 @@
 import React from 'react';
-import { PATH_1, PATH_2, PATH_3, PATH_4, PATH_5 } from '../../hooks/useDynamicFavicon';
+import { PATH_1, PATH_2, PATH_3, PATH_4, PATH_5 } from '../../../hooks/useDynamicFavicon';
 
 interface VpkMarkProps {
   size?: number;

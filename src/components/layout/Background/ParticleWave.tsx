@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../store/store';
-import { RIPPLE_TIME_STEP } from '../../utils/rippleMotion';
+import type { RootState } from '../../../store/store';
+import { RIPPLE_TIME_STEP } from '../../../utils/rippleMotion';
 import './ParticleWave.scss';
 
 // Dark mode:  rgba(255,255,255,0.07) → white at 7%
