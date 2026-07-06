@@ -7,6 +7,7 @@ import type { Skill, Certification, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
+import Card from '../../components/ui/Card/Card';
 import './Skills.scss';
 
 const Skills: React.FC = () => {
@@ -83,8 +84,9 @@ const Skills: React.FC = () => {
           return (
             <div className="certifications-list sk-panel">
               {certifications.map((cert, i) => (
-                <a
+                <Card
                   key={cert.id}
+                  as="a"
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -96,7 +98,7 @@ const Skills: React.FC = () => {
                     <p className="cert-date">{cert.issueDate}</p>
                   </div>
                   <ExternalLink size={20} className="cert-icon" />
-                </a>
+                </Card>
               ))}
             </div>
           );

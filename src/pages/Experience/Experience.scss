@@ -162,25 +162,8 @@
 }
 
 // ============================================
-// CARD
-// ============================================
-
-.experience-card {
-  @include card-base;
-  @include accent-bar-left;
-
-  .theme-dark & {
-    background: $dark-surface;
-    &:hover { background: $dark-surface-hover; }
-  }
-  .theme-light & {
-    background: $light-surface;
-    &:hover { background: $light-surface-hover; }
-  }
-}
-
-// ============================================
-// CARD CONTENT
+// CARD CONTENT — .experience-card itself needs no overrides on top of
+// ui/Card's base .card; Experience's values ARE the primitive's defaults.
 // ============================================
 
 .ex-ct {
@@ -193,49 +176,8 @@
   font-family: $font-mono;
 }
 
-.experience-card {
-  .card-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-  }
-
-  .card-subtitle {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.85rem;
-  }
-
-  .card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .meta-icon { flex-shrink: 0; }
-}
-
 .ex-mi {
   color: var(--section-accent);
-}
-
-.experience-card {
-  .card-duration,
-  .card-location {
-    font-size: 0.87rem;
-    font-weight: 500;
-    font-style: italic;
-    font-family: $font-mono;
-    .theme-dark & { color: rgba($dark-text, 0.72); }
-    .theme-light & { color: rgba($light-text, 0.68); }
-  }
 }
 
 .ex-description {
@@ -288,35 +230,12 @@
   .theme-dark &  { border-color: rgba($dark-text, 0.08); }
 }
 
+// Override on top of ui/Tag's base .tag — only what differs here.
 .ex-tech-tag {
   padding: 0.35rem 0.85rem;
   border-radius: 20px;
-  border: 1px solid;
   font-size: 0.82rem;
-  font-weight: 500;
   font-family: $font-mono;
-  background: transparent;
-  transition: $transition-quick;
-
-  .theme-dark & {
-    border-color: rgba($dark-text, 0.18);
-    color: rgba($dark-text, 0.7);
-
-    &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
-    }
-  }
-
-  .theme-light & {
-    border-color: rgba($light-text, 0.18);
-    color: rgba($light-text, 0.65);
-
-    &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
-    }
-  }
 }
 
 // ============================================

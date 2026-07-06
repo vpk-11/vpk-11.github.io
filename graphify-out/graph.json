@@ -4,104 +4,34 @@
   "graph": {},
   "nodes": [
     {
-      "label": "Button.tsx",
+      "label": "Modal.tsx",
       "file_type": "code",
-      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "button_button",
-      "community": 2,
-      "norm_label": "button.tsx"
-    },
-    {
-      "label": "ButtonProps",
-      "file_type": "code",
-      "source_file": "src/components/ui/Button/Button.tsx",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "button_button_buttonprops",
-      "community": 2,
-      "norm_label": "buttonprops"
-    },
-    {
-      "label": "Button()",
-      "file_type": "code",
-      "source_file": "src/components/ui/Button/Button.tsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "button_button_button",
-      "community": 2,
-      "norm_label": "button()"
-    },
-    {
-      "label": "InlineAction.tsx",
-      "file_type": "code",
-      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "inlineaction_inlineaction",
+      "id": "modal_modal",
       "community": 13,
-      "norm_label": "inlineaction.tsx"
+      "norm_label": "modal.tsx"
     },
     {
-      "label": "InlineActionProps",
+      "label": "ModalProps",
       "file_type": "code",
-      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
-      "source_location": "L4",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L5",
       "_origin": "ast",
-      "id": "inlineaction_inlineaction_inlineactionprops",
+      "id": "modal_modal_modalprops",
       "community": 13,
-      "norm_label": "inlineactionprops"
+      "norm_label": "modalprops"
     },
     {
-      "label": "InlineAction()",
+      "label": "Modal()",
       "file_type": "code",
-      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
-      "source_location": "L20",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L16",
       "_origin": "ast",
-      "id": "inlineaction_inlineaction_inlineaction",
+      "id": "modal_modal_modal",
       "community": 13,
-      "norm_label": "inlineaction()"
-    },
-    {
-      "label": "ClosingCTA.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "closingcta_closingcta",
-      "community": 2,
-      "norm_label": "closingcta.tsx"
-    },
-    {
-      "label": "ClosingCTA()",
-      "file_type": "code",
-      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "closingcta_closingcta_closingcta",
-      "community": 2,
-      "norm_label": "closingcta()"
-    },
-    {
-      "label": "Hero.tsx",
-      "file_type": "code",
-      "source_file": "src/pages/Hero/Hero.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "hero_hero",
-      "community": 2,
-      "norm_label": "hero.tsx"
-    },
-    {
-      "label": "Hero()",
-      "file_type": "code",
-      "source_file": "src/pages/Hero/Hero.tsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "hero_hero_hero",
-      "community": 2,
-      "norm_label": "hero()"
+      "norm_label": "modal()"
     },
     {
       "label": "Projects.tsx",
@@ -117,7 +47,7 @@
       "label": "stripMarkdown()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "projects_projects_stripmarkdown",
       "community": 13,
@@ -127,7 +57,7 @@
       "label": "truncate()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "projects_projects_truncate",
       "community": 13,
@@ -137,7 +67,7 @@
       "label": "toAbsolute()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "projects_projects_toabsolute",
       "community": 13,
@@ -147,7 +77,7 @@
       "label": "ProjectCardProps",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "projects_projects_projectcardprops",
       "community": 13,
@@ -157,7 +87,7 @@
       "label": "ProjectCard()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "projects_projects_projectcard",
       "community": 13,
@@ -167,7 +97,7 @@
       "label": "ProjectModalProps",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L108",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "projects_projects_projectmodalprops",
       "community": 13,
@@ -177,7 +107,7 @@
       "label": "ProjectModal()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "projects_projects_projectmodal",
       "community": 13,
@@ -187,11 +117,111 @@
       "label": "Projects()",
       "file_type": "code",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L182",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "projects_projects_projects",
       "community": 13,
       "norm_label": "projects()"
+    },
+    {
+      "label": "Button.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "button.tsx",
+      "id": "button_button"
+    },
+    {
+      "label": "ButtonProps",
+      "file_type": "code",
+      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "buttonprops",
+      "id": "button_button_buttonprops"
+    },
+    {
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "button()",
+      "id": "button_button_button"
+    },
+    {
+      "label": "InlineAction.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "inlineaction.tsx",
+      "id": "inlineaction_inlineaction"
+    },
+    {
+      "label": "InlineActionProps",
+      "file_type": "code",
+      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "inlineactionprops",
+      "id": "inlineaction_inlineaction_inlineactionprops"
+    },
+    {
+      "label": "InlineAction()",
+      "file_type": "code",
+      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "inlineaction()",
+      "id": "inlineaction_inlineaction_inlineaction"
+    },
+    {
+      "label": "ClosingCTA.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "closingcta.tsx",
+      "id": "closingcta_closingcta"
+    },
+    {
+      "label": "ClosingCTA()",
+      "file_type": "code",
+      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "closingcta()",
+      "id": "closingcta_closingcta_closingcta"
+    },
+    {
+      "label": "Hero.tsx",
+      "file_type": "code",
+      "source_file": "src/pages/Hero/Hero.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "hero.tsx",
+      "id": "hero_hero"
+    },
+    {
+      "label": "Hero()",
+      "file_type": "code",
+      "source_file": "src/pages/Hero/Hero.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 2,
+      "norm_label": "hero()",
+      "id": "hero_hero_hero"
     },
     {
       "label": "Resume.tsx",
@@ -199,9 +229,9 @@
       "source_file": "src/pages/Resume/Resume.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "resume_resume",
       "community": 2,
-      "norm_label": "resume.tsx"
+      "norm_label": "resume.tsx",
+      "id": "resume_resume"
     },
     {
       "label": "toPreviewUrl()",
@@ -209,9 +239,9 @@
       "source_file": "src/pages/Resume/Resume.tsx",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "resume_resume_topreviewurl",
       "community": 2,
-      "norm_label": "topreviewurl()"
+      "norm_label": "topreviewurl()",
+      "id": "resume_resume_topreviewurl"
     },
     {
       "label": "Resume()",
@@ -219,9 +249,9 @@
       "source_file": "src/pages/Resume/Resume.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "resume_resume_resume",
       "community": 2,
-      "norm_label": "resume()"
+      "norm_label": "resume()",
+      "id": "resume_resume_resume"
     },
     {
       "label": "Tag.tsx",
@@ -259,7 +289,7 @@
       "source_file": "src/pages/Skills/Skills.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "norm_label": "skills.tsx",
       "id": "skills_skills"
     },
@@ -269,7 +299,7 @@
       "source_file": "src/pages/Skills/Skills.tsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "norm_label": "skills()",
       "id": "skills_skills_skills"
     },
@@ -369,7 +399,7 @@
       "source_file": "src/pages/Experience/Experience.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "experience.tsx",
       "id": "experience_experience"
     },
@@ -379,7 +409,7 @@
       "source_file": "src/pages/Experience/Experience.tsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "expcard()",
       "id": "experience_experience_expcard"
     },
@@ -389,7 +419,7 @@
       "source_file": "src/pages/Experience/Experience.tsx",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "experience()",
       "id": "experience_experience_experience"
     },
@@ -1009,7 +1039,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "navbar.tsx",
       "id": "navbar_navbar"
     },
@@ -1019,7 +1049,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "icons",
       "id": "navbar_navbar_icons"
     },
@@ -1029,7 +1059,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "{ nav: nav_items }",
       "id": "navbar_navbar_nav_nav_items"
     },
@@ -1039,7 +1069,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "mobile_nav_items",
       "id": "navbar_navbar_mobile_nav_items"
     },
@@ -1049,7 +1079,7 @@
       "source_file": "src/components/layout/Navbar/Navbar.tsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "navbar()",
       "id": "navbar_navbar_navbar"
     },
@@ -1109,7 +1139,7 @@
       "source_file": "src/data/sectionOrder.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "sectionorder.ts",
       "id": "data_sectionorder"
     },
@@ -1119,7 +1149,7 @@
       "source_file": "src/data/sectionOrder.ts",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "section_order",
       "id": "data_sectionorder_section_order"
     },
@@ -1189,7 +1219,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "useviewport.ts",
       "id": "hooks_useviewport"
     },
@@ -1199,7 +1229,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "usewindowwidth()",
       "id": "hooks_useviewport_usewindowwidth"
     },
@@ -1209,7 +1239,7 @@
       "source_file": "src/hooks/useViewport.ts",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "usewindowheight()",
       "id": "hooks_useviewport_usewindowheight"
     },
@@ -1499,7 +1529,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L94",
       "_origin": "ast",
-      "community": 0,
+      "community": 14,
       "norm_label": "navitem",
       "id": "types_index_navitem"
     },
@@ -1509,7 +1539,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L100",
       "_origin": "ast",
-      "community": 2,
+      "community": 14,
       "norm_label": "generaldata",
       "id": "types_index_generaldata"
     },
@@ -1549,7 +1579,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L131",
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "norm_label": "skill",
       "id": "types_index_skill"
     },
@@ -1559,7 +1589,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L136",
       "_origin": "ast",
-      "community": 4,
+      "community": 2,
       "norm_label": "experience",
       "id": "types_index_experience"
     },
@@ -1579,7 +1609,7 @@
       "source_file": "src/types/index.ts",
       "source_location": "L157",
       "_origin": "ast",
-      "community": 2,
+      "community": 3,
       "norm_label": "certification",
       "id": "types_index_certification"
     },
@@ -2514,107 +2544,21 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/Button/Button.tsx",
-      "source_location": "L17",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L16",
       "weight": 1.0,
-      "source": "button_button",
-      "target": "button_button_button",
+      "source": "modal_modal",
+      "target": "modal_modal_modal",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/Button/Button.tsx",
-      "source_location": "L4",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L5",
       "weight": 1.0,
-      "source": "button_button",
-      "target": "button_button_buttonprops",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Hero/Hero.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "hero_hero",
-      "target": "button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Resume/Resume.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "resume_resume",
-      "target": "button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "button_button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Hero/Hero.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "hero_hero",
-      "target": "button_button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Resume/Resume.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "resume_resume",
-      "target": "button_button_button",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "inlineaction_inlineaction",
-      "target": "inlineaction_inlineaction_inlineaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "inlineaction_inlineaction",
-      "target": "inlineaction_inlineaction_inlineactionprops",
+      "source": "modal_modal",
+      "target": "modal_modal_modalprops",
       "confidence_score": 1.0
     },
     {
@@ -2622,10 +2566,10 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "projects_projects",
-      "target": "inlineaction_inlineaction",
+      "target": "modal_modal",
       "confidence_score": 1.0
     },
     {
@@ -2633,218 +2577,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "projects_projects",
-      "target": "inlineaction_inlineaction_inlineaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "closingcta_closingcta_closingcta"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "data_sectionorder"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "sectionheader_sectionheader"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "utils_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "closingcta_closingcta",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "closingcta_closingcta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "closingcta_closingcta_closingcta",
-      "target": "data_sectionorder_sectionnumber"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "closingcta_closingcta_closingcta",
-      "target": "utils_formattext_formattext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "closingcta_closingcta_closingcta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Hero/Hero.tsx",
       "source_location": "L9",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hero_hero",
-      "target": "hero_hero_hero"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Hero/Hero.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hero_hero",
-      "target": "types_index"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Hero/Hero.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hero_hero",
-      "target": "types_index_generaldata"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Hero/Hero.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hero_hero",
-      "target": "types_index_profiledata"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Hero/Hero.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "hero_hero",
-      "target": "utils_ripplemotion"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "hero_hero"
+      "source": "projects_projects",
+      "target": "modal_modal_modal",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2867,6 +2604,28 @@
       "confidence_score": 1.0,
       "source": "projects_projects",
       "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Projects/Projects.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "projects_projects",
+      "target": "inlineaction_inlineaction"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Projects/Projects.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "projects_projects",
+      "target": "inlineaction_inlineaction_inlineaction"
     },
     {
       "relation": "contains",
@@ -3156,6 +2915,319 @@
       "weight": 1.0,
       "source": "projects_projects_projects",
       "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "button_button",
+      "target": "button_button_button"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Button/Button.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "button_button",
+      "target": "button_button_buttonprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "button_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Hero/Hero.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "button_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Resume/Resume.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "resume_resume",
+      "target": "button_button"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "button_button_button"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Hero/Hero.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "button_button_button"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Resume/Resume.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "resume_resume",
+      "target": "button_button_button"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "inlineaction_inlineaction",
+      "target": "inlineaction_inlineaction_inlineaction"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/InlineAction/InlineAction.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "inlineaction_inlineaction",
+      "target": "inlineaction_inlineaction_inlineactionprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "closingcta_closingcta_closingcta"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "data_sectionorder"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "sectionheader_sectionheader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "utils_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "closingcta_closingcta",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "closingcta_closingcta"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "closingcta_closingcta_closingcta",
+      "target": "data_sectionorder_sectionnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/ClosingCTA/ClosingCTA.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "closingcta_closingcta_closingcta",
+      "target": "utils_formattext_formattext"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "closingcta_closingcta_closingcta"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Hero/Hero.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "hero_hero_hero"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Hero/Hero.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "types_index"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Hero/Hero.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "types_index_generaldata"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Hero/Hero.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "types_index_profiledata"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Hero/Hero.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "hero_hero",
+      "target": "utils_ripplemotion"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_app",
+      "target": "hero_hero"
     },
     {
       "relation": "imports_from",
@@ -6515,5 +6587,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "efc76a626e0afd53cde19714350b801dcb999cde"
+  "built_at_commit": "178710876ee8b0789296008d0594419214628a20"
 }
