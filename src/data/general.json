@@ -72,7 +72,7 @@
     "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
     "channels": [
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
-      { "label": "STATUS", "value": "Open to Work", "caption": "Fall 2026 onward" }
+      { "label": "VISA_STATUS", "value": "No Sponsorship Needed", "caption": "F-1 CPT · Future: STEM OPT / H-1B" }
     ]
   }
 }
