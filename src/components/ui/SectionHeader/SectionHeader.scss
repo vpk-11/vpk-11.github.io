@@ -20,7 +20,7 @@
   }
 
   b {
-    color: var(--section-accent);
+    color: var(--accent-tertiary);
     font-weight: 500;
   }
 
@@ -29,7 +29,7 @@
 }
 
 .section-headline {
-  font-family: $font-serif;
+  font-family: $font-cursive;
   font-style: italic;
   font-weight: 500;
   font-size: clamp(1.9rem, 3.2vw + 0.5rem, 2.9rem);
