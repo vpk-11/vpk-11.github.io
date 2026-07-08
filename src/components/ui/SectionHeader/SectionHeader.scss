@@ -1,8 +1,9 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-// mono eyebrow + italic serif headline, shared across every section
-// so they read as one family (About, Education, Experience, Skills, ...).
+// mono eyebrow + sans headline with a short accent underline bar, shared
+// across every section so they read as one family (About, Education,
+// Experience, Skills, ...).
 .section-eyebrow {
   display: flex;
   align-items: center;
