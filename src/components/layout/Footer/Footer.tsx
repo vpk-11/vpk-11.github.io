@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
         <div className="footer-col footer-spacer-col" aria-hidden="true" />
 
         <div className="footer-col">
-          <div className="footer-col-title">Deployments</div>
+          <div className="footer-col-title">Live Deployments</div>
           <nav className="footer-nav" aria-label="Live deployments">
             {liveProjects.map(project => (
               <a
