@@ -59,15 +59,19 @@ body {
 .theme-light {
   background-color: $light-bg;
   color: $light-text;
-  --accent-color: #{$accent-light};
-  --section-accent: #{$accent-light};
+  --accent-color: #{$accent-primary-light};
+  --section-accent: #{$accent-primary-light};
+  --accent-secondary: #{$accent-secondary-light};
+  --accent-tertiary: #{$accent-tertiary-light};
 }
 
 .theme-dark {
   background-color: $dark-bg;
   color: $dark-text;
-  --accent-color: #{$accent-dark};
-  --section-accent: #{$accent-dark};
+  --accent-color: #{$accent-primary-dark};
+  --section-accent: #{$accent-primary-dark};
+  --accent-secondary: #{$accent-secondary-dark};
+  --accent-tertiary: #{$accent-tertiary-dark};
 }
 
 // ============================================
