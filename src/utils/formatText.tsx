@@ -1,4 +1,6 @@
-export const formatText = (text: string): React.ReactNode => {
+import type { ReactNode } from 'react';
+
+export const formatText = (text: string): ReactNode => {
   // Split by **bold**, *italic*, [link](url), {accent}word{/accent}, and {outline}word{/outline} patterns
   const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\{accent\}.*?\{\/accent\}|\{outline\}.*?\{\/outline\}|\{small\}.*?\{\/small\})/g);
 
