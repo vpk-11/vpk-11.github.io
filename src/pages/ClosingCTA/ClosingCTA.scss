@@ -18,6 +18,17 @@
 
 .closing-cta-line {
   display: block;
+
+  // Same wordmark treatment as Hero's lastname: solid fill in light mode,
+  // outline-only stroke in dark mode — the one deliberate signature color
+  // moment on the page, mirrored from Hero so both read as one motif.
+  .accent-word {
+    .theme-light & { color: var(--accent-color); }
+    .theme-dark & {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--accent-color);
+    }
+  }
 }
 
 // ── Tagline ──────────────────────────────────────────────────────────────────

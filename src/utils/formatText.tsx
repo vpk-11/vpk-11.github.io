@@ -1,6 +1,6 @@
 export const formatText = (text: string): React.ReactNode => {
   // Split by **bold**, *italic*, [link](url), {accent}word{/accent}, and {outline}word{/outline} patterns
-  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\{accent\}.*?\{\/accent\}|\{outline\}.*?\{\/outline\})/g);
+  const parts = text.split(/(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\{accent\}.*?\{\/accent\}|\{outline\}.*?\{\/outline\}|\{small\}.*?\{\/small\})/g);
 
   return parts.map((part, index) => {
     // Bold: **text**
@@ -21,6 +21,11 @@ export const formatText = (text: string): React.ReactNode => {
     // Outline word: {outline}text{/outline} — transparent fill, stroked outline
     if (part.startsWith('{outline}') && part.endsWith('{/outline}')) {
       return <span key={index} className="outline-word">{part.slice(9, -10)}</span>;
+    }
+
+    // Small: {small}text{/small} — shrinks inline text below the surrounding font-size
+    if (part.startsWith('{small}') && part.endsWith('{/small}')) {
+      return <span key={index} className="text-small-inline">{part.slice(7, -8)}</span>;
     }
 
     // Link: [text](url)
