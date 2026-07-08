@@ -23,8 +23,6 @@ const About: React.FC = () => {
         <SectionHeader
           sectionId="about"
           label="ABOUT"
-          show={!!heading?.eyebrow}
-          suffix={<b>{heading?.eyebrow}</b>}
           headline={heading ? formatText(heading.headline) : 'About Me'}
         />
 
