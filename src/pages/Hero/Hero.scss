@@ -205,27 +205,9 @@
   font-weight: 800;
   letter-spacing: 0.05em;
 
-  .theme-light & {
-    border: 1px solid $green-light;
-    color: $green-light;
-    background: rgba($green-light, 0.1);
-  }
-  .theme-dark & {
-    border: 1px solid $green-dark;
-    color: $green-dark;
-    background: rgba($green-dark, 0.1);
-  }
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  animation: pulse 2.5s ease-in-out infinite;
-
-  .theme-light & { background: $green-light; }
-  .theme-dark &  { background: $green-dark; }
+  border: 1px solid var(--accent-tertiary);
+  color: var(--accent-tertiary);
+  background: color-mix(in srgb, var(--accent-tertiary) 10%, transparent);
 }
 
 .hero-meta-sep {
@@ -273,12 +255,6 @@
   }
 }
 
-.hero-link-primary {
-  &:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
-}
-
 // ── Animations ────────────────────────────────────────────────────────────────
 
 @keyframes fadeInUp {
@@ -292,7 +268,3 @@
   }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.78); }
-}

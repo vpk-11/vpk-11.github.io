@@ -67,11 +67,12 @@
   height: 40px;
   border-radius: 50%;
 
-  .theme-light & { background: $light-surface; color: rgba($light-text, 0.7); }
-  .theme-dark &  { background: $dark-surface;  color: rgba($dark-text, 0.7); }
+  .theme-light & { background: $light-surface; color: rgba($light-text, 0.7); border: 1px solid rgba($light-text, 0.15); }
+  .theme-dark &  { background: $dark-surface;  color: rgba($dark-text, 0.7);  border: 1px solid rgba($dark-text, 0.15); }
 
   &:hover {
     color: var(--accent-color);
+    border-color: var(--accent-color);
     transform: translateY(-2px);
   }
 }

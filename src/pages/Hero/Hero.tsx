@@ -6,6 +6,7 @@ import type { ProfileData, GeneralData } from '../../types';
 import { RIPPLE_CYCLE_SECONDS, RIPPLE_DIRECTION } from '../../utils/rippleMotion';
 import Button from '../../components/ui/Button/Button';
 import Marquee from '../../components/ui/Marquee/Marquee';
+import StatusDot from '../../components/ui/StatusDot/StatusDot';
 import './Hero.scss';
 
 // Marquee duplicates whatever it's given exactly once for a seamless loop,
@@ -50,7 +51,7 @@ const Hero: React.FC = () => {
 
           {tickerPhrases.length > 0 && (
             <div className="hero-ticker" aria-hidden="true">
-              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION}>
+              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION} pauseOnHover>
                 {Array.from({ length: HERO_TICKER_REPEAT * tickerPhrases.length }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
                   <span className="ticker-item" key={i}>
                     <span className="pulse" />
@@ -64,7 +65,7 @@ const Hero: React.FC = () => {
           <div className="hero-status-bar">
             {profile.availability && (
               <span className="hero-avail-badge">
-                <span className="status-dot" aria-hidden="true" />
+                <StatusDot />
                 {profile.availability.toLowerCase()}
               </span>
             )}
@@ -79,11 +80,11 @@ const Hero: React.FC = () => {
 
           <div className="hero-links">
             <Button
-              variant="primary"
+              variant="secondary"
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-link hero-link-primary"
+              className="hero-link"
               icon={<Linkedin size={18} />}
             >
               LinkedIn
