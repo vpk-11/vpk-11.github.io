@@ -8,8 +8,6 @@
 
 // Overrides on top of ui/Card's base .card — only what differs here.
 .education-card {
-  &:hover { transform: translateX(10px); }
-
   .card-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
@@ -59,23 +57,20 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  width: fit-content;
-
-  background: color-mix(in srgb, var(--section-accent) 9%, transparent);
 }
 
 .gpa-icon {
   flex-shrink: 0;
-  color: var(--section-accent);
+  color: var(--accent-color);
 }
 
 .gpa-text {
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.3px;
-  color: var(--section-accent);
+
+  .theme-dark & { color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.7); }
 }
 
 // ============================================
