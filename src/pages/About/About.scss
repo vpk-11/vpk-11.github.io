@@ -36,20 +36,9 @@
   .theme-dark &  { color: rgba($dark-text, 0.92); }
 }
 
-.dropcap-p::first-letter {
-  font-family: $font-cursive;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 3.2rem;
-  line-height: 0.7;
-  float: left;
-  margin: 0.4rem 0.5rem -0.4rem 0;
-  color: var(--section-accent);
-}
-
 .about-pullquote {
-  font-family: $font-cursive;
-  font-style: italic;
+  font-family: $font-family;
+  font-weight: 500;
   font-size: 1.15rem;
   line-height: 1.5;
   border-left: 2px solid var(--section-accent);
@@ -71,8 +60,7 @@
 }
 
 .side-card-title {
-  font-family: $font-cursive;
-  font-style: normal;
+  font-family: $font-family;
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 0.9rem;
