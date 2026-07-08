@@ -1,26 +1,15 @@
 import React from 'react';
 import profileData from '../../../data/profile.json';
-import generalData from '../../../data/general.json';
-import type { ProfileData, GeneralData } from '../../../types';
-import { sectionNumber } from '../../../data/sectionOrder';
+import projectsData from '../../../data/projects.json';
+import type { ProfileData, Project } from '../../../types';
 import StatusDot from '../../ui/StatusDot/StatusDot';
 import './Footer.scss';
 
-// Derived from the same nav tree Navbar renders, so labels only live in one place.
-const { nav: NAV_ITEMS } = generalData as GeneralData;
-const SECTION_LABELS: Record<string, string> = Object.fromEntries(
-  NAV_ITEMS.flatMap(item => {
-    if (item.id) return [[item.id, item.label]];
-    return item.subMenus?.flatMap(group => group.items.map(sub => [sub.id, sub.label])) ?? [];
-  })
-);
-
-const NAVIGATE_IDS = ['hero', 'about', 'education', 'experience', 'projects'] as const;
-const MORE_IDS = ['skills', 'resume', 'beyond-the-code'] as const;
-
 const Footer: React.FC = () => {
   const profile = profileData as ProfileData;
+  const projects = projectsData as Project[];
   const year = new Date().getFullYear();
+  const liveProjects = projects.filter(p => !!p.demoLink);
 
   return (
     <footer className="site-footer">
@@ -33,23 +22,20 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="footer-col">
-          <div className="footer-col-title">Navigate</div>
-          <nav className="footer-nav" aria-label="Footer navigate">
-            {NAVIGATE_IDS.map(id => (
-              <a key={id} href={`#${id}`} className="footer-nav-link">
-                {sectionNumber(id)} / {SECTION_LABELS[id].toUpperCase()}
-              </a>
-            ))}
-          </nav>
-        </div>
+        <div className="footer-col footer-spacer-col" aria-hidden="true" />
 
         <div className="footer-col">
-          <div className="footer-col-title">More</div>
-          <nav className="footer-nav" aria-label="Footer more">
-            {MORE_IDS.map(id => (
-              <a key={id} href={`#${id}`} className="footer-nav-link">
-                {sectionNumber(id)} / {SECTION_LABELS[id].toUpperCase()}
+          <div className="footer-col-title">Deployments</div>
+          <nav className="footer-nav" aria-label="Live deployments">
+            {liveProjects.map(project => (
+              <a
+                key={project.id}
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-nav-link"
+              >
+                {project.title.toUpperCase()}
               </a>
             ))}
           </nav>
