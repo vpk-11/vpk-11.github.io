@@ -7,100 +7,30 @@ $light-bg: #fafafa;
 $light-surface: #f7f7f7;
 $light-surface-hover: #eaeaed;
 $light-text: #202124;
-$light-text-secondary: rgb(20, 20, 21);
 
 // Dark Mode Colors
 $dark-bg: #0a0a0a;
 $dark-surface: #141414;
 $dark-surface-hover: #1b1b1b;
 $dark-text: #e8eaed;
-$dark-text-secondary: rgb(238, 239, 242);
 
-// ── ACCENT COLOR ─────────────────────────────────────────────────────────────
-// Uncomment one pair. Keep all others commented.
-$accent-light: #2563EB;
-$accent-dark:  #E09B5F;
+// ── ACCENT SYSTEM ────────────────────────────────────────────────────────────
+// Three tiers: primary (interactive), secondary (quiet emphasis), tertiary
+// (rare highlight, e.g. the live-status indicator). Dark stays warm, light
+// inverts to cool — primary and tertiary swap temperature across themes so
+// toggling reads as a real color shift, not just a brightness flip.
+$accent-primary-light:   #2A4A73; // ink blue
+$accent-primary-dark:    #C89B5C; // brass
 
-// ── WARM ─────────────────────────────────────────────────────────────────────
+$accent-secondary-light: #47535E; // cool graphite
+$accent-secondary-dark:  #9AA0A8; // graphite
 
-// Copper — metallic, warm, rare in tech portfolios
-// $accent-light: #C87941;
-// $accent-dark:  #E09B5F;
+$accent-tertiary-light:  #A6832A; // old gold
+$accent-tertiary-dark:   #5C8891; // steel-teal
 
-// Bronze — darker/moodier cousin of copper, more subdued
-// $accent-light: #9C6B2E;
-// $accent-dark:  #C8A06B;
-
-// Old Gold — rich antique gold, not flashy, not amber
-// $accent-light: #A07828;
-// $accent-dark:  #D4A843;
-
-// Terracotta — brick orange, earthy, very rustic
-// $accent-light: #C4663A;
-// $accent-dark:  #E07D55;
-
-// Burnt Sienna — deep earthy orange-red, creative/maker energy
-// $accent-light: #C05A2B;
-// $accent-dark:  #E07545;
-
-// Rust — darker and more brooding than burnt sienna
-// $accent-light: #A3390B;
-// $accent-dark:  #D45A2A;
-
-// Coral — orange-red, distinct from Netflix red (#E50914) by ~45 hue degrees
-// $accent-light: #E8533A;
-// $accent-dark:  #F07060;
-
-// Saffron — rich golden-orange, richer/darker than yellow, not amber
-// $accent-light: #D97706;
-// $accent-dark:  #F59E0B;
-
-// ── GREEN (non-hackathon) ─────────────────────────────────────────────────────
-
-// Sage — muted, sophisticated, nature-y, nothing in tech looks like this
-// $accent-light: #4A7C59;
-// $accent-dark:  #6EC68A;
-
-// Olive — earthy yellow-green, pairs really well with copper/warm palette
-// $accent-light: #5C6B1A;
-// $accent-dark:  #99B832;
-
-// Forest — deep rich green, very different from MLH/hackathon bright greens
-// $accent-light: #166534;
-// $accent-dark:  #4ADE80;
-
-// ── COOL ─────────────────────────────────────────────────────────────────────
-
-// Electric Teal — clean, techy, very underused in portfolios
-// $accent-light: #0D9488;
-// $accent-dark:  #2DD4BF;
-
-// Cyan — vibrant, futuristic, distinct from Twitter blue
-// $accent-light: #0891B2;
-// $accent-dark:  #22D3EE;
-
-// Deep Sky — brighter and more saturated than Twitter's blue (#1DA1F2)
-// $accent-light: #0369A1;
-// $accent-dark:  #38BDF8;
-
-// Royal Blue — original default
-// $accent-light: #2563EB;
-// $accent-dark:  #3BB8FF;
-
-// Legacy per-section colors (kept for reference, unused)
-$red-light: #EA4335;
-$blue-light: #4285F4;
-$yellow-light: #FBBC04;
+// Semantic (not part of the accent system) — skill-tier marker in Tag
 $green-light: #34A853;
-$purple-light: #A142F4;
-$orange-light: #FF6D00;
-
-$red-dark: #FF6B6B;
-$blue-dark: #4D9FFF;
-$yellow-dark: #FFD93D;
-$green-dark: #6BCF7F;
-$purple-dark: #C77DFF;
-$orange-dark: #FF9800;
+$green-dark:  #6BCF7F;
 
 // ============================================
 // BREAKPOINTS
@@ -129,5 +59,6 @@ $section-padding-mobile: 60px;
 // ============================================
 
 $font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-safe: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-$font-serif: 'Newsreader', Georgia, serif;
+$font-cursive: 'Newsreader', Georgia, serif;
