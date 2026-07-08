@@ -4,6 +4,7 @@ import type { BeyondTheCode as BeyondTheCodeType } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Panel from '../../components/ui/Panel/Panel';
+import Stat from '../../components/ui/Stat/Stat';
 import './BeyondTheCode.scss';
 
 const BeyondTheCode: React.FC = () => {
@@ -39,8 +40,7 @@ const BeyondTheCode: React.FC = () => {
               <div className="leadership-metrics">
                 {block.metrics.map((metric, k) => (
                   <Panel className="lmetric" key={k}>
-                    <div className="lmetric-num">{metric.value}</div>
-                    <div className="lmetric-label">{metric.label}</div>
+                    <Stat value={metric.value} label={metric.label} variant="panel" />
                   </Panel>
                 ))}
               </div>
