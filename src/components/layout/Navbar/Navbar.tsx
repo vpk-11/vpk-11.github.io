@@ -190,7 +190,7 @@ const Navbar: React.FC = () => {
                                   className="nav-submenu-link"
                                   onClick={() => scrollToSection(sub.id)}
                                 >
-                                  <span className="nav-submenu-icon"><Icon size={17} /></span>
+                                  {Icon && <span className="nav-submenu-icon"><Icon size={17} /></span>}
                                   <span className="nav-submenu-text">
                                     <span className="nav-submenu-label">{sub.label}</span>
                                     <span className="nav-submenu-desc">{sub.description}</span>
