@@ -20,18 +20,16 @@
   }
 
   b {
-    color: var(--accent-tertiary);
-    font-weight: 500;
+    font-weight: 700;
   }
 
-  .theme-light & { color: rgba($light-text, 0.55); &::before { background: rgba($light-text, 0.55); } }
-  .theme-dark &  { color: rgba($dark-text, 0.55); &::before { background: rgba($dark-text, 0.55); } }
+  .theme-light & { color: rgba($light-text, 0.55); b { color: $light-text; } &::before { background: rgba($light-text, 0.55); } }
+  .theme-dark &  { color: rgba($dark-text, 0.55); b { color: $dark-text; } &::before { background: rgba($dark-text, 0.55); } }
 }
 
 .section-headline {
-  font-family: $font-cursive;
-  font-style: italic;
-  font-weight: 500;
+  font-family: $font-family;
+  font-weight: 700;
   font-size: clamp(1.9rem, 3.2vw + 0.5rem, 2.9rem);
   line-height: 1.12;
   max-width: 820px;

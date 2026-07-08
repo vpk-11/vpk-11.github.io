@@ -205,9 +205,9 @@
   font-weight: 800;
   letter-spacing: 0.05em;
 
-  border: 1px solid var(--accent-tertiary);
-  color: var(--accent-tertiary);
-  background: color-mix(in srgb, var(--accent-tertiary) 10%, transparent);
+  border: 1px solid var(--accent-secondary);
+  color: var(--accent-secondary);
+  background: color-mix(in srgb, var(--accent-secondary) 10%, transparent);
 }
 
 .hero-meta-sep {
