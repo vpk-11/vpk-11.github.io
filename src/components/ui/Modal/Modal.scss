@@ -52,14 +52,14 @@
 
   .theme-light & {
     background: $light-surface;
-    border-color: color-mix(in srgb, var(--section-accent) 25%, transparent);
+    border-color: rgba($light-text, 0.12);
     box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.1);
     scrollbar-color: rgba($light-text, 0.2) transparent;
     &::-webkit-scrollbar-thumb { background: rgba($light-text, 0.2); }
   }
   .theme-dark & {
     background: $dark-surface;
-    border-color: color-mix(in srgb, var(--section-accent) 20%, transparent);
+    border-color: rgba($dark-text, 0.12);
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
     scrollbar-color: rgba($dark-text, 0.2) transparent;
     &::-webkit-scrollbar-thumb { background: rgba($dark-text, 0.2); }

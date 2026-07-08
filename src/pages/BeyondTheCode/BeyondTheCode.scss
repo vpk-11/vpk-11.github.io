@@ -91,6 +91,10 @@
 // .ex-bullet — reads as a thicker, bolder line than a hand-drawn CSS bar.
 .leadership-bullet-mark {
   flex-shrink: 0;
+  display: inline-block;
+  transform: scaleX(0.5);
+  transform-origin: left center;
+  margin-right: -0.4em;
   color: var(--section-accent);
   font-weight: 700;
   line-height: 1.85;

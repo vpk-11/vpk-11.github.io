@@ -14,8 +14,8 @@
     color: rgba($dark-text, 0.7);
 
     &:hover {
-      border-color: var(--accent-tertiary);
-      color: var(--accent-tertiary);
+      border-color: rgba($dark-text, 0.4);
+      color: $dark-text;
     }
   }
 
@@ -24,8 +24,8 @@
     color: rgba($light-text, 0.65);
 
     &:hover {
-      border-color: var(--accent-tertiary);
-      color: var(--accent-tertiary);
+      border-color: rgba($light-text, 0.4);
+      color: $light-text;
     }
   }
 }
