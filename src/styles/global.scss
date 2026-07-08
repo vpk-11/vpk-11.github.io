@@ -122,35 +122,12 @@ body {
   }
 }
 
-.section-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-
-  .theme-light & { color: $light-text; }
-  .theme-dark &  { color: $dark-text; }
-
-  @include respond-to(mobile) {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: var(--section-accent);
-    border-radius: 2px;
-  }
-}
-
 .accent-word {
   color: var(--section-accent);
+}
+
+.text-small-inline {
+  font-size: 0.7em;
 }
 
 .outline-word {

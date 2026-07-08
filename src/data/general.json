@@ -39,26 +39,26 @@
       "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
     },
     "about": {
-      "headline": "I'm an {accent}engineer{/accent}, front and center."
+      "headline": "I'm an engineer, front and center."
     },
     "skills": {
-      "headline": "My {accent}Tool{/accent}box."
+      "headline": "My Toolbox."
     },
     "certifications": {
-      "headline": "My {accent}Cert{/accent}ifications"
+      "headline": "My Certifications"
     },
     "education": {
-      "headline": "{accent}E{/accent}ducation"
+      "headline": "Education"
     },
     "experience": {
-      "headline": "{accent}E{/accent}xperience"
+      "headline": "Experience"
     },
     "projects": {
-      "headline": "{accent}P{/accent}rojects"
+      "headline": "Projects"
     },
     "resume": {
       "eyebrow": "RESUME",
-      "headline": "One page. No {accent}fluff{/accent}."
+      "headline": "One page. No fluff."
     }
   },
   "resumeMeta": {
@@ -68,7 +68,7 @@
   },
   "closingCta": {
     "eyebrow": "LET'S TALK",
-    "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}.",
+    "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}{small}.{/small}",
     "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
     "channels": [
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
