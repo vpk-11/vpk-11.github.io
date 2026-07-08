@@ -35,15 +35,9 @@
   }
 }
 
-// Scrim fix (same technique as About's .about-panel): the particle
-// background's ripple washes out text contrast without a solid-ish backdrop.
 .leadership-panel {
-  border-radius: 10px;
+  @include scrim-panel;
   padding: clamp(1rem, 2vw, 1.75rem);
-  backdrop-filter: blur(6px);
-
-  .theme-dark &  { background: rgba(10, 10, 10, 0.72); }
-  .theme-light & { background: rgba(250, 250, 250, 0.85); }
 }
 
 .leadership-role {
@@ -59,6 +53,7 @@
 .leadership-org {
   font-family: $font-mono;
   font-size: 0.78rem;
+  font-weight: 700;
   color: var(--section-accent);
   margin-bottom: 0.5rem;
 }
@@ -114,23 +109,3 @@
   padding: 0.85rem 1rem;
 }
 
-.lmetric-num {
-  font-family: $font-serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(1.9rem, 2.4vw, 2.3rem);
-  letter-spacing: -0.01em;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-  color: var(--section-accent);
-}
-
-.lmetric-label {
-  font-family: $font-mono;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  .theme-light & { color: rgba($light-text, 0.75); }
-  .theme-dark &  { color: rgba($dark-text, 0.78); }
-}
