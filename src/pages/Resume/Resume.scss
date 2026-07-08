@@ -24,13 +24,11 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  color: var(--accent-tertiary);
 }
 
 .resume-name {
-  font-family: $font-serif;
+  font-family: $font-cursive;
   font-style: italic;
   font-size: 1.7rem;
   margin-bottom: 1rem;
@@ -97,8 +95,10 @@
   font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.4);
   z-index: 2;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
 }
 
 .resume-preview-frame {
