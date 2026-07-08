@@ -3,15 +3,18 @@ import { Provider, useSelector, useDispatch } from 'react-redux';
 import { store } from './store/store';
 import type { RootState } from './store/store';
 import { setTheme } from './store/themeSlice';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Experience from './components/Experience/Experience';
-import Skills from './components/Skills/Skills';
-import Projects from './components/Projects/Projects';
-import Education from './components/Education/Education';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
-import ParticleWave from './components/Background/ParticleWave';
+import Navbar from './components/layout/Navbar/Navbar';
+import Hero from './pages/Hero/Hero';
+import Experience from './pages/Experience/Experience';
+import Skills from './pages/Skills/Skills';
+import Projects from './pages/Projects/Projects';
+import Education from './pages/Education/Education';
+import About from './pages/About/About';
+import Resume from './pages/Resume/Resume';
+import BeyondTheCode from './pages/BeyondTheCode/BeyondTheCode';
+import ClosingCTA from './pages/ClosingCTA/ClosingCTA';
+import Footer from './components/layout/Footer/Footer';
+import ParticleWave from './components/layout/Background/ParticleWave';
 import { useDynamicFavicon } from './hooks/useDynamicFavicon';
 import './App.scss';
 
@@ -41,13 +44,17 @@ const AppContent: React.FC = () => {
       <ParticleWave />
       <div className="app">
       <Navbar />
+      {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts — reorder both together */}
       <Hero />
       <About />
       <Education />
       <Experience />
       <Projects />
       <Skills />
-      <Contact />
+      <Resume />
+      <BeyondTheCode />
+      <ClosingCTA />
+      <Footer />
     </div>
     </>
   );

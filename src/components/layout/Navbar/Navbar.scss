@@ -1,0 +1,420 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1000;
+  padding: 0.9rem 0;
+  transition: $transition-smooth;
+  box-sizing: border-box;
+
+  // Solid translucent background, not backdrop-filter: blur over the live
+  // WebGL canvas hits a Chrome compositor bug where the blurred layer
+  // occasionally fails to resample in sync with the canvas's own rAF loop,
+  // flashing raw unblurred canvas through the nav for a frame. A flat
+  // rgba background never samples the canvas at all, so it can't flicker.
+  .theme-light & { background: rgba($light-bg, 0.98); }
+  .theme-dark &  { background: rgba($dark-bg, 0.98); }
+
+  &.scrolled {
+    padding: 0.6rem 0;
+  }
+  
+  // Hide brand when on hero section
+  &.hide-brand {
+    .nav-brand {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.nav-container {
+  width: calc(100% - 4rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+
+  @media (min-width: 1600px) {
+    max-width: 1500px;
+  }
+  
+  @media (min-width: 2000px) {
+    max-width: 1600px;
+  }
+  
+  @include respond-to(tablet) {
+    width: calc(100% - 4rem);
+    padding: 0 2rem;
+  }
+  
+  @include respond-to(mobile) {
+    width: calc(100% - 2rem);
+    padding: 0 1rem;
+  }
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  transition: opacity 0.5s ease;
+  
+  .brand-short {
+    display: none;
+  }
+
+  // Shrinks to "KP" starting at tablet (not just phone) so the centered
+  // dropdown nav has room to breathe without overlapping the brand.
+  @include respond-to(tablet) {
+    .brand-full {
+      display: none;
+    }
+
+    .brand-short {
+      display: inline;
+    }
+  }
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  // Centered independently of brand/actions, which sit at the flex ends
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.nav-book-call {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--accent-color);
+  transition: $transition-quick;
+
+  .theme-light & { color: #fff; }
+  .theme-dark &  { color: $dark-bg; }
+
+  &:hover {
+    opacity: 0.86;
+    transform: translateY(-1px);
+  }
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-mobile {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+
+  @include respond-to(mobile) {
+    display: flex;
+  }
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  // Light mode - default black, active is accent
+  .theme-light & {
+    color: $light-text;
+
+    &.active {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+  }
+
+  // Dark mode - default accent, active is white/brighter
+  .theme-dark & {
+    color: var(--accent-color);
+    opacity: 0.6;
+
+    &.active {
+      color: $dark-text;
+      opacity: 1;
+      font-weight: 600;
+    }
+  }
+
+  &:hover {
+    color: var(--accent-color);
+
+    .theme-dark & {
+      opacity: 1;
+    }
+  }
+}
+
+.nav-hover-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  z-index: -1;
+
+  .theme-light & { background: rgba($light-text, 0.06); }
+  .theme-dark &  { background: rgba($dark-text, 0.08); }
+}
+
+.nav-chevron {
+  transition: transform 0.25s ease;
+
+  &.flipped { transform: rotate(180deg); }
+}
+
+// ── Dropdown submenu panel ──────────────────────────────────────────────────────
+
+.nav-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.6rem;
+  padding: 1.1rem;
+  border-radius: 14px;
+  border: 1px solid;
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+
+  .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.1); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1); }
+  .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.1);  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); }
+}
+
+.nav-submenu-title {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.9rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+.nav-submenu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.nav-submenu-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.nav-submenu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid;
+  flex-shrink: 0;
+  transition: $transition-quick;
+
+  .theme-light & { border-color: rgba($light-text, 0.15); color: rgba($light-text, 0.7); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.15); color: rgba($dark-text, 0.7); }
+
+  .nav-submenu-link:hover & {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+
+  // ink-blue bg vs black icon read as near-identical in light mode, so hover
+  // text flips to white there; dark mode's brass bg keeps black (already legible).
+  .theme-light .nav-submenu-link:hover & { color: #fff; }
+  .theme-dark  .nav-submenu-link:hover & { color: $dark-bg; }
+}
+
+.nav-submenu-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  white-space: nowrap;
+}
+
+.nav-submenu-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.nav-submenu-desc {
+  font-size: 0.74rem;
+  transition: color 0.2s ease;
+
+  .theme-light & { color: rgba($light-text, 0.5); }
+  .theme-dark &  { color: rgba($dark-text, 0.5); }
+
+  .theme-light .nav-submenu-link:hover & { color: $light-text; }
+  .theme-dark  .nav-submenu-link:hover & { color: $dark-text; }
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-quick;
+  color: inherit;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: $light-surface;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+
+  .theme-dark & {
+    background: $dark-surface;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-link {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  padding: 0.75rem 0;
+  transition: $transition-quick;
+  position: relative;
+  
+  // Light mode - default black, active is accent
+  .theme-light & {
+    color: $light-text;
+    
+    &.active {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+  }
+  
+  // Dark mode - default accent, active is white
+  .theme-dark & {
+    color: var(--accent-color);
+    opacity: 0.6;
+    
+    &.active {
+      color: $dark-text;
+      opacity: 1;
+      font-weight: 600;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: var(--accent-color);
+    transition: height 0.3s ease;
+  }
+
+  &.active::before {
+    height: 70%;
+  }
+
+  &:hover {
+    transform: translateX(10px);
+    
+    .theme-dark & {
+      opacity: 1;
+    }
+  }
+}

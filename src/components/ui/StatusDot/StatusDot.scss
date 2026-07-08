@@ -1,0 +1,21 @@
+// Shared pulsing dot for live-status indicators (Hero's availability badge,
+// Footer's status pill, Hero's ticker dot, Projects' live-dot). Single
+// source for the pulse keyframes so consumers don't silently depend on
+// whichever file the bundler loads first.
+.status-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent-secondary);
+  animation: pulse 2.5s ease-in-out infinite;
+
+  &--primary {
+    background: var(--accent-color);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

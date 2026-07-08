@@ -1,0 +1,34 @@
+{
+  "headline": "Beyond the Code.",
+  "blocks": [
+    {
+      "role": "Head, Media Relations",
+      "org": "Festember, NIT Trichy's National Cultural Festival",
+      "dates": "Deputy Manager (May 2021) to Manager (Jan 2022) to Head (Dec 2022 to Dec 2023)",
+      "bullets": [
+        "Led a 24 person team across TV, radio, print, OTT and social media, starting as Deputy Manager and working up to Head over about two and a half years.",
+        "Built partnerships with Spotify, AGS Cinemas, Suryan FM and Women's Era to get the festival covered across their platforms.",
+        "Ran a press meet with 15+ media organizations that reached 5,000+ people directly.",
+        "Got the festival covered nationwide across TV, radio, print, OTT and social media, reaching 500,000+ people.",
+        "Secured more than ₹35 lakh (about $42,000) in media sponsorships."
+      ],
+      "metrics": [
+        { "label": "Media Orgs Reached", "value": "15+" },
+        { "label": "Raised", "value": "₹35L+" },
+        { "label": "People Reached", "value": "500K+" }
+      ]
+    },
+    {
+      "role": "Events Manager",
+      "org": "Orientation '21, NIT Trichy",
+      "dates": "Aug 2021 to Jan 2022",
+      "bullets": [
+        "Managed events and guest lectures for incoming freshers, working with college administration to cover the rules, facilities and campus resources every new student needed.",
+        "Mentored 200+ incoming students through their transition to campus life."
+      ],
+      "metrics": [
+        { "label": "Students Mentored", "value": "200+" }
+      ]
+    }
+  ]
+}

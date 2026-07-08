@@ -2,91 +2,91 @@
   {
     "category": "Programming Languages",
     "items": [
-      "Python",
-      "TypeScript",
-      "JavaScript",
-      "C#",
-      "C++",
-      "C",
-      "SQL"
+      { "name": "Python" },
+      { "name": "TypeScript" },
+      { "name": "JavaScript" },
+      { "name": "C#" },
+      { "name": "C++" },
+      { "name": "C" },
+      { "name": "SQL" }
     ]
   },
   {
     "category": "Frontend",
     "items": [
-      "React",
-      "Redux",
-      "Vite",
-      "Tailwind CSS",
-      "HTML5",
-      "CSS3",
-      "SCSS / SASS",
-      "Responsive Design"
+      { "name": "React" },
+      { "name": "Redux" },
+      { "name": "Vite" },
+      { "name": "Tailwind CSS" },
+      { "name": "HTML5" },
+      { "name": "CSS3" },
+      { "name": "SCSS / SASS" },
+      { "name": "Responsive Design" }
     ]
   },
   {
     "category": "Backend",
     "items": [
-      "FastAPI",
-      "Node.js",
-      "Express.js",
-      "ASP.NET",
-      "Flask",
-      "LiteLLM",
-      "Pydantic v2",
-      "MongoDB",
-      "PostgreSQL",
-      "MySQL",
-      "OracleSQL",
-      "Redis",
-      "tRPC",
-      "Drizzle ORM",
-      "REST APIs",
-      "gRPC",
-      "Authentication",
-      "Database Design",
-      "Model Context Protocol (MCP)"
+      { "name": "FastAPI" },
+      { "name": "Node.js" },
+      { "name": "Express.js" },
+      { "name": "ASP.NET" },
+      { "name": "Flask" },
+      { "name": "LiteLLM" },
+      { "name": "Pydantic v2" },
+      { "name": "MongoDB" },
+      { "name": "PostgreSQL" },
+      { "name": "MySQL" },
+      { "name": "OracleSQL" },
+      { "name": "Redis" },
+      { "name": "tRPC" },
+      { "name": "Drizzle ORM" },
+      { "name": "REST APIs" },
+      { "name": "gRPC" },
+      { "name": "Authentication" },
+      { "name": "Database Design" },
+      { "name": "Model Context Protocol (MCP)" }
     ]
   },
   {
     "category": "Machine Learning",
     "items": [
-      "PyTorch",
-      "TensorFlow",
-      "Scikit-learn",
-      "Large Language Models (LLM)",
-      "Agentic AI / Pipelines",
-      "Multi-Agent Systems",
-      "Deep Learning",
-      "Computer Vision",
-      "Natural Language Processing"
+      { "name": "PyTorch" },
+      { "name": "TensorFlow" },
+      { "name": "Scikit-learn" },
+      { "name": "Large Language Models (LLM)" },
+      { "name": "Agentic AI / Pipelines" },
+      { "name": "Multi-Agent Systems" },
+      { "name": "Deep Learning" },
+      { "name": "Computer Vision" },
+      { "name": "Natural Language Processing" }
     ]
   },
   {
     "category": "Design & UX",
     "items": [
-      "Figma",
-      "UI/UX Design",
-      "Wireframing"
+      { "name": "Figma" },
+      { "name": "UI/UX Design" },
+      { "name": "Wireframing" }
     ]
   },
   {
     "category": "Tools & DevOps",
     "items": [
-      "Docker",
-      "Kubernetes",
-      "OpenShift",
-      "GitHub Actions",
-      "Jenkins",
-      "CI/CD",
-      "Linux",
-      "Git",
-      "GitHub",
-      "Postman",
-      "Webpack",
-      "Agile",
-      "Blockchain",
-      "DevOps"
+      { "name": "Docker" },
+      { "name": "Kubernetes" },
+      { "name": "OpenShift" },
+      { "name": "GitHub Actions" },
+      { "name": "Jenkins" },
+      { "name": "CI/CD" },
+      { "name": "Linux" },
+      { "name": "Git" },
+      { "name": "GitHub" },
+      { "name": "Postman" },
+      { "name": "Webpack" },
+      { "name": "Agile" },
+      { "name": "Blockchain" },
+      { "name": "DevOps" }
     ]
   }
 ]

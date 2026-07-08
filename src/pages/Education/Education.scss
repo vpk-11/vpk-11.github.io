@@ -1,0 +1,108 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.education-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+// Overrides on top of ui/Card's base .card — only what differs here.
+.education-card {
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-meta {
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+
+    @include respond-to(mobile) { gap: 1rem; }
+  }
+
+  .meta-item {
+    gap: 0.5rem;
+  }
+
+  .card-duration,
+  .card-location {
+    font-size: 0.95rem;
+
+    .theme-dark & { color: rgba($dark-text, 0.75); }
+    .theme-light & { color: rgba($light-text, 0.7); }
+  }
+}
+
+.ed-ct {
+  .theme-dark & { color: $dark-text; }
+  .theme-light & { color: $light-text; }
+}
+
+.ed-cs {
+  color: var(--section-accent);
+  font-family: $font-mono;
+}
+
+.ed-mi {
+  color: var(--section-accent);
+}
+
+.ed-gpa.card-gpa {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.gpa-icon {
+  flex-shrink: 0;
+  color: var(--accent-color);
+}
+
+.gpa-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  .theme-dark & { color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.7); }
+}
+
+// ============================================
+// COURSEWORK TAGS
+// ============================================
+
+.ed-coursework {
+  margin-top: 0.25rem;
+}
+
+.coursework-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+  font-family: $font-mono;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+}
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+// Overrides on top of ui/Tag's base .tag — only what differs here.
+.ed-coursework-tag {
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: $font-mono;
+}

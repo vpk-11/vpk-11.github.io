@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "title": "Narada",
+    "taglineShort": "agentic search",
+    "tagline": "Every answer traces back to a source.",
+    "pitch": "Ask Narada about any topic and it hands back a table of facts, and every single one links straight back to the page it came from. No blended summaries, no unsourced claims slipped in as if they were checked.",
+    "technicalOverview": "It works in stages: search the web, pull out the facts, verify each one, build the table. Each stage can run on a different model depending on what's cheaper or better for that step, and nothing enters the table without a source attached to it.",
+    "deepDive": "That source attachment is enforced at the data model level, not just in the UI, so every cell is a value permanently paired with its origin URL. The pipeline runs on a provider abstraction layer over a single LiteLLM integration, supporting major LLM providers and 3 search providers, all hot-swappable through env config.",
+    "tags": ["Python", "FastAPI", "LLM", "LiteLLM", "Agentic AI", "Agentic Search"],
+    "metrics": [
+      { "label": "Pipeline Steps", "value": "7" },
+      { "label": "Search Providers", "value": "3" },
+      { "label": "Status", "value": "Live" }
+    ],
+    "demoLink": "https://narada-heij.onrender.com",
+    "githubLink": "https://github.com/vpk-11/narada"
+  },
+  {
+    "id": 2,
+    "title": "Donna",
+    "taglineShort": "AI executive assistant",
+    "tagline": "Every business needs a Donna.",
+    "pitch": "Donna handles scheduling, reschedules meetings when plans change, and messages clients directly to keep them in the loop. Book a call, need to move it, cancel last minute: Donna manages that conversation so the business owner doesn't have to.",
+    "technicalOverview": "Underneath, it's not one assistant, it's a small team of them. A central agent handles the business owner's side, and a separate agent spawns for each client conversation so nothing gets crossed between clients. Every action gets checked before it happens, so it never touches a calendar on a guess.",
+    "deepDive": "That checking layer is a typed MCP tool layer sitting in front of every database mutation, backed by Redis for agent state, with a two-stage LLM firewall screening messages both ways so a prompt injection attempt or a hallucinated booking never reaches a calendar in the first place.",
+    "tags": ["Python", "FastAPI", "Redis", "FastMCP", "LiteLLM", "Multi-Agent Systems"],
+    "metrics": [],
+    "demoLink": "",
+    "githubLink": "https://github.com/vpk-11/donna"
+  },
+  {
+    "id": 3,
+    "title": "RiskWise",
+    "taglineShort": "maritime risk intelligence",
+    "tagline": "Ask about a route, get an honest risk score.",
+    "pitch": "Give RiskWise a shipping route and it returns a risk score, a plain-language reason for it, and a safer alternative if things look bad. Built for the actual question a logistics team asks before committing to a route.",
+    "technicalOverview": "Three agents split the job. One watches for what's actually happening on that route right now. One turns that into a score across separate risk factors. One suggests an alternative if the number is bad enough to need it.",
+    "deepDive": "Those three agents, Athena, Hermes, and Apollo, pull from 3 live public sources in parallel, score risk across 4 independent factors, and fall back through live data, then database, then LLM synthesis, so the system never returns nothing even when an external API is down.",
+    "tags": ["React", "TypeScript", "tRPC", "PostgreSQL", "LLM", "Agentic AI"],
+    "metrics": [
+      { "label": "LLM Agents", "value": "3" },
+      { "label": "Risk Factors Scored", "value": "4" }
+    ],
+    "demoLink": "",
+    "githubLink": "https://github.com/vpk-11/riskwise"
+  }
+]

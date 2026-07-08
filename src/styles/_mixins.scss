@@ -23,13 +23,19 @@
 }
 
 // ============================================
-// GLASS EFFECT
+// SCRIM PANEL
 // ============================================
+// Blurred, theme-tinted backdrop so text stays legible over the particle
+// background. Shared by About's bio panel and BeyondTheCode's leadership
+// panel — identical treatment, only padding differs per consumer.
 
-@mixin glass-effect($bg-color, $opacity: 0.8) {
-  background: rgba($bg-color, $opacity);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+@mixin scrim-panel {
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  .theme-dark &  { background: rgba(10, 10, 10, 0.72); }
+  .theme-light & { background: rgba(250, 250, 250, 0.85); }
 }
 
 // ============================================
@@ -58,14 +64,6 @@
   }
 }
 
-@mixin card-hover {
-  &:hover {
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  }
-}
-
 // ============================================
 // ACCENT BAR
 // ============================================
@@ -78,10 +76,12 @@
     left: 0;
     width: 4px;
     height: 100%;
-    background: var(--section-accent, var(--accent-color));
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 0.4s ease;
+
+    .theme-light & { background: rgba($light-text, 0.35); }
+    .theme-dark &  { background: rgba($dark-text, 0.35); }
   }
 
   &:hover::before {

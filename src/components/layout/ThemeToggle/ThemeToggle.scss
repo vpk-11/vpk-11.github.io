@@ -1,0 +1,58 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border-radius: 999px;
+  padding: 3px;
+  cursor: pointer;
+  transition: $transition-quick;
+  flex-shrink: 0;
+  margin: 0;
+
+  // Kill all browser default button chrome
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+
+  border: 1px solid color-mix(in srgb, var(--accent-secondary) 45%, transparent);
+
+  &:hover {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus:not(:focus-visible),
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.toggle-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transition: $transition-quick;
+
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .theme-light & { color: rgba($light-text, 0.35); }
+  .theme-dark &  { color: rgba($dark-text, 0.35); }
+
+  &.active {
+    .theme-light & { background: $light-surface-hover; color: var(--accent-secondary); }
+    .theme-dark &  { background: $dark-surface-hover;  color: var(--accent-secondary); }
+  }
+}

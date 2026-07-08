@@ -1,0 +1,78 @@
+{
+  "nav": [
+    { "label": "Home", "id": "hero" },
+    { "label": "About", "id": "about" },
+    {
+      "label": "Work",
+      "subMenus": [
+        {
+          "title": "Background",
+          "items": [
+            { "label": "Education", "description": "Where the fundamentals got built", "icon": "GraduationCap", "id": "education" },
+            { "label": "Experience", "description": "Where the work got done", "icon": "Briefcase", "id": "experience" }
+          ]
+        },
+        {
+          "title": "Showcase",
+          "items": [
+            { "label": "Projects", "description": "Everything I've shipped", "icon": "FolderGit2", "id": "projects" },
+            { "label": "Skills", "description": "My toolbox", "icon": "Wrench", "id": "skills" }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "More",
+      "subMenus": [
+        {
+          "title": "Extras",
+          "items": [
+            { "label": "Resume", "description": "One-page PDF, no fluff", "icon": "FileText", "id": "resume" },
+            { "label": "Beyond the Code", "description": "Leadership and mentorship", "icon": "Users", "id": "beyond-the-code" }
+          ]
+        }
+      ]
+    }
+  ],
+  "sectionHeadings": {
+    "hero": {
+      "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
+    },
+    "about": {
+      "headline": "I'm an engineer, front and center."
+    },
+    "skills": {
+      "headline": "My Toolbox."
+    },
+    "certifications": {
+      "headline": "My Certifications"
+    },
+    "education": {
+      "headline": "Education"
+    },
+    "experience": {
+      "headline": "Experience"
+    },
+    "projects": {
+      "headline": "Projects"
+    },
+    "resume": {
+      "eyebrow": "RESUME",
+      "headline": "One page. No fluff."
+    }
+  },
+  "resumeMeta": {
+    "updated": "Jul 2026",
+    "format": "PDF · 1 page · ATS-safe",
+    "bestFor": "Backend · AI/ML · Full-Stack"
+  },
+  "closingCta": {
+    "eyebrow": "LET'S TALK",
+    "headline": "Got something\nworth building?\n{accent}Let's talk{/accent}{small}.{/small}",
+    "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
+    "channels": [
+      { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
+      { "label": "VISA_STATUS", "value": "No Sponsorship Needed", "caption": "F-1 CPT · Future: STEM OPT / H-1B" }
+    ]
+  }
+}
