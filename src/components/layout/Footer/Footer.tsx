@@ -3,6 +3,7 @@ import profileData from '../../../data/profile.json';
 import generalData from '../../../data/general.json';
 import type { ProfileData, GeneralData } from '../../../types';
 import { sectionNumber } from '../../../data/sectionOrder';
+import StatusDot from '../../ui/StatusDot/StatusDot';
 import './Footer.scss';
 
 // Derived from the same nav tree Navbar renders, so labels only live in one place.
@@ -66,7 +67,7 @@ const Footer: React.FC = () => {
             </a>
             {profile.availability && (
               <span className="footer-status">
-                <span className="footer-status-dot" aria-hidden="true" />
+                <StatusDot />
                 {profile.availability.toUpperCase()}
               </span>
             )}
