@@ -9,6 +9,10 @@
   flex-shrink: 0;
   background: var(--accent-secondary);
   animation: pulse 2.5s ease-in-out infinite;
+
+  &--primary {
+    background: var(--accent-color);
+  }
 }
 
 @keyframes pulse {

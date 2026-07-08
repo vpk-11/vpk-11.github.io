@@ -51,10 +51,10 @@ const Hero: React.FC = () => {
 
           {tickerPhrases.length > 0 && (
             <div className="hero-ticker" aria-hidden="true">
-              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION} pauseOnHover>
+              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION}>
                 {Array.from({ length: HERO_TICKER_REPEAT * tickerPhrases.length }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
                   <span className="ticker-item" key={i}>
-                    <span className="pulse" />
+                    <StatusDot color="primary" />
                     {phrase}
                   </span>
                 ))}
