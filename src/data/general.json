@@ -46,16 +46,16 @@
       "headline": "My {accent}Tool{/accent}box."
     },
     "certifications": {
-      "headline": "My Tool{accent}box{/accent}."
+      "headline": "My {accent}Cert{/accent}ifications"
     },
     "education": {
-      "headline": "{accent}Edu{/accent}cation"
+      "headline": "{accent}E{/accent}ducation"
     },
     "experience": {
-      "headline": "{accent}Exp{/accent}erience"
+      "headline": "{accent}E{/accent}xperience"
     },
     "projects": {
-      "headline": "{accent}Pro{/accent}jects"
+      "headline": "{accent}P{/accent}rojects"
     },
     "resume": {
       "eyebrow": "RESUME",
@@ -70,7 +70,7 @@
   "closingCta": {
     "eyebrow": "LET'S TALK",
     "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}.",
-    "tagline": "Open to **Summer 2026 internships** and **full-time** roles in software engineering, full-stack, or agentic AI. Always down to chat.",
+    "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
     "channels": [
       { "label": "SOCIAL_CHANNEL", "value": "LinkedIn · in/kaushikparthasarathy", "caption": "DMs open" },
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },

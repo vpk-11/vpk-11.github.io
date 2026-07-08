@@ -6,7 +6,7 @@
 .closing-cta-headline {
   display: flex;
   flex-direction: column;
-  font-family: $font-serif;
+  font-family: $font-cursive;
   font-style: italic;
   font-weight: 500;
   font-size: clamp(3.5rem, 9vw, 8.5rem);
@@ -53,12 +53,12 @@
   text-transform: uppercase;
   margin-bottom: 0.6rem;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
 }
 
 .cta-channel-value {
-  font-family: $font-serif;
+  font-family: $font-cursive;
   font-style: italic;
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
@@ -73,8 +73,8 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
 }
 
 // ── Actions row: icon circles + pill ──────────────────────────────────────────
@@ -86,25 +86,3 @@
   flex-wrap: wrap;
 }
 
-.cta-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.4rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: none;
-  background: var(--accent-color);
-  transition: $transition-quick;
-
-  .theme-light & { color: #fff; }
-  .theme-dark &  { color: $dark-bg; }
-
-  &:hover {
-    opacity: 0.86;
-    transform: translateY(-2px);
-  }
-
-  &:focus:not(:focus-visible) { outline: none; }
-}
