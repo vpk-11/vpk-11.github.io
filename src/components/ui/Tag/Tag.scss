@@ -14,8 +14,8 @@
     color: rgba($dark-text, 0.7);
 
     &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
+      border-color: var(--accent-tertiary);
+      color: var(--accent-tertiary);
     }
   }
 
@@ -24,8 +24,8 @@
     color: rgba($light-text, 0.65);
 
     &:hover {
-      border-color: var(--section-accent);
-      color: var(--section-accent);
+      border-color: var(--accent-tertiary);
+      color: var(--accent-tertiary);
     }
   }
 }
@@ -84,7 +84,7 @@
   &.tag--level-1 {
     .theme-light & { .tag-dot { background: rgba($light-text, 0.3); } }
     .theme-dark &  { .tag-dot { background: rgba($dark-text, 0.3); } }
-    .theme-light &:hover { border-color: rgba($light-text, 0.18); .tag-dot { background: #fff; } }
+    .theme-light &:hover { border-color: rgba($light-text, 0.18); .tag-dot { background: $light-text; } }
     .theme-dark &:hover  { border-color: rgba($dark-text, 0.16);  .tag-dot { background: #fff; } }
   }
 }
