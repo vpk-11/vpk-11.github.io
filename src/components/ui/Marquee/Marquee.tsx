@@ -5,7 +5,6 @@ interface MarqueeProps {
   children: React.ReactNode;
   direction?: 'left' | 'right';
   speedSeconds: number;    // full loop duration
-  pauseOnHover?: boolean;
   className?: string;
 }
 
@@ -14,12 +13,11 @@ interface MarqueeProps {
 // halves are identical, the loop point is invisible regardless of
 // content width or viewport size — no need to guess a repeat count.
 const Marquee: React.FC<MarqueeProps> = ({
-  children, direction = 'left', speedSeconds, pauseOnHover = false, className,
+  children, direction = 'left', speedSeconds, className,
 }) => {
   const trackClasses = [
     'marquee-track',
     direction === 'right' && 'marquee-track--reverse',
-    pauseOnHover && 'marquee-track--pause-on-hover',
   ].filter(Boolean).join(' ');
 
   return (
