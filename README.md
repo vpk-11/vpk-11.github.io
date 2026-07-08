@@ -6,7 +6,7 @@ Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, T
 
 Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 
-> A v5 visual/content rework is in progress on the `v5` branch. Spec at `.claude/v5-rework.md`, progress tracked at `.claude/v5-todo.md`. `main` reflects the current live site until v5 merges.
+> A v5 visual/content rework is in progress on the `v5` branch. `main` reflects the current live site until v5 merges.
 
 ## Features
 
