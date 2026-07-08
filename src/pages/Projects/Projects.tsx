@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Github, MoveRight } from 'lucide-react';
+import { ExternalLink, Github, Maximize2 } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
@@ -98,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
           )}
         </div>
         <InlineAction as="button" className="pr-view-btn" onClick={() => onSelect(project)}>
-          View <MoveRight size={14} />
+          View <Maximize2 size={14} />
         </InlineAction>
       </div>
     </div>
@@ -146,7 +146,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
         </InlineAction>
       )}
       {project.demoLink && (
-        <span className="pr-modal-live">
+        <span className="live-badge pr-modal-live">
           <span className="live-dot" aria-hidden="true" />
           Live
         </span>
