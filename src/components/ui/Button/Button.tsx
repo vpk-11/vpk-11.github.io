@@ -2,7 +2,7 @@ import React from 'react';
 import './Button.scss';
 
 interface ButtonProps {
-  variant: 'primary' | 'secondary' | 'icon-circle';
+  variant: 'primary' | 'secondary';
   as?: 'a' | 'button';
   href?: string;
   icon?: React.ReactNode;

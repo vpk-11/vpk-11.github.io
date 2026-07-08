@@ -1,16 +1,12 @@
 import React from 'react';
-import { Github, Linkedin } from 'lucide-react';
-import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
-import type { ProfileData, GeneralData } from '../../types';
+import type { GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
-import Button from '../../components/ui/Button/Button';
 import Panel from '../../components/ui/Panel/Panel';
 import './ClosingCTA.scss';
 
 const ClosingCTA: React.FC = () => {
-  const profile = profileData as ProfileData;
   const general = generalData as GeneralData;
   const cta = general.closingCta;
 
@@ -45,25 +41,6 @@ const ClosingCTA: React.FC = () => {
             ))}
           </div>
         )}
-
-        <div className="closing-cta-actions">
-          <Button
-            variant="icon-circle"
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            ariaLabel="GitHub"
-            icon={<Github size={18} />}
-          />
-          <Button
-            variant="icon-circle"
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            ariaLabel="LinkedIn"
-            icon={<Linkedin size={18} />}
-          />
-        </div>
 
       </div>
     </section>
