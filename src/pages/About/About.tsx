@@ -5,6 +5,7 @@ import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Panel from '../../components/ui/Panel/Panel';
+import Stat from '../../components/ui/Stat/Stat';
 import './About.scss';
 
 const About: React.FC = () => {
@@ -88,8 +89,7 @@ const About: React.FC = () => {
           <div className="stat-row">
             {stats.map((stat, i) => (
               <div className="stat-card" key={i}>
-                <div className="stat-num">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
+                <Stat value={stat.value} label={stat.label} variant="floating" />
               </div>
             ))}
           </div>
