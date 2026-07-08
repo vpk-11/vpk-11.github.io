@@ -171,14 +171,6 @@
   .theme-dark &  { color: rgba($dark-text, 0.5); }
 }
 
-.ticker-item .pulse {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  animation: pulse 1.8s ease-in-out infinite;
-}
-
 // ── Status bar ────────────────────────────────────────────────────────────────
 
 .hero-status-bar {
