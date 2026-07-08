@@ -7,17 +7,20 @@
   left: 0;
   width: 100vw;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 0.9rem 0;
   transition: $transition-smooth;
   box-sizing: border-box;
 
-  // Transparent background with blur effect (original settings)
-  background: transparent;
-  backdrop-filter: blur(80px);
-  -webkit-backdrop-filter: blur(80px);
+  // Solid translucent background, not backdrop-filter: blur over the live
+  // WebGL canvas hits a Chrome compositor bug where the blurred layer
+  // occasionally fails to resample in sync with the canvas's own rAF loop,
+  // flashing raw unblurred canvas through the nav for a frame. A flat
+  // rgba background never samples the canvas at all, so it can't flicker.
+  .theme-light & { background: rgba($light-bg, 0.98); }
+  .theme-dark &  { background: rgba($dark-bg, 0.98); }
 
   &.scrolled {
-    padding: 1rem 0;
+    padding: 0.6rem 0;
   }
   
   // Hide brand when on hero section
@@ -309,7 +312,8 @@
   .theme-light & { color: rgba($light-text, 0.5); }
   .theme-dark &  { color: rgba($dark-text, 0.5); }
 
-  .nav-submenu-link:hover & { color: var(--accent-tertiary); }
+  .theme-light .nav-submenu-link:hover & { color: $light-text; }
+  .theme-dark  .nav-submenu-link:hover & { color: $dark-text; }
 }
 
 .hamburger {
