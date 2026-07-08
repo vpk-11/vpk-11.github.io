@@ -1,0 +1,180 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ============================================
+// SKILLS — numbered category rows + tiered pills
+// ============================================
+
+.skill-stack {
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.skill-row-index {
+  display: block;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+.skill-row-name {
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: 1.35rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.skill-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+}
+
+.certifications-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// First-row spanning when total not divisible by 3
+.cert-span-half { grid-column: span 3; }   // remainder 2 — takes half row each
+.cert-span-full { grid-column: span 6; }   // remainder 1 — takes full row
+
+@include respond-to(tablet) {
+  .cert-span-half { grid-column: span 2; }
+  .cert-span-full { grid-column: span 4; }
+}
+
+@include respond-to(mobile) {
+  .cert-span-half,
+  .cert-span-full { grid-column: span 1; }
+}
+
+// Normal cards span 2; span classes override via :not()
+.certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 2; }
+
+@include respond-to(mobile) {
+  .certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 1; }
+}
+
+// Overrides on top of ui/Card's base .card — layout + the two values that
+// differ from Education/Experience's use of the same primitive.
+.certification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  // accent-bar-left's default transition is 0.4s; this card's was 0.3s.
+  &::before {
+    transition: transform 0.3s ease;
+  }
+}
+
+.cert-content {
+  flex: 1;
+}
+
+.cert-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+
+  .theme-dark & { color: $dark-text; }
+  .theme-light & { color: $light-text; }
+
+  @include respond-to(mobile) {
+    font-size: 1rem;
+  }
+}
+
+.cert-issuer {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  font-family: $font-mono;
+  color: var(--section-accent);
+}
+
+.cert-date {
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: $font-mono;
+
+  .theme-dark & { color: rgba($dark-text, 0.6); }
+  .theme-light & { color: rgba($light-text, 0.6); }
+}
+
+.cert-icon {
+  flex-shrink: 0;
+  transition: $transition-quick;
+  color: var(--section-accent);
+
+  .certification-item:hover & {
+    transform: translate(4px, -4px);
+  }
+}
+
+// ============================================
+// TABS
+// ============================================
+
+.sk-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+// Override on top of ui/Tab's base .tab — light-theme active text was
+// $light-bg here, not the #fff Tab defaults to (Projects' pr-tab, which
+// uses that default, is the more common case). Compound selector
+// (.tab.sk-tab.active) so this reliably beats Tab's own rule regardless
+// of CSS load order — see CLAUDE.md's page-override specificity note.
+.tab.sk-tab {
+  .theme-light &.active { color: $light-bg; }
+}
+
+.sk-panel {
+  animation: skPanelEnter 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes skPanelEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

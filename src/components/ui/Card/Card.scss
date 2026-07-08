@@ -1,0 +1,55 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.card {
+  @include card-base;
+  @include accent-bar-left;
+
+  .theme-dark & { background: $dark-surface; }
+  .theme-light & { background: $light-surface; }
+}
+
+// ============================================
+// CARD INTERNALS — title/subtitle/meta row, shared by Education + Experience.
+// Font sizes default to Experience's (the smaller of the two); Education
+// overrides them up via its own .education-card scope.
+// ============================================
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.meta-icon {
+  flex-shrink: 0;
+}
+
+.card-duration,
+.card-location {
+  font-size: 0.87rem;
+  font-weight: 500;
+  font-family: $font-mono;
+
+  .theme-dark & { color: rgba($dark-text, 0.72); }
+  .theme-light & { color: rgba($light-text, 0.68); }
+}

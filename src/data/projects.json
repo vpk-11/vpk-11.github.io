@@ -2,8 +2,11 @@
   {
     "id": 1,
     "title": "Narada",
-    "shortDescription": "7-step **agentic AI search** pipeline that extracts source-traced entity tables from the web through a single **LiteLLM** integration.",
-    "description": "Built a **7-step agentic AI search pipeline** in Python/FastAPI that takes any topic query, concurrently scrapes the web, runs **LLM extraction** to produce structured entity tables, and returns results with **per-cell source traceability**: every value links to its origin URL, enforced at the data model level.\n\nDesigned a **provider abstraction layer over a single LiteLLM integration**, supporting **major LLM providers** (like OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config with **per-step model configuration** so each stage of the pipeline can run on a different model for cost and quality tradeoffs.\n\nDeployed with a **zero-server-side-secret** architecture: users supply their own API keys via browser sessionStorage, keys travel as request headers and are discarded per-request, with CSP headers blocking XSS.",
+    "shortDescription": [
+      "Finds facts on the web and shows exactly where each one came from, not just a summary you have to take on faith.",
+      "A **7-step agentic pipeline** with per-cell source traceability enforced at the data model layer."
+    ],
+    "description": "Narada answers a research question the way it should be answered: with the sources attached. Ask about any topic and it hands back a table of facts, and every value in that table links straight back to the page it came from.\n\nIt works as a **7-step agentic pipeline** in Python/FastAPI: take a topic query, scrape the web concurrently, run **LLM extraction** to produce structured entity tables, and enforce **per-cell source traceability** at the data model level so an unsourced value can't exist.\n\nA **provider abstraction layer** sits over a single **LiteLLM** integration, supporting major LLM providers (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config, with **per-step model selection** so each pipeline stage can trade off cost and quality independently. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys through browser sessionStorage, keys travel as request headers and get discarded per request, with CSP headers blocking XSS.",
     "tech": ["Python", "FastAPI", "React", "Pydantic v2", "LLM", "LiteLLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
     "demoLink": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
@@ -13,8 +16,11 @@
   {
     "id": 2,
     "title": "RiskWise",
-    "shortDescription": "Maritime supply chain intelligence platform with **3-agent LLM orchestration** that scores route risk from **3 live sources** and tracks history.",
-    "description": "Built a **maritime risk intelligence platform** that takes a shipping route and returns a comprehensive real-time risk assessment. Input a route (\"Shanghai to Rotterdam\") and the system fetches live disruptions from **3 public sources in parallel** (NASA EONET, USGS Earthquakes, GDELT RSS geopolitical feed), runs three specialized **LLM agents** that each process the data differently, and returns a **0-100 risk score** with 4-factor breakdown, narrative explanation, alternative routes, and historical trend analysis.\n\n**Three agents, three concerns:** Athena gathers intelligence (which disruptions affect this specific route). Hermes quantifies risk across 4 independent factors (weather, labor, geopolitical, congestion). Apollo generates safer alternatives if risk exceeds threshold. Each agent takes structured JSON in, produces structured JSON out, making the pipeline modular and independently improvable.\n\nDesigned a **cascading fallback system** for reliability: live sources, then database, then LLM synthesis, ensuring zero-failure evaluations even when external APIs are unavailable. Built a **4-page React dashboard** (MapView with MapLibre GL JS visualization, RouteAnalyzer with live agent terminal, ActiveDisruptions threat feed with freshness metadata, RouteHistory with trend sparklines). Type-safe end-to-end with **tRPC** and **Drizzle ORM** on PostgreSQL, supporting 4 relational tables and persistent evaluation history.",
+    "shortDescription": [
+      "Scores the risk of a shipping route in real time and suggests a safer path when the numbers say you need one.",
+      "A **3-agent LLM pipeline** pulling from 3 live data sources with cascading fallback for zero-failure evaluation."
+    ],
+    "description": "RiskWise answers the question a logistics team actually asks before committing to a route: is this safe right now. Give it a route like Shanghai to Rotterdam and it returns a risk score, a plain-language explanation, and a safer alternative if the numbers say you need one.\n\nThree specialized **LLM agents** split the work. **Athena** gathers what's actually disrupting that specific route from **3 live public sources in parallel** (NASA EONET, USGS Earthquakes, GDELT). **Hermes** scores the risk across **4 independent factors**: weather, labor, geopolitical, congestion. **Apollo** generates a safer alternative if the score crosses threshold.\n\nA **cascading fallback system** (live sources, then database, then LLM synthesis) means the system never returns nothing, even when external APIs are down. The frontend is a **4-page React dashboard** with **MapLibre GL JS** route visualization, a live agent terminal, a threat feed, and trend history, running on **tRPC** and **Drizzle ORM** over PostgreSQL.",
     "tech": ["React", "TypeScript", "tRPC", "Express", "Drizzle ORM", "PostgreSQL", "MapLibre GL JS", "Recharts", "Tailwind CSS", "LLM", "Agentic AI", "Real-time Data"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/riskwise",
@@ -24,8 +30,11 @@
   {
     "id": 3,
     "title": "Donna",
-    "shortDescription": "**AI executive assistant** for service businesses: isolated **per-client agents**, central orchestrator, and **MCP-gated** mutations.",
-    "description": "Built an **AI executive assistant** for service businesses (gyms, studios, consultants) in Python/FastAPI: a **central orchestrator** handles admin-facing requests while an **isolated agent spawns per active client conversation**, eliminating cross-client context bleed and resolving scheduling conflicts without manual intervention.\n\nGated every database mutation (booking, rescheduling, cancellation) behind a **typed MCP tool layer**, so LLM output is validated before it ever reaches the database, backed by **Redis** for the agent registry and per-conversation state.\n\nLayered an **LLM judge** that routes each client message to autonomous handling, admin notification, or escalation, alongside a **two-stage LLM firewall** screening inbound messages for prompt injection and outbound messages for hallucinated bookings.",
+    "shortDescription": [
+      "Handles scheduling, reschedules, and client messages for service businesses, so a missed call never costs a client.",
+      "A **multi-agent orchestration system** with isolated per-client agents, MCP-gated mutations, and a **two-stage LLM firewall**."
+    ],
+    "description": "Donna handles scheduling, reschedules meetings when plans change, and messages clients directly to keep them in the loop. Book a call, need to move it, cancel last minute: Donna manages that conversation so the business owner doesn't have to.\n\nIt's built as a **multi-agent system** in Python/FastAPI: a **central orchestrator** manages the business owner's side, while an **isolated agent spawns per client conversation**, so no client's context ever bleeds into another's and scheduling conflicts get resolved automatically.\n\nEvery database mutation (booking, rescheduling, cancellation) runs through a **typed MCP tool layer** before it touches anything real, backed by **Redis** for the agent registry and per-conversation state. A **two-stage LLM firewall** screens inbound messages for prompt injection and outbound messages for hallucinated bookings, and an **LLM judge** decides whether a message gets handled autonomously, flagged to the admin, or escalated.",
     "tech": ["Python", "FastAPI", "Redis", "FastMCP", "LiteLLM", "SQLAlchemy", "Pydantic v2", "Multi-Agent Systems"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/donna",
@@ -35,8 +44,11 @@
   {
     "id": 4,
     "title": "Clinical Copilot",
-    "shortDescription": "**6-agent clinical chart pipeline** that outputs a SOAP note, red-flag list, and medication reconciliation, with **deterministic fallback** per agent.",
-    "description": "Built a **6-agent clinical chart analysis pipeline** in Python/FastAPI that converts raw patient notes into a structured SOAP note, red-flag list, medication reconciliation, and medical timeline, with **deterministic fallback extraction** in every agent so the system returns clinically usable output even on LLM failure.\n\nRan **medication and timeline agents in parallel** while sequencing risk and synthesis downstream, and integrated the **OpenFDA drug label API** to enrich LLM-extracted medication data with real interaction lookups beyond text summarization.\n\nWired **W&B Weave observability** into every agent call at the framework level and generated **two distinct report formats** from a single analysis run: a clinician-facing structured report and a patient-facing plain-language explanation.",
+    "shortDescription": [
+      "Turns raw patient notes into a structured chart review a clinician can actually use in seconds, not an afternoon.",
+      "A **6-agent pipeline** with deterministic fallback per agent and **OpenFDA-backed** medication checks."
+    ],
+    "description": "Clinical Copilot turns a pile of raw patient notes into something a clinician can actually use: a structured SOAP note, a red-flag list, and a medication check, generated in seconds instead of an afternoon.\n\nA **6-agent pipeline** in Python/FastAPI runs the analysis, with **deterministic fallback extraction** built into every agent, so the system still returns clinically usable output even if the LLM call fails. **Medication and timeline agents run in parallel**, with risk and synthesis sequenced downstream.\n\nMedication data gets enriched through the **OpenFDA drug label API** for real interaction lookups, not just text summarization. **W&B Weave observability** wraps every agent call, and a single analysis run produces **two reports** from the same data: a clinician-facing structured version and a plain-language patient-facing one.",
     "tech": ["Python", "FastAPI", "LiteLLM", "W&B Weave", "OpenFDA API", "React", "Tailwind CSS", "Multi-Agent Systems"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/clinical-copilot",
@@ -46,8 +58,11 @@
   {
     "id": 5,
     "title": "Deepfake Deconstruction",
-    "shortDescription": "**Modular deep-learning pipeline** to reverse-engineer face-swap **deepfakes**, identifying source images with **85%+** accuracy on 10,000+ images.",
-    "description": "Designed a modular deep-learning pipeline to **reverse-engineer face-swap deepfakes**, identifying the original source image with **85%+ accuracy** on a custom dataset of 10,000+ manipulated images. Implemented convolutional architectures with feature extraction layers, enabling **component-level model swapping** for improved scalability. Addressed a **real-world AI safety problem** by going beyond detection to trace the origins of manipulation.",
+    "shortDescription": [
+      "Traces a face-swap deepfake back to the original source image instead of just flagging that it's fake.",
+      "A modular deep learning pipeline hitting **85%+ source identification accuracy** across **10,000+* test images."
+    ],
+    "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
     "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning", "Machine Learning", "AI Safety"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon",
@@ -57,8 +72,11 @@
   {
     "id": 6,
     "title": "DKeeper",
-    "shortDescription": "**Decentralized note-taking app** on the Internet Computer: React calls a Motoko canister directly via **Candid bindings**, no REST API.",
-    "description": "Built a decentralized note-taking app on the **Internet Computer**, with a **React** frontend calling a **Motoko** backend canister directly through generated **Candid bindings**, removing the need for a REST API or any backend server in between.\n\nPersisted every note in **canister stable memory** instead of a database or browser storage, so data survives canister upgrades and the app has zero dependency on centralized server infrastructure.\n\nEnforced **type safety end-to-end** via the canister's typed Candid interface, with TypeScript bindings generated directly from the contract so frontend and backend types can never drift out of sync.",
+    "shortDescription": [
+      "A note-taking app built to keep working even if the usual thing behind every app, a server, goes away.",
+      "React calls a **Motoko** canister on the **Internet Computer** directly through typed **Candid** bindings, no REST API."
+    ],
+    "description": "DKeeper is a note-taking app built to keep working even if the usual thing behind every app, a server, goes away.\n\nA **React** frontend calls a **Motoko** backend canister directly on the **Internet Computer** through generated **Candid bindings**, with no REST API and no backend server in between. Every note is persisted in **canister stable memory**, so data survives canister upgrades without a database.\n\nType safety runs end to end: **TypeScript bindings** are generated straight from the canister's typed Candid interface, so frontend and backend types can't drift apart.",
     "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain", "Smart Contracts"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/dkeeper",
@@ -68,8 +86,11 @@
   {
     "id": 7,
     "title": "File Vault",
-    "shortDescription": "**Personal file hosting service**: a React SPA talks to an Express/TypeScript API backed by MongoDB, with ownership verification on every file route.",
-    "description": "Built a personal file hosting service: a **React** SPA talks to an **Express/TypeScript API** backed by **MongoDB**, handling per-user upload, download, and delete with ownership verification on every file route.\n\nHardened file access against **path traversal** with a filename allowlist and resolved-path boundary check, paired with **bcrypt** password hashing and a MongoDB-backed session store.\n\nBuilt drag-and-drop upload with UUID-prefixed storage and filename sanitization at write time.",
+    "shortDescription": [
+      "A personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.",
+      "An Express/TypeScript API on MongoDB with path traversal protection and bcrypt-backed sessions."
+    ],
+    "description": "File Vault is a personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.\n\nA **React** SPA talks to an **Express/TypeScript API** backed by **MongoDB**, checking ownership on every file route before anything happens to it.\n\nFile access is hardened against **path traversal** with a filename allowlist and a resolved-path boundary check, paired with **bcrypt** password hashing and a MongoDB-backed session store. Uploads use UUID-prefixed storage with filename sanitization at write time.",
     "tech": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "REST API"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/file-vault",
@@ -78,8 +99,11 @@
   {
     "id": 8,
     "title": "URL Shortener",
-    "shortDescription": "**URL shortener** with nanoid-based short codes, MongoDB-backed deduplication, and database-level collision safety.",
-    "description": "Built a URL shortener: a **Node.js/Express/TypeScript** API generates **nanoid**-based short codes backed by **MongoDB**, with deduplication so the same long URL submitted twice returns the existing short code instead of creating a duplicate.\n\nValidated every submitted URL against an **http/https protocol allowlist** to block javascript: and other XSS-prone schemes, and enforced short-code uniqueness at the **database layer** with a unique index and a single automatic retry on collision.",
+    "shortDescription": [
+      "Turns a long link into a short one, and does the one thing most clones get wrong: never creates a duplicate.",
+      "A Node/Express API using **nanoid** codes with database-level uniqueness and a single automatic retry on collision."
+    ],
+    "description": "URL Shortener does exactly what it says, and does the one thing most clones get wrong: submit the same long URL twice and you get the same short code back, not a duplicate.\n\nA **Node.js/Express/TypeScript** API generates **nanoid**-based short codes backed by **MongoDB**, with deduplication baked into the write path.\n\nEvery submitted URL is checked against an **http/https protocol allowlist** to block javascript: and other XSS-prone schemes, and short-code uniqueness is enforced at the **database layer** with a unique index and a single automatic retry on collision.",
     "tech": ["Node.js", "Express", "TypeScript", "MongoDB", "REST API"],
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/url-shortener",
@@ -88,8 +112,11 @@
   {
     "id": 9,
     "title": "Data Compression Analysis",
-    "shortDescription": "Comparative analysis of **Huffman Encoding**, **LZW**, and **LZ77** algorithms, evaluating time and space complexity tradeoffs across test cases.",
-    "description": "Implemented and compared **Huffman Encoding, LZW, and LZ77** compression algorithms in C/C++, analyzing **time and space complexity** across multiple test cases. Tabulated results to identify efficiency tradeoffs across algorithm types and input characteristics, highlighting conditions where each approach performs best.",
+    "shortDescription": [
+      "A side-by-side comparison of three classic compression algorithms, built to show where each one actually wins.",
+      "Huffman, LZW, and LZ77 implemented in **C/C++** and benchmarked for time and space tradeoffs."
+    ],
+    "description": "A side-by-side comparison of three classic compression algorithms, built to actually show where each one wins instead of just implementing them and calling it done.\n\n**Huffman Encoding, LZW, and LZ77** implemented in C/C++, run against multiple test cases to measure **time and space complexity** directly rather than relying on theoretical bounds.\n\nResults are tabulated to show where each algorithm's tradeoffs actually show up in practice, by input characteristics and algorithm type.",
     "tech": ["C", "C++", "Algorithms", "Data Structures", "Systems"],
     "demoLink": "",
     "githubLink": "",

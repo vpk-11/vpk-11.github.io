@@ -1,0 +1,111 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+// Override on top of ui/Panel's base .panel — only padding differs here.
+.resume-card {
+  padding: 2rem 2.15rem;
+}
+
+.resume-card-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+
+  .theme-light & { color: rgba($light-text, 0.5); }
+  .theme-dark &  { color: rgba($dark-text, 0.5); }
+}
+
+.resume-name {
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+
+  .role { color: var(--section-accent); }
+}
+
+.resume-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
+
+  .theme-light & { color: rgba($light-text, 0.85); }
+  .theme-dark &  { color: rgba($dark-text, 0.85); }
+}
+
+// Overrides on top of ui/Button's base .btn/.btn--primary — only what differs here.
+.resume-download {
+  padding: 0.75rem 1.4rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid;
+
+  span:last-child {
+    .theme-light & { color: rgba($light-text, 0.85); }
+    .theme-dark &  { color: rgba($dark-text, 0.85); }
+  }
+
+  .theme-light & { border-color: rgba($light-text, 0.1); color: rgba($light-text, 0.4); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); color: rgba($dark-text, 0.4); }
+}
+
+// Override on top of ui/Panel's base .panel: no padding (iframe fills it),
+// no background (Panel's default surface color would show through the
+// iframe's edges otherwise). Compound selector (.panel.resume-preview-panel,
+// not just .resume-preview-panel) so this reliably beats Panel's own
+// per-theme background rule regardless of CSS load order — see CLAUDE.md's
+// CSS Tiers note on page-override specificity.
+.panel.resume-preview-panel {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+
+  .theme-light & { background: none; }
+  .theme-dark &  { background: none; }
+}
+
+.resume-preview-tag {
+  position: absolute;
+  top: 0.85rem;
+  right: 1.1rem;
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+}
+
+.resume-preview-frame {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}

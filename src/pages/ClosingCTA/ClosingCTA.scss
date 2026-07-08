@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ── Headline: 3 explicit lines, poster scale ────────────────────────────────────
+
+.closing-cta-headline {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 9vw, 8.5rem);
+  line-height: 1.02;
+  margin: 0 0 1.75rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.closing-cta-line {
+  display: block;
+
+  // Same wordmark treatment as Hero's lastname: solid fill in light mode,
+  // outline-only stroke in dark mode — the one deliberate signature color
+  // moment on the page, mirrored from Hero so both read as one motif.
+  .accent-word {
+    .theme-light & { color: var(--accent-color); }
+    .theme-dark & {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--accent-color);
+    }
+  }
+}
+
+// ── Tagline ──────────────────────────────────────────────────────────────────
+
+.closing-cta-tagline {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 0 2.25rem;
+
+  .theme-light & { color: rgba($light-text, 0.7); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
+}
+
+// ── Channel cards ──────────────────────────────────────────────────────────────
+
+.closing-cta-channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  @include respond-to(mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cta-channel-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
+}
+
+.cta-channel-value {
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.cta-channel-caption {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
+}
+

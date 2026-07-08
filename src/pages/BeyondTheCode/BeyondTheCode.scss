@@ -1,0 +1,118 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.beyond-tagline {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 2rem;
+
+  .theme-light & { color: rgba($light-text, 0.7); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
+}
+
+.leadership-stack {
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+}
+
+.leadership-row {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 1.75rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid;
+  align-items: start;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.leadership-panel {
+  @include scrim-panel;
+  // Top padding matches .lmetric's (0.85rem) so the role heading lines up
+  // with the first metric card's number — grid aligns the box tops, but
+  // mismatched padding was pushing this panel's text down relative to it.
+  padding: 0.85rem clamp(1rem, 2vw, 1.75rem) clamp(1rem, 2vw, 1.75rem);
+}
+
+.leadership-role {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+}
+
+.leadership-org {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--section-accent);
+  margin-bottom: 0.5rem;
+}
+
+.leadership-dates {
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  margin-bottom: 0.9rem;
+
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.68); }
+}
+
+.leadership-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: clamp(1.05rem, 1.1vw + 0.35rem, 1.15rem);
+    line-height: 1.85;
+
+    .theme-light & { color: rgba($light-text, 0.9); }
+    .theme-dark &  { color: rgba($dark-text, 0.92); }
+  }
+}
+
+// Real "—" glyph as the bullet mark, same technique as Experience's
+// .ex-bullet — reads as a thicker, bolder line than a hand-drawn CSS bar.
+.leadership-bullet-mark {
+  flex-shrink: 0;
+  display: inline-block;
+  transform: scaleX(0.5);
+  transform-origin: left center;
+  margin-right: -0.4em;
+  color: var(--section-accent);
+  font-weight: 700;
+  line-height: 1.85;
+  user-select: none;
+}
+
+.leadership-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+// Overrides on top of ui/Panel's base .panel — only radius/padding differ here.
+.lmetric {
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+

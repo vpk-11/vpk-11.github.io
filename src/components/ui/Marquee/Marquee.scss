@@ -1,0 +1,22 @@
+.marquee {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: inline-flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+
+  &--reverse {
+    animation-direction: reverse;
+  }
+}
+
+.marquee-content {
+  display: inline-flex;
+}
+
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}

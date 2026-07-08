@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -26,6 +28,7 @@ dist-ssr
 package-lock.json
 .claude/
 .codex/
+mockups/
 
 # Graphify runtime files (machine-local, break on clone)
 graphify-out/manifest.json
@@ -34,3 +37,5 @@ graphify-out/.graphify_python
 graphify-out/.graphify_root
 # dated snapshot dirs created by graphify 0.8.x hook
 graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+# cache holds absolute machine-local paths (stat-index.json) + AST blobs — not portable, not needed by consumers of the graph
+graphify-out/cache/

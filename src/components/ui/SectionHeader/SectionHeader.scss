@@ -1,0 +1,59 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// mono eyebrow + sans headline with a short accent underline bar, shared
+// across every section so they read as one family (About, Education,
+// Experience, Skills, ...).
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  &::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+  }
+
+  b {
+    font-weight: 700;
+  }
+
+  .theme-light & { color: rgba($light-text, 0.55); b { color: $light-text; } &::before { background: rgba($light-text, 0.55); } }
+  .theme-dark &  { color: rgba($dark-text, 0.55); b { color: $dark-text; } &::before { background: rgba($dark-text, 0.55); } }
+}
+
+.section-headline {
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3.2vw + 0.5rem, 2.9rem);
+  line-height: 1.12;
+  max-width: 820px;
+  margin: 0 0 1.75rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 56px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent-color);
+  }
+
+  @include respond-to(mobile) {
+    margin-bottom: 1.25rem;
+  }
+}

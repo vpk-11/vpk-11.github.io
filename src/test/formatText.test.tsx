@@ -37,4 +37,22 @@ describe('formatText', () => {
     const { container } = render(<Wrap text={raw} />);
     expect(container.querySelector('strong')).toHaveTextContent('React');
   });
+
+  it('renders {accent}word{/accent} as a span.accent-word', () => {
+    const { container } = render(<Wrap text="I'm an {accent}engineer{/accent}, front and center." />);
+    const span = container.querySelector('.accent-word');
+    expect(span).toHaveTextContent('engineer');
+  });
+
+  it('renders {outline}word{/outline} as a span.outline-word', () => {
+    const { container } = render(<Wrap text="Got something {outline}worth{/outline} building?" />);
+    const span = container.querySelector('.outline-word');
+    expect(span).toHaveTextContent('worth');
+  });
+
+  it('renders {small}word{/small} as a span.text-small-inline', () => {
+    const { container } = render(<Wrap text="Let's talk{small}.{/small}" />);
+    const span = container.querySelector('.text-small-inline');
+    expect(span).toHaveTextContent('.');
+  });
 });
