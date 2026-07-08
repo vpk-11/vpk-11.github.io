@@ -11,10 +11,6 @@
   &--reverse {
     animation-direction: reverse;
   }
-
-  &--pause-on-hover:hover {
-    animation-play-state: paused;
-  }
 }
 
 .marquee-content {
