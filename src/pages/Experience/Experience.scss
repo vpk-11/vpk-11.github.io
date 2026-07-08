@@ -207,6 +207,10 @@
 
 .ex-bullet {
   flex-shrink: 0;
+  display: inline-block;
+  transform: scaleX(0.5);
+  transform-origin: left center;
+  margin-right: -0.4em;
   color: var(--section-accent);
   font-weight: 700;
   font-size: 0.9rem;
