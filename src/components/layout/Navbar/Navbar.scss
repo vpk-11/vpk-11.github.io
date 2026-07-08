@@ -279,8 +279,12 @@
   .nav-submenu-link:hover & {
     background: var(--accent-color);
     border-color: var(--accent-color);
-    color: $dark-bg;
   }
+
+  // ink-blue bg vs black icon read as near-identical in light mode, so hover
+  // text flips to white there; dark mode's brass bg keeps black (already legible).
+  .theme-light .nav-submenu-link:hover & { color: #fff; }
+  .theme-dark  .nav-submenu-link:hover & { color: $dark-bg; }
 }
 
 .nav-submenu-text {
@@ -305,7 +309,7 @@
   .theme-light & { color: rgba($light-text, 0.5); }
   .theme-dark &  { color: rgba($dark-text, 0.5); }
 
-  .nav-submenu-link:hover & { color: var(--accent-color); }
+  .nav-submenu-link:hover & { color: var(--accent-tertiary); }
 }
 
 .hamburger {
