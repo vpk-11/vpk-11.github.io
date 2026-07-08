@@ -34,8 +34,14 @@ const Navbar: React.FC = () => {
   const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        ticking = false;
+      });
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -45,7 +51,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const sections = SECTION_ORDER.filter(id => id !== 'closing-cta');
 
-    const handleScroll = () => {
+    const computeActiveSection = () => {
       const scrollPosition = window.scrollY + 150;
       let currentSection = 'hero';
 
@@ -63,7 +69,17 @@ const Navbar: React.FC = () => {
       setActiveSection(currentSection);
     };
 
-    handleScroll();
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        computeActiveSection();
+        ticking = false;
+      });
+    };
+
+    computeActiveSection();
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
 
