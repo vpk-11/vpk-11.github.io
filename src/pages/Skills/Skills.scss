@@ -41,7 +41,7 @@
 }
 
 .skill-row-name {
-  font-family: $font-serif;
+  font-family: $font-cursive;
   font-style: italic;
   font-weight: 700;
   font-size: 1.35rem;
@@ -100,10 +100,6 @@
   gap: 1rem;
   text-decoration: none;
   cursor: pointer;
-
-  &:hover {
-    transform: translateX(8px);
-  }
 
   // accent-bar-left's default transition is 0.4s; this card's was 0.3s.
   &::before {
