@@ -4,7 +4,6 @@ import profileData from '../../data/profile.json';
 import generalData from '../../data/general.json';
 import type { ProfileData, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import { sectionNumber } from '../../data/sectionOrder';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Button from '../../components/ui/Button/Button';
 import Panel from '../../components/ui/Panel/Panel';
@@ -25,7 +24,6 @@ const ClosingCTA: React.FC = () => {
           sectionId="closing-cta"
           label={cta.eyebrow ?? ''}
           show={!!cta.eyebrow}
-          decoration={<> &mdash; REF_{sectionNumber('closing-cta')}</>}
         />
 
         <h2 className="closing-cta-headline">
@@ -65,8 +63,6 @@ const ClosingCTA: React.FC = () => {
             ariaLabel="LinkedIn"
             icon={<Linkedin size={18} />}
           />
-          {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
-          {/* <a href="#closing-cta" className="cta-pill">Book a Call</a> */}
         </div>
 
       </div>
