@@ -31,7 +31,6 @@ const Footer: React.FC = () => {
           <div className="footer-brandmark">
             <span>&mdash; A VPK Product</span>
           </div>
-          <p className="footer-meta">Portfolio &middot; v5</p>
         </div>
 
         <div className="footer-col">
