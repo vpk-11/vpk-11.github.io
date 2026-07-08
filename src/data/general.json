@@ -39,7 +39,6 @@
       "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
     },
     "about": {
-      "eyebrow": "About_Me",
       "headline": "I'm an {accent}engineer{/accent}, front and center."
     },
     "skills": {
@@ -72,7 +71,6 @@
     "headline": "Got something\n{outline}worth{/outline} building?\n{accent}Let's talk{/accent}.",
     "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
     "channels": [
-      { "label": "SOCIAL_CHANNEL", "value": "LinkedIn · in/kaushikparthasarathy", "caption": "DMs open" },
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
       { "label": "STATUS", "value": "Open to Work", "caption": "Fall 2026 onward" }
     ]
