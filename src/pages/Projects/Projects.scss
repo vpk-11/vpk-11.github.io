@@ -28,23 +28,22 @@
 // PROJECT CARD
 // ============================================
 
-.project-card {
-  @include card-base;
+// .project-card extends ui/Card (card-base + accent-bar-left), overridden
+// below to a top horizontal bar instead of Card's default left vertical one —
+// the only piece that can't be shared, since the shape itself differs.
+.card.project-card {
   display: flex;
   flex-direction: column;
   height: 100%;
-  position: relative;
   cursor: default;
-  overflow: hidden;
 
   @media (min-width: 1025px) {
     cursor: pointer;
   }
 
-  // Top accent bar — slides in from left on hover
+  // Override Card's inherited left accent bar into a full-width top bar,
+  // slides in from left on hover instead of scaling up from the bottom.
   &::before {
-    content: '';
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -73,22 +72,13 @@
     pointer-events: none;
   }
 
-  // Base backgrounds
-  .theme-dark & {
-    background: $dark-surface;
-  }
-
-  .theme-light & {
-    background: $light-surface;
-  }
-
-  // ── Hover state — matches ui/Card's restraint: bg darken only, no lift/shadow ──
   &:hover {
-    &::before { transform: scaleX(1); }
+    // transform-origin repeated here, not just in the base &::before rule
+    // above, since ui/Card's own accent-bar-left hover rule also sets
+    // transform-origin (to top) — stating it explicitly here avoids relying
+    // on the compound selector's specificity edge to win that property.
+    &::before { transform: scaleX(1); transform-origin: left; }
     &::after  { transform: translateX(100%); }
-
-    .theme-dark & { background: $dark-surface-hover; }
-    .theme-light & { background: $light-surface-hover; }
   }
 }
 

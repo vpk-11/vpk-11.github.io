@@ -8,6 +8,7 @@ import Tag from '../../components/ui/Tag/Tag';
 import InlineAction from '../../components/ui/InlineAction/InlineAction';
 import Modal from '../../components/ui/Modal/Modal';
 import Tab from '../../components/ui/Tab/Tab';
+import Card from '../../components/ui/Card/Card';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
@@ -46,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
     : [truncate(project.description, SHORT_DESC_LIMIT)];
 
   return (
-    <div
+    <Card
       className="project-card"
       onClick={() => { if (window.innerWidth > 1024) onSelect(project); }}
     >
@@ -101,7 +102,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
           View <Maximize2 size={14} />
         </InlineAction>
       </div>
-    </div>
+    </Card>
   );
 };
 
