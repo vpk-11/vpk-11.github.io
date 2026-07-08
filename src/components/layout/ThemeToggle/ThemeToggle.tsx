@@ -15,15 +15,12 @@ const ThemeToggle: React.FC = () => {
       onClick={() => dispatch(toggleTheme())}
       aria-label="Toggle theme"
     >
-      <div className="toggle-track">
-        <div className={`toggle-thumb ${theme === 'dark' ? 'dark' : 'light'}`}>
-          {theme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
-        </div>
-        <div className="toggle-icons">
-          <Sun size={14} className="sun-icon" />
-          <Moon size={14} className="moon-icon" />
-        </div>
-      </div>
+      <span className={`toggle-slot ${theme === 'dark' ? 'active' : ''}`}>
+        <Moon size={13} />
+      </span>
+      <span className={`toggle-slot ${theme === 'light' ? 'active' : ''}`}>
+        <Sun size={13} />
+      </span>
     </button>
   );
 };
