@@ -1,7 +1,7 @@
 # Graph Report - Portfolio  (2026-07-08)
 
 ## Corpus Check
-- 54 files · ~17,205 words
+- 54 files · ~17,308 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `369af499`
+- Built from commit: `3b912b99`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -108,7 +108,7 @@ Cohesion: 0.24
 Nodes (4): MarqueeProps, StatusDot(), StatusDotProps, RIPPLE_DIRECTION
 
 ## Knowledge Gaps
-- **156 isolated node(s):** `MarqueeProps`, `StatusDotProps`, `CardProps`, `CardMetaItem`, `CardMetaProps` (+151 more)
+- **156 isolated node(s):** `ModalProps`, `MarqueeProps`, `StatusDotProps`, `CardProps`, `CardMetaItem` (+151 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -119,7 +119,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Accent + Type Definitions` to `App Entry + Composition`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `MarqueeProps`, `StatusDotProps`, `CardProps` to the rest of the system?**
+- **What connects `ModalProps`, `MarqueeProps`, `StatusDotProps` to the rest of the system?**
   _156 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._

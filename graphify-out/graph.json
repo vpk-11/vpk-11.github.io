@@ -4,14 +4,44 @@
   "graph": {},
   "nodes": [
     {
+      "label": "Modal.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "modal_modal",
+      "community": 13,
+      "norm_label": "modal.tsx"
+    },
+    {
+      "label": "ModalProps",
+      "file_type": "code",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "modal_modal_modalprops",
+      "community": 13,
+      "norm_label": "modalprops"
+    },
+    {
+      "label": "Modal()",
+      "file_type": "code",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "modal_modal_modal",
+      "community": 13,
+      "norm_label": "modal()"
+    },
+    {
       "label": "Marquee.tsx",
       "file_type": "code",
       "source_file": "src/components/ui/Marquee/Marquee.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "marquee_marquee",
       "community": 14,
-      "norm_label": "marquee.tsx"
+      "norm_label": "marquee.tsx",
+      "id": "marquee_marquee"
     },
     {
       "label": "MarqueeProps",
@@ -19,9 +49,9 @@
       "source_file": "src/components/ui/Marquee/Marquee.tsx",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "marquee_marquee_marqueeprops",
       "community": 14,
-      "norm_label": "marqueeprops"
+      "norm_label": "marqueeprops",
+      "id": "marquee_marquee_marqueeprops"
     },
     {
       "label": "Marquee()",
@@ -29,9 +59,9 @@
       "source_file": "src/components/ui/Marquee/Marquee.tsx",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "marquee_marquee_marquee",
       "community": 14,
-      "norm_label": "marquee()"
+      "norm_label": "marquee()",
+      "id": "marquee_marquee_marquee"
     },
     {
       "label": "StatusDot.tsx",
@@ -572,36 +602,6 @@
       "community": 2,
       "norm_label": "experience()",
       "id": "experience_experience_experience"
-    },
-    {
-      "label": "Modal.tsx",
-      "file_type": "code",
-      "source_file": "src/components/ui/Modal/Modal.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "modal.tsx",
-      "id": "modal_modal"
-    },
-    {
-      "label": "ModalProps",
-      "file_type": "code",
-      "source_file": "src/components/ui/Modal/Modal.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "modalprops",
-      "id": "modal_modal_modalprops"
-    },
-    {
-      "label": "Modal()",
-      "file_type": "code",
-      "source_file": "src/components/ui/Modal/Modal.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 13,
-      "norm_label": "modal()",
-      "id": "modal_modal_modal"
     },
     {
       "label": "InlineAction.tsx",
@@ -2712,6 +2712,48 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modal_modal",
+      "target": "modal_modal_modal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/Modal/Modal.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "modal_modal",
+      "target": "modal_modal_modalprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Projects/Projects.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "projects_projects",
+      "target": "modal_modal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/Projects/Projects.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "projects_projects",
+      "target": "modal_modal_modal"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3424,28 +3466,6 @@
       "confidence_score": 1.0,
       "source": "projects_projects",
       "target": "inlineaction_inlineaction_inlineaction"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "projects_projects",
-      "target": "modal_modal"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/Projects/Projects.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "projects_projects",
-      "target": "modal_modal_modal"
     },
     {
       "relation": "contains",
@@ -4960,26 +4980,6 @@
       "weight": 1.0,
       "source": "experience_experience_experience",
       "target": "hooks_useviewport_usewindowwidth"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/Modal/Modal.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "modal_modal",
-      "target": "modal_modal_modal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ui/Modal/Modal.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "modal_modal",
-      "target": "modal_modal_modalprops"
     },
     {
       "relation": "contains",
@@ -7186,5 +7186,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "369af49969bcce440078a05d217dffc1891bf12e"
+  "built_at_commit": "3b912b99ef68421159c3a5fc774f26c75bf749b2"
 }
