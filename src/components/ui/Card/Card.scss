@@ -5,14 +5,8 @@
   @include card-base;
   @include accent-bar-left;
 
-  .theme-dark & {
-    background: $dark-surface;
-    &:hover { background: $dark-surface-hover; }
-  }
-  .theme-light & {
-    background: $light-surface;
-    &:hover { background: $light-surface-hover; }
-  }
+  .theme-dark & { background: $dark-surface; }
+  .theme-light & { background: $light-surface; }
 }
 
 // ============================================

@@ -73,10 +73,10 @@
     .theme-dark &:hover  { border-color: $green-dark; }
   }
 
-  // level 2 (middle): accent dot + border, stays accent on hover
+  // level 2 (middle): secondary-accent dot + border, stays secondary on hover
   &.tag--level-2 {
-    .tag-dot { background: var(--section-accent); }
-    &:hover { border-color: var(--section-accent); }
+    .tag-dot { background: var(--accent-secondary); }
+    &:hover { border-color: var(--accent-secondary); }
   }
 
   // level 1 (basic, default when unassigned): muted dot, neutral border —
