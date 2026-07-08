@@ -85,6 +85,14 @@
   &:focus:not(:focus-visible) { outline: none; }
 }
 
+// ── Spacer column ──────────────────────────────────────────────────────────────
+// Pure visual balance for the 4-col grid now that Sitemap is gone. Only makes
+// sense at the desktop column count; collapses away once the grid reflows.
+
+.footer-spacer-col {
+  @include respond-to(tablet) { display: none; }
+}
+
 // ── Channels column ──────────────────────────────────────────────────────────
 
 .footer-channels {
