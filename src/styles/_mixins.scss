@@ -32,6 +32,7 @@
 @mixin scrim-panel {
   border-radius: 10px;
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   .theme-dark &  { background: rgba(10, 10, 10, 0.72); }
   .theme-light & { background: rgba(250, 250, 250, 0.85); }
