@@ -9,7 +9,9 @@
   letter-spacing: -0.01em;
   line-height: 1;
   margin-bottom: 0.4rem;
-  color: var(--accent-secondary);
+
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 }
 
 .stat--floating .stat-num {
@@ -27,5 +29,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-tertiary);
+
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.55); }
 }

@@ -24,12 +24,14 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  color: var(--accent-tertiary);
+
+  .theme-light & { color: rgba($light-text, 0.5); }
+  .theme-dark &  { color: rgba($dark-text, 0.5); }
 }
 
 .resume-name {
-  font-family: $font-cursive;
-  font-style: italic;
+  font-family: $font-family;
+  font-weight: 700;
   font-size: 1.7rem;
   margin-bottom: 1rem;
 

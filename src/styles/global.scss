@@ -62,7 +62,6 @@ body {
   --accent-color: #{$accent-primary-light};
   --section-accent: #{$accent-primary-light};
   --accent-secondary: #{$accent-secondary-light};
-  --accent-tertiary: #{$accent-tertiary-light};
 }
 
 .theme-dark {
@@ -71,7 +70,6 @@ body {
   --accent-color: #{$accent-primary-dark};
   --section-accent: #{$accent-primary-dark};
   --accent-secondary: #{$accent-secondary-dark};
-  --accent-tertiary: #{$accent-tertiary-dark};
 }
 
 // ============================================

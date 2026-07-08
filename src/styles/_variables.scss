@@ -15,18 +15,18 @@ $dark-surface-hover: #1b1b1b;
 $dark-text: #e8eaed;
 
 // ── ACCENT SYSTEM ────────────────────────────────────────────────────────────
-// Three tiers: primary (interactive), secondary (quiet emphasis), tertiary
-// (rare highlight, e.g. the live-status indicator). Dark stays warm, light
-// inverts to cool — primary and tertiary swap temperature across themes so
+// Two tiers: primary (interactive: buttons, links, nav) and secondary (rare
+// highlight requiring contrast, e.g. the live-status indicator). Everything
+// else uses plain theme grayscale — with only two accents left, a distinct
+// "graphite" tier added nothing since the rest of the site already plays in
+// shades of gray/black/white regardless of theme. Dark stays warm, light
+// inverts to cool — primary and secondary swap temperature across themes so
 // toggling reads as a real color shift, not just a brightness flip.
 $accent-primary-light:   #2A4A73; // ink blue
 $accent-primary-dark:    #C89B5C; // brass
 
-$accent-secondary-light: #47535E; // cool graphite
-$accent-secondary-dark:  #9AA0A8; // graphite
-
-$accent-tertiary-light:  #A6832A; // old gold
-$accent-tertiary-dark:   #5C8891; // steel-teal
+$accent-secondary-light: #A6832A; // old gold
+$accent-secondary-dark:  #5C8891; // steel-teal
 
 // Semantic (not part of the accent system) — skill-tier marker in Tag
 $green-light: #34A853;
