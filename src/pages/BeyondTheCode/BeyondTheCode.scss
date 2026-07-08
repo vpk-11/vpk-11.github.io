@@ -37,7 +37,10 @@
 
 .leadership-panel {
   @include scrim-panel;
-  padding: clamp(1rem, 2vw, 1.75rem);
+  // Top padding matches .lmetric's (0.85rem) so the role heading lines up
+  // with the first metric card's number — grid aligns the box tops, but
+  // mismatched padding was pushing this panel's text down relative to it.
+  padding: 0.85rem clamp(1rem, 2vw, 1.75rem) clamp(1rem, 2vw, 1.75rem);
 }
 
 .leadership-role {
