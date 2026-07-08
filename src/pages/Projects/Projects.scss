@@ -80,22 +80,13 @@
     background: $light-surface;
   }
 
-  // ── Hover state ──────────────────────────────
+  // ── Hover state — matches ui/Card's restraint: bg darken only, no lift/shadow ──
   &:hover {
-    transform: translateY(-8px);
-
     &::before { transform: scaleX(1); }
     &::after  { transform: translateX(100%); }
 
-    .theme-dark & {
-      background: $dark-surface-hover;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .theme-light & {
-      background: $light-surface-hover;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-    }
+    .theme-dark & { background: $dark-surface-hover; }
+    .theme-light & { background: $light-surface-hover; }
   }
 }
 
@@ -158,13 +149,8 @@
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
-  animation: livePulse 2.5s ease-in-out infinite;
+  animation: pulse 2.5s ease-in-out infinite;
   background: var(--accent-tertiary);
-}
-
-@keyframes livePulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.5; transform: scale(0.8); }
 }
 
 // ============================================
