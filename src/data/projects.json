@@ -3,10 +3,10 @@
     "id": 1,
     "title": "Narada",
     "shortDescription": [
-      "Finds facts on the web and shows exactly where each one came from, not just a summary you have to take on faith.",
-      "A **7-step agentic pipeline** with per-cell source traceability enforced at the data model layer."
+      "Finds facts on the web and shows exactly where each one came from, and goes back to fill gaps instead of stopping at a half-empty table.",
+      "A **self-correcting agentic pipeline** with per-cell source traceability enforced at the data model layer."
     ],
-    "description": "Narada answers a research question the way it should be answered: with the sources attached. Ask about any topic and it hands back a table of facts, and every value in that table links straight back to the page it came from.\n\nIt works as a **7-step agentic pipeline** in Python/FastAPI: take a topic query, scrape the web concurrently, run **LLM extraction** to produce structured entity tables, and enforce **per-cell source traceability** at the data model level so an unsourced value can't exist.\n\nA **provider abstraction layer** sits over a single **LiteLLM** integration, supporting major LLM providers (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config, with **per-step model selection** so each pipeline stage can trade off cost and quality independently. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys through browser sessionStorage, keys travel as request headers and get discarded per request, with CSP headers blocking XSS.",
+    "description": "Narada answers a research question the way it should be answered: with the sources attached. Ask about any topic and it hands back a table of facts, and every value in that table links straight back to the page it came from. If the first pass comes up short, it goes back and searches again before handing back the table.\n\nIt runs as a **self-correcting agentic pipeline** in Python/FastAPI: take a topic query, scrape the web concurrently, run **LLM extraction** to produce structured entity tables, and enforce **per-cell source traceability** at the data model level so an unsourced value can't exist. After that first pass, the pipeline computes a **completeness score** across the table, and if too many cells are still empty it generates targeted follow-up searches for the specific gaps and runs another round, capped at bounded iterations.\n\nA **provider abstraction layer** sits over a single **LiteLLM** integration, supporting **4 LLM providers** (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config, with **per-step model configuration** and automatic search-provider failover. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys through browser sessionStorage, keys travel as request headers and get discarded per request, with CSP headers blocking XSS. Hardened with schema.org structured-data extraction ahead of LLM calls, retry-with-backoff on transient provider errors, and a **43-test pytest suite**.",
     "tech": ["Python", "FastAPI", "React", "Pydantic v2", "LLM", "LiteLLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
     "demoLink": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
@@ -43,6 +43,20 @@
   },
   {
     "id": 4,
+    "title": "Heimdall",
+    "shortDescription": [
+      "Triages inbound wholesale orders, checks stock and cost automatically, and hands a human a draft to approve, never a message that sends itself.",
+      "A Google **ADK agent** with read-only **MCP** tools and a dual PII/prompt-injection firewall enforced at the callback layer."
+    ],
+    "description": "A wholesale inquiry looks simple but hides real judgment: is this buyer legit, can the order ship from current stock, what does a shortfall cost. Heimdall does that judgment automatically and hands a human a draft to approve.\n\nBuilt on Google's **Agent Development Kit (ADK)** running **Gemini 2.5 Flash Lite**, gated on both ends by callbacks: a **before-model callback** redacts PII and screens for prompt injection before the LLM ever sees the input, and an **after-model callback** re-scans the draft output for leaked PII and auto-send language. The agent calls **5 read-only MCP tools over stdio** for customer, inventory, and production-cost lookups, so it has no direct database access.\n\nThe reasoning chain computes `shortfall = max(0, (DTC velocity + wholesale ask) - stock)` and branches into production-cost estimation when supply falls short. Human-in-the-loop is a **structural guarantee**, not a prompt instruction: every MCP tool is read-only, so there's no code path to an auto-sent message. Backed by a **46-test suite** and deployed to Cloud Run.",
+    "tech": ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "MCP", "Vertex AI", "Agentic AI", "Multi-Agent Systems"],
+    "demoLink": "",
+    "githubLink": "https://github.com/vpk-11/heimdall",
+    "featured": true,
+    "categories": ["ML", "Agentic AI"]
+  },
+  {
+    "id": 5,
     "title": "Clinical Copilot",
     "shortDescription": [
       "Turns raw patient notes into a structured chart review a clinician can actually use in seconds, not an afternoon.",
@@ -56,7 +70,7 @@
     "categories": ["Fullstack", "ML", "Agentic AI"]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Deepfake Deconstruction",
     "shortDescription": [
       "Traces a face-swap deepfake back to the original source image instead of just flagging that it's fake.",
@@ -70,7 +84,7 @@
     "categories": ["ML"]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "DKeeper",
     "shortDescription": [
       "A note-taking app built to keep working even if the usual thing behind every app, a server, goes away.",
@@ -84,7 +98,7 @@
     "categories": ["Fullstack", "Blockchain"]
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "File Vault",
     "shortDescription": [
       "A personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.",
@@ -97,7 +111,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "URL Shortener",
     "shortDescription": [
       "Turns a long link into a short one, and does the one thing most clones get wrong: never creates a duplicate.",
@@ -110,7 +124,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "Data Compression Analysis",
     "shortDescription": [
       "A side-by-side comparison of three classic compression algorithms, built to show where each one actually wins.",
