@@ -132,4 +132,9 @@ jobs:
           NEW_VERSION=${{ steps.new.outputs.version }}
           git add README.md
           git diff --staged --quiet || git commit -m "chore: bump version to v${NEW_VERSION} [skip ci]"
-          git push
+          for i in 1 2 3 4 5; do
+            git push && break
+            echo "Push rejected, retrying with rebase ($i/5)..."
+            git pull --rebase origin main
+            sleep 2
+          done
