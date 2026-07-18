@@ -107,9 +107,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
           as="button"
           className="pr-view-btn"
           onClick={() => onSelect(project)}
-          ariaLabel={`View details for ${project.title}`}
+          ariaLabel={`Open details for ${project.title}`}
         >
-          View <Maximize2 size={14} />
+          Open <Maximize2 size={14} />
         </InlineAction>
       </div>
     </Card>
