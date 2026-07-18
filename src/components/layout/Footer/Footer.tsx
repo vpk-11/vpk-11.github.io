@@ -36,6 +36,7 @@ const Footer: React.FC = () => {
                 className="footer-nav-link"
               >
                 {project.title.toUpperCase()}
+                <span className="sr-only"> (opens in new tab)</span>
               </a>
             ))}
           </nav>
@@ -46,9 +47,11 @@ const Footer: React.FC = () => {
           <div className="footer-channels">
             <a href={profile.github} target="_blank" rel="noopener noreferrer" className="footer-nav-link">
               GITHUB
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="footer-nav-link">
               LINKEDIN
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             {profile.availability && (
               <span className="footer-status">

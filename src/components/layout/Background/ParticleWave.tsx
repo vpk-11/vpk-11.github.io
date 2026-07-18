@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../store/store';
 import { RIPPLE_TIME_STEP } from '../../../utils/rippleMotion';
+import { isWebGLAvailable } from '../../../utils/webgl';
 import './ParticleWave.scss';
 
 // Dark mode:  rgba(255,255,255,0.07) → white at 7%
@@ -50,6 +51,12 @@ const ParticleWave: React.FC = () => {
   // Init once
   useEffect(() => {
     if (!canvasRef.current) return;
+    // WebGLRenderer's constructor throws when WebGL is unavailable/disabled.
+    // Left uncaught, that throw happens inside this effect and unmounts the
+    // whole React tree (no error boundary above it) — the entire site goes
+    // blank, not just the background. Skip Three.js entirely instead; the
+    // canvas stays in the DOM (empty) and the CSS background still shows.
+    if (!isWebGLAvailable()) return;
 
     const canvas = canvasRef.current;
     const W = window.innerWidth;
@@ -108,13 +115,23 @@ const ParticleWave: React.FC = () => {
     };
     window.addEventListener('resize', onResize);
 
+    // Only CSS animation/transition is covered by the global
+    // prefers-reduced-motion rule — this loop is driven manually via RAF,
+    // so it needs its own check. Render one static frame instead of looping.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     let raf = 0;
     const animate = () => {
       raf = requestAnimationFrame(animate);
       material.uniforms.uTime.value += RIPPLE_TIME_STEP;
       renderer.render(scene, camera);
     };
-    animate();
+
+    if (reduceMotion) {
+      renderer.render(scene, camera);
+    } else {
+      animate();
+    }
 
     sceneRef.current = { renderer, scene, camera, material, raf };
 
@@ -141,6 +158,7 @@ const ParticleWave: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="particle-wave-canvas"
+      aria-hidden="true"
     />
   );
 };

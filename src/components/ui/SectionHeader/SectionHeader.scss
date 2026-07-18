@@ -24,8 +24,8 @@
     font-weight: 700;
   }
 
-  .theme-light & { color: rgba($light-text, 0.55); b { color: $light-text; } &::before { background: rgba($light-text, 0.55); } }
-  .theme-dark &  { color: rgba($dark-text, 0.55); b { color: $dark-text; } &::before { background: rgba($dark-text, 0.55); } }
+  .theme-light & { color: rgba($light-text, 0.65); b { color: $light-text; } &::before { background: rgba($light-text, 0.55); } }
+  .theme-dark &  { color: rgba($dark-text, 0.65); b { color: $dark-text; } &::before { background: rgba($dark-text, 0.55); } }
 }
 
 .section-headline {
