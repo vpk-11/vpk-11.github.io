@@ -20,7 +20,7 @@
       "esbuild"
     ]
   },
-  "homepage": "https://vpk-11.github.io/portfolio",
+  "homepage": "https://vpk-11.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
     "@types/three": "^0.184.1",
