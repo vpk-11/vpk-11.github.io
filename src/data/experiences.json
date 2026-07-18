@@ -9,7 +9,7 @@
     "achievements": [
       "Built **React** UI components, **.NET** APIs, and **Python** backend utilities for portfolio management applications handling **$400B+** in assets, owning each feature from API design and component architecture through backend logic and deployment.",
       "Designed the **OpenShift (Kubernetes)** deployment architecture for the team, achieving **100% adoption across the division**, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
-      "Owned on-call production operations across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable and available.",
+      "Ran on-call production operations across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable and available.",
       "Wrote unit tests for **.NET** microservices (NUnit, xUnit, split by service) and **React** components (Jest), plus **Playwright** end-to-end tests, to guard portfolio management workflows against regressions."
     ],
     "tech": ["React", ".NET", "Python", "OpenShift", "NUnit", "xUnit", "Jest", "Playwright", "Agile"]
@@ -37,7 +37,8 @@
     "description": "**Software Engineering Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
       "Built a full-stack **MERN** application for Capital Markets Technology (CCIBT), owning UI components, REST APIs, backend logic, and UX design end-to-end.",
-      "Integrated **ML modules** for financial **time-series** analysis and prediction, extending the application into a fully functional prototype supporting complete end-to-end workflows.",
+      "Integrated **ML modules** trained on the **Fannie Mae** mortgage loan performance dataset to predict **prepayment risk** on **mortgage-backed securities (MBS)**, using time-series analysis over loan-level performance data.",
+      "Connected model outputs directly into the UI and backend, not just isolated API calls, extending the application into a fully functional end-to-end prototype.",
       "Wrote **unit tests** covering backend API endpoints for the MERN application."
     ],
     "tech": ["MongoDB", "Express", "React", "Node.js", "Python", "Jest", "Machine Learning", "Time-Series Analysis", "REST APIs"]
