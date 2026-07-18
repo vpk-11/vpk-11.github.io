@@ -74,7 +74,7 @@
     "title": "Deepfake Deconstruction",
     "shortDescription": [
       "Traces a face-swap deepfake back to the original source image instead of just flagging that it's fake.",
-      "A modular deep learning pipeline hitting **85%+ source identification accuracy** across **10,000+* test images."
+      "A modular deep learning pipeline hitting **85%+ source identification accuracy** across **10,000+ test images**."
     ],
     "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
     "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning", "Machine Learning", "AI Safety"],
@@ -121,18 +121,5 @@
     "demoLink": "",
     "githubLink": "https://github.com/vpk-11/url-shortener",
     "categories": ["Fullstack"]
-  },
-  {
-    "id": 10,
-    "title": "Data Compression Analysis",
-    "shortDescription": [
-      "A side-by-side comparison of three classic compression algorithms, built to show where each one actually wins.",
-      "Huffman, LZW, and LZ77 implemented in **C/C++** and benchmarked for time and space tradeoffs."
-    ],
-    "description": "A side-by-side comparison of three classic compression algorithms, built to actually show where each one wins instead of just implementing them and calling it done.\n\n**Huffman Encoding, LZW, and LZ77** implemented in C/C++, run against multiple test cases to measure **time and space complexity** directly rather than relying on theoretical bounds.\n\nResults are tabulated to show where each algorithm's tradeoffs actually show up in practice, by input characteristics and algorithm type.",
-    "tech": ["C", "C++", "Algorithms", "Data Structures", "Systems"],
-    "demoLink": "",
-    "githubLink": "",
-    "categories": ["Systems"]
   }
 ]
