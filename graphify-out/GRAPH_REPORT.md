@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-07-18)
 
 ## Corpus Check
-- 57 files · ~17,932 words
+- 57 files · ~17,935 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 278 nodes · 445 edges · 17 communities (15 shown, 2 thin omitted)
+- 279 nodes · 446 edges · 17 communities (15 shown, 2 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a8a7a061`
+- Built from commit: `ef69e14c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -37,8 +37,8 @@
 5. `compilerOptions` - 19 edges
 6. `Portfolio Website` - 12 edges
 7. `GeneralData` - 11 edges
-8. `ProfileData` - 10 edges
-9. `scripts` - 9 edges
+8. `scripts` - 10 edges
+9. `ProfileData` - 10 edges
 10. `RootState` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -80,7 +80,7 @@ Nodes (19): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslin
 
 ### Community 6 - "Accent + Type Definitions"
 Cohesion: 0.07
-Nodes (28): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+20 more)
+Nodes (29): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+21 more)
 
 ### Community 7 - "Particle Background"
 Cohesion: 0.08
@@ -103,7 +103,7 @@ Cohesion: 0.16
 Nodes (15): InlineAction(), InlineActionProps, Modal(), ModalProps, ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps (+7 more)
 
 ## Knowledge Gaps
-- **158 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+153 more)
+- **159 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+154 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -117,7 +117,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `sectionNumber()` connect `Hero, About, Contact` to `Navbar + Redux Store`, `Community 4`, `Community 13`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _158 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _159 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
   _Cohesion score 0.10591133004926108 - nodes in this community are weakly interconnected._
 - **Should `Navbar + Redux Store` be split into smaller, more focused modules?**
