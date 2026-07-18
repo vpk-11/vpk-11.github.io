@@ -61,6 +61,8 @@
 
   .theme-light & { color: $light-text; }
   .theme-dark &  { color: $dark-text; }
+
+  @include respond-to(mobile) { justify-content: center; }
 }
 
 // ── Nav columns ────────────────────────────────────────────────────────────────
