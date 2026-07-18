@@ -8,7 +8,6 @@ interface CardProps {
   href?: string;
   target?: string;
   rel?: string;
-  onClick?: () => void;
 }
 
 // card-base + accent-bar-left, shared by Education, Experience,
@@ -17,14 +16,19 @@ interface CardProps {
 // override — see pages/Education/Education.scss and pages/Skills/Skills.scss
 // for the translateX distances, pages/Projects/Projects.scss for the
 // left-bar-to-top-bar override.
-const Card: React.FC<CardProps> = ({ children, className, as = 'div', href, target, rel, onClick }) => {
+const Card: React.FC<CardProps> = ({ children, className, as = 'div', href, target, rel }) => {
   const classes = className ? `card ${className}` : 'card';
 
   if (as === 'a') {
-    return <a href={href} target={target} rel={rel} className={classes} onClick={onClick}>{children}</a>;
+    return (
+      <a href={href} target={target} rel={rel} className={classes}>
+        {children}
+        {target === '_blank' && <span className="sr-only"> (opens in new tab)</span>}
+      </a>
+    );
   }
 
-  return <div className={classes} onClick={onClick}>{children}</div>;
+  return <div className={classes}>{children}</div>;
 };
 
 interface CardMetaItem {

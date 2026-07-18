@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu, X, ChevronDown,
@@ -32,6 +32,7 @@ const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
+  const navTriggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   useEffect(() => {
     let ticking = false;
@@ -128,10 +129,27 @@ const Navbar: React.FC = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  // Escape closes an open dropdown and returns focus to the button that
+  // opened it — standard expected behavior for a disclosure menu, previously
+  // only click-outside closed it, stranding keyboard users with no way to
+  // dismiss without a mouse.
+  useEffect(() => {
+    if (!openMenu) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      const label = openMenu;
+      setOpenMenu(null);
+      navTriggerRefs.current[label]?.focus();
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [openMenu]);
+
   return (
     <nav
       className={`navbar ${scrolled ? 'scrolled' : ''} ${activeSection === 'hero' ? 'hide-brand' : ''}`}
       data-section={activeSection}
+      aria-label="Main navigation"
     >
       <div className="nav-container">
         <div className="nav-brand">
@@ -148,6 +166,7 @@ const Navbar: React.FC = () => {
               onMouseLeave={() => item.subMenus && canHover && setOpenMenu(null)}
             >
               <button
+                ref={el => { navTriggerRefs.current[item.label] = el; }}
                 className={`nav-link ${item.id === activeSection || isGroupActive(item) ? 'active' : ''}`}
                 onMouseEnter={() => setHoveredLabel(item.label)}
                 onMouseLeave={() => setHoveredLabel(null)}
@@ -180,7 +199,7 @@ const Navbar: React.FC = () => {
                   >
                     {item.subMenus.map(group => (
                       <div className="nav-submenu-group" key={group.title}>
-                        <h3 className="nav-submenu-title">{group.title}</h3>
+                        <p className="nav-submenu-title">{group.title}</p>
                         <ul className="nav-submenu-list">
                           {group.items.map(sub => {
                             const Icon = ICONS[sub.icon];
@@ -217,7 +236,12 @@ const Navbar: React.FC = () => {
 
         <div className="nav-mobile">
           <ThemeToggle />
-          <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="hamburger"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

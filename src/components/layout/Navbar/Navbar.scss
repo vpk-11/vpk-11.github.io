@@ -98,7 +98,13 @@
   left: 50%;
   transform: translateX(-50%);
 
-  @include respond-to(mobile) {
+  // Was `mobile` (768px) — the absolutely-centered nav-desktop + nav-actions
+  // have no wrap fallback, so at 200% browser zoom (which shrinks the CSS
+  // px viewport) items past ~900px effective width ran off-screen with no
+  // scrollbar to reach them (html has overflow-x: hidden). Switching to the
+  // wider `tablet` breakpoint means the hamburger nav takes over well before
+  // that happens.
+  @include respond-to(tablet) {
     display: none;
   }
 }
@@ -108,7 +114,7 @@
   align-items: center;
   gap: 1.25rem;
 
-  @include respond-to(mobile) {
+  @include respond-to(tablet) {
     display: none;
   }
 }
@@ -144,7 +150,7 @@
   align-items: center;
   gap: 1rem;
 
-  @include respond-to(mobile) {
+  @include respond-to(tablet) {
     display: flex;
   }
 }
@@ -180,7 +186,9 @@
   // Dark mode - default accent, active is white/brighter
   .theme-dark & {
     color: var(--accent-color);
-    opacity: 0.6;
+    // 0.6 (was) blends the brass accent down to ~3.4:1 on the dark
+    // background, under the 4.5:1 text minimum — 0.75 clears it (~5:1).
+    opacity: 0.75;
 
     &.active {
       color: $dark-text;
@@ -239,8 +247,8 @@
   text-transform: uppercase;
   margin: 0 0 0.9rem;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .nav-submenu-list {
@@ -309,8 +317,8 @@
   font-size: 0.74rem;
   transition: color 0.2s ease;
 
-  .theme-light & { color: rgba($light-text, 0.5); }
-  .theme-dark &  { color: rgba($dark-text, 0.5); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 
   .theme-light .nav-submenu-link:hover & { color: $light-text; }
   .theme-dark  .nav-submenu-link:hover & { color: $dark-text; }

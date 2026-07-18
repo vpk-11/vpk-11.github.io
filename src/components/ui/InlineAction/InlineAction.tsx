@@ -35,6 +35,7 @@ const InlineAction: React.FC<InlineActionProps> = ({
     <a href={href} target={target} rel={rel} className={classes} onClick={onClick} aria-label={ariaLabel}>
       {icon}
       {children}
+      {target === '_blank' && <span className="sr-only"> (opens in new tab)</span>}
     </a>
   );
 };

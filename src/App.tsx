@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import { store } from './store/store';
 import type { RootState } from './store/store';
@@ -40,9 +41,10 @@ const AppContent: React.FC = () => {
   }, [theme]);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <ParticleWave />
-      <div className="app">
+      <main className="app" id="main-content">
       <Navbar />
       {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts — reorder both together */}
       <Hero />
@@ -54,9 +56,9 @@ const AppContent: React.FC = () => {
       <Resume />
       <BeyondTheCode />
       <ClosingCTA />
+    </main>
       <Footer />
-    </div>
-    </>
+    </MotionConfig>
   );
 };
 
