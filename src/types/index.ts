@@ -181,6 +181,18 @@ export interface BeyondTheCode {
   blocks: LeadershipBlock[];
 }
 
+export interface WebringNeighbor {
+  id: string;
+  name: string;
+  url: string;
+}
+
+export interface WebringData {
+  prev: WebringNeighbor;
+  member: WebringNeighbor;
+  next: WebringNeighbor;
+}
+
 export interface Headliner {
   id: number;
   title: string;

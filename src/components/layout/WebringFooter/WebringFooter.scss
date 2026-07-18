@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+// UMass Amherst maroon — homage color for the ring badge only, not part of
+// the site's two-tier accent system, so it's a local constant, not a global var.
+// Dark variant brightened off the official maroon: #881C1C on #0a0a0a is ~1.7:1
+// contrast (fails WCAG AA); #D65C56 clears ~5.1:1 while staying maroon-family.
+$umass-maroon-light: #881C1C;
+$umass-maroon-dark: #D65C56;
+
+.webring-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.08); }
+
+  @include respond-to(mobile) { justify-content: center; }
+}
+
+.webring-footer-neighbor {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: $transition-quick;
+
+  .theme-light & { color: rgba($light-text, 0.4); }
+  .theme-dark &  { color: rgba($dark-text, 0.4); }
+
+  &:hover { color: var(--accent-color); }
+  &:focus:not(:focus-visible) { outline: none; }
+}
+
+.webring-footer-badge {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: $transition-quick;
+
+  .theme-light & { color: $umass-maroon-light; }
+  .theme-dark &  { color: $umass-maroon-dark; }
+
+  &:hover { opacity: 0.75; }
+  &:focus:not(:focus-visible) { outline: none; }
+}

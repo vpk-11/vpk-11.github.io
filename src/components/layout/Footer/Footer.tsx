@@ -3,6 +3,7 @@ import profileData from '../../../data/profile.json';
 import projectsData from '../../../data/projects.json';
 import type { ProfileData, Project } from '../../../types';
 import StatusDot from '../../ui/StatusDot/StatusDot';
+import WebringFooter from '../WebringFooter/WebringFooter';
 import './Footer.scss';
 
 const Footer: React.FC = () => {
@@ -20,6 +21,7 @@ const Footer: React.FC = () => {
           <div className="footer-brandmark">
             <span>&mdash; A VPK Product</span>
           </div>
+          <WebringFooter />
         </div>
 
         <div className="footer-col footer-spacer-col" aria-hidden="true" />
