@@ -21,7 +21,13 @@ const Modal: React.FC<ModalProps> = ({
   labelledBy, className, backdropClassName,
 }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
-  const previouslyFocused = useRef<HTMLElement | null>(null);
+  // Captured here, at render time, not inside the effect below — the close
+  // button's `autoFocus` moves focus during commit, which happens before
+  // any effect runs. Capturing in an effect meant this ref ended up holding
+  // the modal's own (about-to-unmount) close button instead of whatever
+  // triggered the modal, so .focus() on close landed on a detached node
+  // and silently no-opped, leaving focus on <body>.
+  const previouslyFocused = useRef<HTMLElement | null>(document.activeElement as HTMLElement | null);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (closeOnEscape && e.key === 'Escape') {
@@ -53,8 +59,8 @@ const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     if (!isOpen) return;
 
-    previouslyFocused.current = document.activeElement as HTMLElement | null;
     const prevOverflow = document.body.style.overflow;
+    const restoreFocusTo = previouslyFocused.current;
 
     document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
@@ -62,7 +68,7 @@ const Modal: React.FC<ModalProps> = ({
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = prevOverflow;
-      previouslyFocused.current?.focus();
+      restoreFocusTo?.focus();
     };
   }, [isOpen, handleKeyDown]);
 

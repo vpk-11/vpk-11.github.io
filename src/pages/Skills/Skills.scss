@@ -36,8 +36,8 @@
   letter-spacing: 0.08em;
   margin-bottom: 0.4rem;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .skill-row-name {
@@ -136,8 +136,8 @@
   font-weight: 500;
   font-family: $font-mono;
 
-  .theme-dark & { color: rgba($dark-text, 0.6); }
-  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark & { color: rgba($dark-text, 0.65); }
+  .theme-light & { color: rgba($light-text, 0.65); }
 }
 
 .cert-icon {

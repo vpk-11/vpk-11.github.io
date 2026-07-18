@@ -21,6 +21,16 @@ const Skills: React.FC = () => {
     ? general.sectionHeadings.skills
     : general.sectionHeadings.certifications;
 
+  const SK_PANEL_ID = 'sk-tabpanel';
+
+  const handleTabsKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();
+    const next = tab === 'skills' ? 'certifications' : 'skills';
+    setTab(next);
+    requestAnimationFrame(() => document.getElementById(`sk-tab-${next}`)?.focus());
+  };
+
   return (
     <section id="skills" className="section skills-section">
       <div className="container">
@@ -31,23 +41,23 @@ const Skills: React.FC = () => {
         />
 
         {/* Toggle — same pill style as project tabs */}
-        <div className="sk-tabs" role="tablist">
-          <Tab active={tab === 'skills'} onClick={() => setTab('skills')} className="sk-tab" icon={<Wrench size={15} />}>
+        <div className="sk-tabs" role="tablist" aria-label="Skills view" onKeyDown={handleTabsKeyDown}>
+          <Tab id="sk-tab-skills" controls={SK_PANEL_ID} active={tab === 'skills'} onClick={() => setTab('skills')} className="sk-tab" icon={<Wrench size={15} />}>
             Skills
           </Tab>
-          <Tab active={tab === 'certifications'} onClick={() => setTab('certifications')} className="sk-tab" icon={<Award size={15} />}>
+          <Tab id="sk-tab-certifications" controls={SK_PANEL_ID} active={tab === 'certifications'} onClick={() => setTab('certifications')} className="sk-tab" icon={<Award size={15} />}>
             Certifications
           </Tab>
         </div>
 
         {/* Skills panel — numbered category rows, tiered pills */}
         {tab === 'skills' && (
-          <div className="skill-stack sk-panel">
+          <div id={SK_PANEL_ID} role="tabpanel" aria-labelledby="sk-tab-skills" className="skill-stack sk-panel">
             {skills.map((skillGroup, i) => (
               <div className="skill-row" key={skillGroup.category}>
                 <div>
                   <span className="skill-row-index">/ {String(i + 1).padStart(2, '0')}</span>
-                  <div className="skill-row-name">{skillGroup.category}</div>
+                  <h3 className="skill-row-name">{skillGroup.category}</h3>
                 </div>
                 <div className="skill-pills-wrap">
                   {skillGroup.items.map(item => (
@@ -71,7 +81,7 @@ const Skills: React.FC = () => {
             return 'cert-span-half';
           };
           return (
-            <div className="certifications-list sk-panel">
+            <div id={SK_PANEL_ID} role="tabpanel" aria-labelledby="sk-tab-certifications" className="certifications-list sk-panel">
               {certifications.map((cert, i) => (
                 <Card
                   key={cert.id}
@@ -82,7 +92,7 @@ const Skills: React.FC = () => {
                   className={`certification-item ${getSpanClass(i)}`}
                 >
                   <div className="cert-content">
-                    <h4 className="cert-name">{cert.name}</h4>
+                    <h3 className="cert-name">{cert.name}</h3>
                     <p className="cert-issuer">{cert.issuer}</p>
                     <p className="cert-date">{cert.issueDate}</p>
                   </div>

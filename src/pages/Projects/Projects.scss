@@ -35,11 +35,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  cursor: default;
-
-  @media (min-width: 1025px) {
-    cursor: pointer;
-  }
 
   // Override Card's inherited left accent bar into a full-width top bar,
   // slides in from left on hover instead of scaling up from the bottom.

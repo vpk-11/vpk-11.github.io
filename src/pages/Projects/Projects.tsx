@@ -34,6 +34,12 @@ function toAbsolute(url?: string) {
   return url.startsWith('http') ? url : `https://${url}`;
 }
 
+function slug(s: string): string {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
+const PROJECTS_PANEL_ID = 'pr-tabpanel';
+
 // ─── ProjectCard ──────────────────────────────────────────────────────────────
 
 interface ProjectCardProps {
@@ -47,10 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
     : [truncate(project.description, SHORT_DESC_LIMIT)];
 
   return (
-    <Card
-      className="project-card"
-      onClick={() => { if (window.innerWidth > 1024) onSelect(project); }}
-    >
+    <Card className="project-card">
       {project.demoLink && (
         <span className="live-badge">
           <span className="live-dot" aria-hidden="true" />
@@ -81,6 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
               className="project-link"
               onClick={e => e.stopPropagation()}
               icon={<Github size={13} />}
+              ariaLabel={`${project.title} on GitHub (opens in new tab)`}
             >
               GitHub
             </InlineAction>
@@ -93,12 +97,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
               className="project-link"
               onClick={e => e.stopPropagation()}
               icon={<ExternalLink size={13} />}
+              ariaLabel={`${project.title} live demo (opens in new tab)`}
             >
               Live Demo
             </InlineAction>
           )}
         </div>
-        <InlineAction as="button" className="pr-view-btn" onClick={() => onSelect(project)}>
+        <InlineAction
+          as="button"
+          className="pr-view-btn"
+          onClick={() => onSelect(project)}
+          ariaLabel={`View details for ${project.title}`}
+        >
           View <Maximize2 size={14} />
         </InlineAction>
       </div>
@@ -202,6 +212,20 @@ const Projects: React.FC = () => {
     ? 'pr-cols-4'
     : `pr-cols-${Math.min(filtered.length, 3)}`;
 
+  const handleTabsKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();
+    const idx = tabs.indexOf(activeTab);
+    let nextIdx = idx;
+    if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabs.length) % tabs.length;
+    if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabs.length;
+    if (e.key === 'Home') nextIdx = 0;
+    if (e.key === 'End') nextIdx = tabs.length - 1;
+    const next = tabs[nextIdx];
+    setActiveTab(next);
+    requestAnimationFrame(() => document.getElementById(`pr-tab-${slug(next)}`)?.focus());
+  };
+
   return (
     <section id="projects" className="section projects-section">
       <div className="container">
@@ -212,10 +236,12 @@ const Projects: React.FC = () => {
         />
 
         {tabs.length > 0 && (
-          <div className="pr-tabs" role="tablist">
+          <div className="pr-tabs" role="tablist" aria-label="Project categories" onKeyDown={handleTabsKeyDown}>
             {tabs.map(tab => (
               <Tab
                 key={tab}
+                id={`pr-tab-${slug(tab)}`}
+                controls={PROJECTS_PANEL_ID}
                 active={activeTab === tab}
                 onClick={() => setActiveTab(tab)}
                 className="pr-tab"
@@ -227,7 +253,12 @@ const Projects: React.FC = () => {
           </div>
         )}
 
-        <div className={`projects-grid ${colClass}`} role="tabpanel" aria-label={activeTab}>
+        <div
+          id={PROJECTS_PANEL_ID}
+          className={`projects-grid ${colClass}`}
+          role="tabpanel"
+          aria-labelledby={`pr-tab-${slug(activeTab)}`}
+        >
           {filtered.map(project => (
             <ProjectCard key={project.id} project={project} onSelect={setSelected} />
           ))}
