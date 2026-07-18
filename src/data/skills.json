@@ -3,10 +3,11 @@
     "category": "Programming Languages",
     "items": [
       { "name": "Python" },
-      { "name": "TypeScript" },
       { "name": "JavaScript" },
+      { "name": "Java" },
       { "name": "C#" },
       { "name": "C++" },
+      { "name": "TypeScript" },
       { "name": "C" },
       { "name": "SQL" }
     ]
@@ -30,7 +31,7 @@
       { "name": "FastAPI" },
       { "name": "Node.js" },
       { "name": "Express.js" },
-      { "name": "ASP.NET" },
+      { "name": ".NET" },
       { "name": "Flask" },
       { "name": "LiteLLM" },
       { "name": "Pydantic v2" },
