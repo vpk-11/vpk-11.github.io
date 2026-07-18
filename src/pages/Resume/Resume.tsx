@@ -66,6 +66,7 @@ const Resume: React.FC = () => {
               title={`${profile.name} resume preview`}
               className="resume-preview-frame"
               loading="lazy"
+              tabIndex={-1}
             />
           </Panel>
         </div>
