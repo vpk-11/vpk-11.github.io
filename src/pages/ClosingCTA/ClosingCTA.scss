@@ -63,8 +63,8 @@
   text-transform: uppercase;
   margin-bottom: 0.6rem;
 
-  .theme-light & { color: rgba($light-text, 0.6); }
-  .theme-dark &  { color: rgba($dark-text, 0.55); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .cta-channel-value {
@@ -83,7 +83,7 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  .theme-light & { color: rgba($light-text, 0.6); }
-  .theme-dark &  { color: rgba($dark-text, 0.55); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 

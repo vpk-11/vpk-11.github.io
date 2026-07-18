@@ -25,7 +25,9 @@ $dark-text: #e8eaed;
 $accent-primary-light:   #2A4A73; // ink blue
 $accent-primary-dark:    #C89B5C; // brass
 
-$accent-secondary-light: #A6832A; // old gold
+$accent-secondary-light: #7A5F1F; // old gold, darkened from #A6832A — the
+// original failed 4.5:1 text contrast on light backgrounds (hero/footer
+// status text); this still reads as gold but clears WCAG AA.
 $accent-secondary-dark:  #5C8891; // steel-teal
 
 // Semantic (not part of the accent system) — skill-tier marker in Tag

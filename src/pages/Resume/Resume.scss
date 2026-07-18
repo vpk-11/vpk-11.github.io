@@ -25,8 +25,8 @@
   text-transform: uppercase;
   margin-bottom: 1rem;
 
-  .theme-light & { color: rgba($light-text, 0.5); }
-  .theme-dark &  { color: rgba($dark-text, 0.5); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .resume-name {
@@ -70,8 +70,8 @@
     .theme-dark &  { color: rgba($dark-text, 0.85); }
   }
 
-  .theme-light & { border-color: rgba($light-text, 0.1); color: rgba($light-text, 0.4); }
-  .theme-dark &  { border-color: rgba($dark-text, 0.1); color: rgba($dark-text, 0.4); }
+  .theme-light & { border-color: rgba($light-text, 0.1); color: rgba($light-text, 0.65); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); color: rgba($dark-text, 0.65); }
 }
 
 // Override on top of ui/Panel's base .panel: no padding (iframe fills it),
@@ -99,8 +99,8 @@
   text-transform: uppercase;
   z-index: 2;
 
-  .theme-light & { color: rgba($light-text, 0.4); }
-  .theme-dark &  { color: rgba($dark-text, 0.4); }
+  .theme-light & { color: rgba($light-text, 0.65); }
+  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .resume-preview-frame {

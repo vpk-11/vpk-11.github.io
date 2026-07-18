@@ -36,6 +36,7 @@ export const formatText = (text: string): ReactNode => {
       return (
         <a key={index} href={linkMatch[2]} target="_blank" rel="noopener noreferrer">
           {linkMatch[1]}
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
       );
     }

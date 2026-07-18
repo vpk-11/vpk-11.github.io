@@ -14,6 +14,7 @@ const ThemeToggle: React.FC = () => {
       className="theme-toggle"
       onClick={() => dispatch(toggleTheme())}
       aria-label="Toggle theme"
+      aria-pressed={theme === 'dark'}
     >
       <span className={`toggle-slot ${theme === 'dark' ? 'active' : ''}`}>
         <Moon size={13} />
