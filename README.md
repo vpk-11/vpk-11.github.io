@@ -6,15 +6,15 @@ Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, T
 
 Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 
-> A v5 visual/content rework is in progress on the `v5` branch. `main` reflects the current live site until v5 merges.
-
 ## Features
 
-- **Three.js Particle Wave** - Animated WebGL background that adapts to the active theme
-- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux; royal blue light / copper dark accent
+- **Three.js Particle Wave** - Animated WebGL background that adapts to the active theme, guarded so unsupported devices still render the full site (see [No-JS / No-WebGL Fallback](#no-js--no-webgl-fallback))
+- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux; two-tier accent system swaps temperature across themes (see [Accent System](#accent-system))
 - **Fully Responsive** - Mobile swipe gestures, hamburger menu, adaptive layouts at 768px and 1024px
 - **Content via JSON** - All portfolio data lives in `src/data/`; no rebuild needed for content changes
 - **TypeScript strict mode** - No `any`, interfaces throughout
+- **WCAG 2.1 AA** - Full accessibility pass across nav, modal, tabs, and contrast
+- **No-JS / no-WebGL fallback** - Site renders fully without WebGL support, and serves real static content to non-JS clients (bots, curl, disabled JS) via a `<noscript>` block
 
 ## Stack
 
@@ -26,6 +26,8 @@ Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 | Styles | SCSS modules (`@use` not `@import`) |
 | Background | Three.js (WebGL particle wave) |
 | Icons | Lucide React |
+| Testing | Vitest + Testing Library |
+| Package Manager | pnpm |
 | Deploy | GitHub Pages via GitHub Actions |
 
 ## Prerequisites
@@ -43,6 +45,8 @@ pnpm dev
 ```bash
 pnpm build      # production build → dist/
 pnpm preview    # preview production build locally
+pnpm test       # run test suite once
+pnpm lint       # eslint
 ```
 
 ## Project Structure
@@ -50,30 +54,22 @@ pnpm preview    # preview production build locally
 ```
 src/
   components/
-    About/          About.tsx, About.scss
-    Background/     ParticleWave.tsx, ParticleWave.scss
-    Contact/        Contact.tsx, Contact.scss  (footer merged in)
-    Education/      Education.tsx, Education.scss
-    Experience/     Experience.tsx, Experience.scss
-    Hero/           Hero.tsx, Hero.scss
-    Navbar/         Navbar.tsx, Navbar.scss
-    Projects/       Projects.tsx, Projects.scss
-    Skills/         Skills.tsx, Skills.scss
-    ThemeToggle/    ThemeToggle.tsx, ThemeToggle.scss
+    ui/             -- reusable primitives, instantiated N times with different props
+      Tag/, Card/, Panel/, Button/, InlineAction/, Tab/, SectionHeader/, Modal/, Marquee/, Stat/, StatusDot/
+    layout/         -- persistent singletons, never composed differently per page
+      Navbar/, Footer/, ThemeToggle/, Background/ (ParticleWave.tsx), VpkMark/
+  pages/            -- one per section, composes ui/ primitives
+    Hero/, About/, Education/, Experience/, Projects/, Skills/, Resume/, BeyondTheCode/, ClosingCTA/
   data/
-    profile.json
-    experiences.json
-    education.json
-    projects.json
-    skills.json
-    certifications.json
+    profile.json, general.json, experiences.json, education.json,
+    projects.json, skills.json, certifications.json, extracurriculars.json
+    sectionOrder.ts (canonical section order)
   store/
-    store.ts
-    themeSlice.ts
+    store.ts, themeSlice.ts
+  hooks/
+    useViewport.ts
   styles/
-    _variables.scss
-    _mixins.scss
-    global.scss
+    _variables.scss, _mixins.scss, global.scss
   types/
     index.ts
   utils/
@@ -82,27 +78,31 @@ src/
   main.tsx
 ```
 
+`ui/` primitives are reusable across pages with page-scoped BEM modifier classes; `layout/` singletons are hardwired to specific data/behavior (Redux theme subscription, nav tree, Three.js canvas) and never instantiated twice; `pages/` is one folder per section. Full component-by-component detail lives in `.claude/CLAUDE.md`.
+
 ## Updating Content
 
 All portfolio data lives in `src/data/`. Edit JSON, push to main, GitHub Actions deploys automatically.
 
 | File | Controls |
 |---|---|
-| `profile.json` | Name, bio, location, availability, principles, social links, target roles |
+| `profile.json` | Name, bio, location, availability, principles, social links, target roles, about stats/sidebar |
+| `general.json` | Nav tree, section headings, resume meta, closing CTA copy |
 | `experiences.json` | Work experience entries |
 | `education.json` | Degrees and coursework |
-| `projects.json` | Projects with categories, links, tech tags — `shortDescription` must be ≤ 150 chars (raw string incl. `**` markers) |
+| `projects.json` | Projects with categories, links, tech tags — `shortDescription` must be ≤ 150 chars per line (raw string incl. `**` markers) |
 | `skills.json` | Skill categories and items |
 | `certifications.json` | Certifications with issuer and date |
+| `extracurriculars.json` | Beyond the Code entries |
 
-## Accent Colors
+## Accent System
 
-Single global accent pair across all sections:
+Two-tier global accent system, dark stays warm and light inverts to cool so toggling reads as a real color shift:
 
-| Theme | Color |
-|---|---|
-| Light | `#2563EB` (royal blue) |
-| Dark | `#E09B5F` (copper) |
+| Tier | Light | Dark | Used for |
+|---|---|---|---|
+| Primary | `#2A4A73` (ink blue) | `#C89B5C` (brass) | Interactive elements: buttons, links, nav active state |
+| Secondary | `#7A5F1F` (old gold) | `#5C8891` (steel-teal) | Rare highlight requiring contrast: live-status indicators only |
 
 ## Responsive Breakpoints
 
@@ -110,9 +110,14 @@ Single global accent pair across all sections:
 - Tablet: `< 1024px`
 - Desktop: `> 1024px`
 
+## No-JS / No-WebGL Fallback
+
+- **No-WebGL devices**: `isWebGLAvailable()` guards `ParticleWave`'s Three.js init. If unsupported, Three.js is skipped entirely, the rest of the site still renders and hydrates normally.
+- **No-JS clients** (bots, curl, disabled JS): `index.html`'s `<noscript>` block contains real static markup (name, title, bio, location, contact links), present in the raw HTTP response regardless of JS execution.
+
 ## Deployment
 
-Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-pages` branch automatically. The `version-bump.yml` workflow handles semantic versioning: major on PR merge, minor on direct code push, patch on data-only push.
+Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-pages` branch automatically. The `version-bump.yml` workflow handles semantic versioning: major on PR merge (via GitHub's `pull_request: closed` event, not a local merge), minor on direct code push, patch on data-only push.
 
 ## Typography
 
