@@ -180,8 +180,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 
+function byLiveThenId(a: Project, b: Project): number {
+  const liveDiff = Number(!!b.liveDeploymentUrl) - Number(!!a.liveDeploymentUrl);
+  return liveDiff !== 0 ? liveDiff : a.id - b.id;
+}
+
 const Projects: React.FC = () => {
-  const projects = projectsData as Project[];
+  const projects = useMemo(() => [...(projectsData as Project[])].sort(byLiveThenId), []);
   const general = generalData as GeneralData;
   const headline = general.sectionHeadings.projects.headline;
   const [selected, setSelected] = useState<Project | null>(null);
