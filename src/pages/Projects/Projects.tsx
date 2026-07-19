@@ -54,7 +54,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
 
   return (
     <Card className="project-card">
-      {project.demoLink && (
+      {project.liveDeploymentUrl && (
         <span className="live-badge">
           <span className="live-dot" aria-hidden="true" />
           Live
@@ -89,9 +89,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
               GitHub
             </InlineAction>
           )}
-          {project.demoLink && (
+          {project.liveDeploymentUrl && (
             <InlineAction
-              href={toAbsolute(project.demoLink)}
+              href={toAbsolute(project.liveDeploymentUrl)}
               target="_blank"
               rel="noopener noreferrer"
               className="project-link"
@@ -145,9 +145,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
           GitHub
         </InlineAction>
       )}
-      {project.demoLink && (
+      {project.liveDeploymentUrl && (
         <InlineAction
-          href={toAbsolute(project.demoLink)}
+          href={toAbsolute(project.liveDeploymentUrl)}
           target="_blank"
           rel="noopener noreferrer"
           className="project-link"
@@ -156,7 +156,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
           Live Demo
         </InlineAction>
       )}
-      {project.demoLink && (
+      {project.liveDeploymentUrl && (
         <span className="live-badge pr-modal-live">
           <span className="live-dot" aria-hidden="true" />
           Live

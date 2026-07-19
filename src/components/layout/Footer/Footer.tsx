@@ -9,7 +9,9 @@ const Footer: React.FC = () => {
   const profile = profileData as ProfileData;
   const projects = projectsData as Project[];
   const year = new Date().getFullYear();
-  const liveProjects = projects.filter(p => !!p.demoLink);
+  const liveProjects = projects
+    .filter(p => !!p.liveDeploymentUrl)
+    .sort((a, b) => a.id - b.id);
 
   return (
     <footer className="site-footer">
@@ -30,7 +32,7 @@ const Footer: React.FC = () => {
             {liveProjects.map(project => (
               <a
                 key={project.id}
-                href={project.demoLink}
+                href={project.liveDeploymentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-nav-link"
