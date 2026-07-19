@@ -112,7 +112,7 @@ export interface Project {
   tech: string[];
   categories?: string[];   // used for tab filtering
   featured?: boolean;   // shows ★ Featured badge
-  demoLink?: string;    // live deployed URL — shows Live badge if present
+  liveDeploymentUrl?: string;    // live deployed URL — shows Live badge if present
   githubLink: string;  // explicit github URL — replaces generic link
 }
 

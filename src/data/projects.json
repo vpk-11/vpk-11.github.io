@@ -8,7 +8,7 @@
     ],
     "description": "Narada answers a research question the way it should be answered: with the sources attached. Ask about any topic and it hands back a table of facts, and every value in that table links straight back to the page it came from. If the first pass comes up short, it goes back and searches again before handing back the table.\n\nIt runs as a **self-correcting agentic pipeline** in Python/FastAPI: take a topic query, scrape the web concurrently, run **LLM extraction** to produce structured entity tables, and enforce **per-cell source traceability** at the data model level so an unsourced value can't exist. After that first pass, the pipeline computes a **completeness score** across the table, and if too many cells are still empty it generates targeted follow-up searches for the specific gaps and runs another round, capped at bounded iterations.\n\nA **provider abstraction layer** sits over a single **LiteLLM** integration, supporting **4 LLM providers** (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config, with **per-step model configuration** and automatic search-provider failover. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys through browser sessionStorage, keys travel as request headers and get discarded per request, with CSP headers blocking XSS. Hardened with schema.org structured-data extraction ahead of LLM calls, retry-with-backoff on transient provider errors, and a **43-test pytest suite**.",
     "tech": ["Python", "FastAPI", "React", "Pydantic v2", "LLM", "LiteLLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
-    "demoLink": "https://narada-heij.onrender.com",
+    "liveDeploymentUrl": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada",
     "featured": true,
     "categories": ["Fullstack", "ML", "Agentic AI"]
@@ -22,7 +22,7 @@
     ],
     "description": "RiskWise answers the question a logistics team actually asks before committing to a route: is this safe right now. Give it a route like Shanghai to Rotterdam and it returns a risk score, a plain-language explanation, and a safer alternative if the numbers say you need one.\n\nThree specialized **LLM agents** split the work. **Athena** gathers what's actually disrupting that specific route from **3 live public sources in parallel** (NASA EONET, USGS Earthquakes, GDELT). **Hermes** scores the risk across **4 independent factors**: weather, labor, geopolitical, congestion. **Apollo** generates a safer alternative if the score crosses threshold.\n\nA **cascading fallback system** (live sources, then database, then LLM synthesis) means the system never returns nothing, even when external APIs are down. The frontend is a **4-page React dashboard** with **MapLibre GL JS** route visualization, a live agent terminal, a threat feed, and trend history, running on **tRPC** and **Drizzle ORM** over PostgreSQL.",
     "tech": ["React", "TypeScript", "tRPC", "Express", "Drizzle ORM", "PostgreSQL", "MapLibre GL JS", "Recharts", "Tailwind CSS", "LLM", "Agentic AI", "Real-time Data"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/riskwise",
     "featured": true,
     "categories": ["Fullstack", "ML", "Agentic AI"]
@@ -36,7 +36,7 @@
     ],
     "description": "Donna handles scheduling, reschedules meetings when plans change, and messages clients directly to keep them in the loop. Book a call, need to move it, cancel last minute: Donna manages that conversation so the business owner doesn't have to.\n\nIt's built as a **multi-agent system** in Python/FastAPI: a **central orchestrator** manages the business owner's side, while an **isolated agent spawns per client conversation**, so no client's context ever bleeds into another's and scheduling conflicts get resolved automatically.\n\nEvery database mutation (booking, rescheduling, cancellation) runs through a **typed MCP tool layer** before it touches anything real, backed by **Redis** for the agent registry and per-conversation state. A **two-stage LLM firewall** screens inbound messages for prompt injection and outbound messages for hallucinated bookings, and an **LLM judge** decides whether a message gets handled autonomously, flagged to the admin, or escalated.",
     "tech": ["Python", "FastAPI", "Redis", "FastMCP", "LiteLLM", "SQLAlchemy", "Pydantic v2", "Multi-Agent Systems"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/donna",
     "featured": true,
     "categories": ["ML", "Agentic AI"]
@@ -50,7 +50,7 @@
     ],
     "description": "A wholesale inquiry looks simple but hides real judgment: is this buyer legit, can the order ship from current stock, what does a shortfall cost. Heimdall does that judgment automatically and hands a human a draft to approve.\n\nBuilt on Google's **Agent Development Kit (ADK)** running **Gemini 2.5 Flash Lite**, gated on both ends by callbacks: a **before-model callback** redacts PII and screens for prompt injection before the LLM ever sees the input, and an **after-model callback** re-scans the draft output for leaked PII and auto-send language. The agent calls **5 read-only MCP tools over stdio** for customer, inventory, and production-cost lookups, so it has no direct database access.\n\nThe reasoning chain computes `shortfall = max(0, (DTC velocity + wholesale ask) - stock)` and branches into production-cost estimation when supply falls short. Human-in-the-loop is a **structural guarantee**, not a prompt instruction: every MCP tool is read-only, so there's no code path to an auto-sent message. Backed by a **46-test suite** and deployed to Cloud Run.",
     "tech": ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "MCP", "Vertex AI", "Agentic AI", "Multi-Agent Systems"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/heimdall",
     "featured": true,
     "categories": ["ML", "Agentic AI"]
@@ -64,7 +64,7 @@
     ],
     "description": "Clinical Copilot turns a pile of raw patient notes into something a clinician can actually use: a structured SOAP note, a red-flag list, and a medication check, generated in seconds instead of an afternoon.\n\nA **6-agent pipeline** in Python/FastAPI runs the analysis, with **deterministic fallback extraction** built into every agent, so the system still returns clinically usable output even if the LLM call fails. **Medication and timeline agents run in parallel**, with risk and synthesis sequenced downstream.\n\nMedication data gets enriched through the **OpenFDA drug label API** for real interaction lookups, not just text summarization. **W&B Weave observability** wraps every agent call, and a single analysis run produces **two reports** from the same data: a clinician-facing structured version and a plain-language patient-facing one.",
     "tech": ["Python", "FastAPI", "LiteLLM", "W&B Weave", "OpenFDA API", "React", "Tailwind CSS", "Multi-Agent Systems"],
-    "demoLink": "",
+    "liveDeploymentUrl": "https://clinical-copilot-v5qq.onrender.com",
     "githubLink": "https://github.com/vpk-11/clinical-copilot",
     "featured": true,
     "categories": ["Fullstack", "ML", "Agentic AI"]
@@ -78,7 +78,7 @@
     ],
     "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
     "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning", "Machine Learning", "AI Safety"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon",
     "featured": true,
     "categories": ["ML"]
@@ -92,7 +92,7 @@
     ],
     "description": "DKeeper is a note-taking app built to keep working even if the usual thing behind every app, a server, goes away.\n\nA **React** frontend calls a **Motoko** backend canister directly on the **Internet Computer** through generated **Candid bindings**, with no REST API and no backend server in between. Every note is persisted in **canister stable memory**, so data survives canister upgrades without a database.\n\nType safety runs end to end: **TypeScript bindings** are generated straight from the canister's typed Candid interface, so frontend and backend types can't drift apart.",
     "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain", "Smart Contracts"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/dkeeper",
     "categories": ["Fullstack", "Blockchain"]
   },
@@ -105,7 +105,7 @@
     ],
     "description": "File Vault is a personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.\n\nA **React** SPA talks to an **Express/TypeScript API** backed by **MongoDB**, checking ownership on every file route before anything happens to it.\n\nFile access is hardened against **path traversal** with a filename allowlist and a resolved-path boundary check, paired with **bcrypt** password hashing and a MongoDB-backed session store. Uploads use UUID-prefixed storage with filename sanitization at write time.",
     "tech": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "REST API"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/file-vault",
     "categories": ["Fullstack"]
   },
@@ -118,7 +118,7 @@
     ],
     "description": "URL Shortener does exactly what it says, and does the one thing most clones get wrong: submit the same long URL twice and you get the same short code back, not a duplicate.\n\nA **Node.js/Express/TypeScript** API generates **nanoid**-based short codes backed by **MongoDB**, with deduplication baked into the write path.\n\nEvery submitted URL is checked against an **http/https protocol allowlist** to block javascript: and other XSS-prone schemes, and short-code uniqueness is enforced at the **database layer** with a unique index and a single automatic retry on collision.",
     "tech": ["Node.js", "Express", "TypeScript", "MongoDB", "REST API"],
-    "demoLink": "",
+    "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/url-shortener",
     "categories": ["Fullstack"]
   }
