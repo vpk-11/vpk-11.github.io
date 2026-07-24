@@ -15,6 +15,20 @@
   },
   {
     "id": 2,
+    "title": "Atlas",
+    "shortDescription": [
+      "A distributed rider-driver dispatch system that keeps matching rides correctly and fast, even while a piece of the infrastructure dies mid-request.",
+      "**3 gRPC microservices** in Java/Spring Boot, chaos-tested on Kubernetes with zero failed requests during a live pod kill."
+    ],
+    "description": "A rider requesting a ride needs a fast, fair match to a driver, even when the system behind the match is actively failing. Atlas exists to prove that match still happens, correctly and quickly, while a piece of the infrastructure dies mid-request.\n\nThree independently deployable services communicate over **gRPC**/Protocol Buffers: dispatch-service (orchestrator, only public REST surface), pricing-service (pure calculator, no DB, no state), and trip-service (system of record, its own **MySQL** schema), each containerized with **Docker**. Dispatch runs a **quad-tree spatial index built from scratch** over driver GPS coordinates, replacing a linear scan with logarithmic-time nearest-neighbor retrieval, then scores candidates with a **lookahead matching algorithm** comparing projected time-to-pickup for idle and currently-busy drivers, so a driver about to finish a nearby ride can beat a farther idle one. Real road distance comes from the **OSRM** routing API with a hard timeout and automatic fallback to haversine-distance math on failure.\n\nDeployed to **Kubernetes** with replicated pods, fault tolerance was proven by killing a live pod mid-load-test: client-side retries rerouted in-flight traffic to the surviving replica with **zero failed requests**. Load testing under moderate load measured **p50 ~163ms / p90 ~194ms** end-to-end latency, then surfaced a throughput ceiling below the original target; CPU/memory scaling experiments ruled out infrastructure, isolating the bottleneck to a synchronous OSRM call on the request hot path (fix identified, not yet built). Missing gRPC deadlines that let requests hang unbounded on downstream outage were fixed with explicit 2-second deadlines, cutting worst-case failure time from 120+ seconds to under 1 second.",
+    "tech": ["Java", "Spring Boot", "gRPC", "Protocol Buffers", "MySQL", "Docker", "Kubernetes", "Grafana", "OSRM API"],
+    "liveDeploymentUrl": "",
+    "githubLink": "https://github.com/vpk-11/atlas",
+    "featured": true,
+    "categories": ["Backend", "Distributed Systems"]
+  },
+  {
+    "id": 3,
     "title": "RiskWise",
     "shortDescription": [
       "Scores the risk of a shipping route in real time and suggests a safer path when the numbers say you need one.",
@@ -28,7 +42,7 @@
     "categories": ["Fullstack", "ML", "Agentic AI"]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Donna",
     "shortDescription": [
       "Handles scheduling, reschedules, and client messages for service businesses, so a missed call never costs a client.",
@@ -42,7 +56,7 @@
     "categories": ["ML", "Agentic AI"]
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Heimdall",
     "shortDescription": [
       "Triages inbound wholesale orders, checks stock and cost automatically, and hands a human a draft to approve, never a message that sends itself.",
@@ -56,7 +70,7 @@
     "categories": ["ML", "Agentic AI"]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Clinical Copilot",
     "shortDescription": [
       "Turns raw patient notes into a structured chart review a clinician can actually use in seconds, not an afternoon.",
@@ -70,7 +84,7 @@
     "categories": ["Fullstack", "ML", "Agentic AI"]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Deepfake Deconstruction",
     "shortDescription": [
       "Traces a face-swap deepfake back to the original source image instead of just flagging that it's fake.",
@@ -80,11 +94,11 @@
     "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning", "Machine Learning", "AI Safety"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon",
-    "featured": true,
+    "featured": false,
     "categories": ["ML"]
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "DKeeper",
     "shortDescription": [
       "A note-taking app built to keep working even if the usual thing behind every app, a server, goes away.",
@@ -97,7 +111,7 @@
     "categories": ["Fullstack", "Blockchain"]
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "File Vault",
     "shortDescription": [
       "A personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.",
@@ -110,7 +124,7 @@
     "categories": ["Fullstack"]
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "URL Shortener",
     "shortDescription": [
       "Turns a long link into a short one, and does the one thing most clones get wrong: never creates a duplicate.",
