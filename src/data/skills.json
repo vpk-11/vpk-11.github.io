@@ -31,6 +31,8 @@
       { "name": "FastAPI" },
       { "name": "Node.js" },
       { "name": "Express.js" },
+      { "name": "Spring Boot" },
+      { "name": "gRPC" },
       { "name": ".NET" },
       { "name": "Flask" },
       { "name": "LiteLLM" },
@@ -43,7 +45,6 @@
       { "name": "tRPC" },
       { "name": "Drizzle ORM" },
       { "name": "REST APIs" },
-      { "name": "gRPC" },
       { "name": "Authentication" },
       { "name": "Database Design" },
       { "name": "Model Context Protocol (MCP)" }
@@ -76,6 +77,7 @@
     "items": [
       { "name": "Docker" },
       { "name": "Kubernetes" },
+      { "name": "Grafana" },
       { "name": "OpenShift" },
       { "name": "GitHub Actions" },
       { "name": "Jenkins" },
