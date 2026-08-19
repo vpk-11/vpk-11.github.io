@@ -129,6 +129,8 @@
   font-weight: 600;
   font-family: $font-mono;
   color: var(--section-accent);
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .cert-date {
@@ -144,6 +146,8 @@
   flex-shrink: 0;
   transition: $transition-quick;
   color: var(--section-accent);
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 
   .certification-item:hover & {
     transform: translate(4px, -4px);

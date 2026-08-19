@@ -28,10 +28,13 @@
     background: $dark-surface;
     border-color: rgba($dark-text, 0.25);
     color: rgba($dark-text, 0.75);
-    &:hover  { border-color: var(--section-accent); color: var(--section-accent); }
+    // raw dark accent fails AA-4.5 as text (both hover text and active-state
+    // text on the accent-filled background) — use the text-safe tint /
+    // white respectively.
+    &:hover  { border-color: var(--section-accent); color: $accent-primary-dark-text; }
     &.active {
-      background: var(--section-accent); border-color: var(--section-accent); color: $dark-bg;
-      .tab-count { background: rgba($dark-bg, 0.2); color: $dark-bg; }
+      background: var(--section-accent); border-color: var(--section-accent); color: #fff;
+      .tab-count { background: rgba(255, 255, 255, 0.25); color: #fff; }
     }
   }
 

@@ -59,6 +59,8 @@
   font-weight: 700;
   color: var(--section-accent);
   margin-bottom: 0.5rem;
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .leadership-dates {
@@ -102,6 +104,8 @@
   font-weight: 700;
   line-height: 1.85;
   user-select: none;
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .leadership-metrics {

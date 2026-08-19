@@ -17,22 +17,21 @@ $dark-text: #e8eaed;
 // ── ACCENT SYSTEM ────────────────────────────────────────────────────────────
 // Two tiers: primary (interactive: buttons, links, nav) and secondary (rare
 // highlight requiring contrast, e.g. the live-status indicator). Everything
-// else uses plain theme grayscale — with only two accents left, a distinct
-// "graphite" tier added nothing since the rest of the site already plays in
-// shades of gray/black/white regardless of theme. Dark stays warm, light
-// inverts to cool — primary and secondary swap temperature across themes so
-// toggling reads as a real color shift, not just a brightness flip.
-$accent-primary-light:   #2A4A73; // ink blue
-$accent-primary-dark:    #C89B5C; // brass
+// else uses plain theme grayscale.
+$accent-primary-light:   #1B502D; // forest green, ~9:1 on white
+$accent-primary-dark:    #2F7446; // forest green, deliberately darker/moodier
+// than AA-safe (~3.5:1 on $dark-bg) — background/border/button color only,
+// NOT safe as small text/link glyph color. Use $accent-primary-dark-text
+// below wherever the dark-theme accent colors text.
 
-$accent-secondary-light: #7A5F1F; // old gold, darkened from #A6832A — the
-// original failed 4.5:1 text contrast on light backgrounds (hero/footer
-// status text); this still reads as gold but clears WCAG AA.
-$accent-secondary-dark:  #5C8891; // steel-teal
+// Lightened tint of $accent-primary-dark for text/glyph use in dark mode
+// only (nav links, buttons, tags, favicon, skip-link). Same hue/saturation
+// family, lifted to clear WCAG AA 4.5:1 on $dark-bg (~5:1 actual). Never
+// use the raw $accent-primary-dark as text color in dark mode.
+$accent-primary-dark-text: #3D8F5C;
 
-// Semantic (not part of the accent system) — skill-tier marker in Tag
-$green-light: #34A853;
-$green-dark:  #6BCF7F;
+$accent-secondary-light: #7A5F1F; // old gold, ~5.8:1 on white
+$accent-secondary-dark:  #A8823A; // antique bronze, ~5.6:1 on near-black
 
 // ============================================
 // BREAKPOINTS

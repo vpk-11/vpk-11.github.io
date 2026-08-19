@@ -67,7 +67,10 @@
   font-weight: 700;
   color: var(--accent-color);
   transition: opacity 0.5s ease;
-  
+
+  // raw dark accent fails AA-4.5 as text
+  .theme-dark & { color: $accent-primary-dark-text; }
+
   .brand-short {
     display: none;
   }
@@ -130,8 +133,10 @@
   background: var(--accent-color);
   transition: $transition-quick;
 
+  // $dark-bg text on the raw accent background fails AA (2.5:1); white
+  // clears ~8.5:1 against the same background.
   .theme-light & { color: #fff; }
-  .theme-dark &  { color: $dark-bg; }
+  .theme-dark &  { color: #fff; }
 
   &:hover {
     opacity: 0.86;
@@ -173,35 +178,22 @@
     outline: none;
   }
 
-  // Light mode - default black, active is accent
-  .theme-light & {
-    color: $light-text;
+  // No accent text color here — avoids the whole AA-contrast problem with
+  // the dark accent. Active state reads via the underline below instead.
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 
-    &.active {
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-  }
+  &.active {
+    font-weight: 600;
 
-  // Dark mode - default accent, active is white/brighter
-  .theme-dark & {
-    color: var(--accent-color);
-    // 0.6 (was) blends the brass accent down to ~3.4:1 on the dark
-    // background, under the 4.5:1 text minimum — 0.75 clears it (~5:1).
-    opacity: 0.75;
-
-    &.active {
-      color: $dark-text;
-      opacity: 1;
-      font-weight: 600;
-    }
-  }
-
-  &:hover {
-    color: var(--accent-color);
-
-    .theme-dark & {
-      opacity: 1;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0.9rem;
+      right: 0.9rem;
+      bottom: 0.1rem;
+      height: 2px;
+      background: var(--accent-color);
     }
   }
 }
@@ -292,10 +284,11 @@
     border-color: var(--accent-color);
   }
 
-  // ink-blue bg vs black icon read as near-identical in light mode, so hover
-  // text flips to white there; dark mode's brass bg keeps black (already legible).
+  // Icon color flips to white on hover in both themes: the light accent bg
+  // needs it for contrast, and the dark accent bg is now dark forest green
+  // ($dark-bg text on it would fail AA, same as elsewhere with this accent).
   .theme-light .nav-submenu-link:hover & { color: #fff; }
-  .theme-dark  .nav-submenu-link:hover & { color: $dark-bg; }
+  .theme-dark  .nav-submenu-link:hover & { color: #fff; }
 }
 
 .nav-submenu-text {
@@ -337,6 +330,8 @@
 
   &:hover {
     color: var(--accent-color);
+
+    .theme-dark & { color: $accent-primary-dark-text; }
   }
 }
 
@@ -380,26 +375,12 @@
   transition: $transition-quick;
   position: relative;
   
-  // Light mode - default black, active is accent
-  .theme-light & {
-    color: $light-text;
-    
-    &.active {
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-  }
-  
-  // Dark mode - default accent, active is white
-  .theme-dark & {
-    color: var(--accent-color);
-    opacity: 0.6;
-    
-    &.active {
-      color: $dark-text;
-      opacity: 1;
-      font-weight: 600;
-    }
+  // No accent text color — active state reads via the left bar below only.
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
+
+  &.active {
+    font-weight: 600;
   }
 
   &::before {
