@@ -32,6 +32,16 @@ function toAbsolute(url?: string) {
   return url.startsWith('http') ? url : `https://${url}`;
 }
 
+// Small chip badges instead of one dense comma-separated line — shared by
+// the card and the modal, same markup/styling in both.
+const TechList: React.FC<{ tech: string[] }> = ({ tech }) => (
+  <div className="tech-list">
+    {tech.map(t => (
+      <span className="tech-chip" key={t}>{t}</span>
+    ))}
+  </div>
+);
+
 // ─── ProjectCard ──────────────────────────────────────────────────────────────
 
 interface ProjectCardProps {
@@ -56,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
         <p className="card-description-line">{formatText(shortDesc)}</p>
       </div>
 
-      <p className="tech-list">{project.tech.join(' · ')}</p>
+      <TechList tech={project.tech} />
 
       <div className="pr-card-footer">
         <div className="project-links">
@@ -148,7 +158,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
       )}
     </div>
 
-    <p className="tech-list">{project.tech.join(' · ')}</p>
+    <TechList tech={project.tech} />
 
     <div className="pr-modal-body">
       {project.description.split('\n\n').map((para, i) => (
