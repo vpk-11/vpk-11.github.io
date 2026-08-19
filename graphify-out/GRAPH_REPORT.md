@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-08-19)
 
 ## Corpus Check
-- 54 files · ~18,249 words
+- 52 files · ~17,506 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 273 nodes · 442 edges · 18 communities (17 shown, 1 thin omitted)
+- 266 nodes · 429 edges · 18 communities (17 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c4c9f44f`
+- Built from commit: `107159b4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -40,7 +40,7 @@
 7. `GeneralData` - 11 edges
 8. `ProfileData` - 10 edges
 9. `scripts` - 9 edges
-10. `RootState` - 6 edges
+10. `Card()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
@@ -60,12 +60,12 @@
 ## Communities (18 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
-Cohesion: 0.11
-Nodes (18): ParticleWave(), SECTION_ORDER, THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, App() (+10 more)
+Cohesion: 0.12
+Nodes (15): SECTION_ORDER, THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, AppContent(), AppDispatch (+7 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.17
-Nodes (20): About(), BeyondTheCode(), Button(), ButtonProps, ClosingCTA(), SectionId, sectionNumber(), Education() (+12 more)
+Cohesion: 0.16
+Nodes (21): About(), BeyondTheCode(), Button(), ButtonProps, ClosingCTA(), SectionId, sectionNumber(), Education() (+13 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.18
@@ -80,8 +80,8 @@ Cohesion: 0.07
 Nodes (27): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, gh-pages, globals (+19 more)
 
 ### Community 6 - "Accent + Type Definitions"
-Cohesion: 0.18
-Nodes (11): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+3 more)
+Cohesion: 0.22
+Nodes (9): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+1 more)
 
 ### Community 7 - "Particle Background"
 Cohesion: 0.08
@@ -112,7 +112,7 @@ Cohesion: 0.22
 Nodes (9): scripts, build, deploy, dev, lint, predeploy, preview, test (+1 more)
 
 ## Knowledge Gaps
-- **155 isolated node(s):** `ProjectModalProps`, `SectionHeading`, `HeroHeading`, `SectionHeadings`, `AboutStat` (+150 more)
+- **153 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+148 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -122,11 +122,11 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `formatText()` connect `Hero, About, Contact` to `Community 3`, `Community 13`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `sectionNumber()` connect `Hero, About, Contact` to `Community 3`, `Community 13`, `Community 14`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **What connects `ProjectModalProps`, `SectionHeading`, `HeroHeading` to the rest of the system?**
-  _155 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **What connects `name`, `private`, `version` to the rest of the system?**
+  _153 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.1103448275862069 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11688311688311688 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `App Entry + Composition` be split into smaller, more focused modules?**
