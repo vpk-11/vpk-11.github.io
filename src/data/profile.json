@@ -1,7 +1,7 @@
 {
   "name": "Kaushik Parthasarathy",
-  "title": "Software Engineer | Agentic AI Developer | Full-Stack & Distributed Systems",
-  "bio": "I build software systems end to end, from architecture and algorithms to the thing that's actually running in production. My work spans agentic LLM systems, full stack platforms, distributed backend services, and ML pipelines, with a focus on modular architecture that stays maintainable as it scales and fails gracefully when a piece of it doesn't.\n\nI break complex problems down into their simplest parts, then prioritize from there. Before I build anything, I think about who it's actually for. I see it through their lens, figure out what they actually need, and find the best way to build it. The goal is to execute their vision, not mine. That means iterating off real feedback instead of running with my own take, and learning from what goes wrong instead of repeating it.\n\nSomeone technical should be able to pick up what I build and use it. Someone with no background in the domain should be able to poke around and figure it out just from how it's laid out. If it only makes sense to the person who built it, it's not finished. I also treat load as part of the design, not an afterthought. Atlas, a distributed dispatch system, taught me more from the bugs that only showed up under chaos testing at real scale than from anything that worked on the first try.\n\nPreviously, I worked on fintech systems at Wells Fargo supporting portfolio applications managing $400B+ in assets, and on computer vision data pipelines developed in collaboration with ISRO and NIT Trichy. I'm currently pursuing an MS in Computer Science at UMass Amherst, focused on AI/ML systems and scalable software engineering.",
+  "title": "Software Engineer | Full-Stack, Agentic AI & Distributed Systems",
+  "bio": "I like building things I'm curious about, and most of what I build starts with a gap, something I haven't worked with yet, or something happening in the industry I want to understand by actually building it instead of reading about it. That's how a handful of agentic AI projects came together (Donna, Narada, RiskWise, Clinical Copilot, Heimdall), and it's also why I built Atlas, a distributed dispatch system, to get real depth outside of AI work.\n\nI'm comfortable across the stack, Python and FastAPI, Java and Spring Boot, .NET, React, TypeScript, and I adapt to whatever a problem or role actually calls for rather than sticking to one language. That's shown up across both my projects and my professional experience.\n\nI owned production features end to end at Wells Fargo, on portfolio management systems handling $400B+ in assets, backend logic through React UI through OpenShift deployment, and the OpenShift architecture I designed became the standard across the division. At ISRO, I designed a modular computer vision pipeline across four ML models in PyTorch and TensorFlow, cutting real-time inference latency by over 90% through parallel processing.\n\nCurrently pursuing an MS in Computer Science at UMass Amherst. Open to SWE and AI/ML roles, internship or full-time.",
   "linkedin": "https://linkedin.com/in/kaushikparthasarathy",
   "github": "https://github.com/vpk-11",
   "resume": "https://drive.google.com/file/d/1dGTLIkyNHbv8OMUUEAz_KWescgxd_f3J/view?usp=drive_link",
@@ -18,21 +18,13 @@
     "Systems Engineering"
   ],
   "workAuthorization": "F-1 · CPT authorized · Will require STEM OPT / H-1B sponsorship",
-  "tagline": "Software Engineer focused on building systems that scale and stay maintainable. Full-stack platforms, agentic AI systems, ML Pipelines, distributed backend services, and architectures designed for the real world.",
+  "tagline": "Software engineer who builds what he's curious about: full-stack platforms, agentic AI systems, and distributed backend infrastructure, then makes sure they hold up under real load.",
   "aboutStats": [
     { "value": "3.95", "label": "GPA · MS CS, UMass" },
     { "value": "15", "label": "Public Repositories" },
     { "value": "3", "label": "Languages spoken: English, Tamil, Hindi" }
   ],
   "aboutSidebar": {
-    "principles": [
-      "Clean abstractions beat clever code",
-      "Scalable systems should be boring in production",
-      "ML is engineering, not magic",
-      "Deployment is part of the feature",
-      "Ship early, iterate deliberately",
-      "Good architecture makes the next change easier"
-    ],
     "currentlyBuilding": [
       { "name": "Donna V3", "description": "AI executive assistant" },
       { "name": "Heimdall", "description": "B2B inquiry triage agent" },

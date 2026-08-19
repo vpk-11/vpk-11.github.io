@@ -37,7 +37,6 @@ export interface CurrentlyBuildingItem {
 }
 
 export interface AboutSidebar {
-  principles: string[];
   currentlyBuilding: CurrentlyBuildingItem[];
   openTo: string[];
 }

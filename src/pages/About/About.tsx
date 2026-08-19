@@ -44,18 +44,6 @@ const About: React.FC = () => {
           {sidebar && (
             <div className="about-sidebar">
               <Panel className="side-card">
-                <div className="side-card-title">Principles</div>
-                <div className="side-list">
-                  {sidebar.principles.map((p, i) => (
-                    <div className="side-list-item" key={i}>
-                      <span className="dot" aria-hidden="true" />
-                      {p}
-                    </div>
-                  ))}
-                </div>
-              </Panel>
-
-              <Panel className="side-card">
                 <div className="side-card-title">Currently Building</div>
                 <div className="side-list">
                   {sidebar.currentlyBuilding.map((item, i) => (
