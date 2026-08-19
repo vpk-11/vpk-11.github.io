@@ -110,8 +110,6 @@ export interface Project {
   shortDescription?: [string, string];  // shown on card, 2 lines — each max 150 chars
   description: string;        // shown in modal — full detail
   tech: string[];
-  categories?: string[];   // used for tab filtering
-  featured?: boolean;   // shows ★ Featured badge
   liveDeploymentUrl?: string;    // live deployed URL — shows Live badge if present
   githubLink: string;  // explicit github URL — replaces generic link
 }
