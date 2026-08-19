@@ -124,6 +124,10 @@ body {
 
 .accent-word {
   color: var(--section-accent);
+
+  // --section-accent is the raw dark accent in dark mode, below AA-4.5 as
+  // text (see _variables.scss) — use the lightened text-safe tint here.
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .text-small-inline {
@@ -198,10 +202,10 @@ a {
   border-radius: 6px;
   transition: top 0.15s ease;
 
-  // White text passes on light theme's blue accent but fails 4.5:1 on dark
-  // theme's brass accent (2.53:1) — the one moment this link is visible.
+  // Background is the raw accent (forest green in both themes) — white text
+  // clears AA 4.5:1 against both (~9.4:1 light, ~8.5:1 dark).
   .theme-light & { color: #fff; }
-  .theme-dark &  { color: #1a1200; }
+  .theme-dark &  { color: #fff; }
 
   &:focus {
     top: 1rem;

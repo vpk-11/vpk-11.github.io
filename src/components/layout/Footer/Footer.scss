@@ -85,6 +85,7 @@
   .theme-dark &  { color: rgba($dark-text, 0.92); }
 
   &:hover { color: var(--accent-color); }
+  .theme-dark &:hover { color: $accent-primary-dark-text; }
   &:focus:not(:focus-visible) { outline: none; }
 }
 

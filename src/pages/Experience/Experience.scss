@@ -115,6 +115,9 @@
 
 .exp-tl-item.active .etl-company {
   color: var(--section-accent);
+
+  // raw dark accent fails AA-4.5 as text; use the lightened text-safe tint
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .exp-tl-item:hover:not(.active) .etl-company {
@@ -174,10 +177,14 @@
 .ex-cs {
   color: var(--section-accent);
   font-family: $font-mono;
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .ex-mi {
   color: var(--section-accent);
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .ex-description {
@@ -216,6 +223,8 @@
   font-size: 0.9rem;
   line-height: 1.65;
   user-select: none;
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 // ============================================

@@ -38,7 +38,10 @@
   .theme-light & { color: $light-text; }
   .theme-dark &  { color: $dark-text; }
 
-  .role { color: var(--section-accent); }
+  .role {
+    color: var(--section-accent);
+    .theme-dark & { color: $accent-primary-dark-text; }
+  }
 }
 
 .resume-desc {

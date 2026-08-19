@@ -65,12 +65,12 @@
   .theme-light &:hover { color: #000; }
   .theme-dark &:hover  { color: #fff; }
 
-  // level 3 (advanced): current focus — green dot + border, stays green on hover
+  // level 3 (advanced): current focus — primary-accent dot + border, stays accent on hover
   &.tag--level-3 {
-    .theme-light & { border-color: $green-light; .tag-dot { background: $green-light; box-shadow: 0 0 6px rgba($green-light, 0.5); } }
-    .theme-dark &  { border-color: $green-dark;  .tag-dot { background: $green-dark;  box-shadow: 0 0 6px rgba($green-dark, 0.5); } }
-    .theme-light &:hover { border-color: $green-light; }
-    .theme-dark &:hover  { border-color: $green-dark; }
+    .theme-light & { border-color: $accent-primary-light; .tag-dot { background: $accent-primary-light; box-shadow: 0 0 6px rgba($accent-primary-light, 0.5); } }
+    .theme-dark &  { border-color: $accent-primary-dark;  .tag-dot { background: $accent-primary-dark;  box-shadow: 0 0 6px rgba($accent-primary-dark, 0.5); } }
+    .theme-light &:hover { border-color: $accent-primary-light; }
+    .theme-dark &:hover  { border-color: $accent-primary-dark; }
   }
 
   // level 2 (middle): secondary-accent dot + border, stays secondary on hover
