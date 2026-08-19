@@ -36,11 +36,13 @@
 }
 
 
+// Sizing/hierarchy matches Education's edu-degree/edu-institution/meta-row —
+// same "flat divided list" vibe, same type scale.
 .leadership-role {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 
   .theme-light & { color: $light-text; }
   .theme-dark &  { color: $dark-text; }
@@ -48,21 +50,31 @@
 
 .leadership-org {
   font-family: $font-mono;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--section-accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 
   .theme-dark & { color: $accent-primary-dark-text; }
 }
 
-.leadership-dates {
-  font-family: $font-mono;
-  font-size: 0.85rem;
-  margin-bottom: 0.9rem;
+.leadership-row .card-meta {
+  margin-bottom: 1.25rem;
+}
 
-  .theme-light & { color: rgba($light-text, 0.65); }
-  .theme-dark &  { color: rgba($dark-text, 0.68); }
+.leadership-meta-icon {
+  flex-shrink: 0;
+
+  .theme-dark & { color: rgba($dark-text, 0.6); }
+  .theme-light & { color: rgba($light-text, 0.55); }
+}
+
+.leadership-meta-text {
+  font-size: 0.95rem;
+  font-family: $font-mono;
+
+  .theme-dark & { color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.7); }
 }
 
 .leadership-bullets {
