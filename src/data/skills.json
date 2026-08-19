@@ -35,15 +35,13 @@
       { "name": "gRPC" },
       { "name": ".NET" },
       { "name": "Flask" },
-      { "name": "LiteLLM" },
-      { "name": "Pydantic v2" },
+      { "name": "Pydantic" },
       { "name": "MongoDB" },
       { "name": "PostgreSQL" },
       { "name": "MySQL" },
       { "name": "OracleSQL" },
       { "name": "Redis" },
       { "name": "tRPC" },
-      { "name": "Drizzle ORM" },
       { "name": "REST APIs" },
       { "name": "Authentication" },
       { "name": "Database Design" },
@@ -55,7 +53,6 @@
     "items": [
       { "name": "PyTorch" },
       { "name": "TensorFlow" },
-      { "name": "Scikit-learn" },
       { "name": "Large Language Models (LLM)" },
       { "name": "Agentic AI / Pipelines" },
       { "name": "Multi-Agent Systems" },
@@ -67,9 +64,7 @@
   {
     "category": "Design & UX",
     "items": [
-      { "name": "Figma" },
-      { "name": "UI/UX Design" },
-      { "name": "Wireframing" }
+      { "name": "UI/UX Design" }
     ]
   },
   {
@@ -85,7 +80,6 @@
       { "name": "Linux" },
       { "name": "Git" },
       { "name": "GitHub" },
-      { "name": "Postman" },
       { "name": "Webpack" },
       { "name": "Agile" },
       { "name": "Blockchain" },

@@ -181,13 +181,3 @@ export interface BeyondTheCode {
   blocks: LeadershipBlock[];
 }
 
-export interface Headliner {
-  id: number;
-  title: string;
-  tagline: string;
-  description: string;
-  tags: string[];
-  metrics: HeadlinerMetric[];
-  githubLink: string;
-  demoUrl?: string;   // if present, render Content/Live-Demo tab switcher
-}
