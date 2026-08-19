@@ -53,6 +53,7 @@
     "items": [
       { "name": "PyTorch" },
       { "name": "TensorFlow" },
+      { "name": "Scikit-learn" },
       { "name": "Large Language Models (LLM)" },
       { "name": "Agentic AI / Pipelines" },
       { "name": "Multi-Agent Systems" },
@@ -64,7 +65,9 @@
   {
     "category": "Design & UX",
     "items": [
-      { "name": "UI/UX Design" }
+      { "name": "Figma" },
+      { "name": "UI/UX Design" },
+      { "name": "Wireframing" }
     ]
   },
   {
@@ -80,6 +83,7 @@
       { "name": "Linux" },
       { "name": "Git" },
       { "name": "GitHub" },
+      { "name": "Postman" },
       { "name": "Webpack" },
       { "name": "Agile" },
       { "name": "Blockchain" },
