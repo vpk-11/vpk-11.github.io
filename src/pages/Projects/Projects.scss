@@ -107,15 +107,26 @@
   &:last-child { margin-bottom: 0; }
 }
 
-// Plain text list ("Python · PyTorch · Hugging Face") instead of pill tags —
-// reads lighter, lets the card shrink now that there's no wrapping pill row.
+// Small chip badges, not the heavier pill Tag component and not one dense
+// comma-separated line — wraps as a clean grid of tight badges instead of
+// a ragged paragraph. Shared by the card and the modal (TechList in
+// Projects.tsx), same class both places.
 .tech-list {
-  font-family: $font-mono;
-  font-size: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   margin: 1rem 0;
+}
 
-  .theme-light & { color: rgba($light-text, 0.75); }
-  .theme-dark &  { color: rgba($dark-text, 0.75); }
+.tech-chip {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0.32rem 0.55rem;
+  border-radius: 5px;
+
+  .theme-light & { background: rgba($light-text, 0.05); border: 1px solid rgba($light-text, 0.08); color: rgba($light-text, 0.72); }
+  .theme-dark &  { background: rgba($dark-text, 0.06); border: 1px solid rgba($dark-text, 0.08);  color: rgba($dark-text, 0.75); }
 }
 
 // ============================================
