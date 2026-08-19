@@ -1,16 +1,16 @@
 # Graph Report - Portfolio  (2026-08-19)
 
 ## Corpus Check
-- 52 files · ~17,506 words
+- 52 files · ~17,579 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 266 nodes · 429 edges · 18 communities (17 shown, 1 thin omitted)
+- 267 nodes · 430 edges · 17 communities (16 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `107159b4`
+- Built from commit: `d2cbd69e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,6 @@
 - [[_COMMUNITY_Design System + Deployment|Design System + Deployment]]
 - [[_COMMUNITY_Projects + Experience UI|Projects + Experience UI]]
 - [[_COMMUNITY_Hero, About, Contact|Hero, About, Contact]]
-- [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Community 4|Community 4]]
 - [[_COMMUNITY_App Entry + Composition|App Entry + Composition]]
 - [[_COMMUNITY_Accent + Type Definitions|Accent + Type Definitions]]
@@ -57,23 +56,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (18 total, 1 thin omitted)
+## Communities (17 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
-Cohesion: 0.12
-Nodes (15): SECTION_ORDER, THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, AppContent(), AppDispatch (+7 more)
+Cohesion: 0.13
+Nodes (13): SECTION_ORDER, THEME_COLORS, ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, AppDispatch, RootState, store (+5 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.16
+Cohesion: 0.14
 Nodes (21): About(), BeyondTheCode(), Button(), ButtonProps, ClosingCTA(), SectionId, sectionNumber(), Education() (+13 more)
 
-### Community 3 - "Community 3"
-Cohesion: 0.18
-Nodes (12): Card(), CardMeta(), CardMetaItem, CardMetaProps, CardProps, ExpCard(), Experience(), useWindowHeight() (+4 more)
-
 ### Community 4 - "Community 4"
-Cohesion: 0.10
-Nodes (19): AboutSidebar, AboutStat, BeyondTheCode, Certification, ClosingCta, ClosingCtaChannel, CurrentlyBuildingItem, Education (+11 more)
+Cohesion: 0.08
+Nodes (33): Card(), CardMeta(), CardMetaItem, CardMetaProps, CardProps, ExpCard(), Experience(), useWindowHeight() (+25 more)
 
 ### Community 5 - "App Entry + Composition"
 Cohesion: 0.07
@@ -100,7 +95,7 @@ Cohesion: 0.09
 Nodes (21): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, moduleResolution, noEmit (+13 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.15
+Cohesion: 0.14
 Nodes (15): InlineAction(), InlineActionProps, Modal(), ModalProps, ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps (+7 more)
 
 ### Community 14 - "Community 14"
@@ -112,24 +107,24 @@ Cohesion: 0.22
 Nodes (9): scripts, build, deploy, dev, lint, predeploy, preview, test (+1 more)
 
 ## Knowledge Gaps
-- **153 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+148 more)
+- **153 isolated node(s):** `ProjectModalProps`, `name`, `private`, `version`, `type` (+148 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `formatText()` connect `Hero, About, Contact` to `Community 3`, `Community 13`?**
+- **Why does `formatText()` connect `Hero, About, Contact` to `Community 4`, `Community 13`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **Why does `sectionNumber()` connect `Hero, About, Contact` to `Community 3`, `Community 13`, `Community 14`?**
+- **Why does `sectionNumber()` connect `Hero, About, Contact` to `Community 4`, `Community 13`, `Community 14`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `name`, `private`, `version` to the rest of the system?**
+- **What connects `ProjectModalProps`, `name`, `private` to the rest of the system?**
   _153 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.11688311688311688 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13157894736842105 - nodes in this community are weakly interconnected._
+- **Should `Hero, About, Contact` be split into smaller, more focused modules?**
+  _Cohesion score 0.14453781512605043 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `App Entry + Composition` be split into smaller, more focused modules?**
   _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
-- **Should `Particle Background` be split into smaller, more focused modules?**
-  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
