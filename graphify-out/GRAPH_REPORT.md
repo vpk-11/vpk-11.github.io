@@ -1,7 +1,7 @@
 # Graph Report - Portfolio  (2026-08-19)
 
 ## Corpus Check
-- 52 files · ~17,579 words
+- 52 files · ~17,454 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d2cbd69e`
+- Built from commit: `553dd5a8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -72,11 +72,11 @@ Nodes (33): Card(), CardMeta(), CardMetaItem, CardMetaProps, CardProps, ExpCard(
 
 ### Community 5 - "App Entry + Composition"
 Cohesion: 0.07
-Nodes (27): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslint-plugin-react-hooks, eslint-plugin-react-refresh, gh-pages, globals (+19 more)
+Nodes (28): devDependencies, baseline-browser-mapping, eslint, @eslint/js, eslint-plugin-jsx-a11y, eslint-plugin-react-hooks, eslint-plugin-react-refresh, gh-pages (+20 more)
 
 ### Community 6 - "Accent + Type Definitions"
-Cohesion: 0.22
-Nodes (9): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, redux, @reduxjs/toolkit (+1 more)
+Cohesion: 0.25
+Nodes (8): dependencies, framer-motion, lucide-react, react, react-dom, react-redux, @reduxjs/toolkit, sass
 
 ### Community 7 - "Particle Background"
 Cohesion: 0.08
@@ -107,7 +107,7 @@ Cohesion: 0.22
 Nodes (9): scripts, build, deploy, dev, lint, predeploy, preview, test (+1 more)
 
 ## Knowledge Gaps
-- **153 isolated node(s):** `ProjectModalProps`, `name`, `private`, `version`, `type` (+148 more)
+- **153 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+148 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -118,7 +118,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `sectionNumber()` connect `Hero, About, Contact` to `Community 4`, `Community 13`, `Community 14`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `ProjectModalProps`, `name`, `private` to the rest of the system?**
+- **What connects `name`, `private`, `version` to the rest of the system?**
   _153 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
   _Cohesion score 0.13157894736842105 - nodes in this community are weakly interconnected._
@@ -127,4 +127,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 4` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `App Entry + Composition` be split into smaller, more focused modules?**
-  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
