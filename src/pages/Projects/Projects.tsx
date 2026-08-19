@@ -53,7 +53,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
-  const shortDesc = truncate(project.description, CARD_DESC_LIMIT);
+  const shortDesc = truncate(project.shortDescription ?? project.description, CARD_DESC_LIMIT);
 
   return (
     <Card className="project-card">
