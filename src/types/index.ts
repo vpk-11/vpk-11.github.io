@@ -107,7 +107,7 @@ export interface GeneralData {
 export interface Project {
   id: number;
   title: string;
-  shortDescription?: [string, string];  // shown on card, 2 lines — each max 150 chars
+  shortDescription?: string;  // shown on card, falls back to a truncated `description` if absent
   description: string;        // shown in modal — full detail
   tech: string[];
   liveDeploymentUrl?: string;    // live deployed URL — shows Live badge if present
