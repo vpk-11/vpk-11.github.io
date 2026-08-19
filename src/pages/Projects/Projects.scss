@@ -3,7 +3,7 @@
 
 .projects-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: stretch;
 
   &.pr-cols-1 { grid-template-columns: 1fr; }
@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 1.5rem;
 
   // Override Card's inherited left accent bar into a full-width top bar,
   // slides in from left on hover instead of scaling up from the bottom.
@@ -87,7 +88,7 @@
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -97,21 +98,24 @@
 }
 
 .card-description-line {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.92rem;
+  line-height: 1.65;
   opacity: 0.85;
   margin-bottom: 0.5rem;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 
   &:last-child { margin-bottom: 0; }
 }
 
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
+// Plain text list ("Python · PyTorch · Hugging Face") instead of pill tags —
+// reads lighter, lets the card shrink now that there's no wrapping pill row.
+.tech-list {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  margin: 1rem 0;
+
+  .theme-light & { color: rgba($light-text, 0.75); }
+  .theme-dark &  { color: rgba($dark-text, 0.75); }
 }
 
 // ============================================
@@ -166,17 +170,6 @@
 // Override on top of ui/InlineAction's base .inline-action — only the gap differs here.
 .project-link {
   gap: 0.35rem;
-}
-
-// ============================================
-// TABS
-// ============================================
-
-.pr-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
 }
 
 // ============================================
