@@ -15,7 +15,6 @@ import Resume from './pages/Resume/Resume';
 import BeyondTheCode from './pages/BeyondTheCode/BeyondTheCode';
 import ClosingCTA from './pages/ClosingCTA/ClosingCTA';
 import Footer from './components/layout/Footer/Footer';
-import ParticleWave from './components/layout/Background/ParticleWave';
 import { useDynamicFavicon } from './hooks/useDynamicFavicon';
 import './App.scss';
 
@@ -43,7 +42,6 @@ const AppContent: React.FC = () => {
   return (
     <MotionConfig reducedMotion="user">
       <a href="#main-content" className="skip-link">Skip to content</a>
-      <ParticleWave />
       <main className="app" id="main-content">
       <Navbar />
       {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts — reorder both together */}
