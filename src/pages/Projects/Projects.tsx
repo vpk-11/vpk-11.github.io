@@ -10,7 +10,8 @@ import Card from '../../components/ui/Card/Card';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
-const CARD_DESC_LIMIT = 250;
+const CARD_DESC_LIMIT = 200;
+const CARD_TECH_LIMIT = 5;
 
 function stripMarkdown(str: string): string {
   return str
@@ -32,15 +33,17 @@ function toAbsolute(url?: string) {
   return url.startsWith('http') ? url : `https://${url}`;
 }
 
-// Small chip badges instead of one dense comma-separated line — shared by
-// the card and the modal, same markup/styling in both.
-const TechList: React.FC<{ tech: string[] }> = ({ tech }) => (
-  <div className="tech-list">
-    {tech.map(t => (
-      <span className="tech-chip" key={t}>{t}</span>
-    ))}
-  </div>
-);
+// Plain `·`-joined text, not tags/pills. Card truncates to the first
+// CARD_TECH_LIMIT with a trailing ellipsis; modal always shows the full list.
+const TechList: React.FC<{ tech: string[]; limit?: number }> = ({ tech, limit }) => {
+  const shown = limit ? tech.slice(0, limit) : tech;
+  const truncated = limit != null && tech.length > limit;
+  return (
+    <p className="tech-list">
+      {shown.join(' · ')}{truncated && ' …'}
+    </p>
+  );
+};
 
 // ─── ProjectCard ──────────────────────────────────────────────────────────────
 
@@ -66,7 +69,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
         <p className="card-description-line">{formatText(shortDesc)}</p>
       </div>
 
-      <TechList tech={project.tech} />
+      <TechList tech={project.tech} limit={CARD_TECH_LIMIT} />
 
       <div className="pr-card-footer">
         <div className="project-links">

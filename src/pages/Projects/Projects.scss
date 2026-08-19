@@ -3,7 +3,7 @@
 
 .projects-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   align-items: stretch;
 
   &.pr-cols-1 { grid-template-columns: 1fr; }
@@ -35,21 +35,13 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1.5rem;
+  padding: 1.25rem;
 
-  // Override Card's inherited left accent bar into a full-width top bar,
-  // slides in from left on hover instead of scaling up from the bottom.
+  // Card's inherited left accent bar (ui/Card's accent-bar-left mixin) is
+  // switched off entirely here — the shimmer sweep below is the only hover
+  // affordance, no separate bar/line on top of it.
   &::before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    .theme-light & { background: rgba($light-text, 0.35); }
-    .theme-dark &  { background: rgba($dark-text, 0.35); }
+    display: none;
   }
 
   // Shimmer overlay — sweeps diagonally on hover
@@ -69,12 +61,7 @@
   }
 
   &:hover {
-    // transform-origin repeated here, not just in the base &::before rule
-    // above, since ui/Card's own accent-bar-left hover rule also sets
-    // transform-origin (to top) — stating it explicitly here avoids relying
-    // on the compound selector's specificity edge to win that property.
-    &::before { transform: scaleX(1); transform-origin: left; }
-    &::after  { transform: translateX(100%); }
+    &::after { transform: translateX(100%); }
   }
 }
 
@@ -88,18 +75,18 @@
 }
 
 .card-title {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .card-description {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .card-description-line {
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.55;
   opacity: 0.85;
   margin-bottom: 0.5rem;
   text-align: left;
@@ -107,26 +94,16 @@
   &:last-child { margin-bottom: 0; }
 }
 
-// Small chip badges, not the heavier pill Tag component and not one dense
-// comma-separated line — wraps as a clean grid of tight badges instead of
-// a ragged paragraph. Shared by the card and the modal (TechList in
-// Projects.tsx), same class both places.
+// Plain `·`-joined text, not tags/pills — single line on the card (capped
+// to CARD_TECH_LIMIT + trailing ellipsis in Projects.tsx), full list in the
+// modal. Shared class, same styling both places.
 .tech-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 1rem 0;
-}
-
-.tech-chip {
   font-family: $font-mono;
-  font-size: 0.72rem;
-  line-height: 1;
-  padding: 0.32rem 0.55rem;
-  border-radius: 5px;
+  font-size: 0.76rem;
+  margin: 0.75rem 0;
 
-  .theme-light & { background: rgba($light-text, 0.05); border: 1px solid rgba($light-text, 0.08); color: rgba($light-text, 0.72); }
-  .theme-dark &  { background: rgba($dark-text, 0.06); border: 1px solid rgba($dark-text, 0.08);  color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.6); }
 }
 
 // ============================================
