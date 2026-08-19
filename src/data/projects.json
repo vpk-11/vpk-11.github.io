@@ -2,72 +2,72 @@
   {
     "id": 1,
     "title": "Narada",
-    "shortDescription": "Searches the web for facts on any topic, builds a table of results, and links every fact back to the page it came from. Searches again if info is missing.",
+    "shortDescription": "A self-correcting agentic search pipeline that researches any topic and hands back a table of facts, each one linked straight back to its source, running another search round to fill any gaps.",
     "description": "Narada answers a research question the way it should be answered: with the sources attached. Ask about any topic and it hands back a table of facts, and every value in that table links straight back to the page it came from. If the first pass comes up short, it goes back and searches again before handing back the table.\n\nIt runs as a **self-correcting agentic pipeline** in Python/FastAPI: take a topic query, scrape the web concurrently, run **LLM extraction** to produce structured entity tables, and enforce **per-cell source traceability** at the data model level so an unsourced value can't exist. After that first pass, the pipeline computes a **completeness score** across the table, and if too many cells are still empty it generates targeted follow-up searches for the specific gaps and runs another round, capped at bounded iterations.\n\nA **provider abstraction layer** sits over a single **LiteLLM** integration, supporting **4 LLM providers** (OpenAI, Anthropic, Groq, Ollama) and **3 search providers** (Tavily, Brave, DuckDuckGo), all hot-swappable via env config, with **per-step model configuration** and automatic search-provider failover. Deployed with a **zero-server-side-secret** architecture: users supply their own API keys through browser sessionStorage, keys travel as request headers and get discarded per request, with CSP headers blocking XSS. Hardened with schema.org structured-data extraction ahead of LLM calls, retry-with-backoff on transient provider errors, and a **43-test pytest suite**.",
-    "tech": ["Python", "FastAPI", "React", "Pydantic v2", "LLM", "LiteLLM", "Agentic AI", "Agentic Search", "Groq", "Ollama", "Tavily"],
+    "tech": ["Python", "FastAPI", "React", "LiteLLM", "Pydantic v2", "Groq", "Ollama", "Tavily"],
     "liveDeploymentUrl": "https://narada-heij.onrender.com",
     "githubLink": "https://github.com/vpk-11/narada"
   },
   {
     "id": 2,
     "title": "Atlas",
-    "shortDescription": "Matches riders to drivers in real time, and keeps matching correctly and fast even while part of the system is actively crashing mid-request.",
+    "shortDescription": "A distributed microservices system that matches riders to drivers in real time, and keeps matching correctly and fast even while part of the infrastructure is actively crashing mid-request.",
     "description": "A rider requesting a ride needs a fast, fair match to a driver, even when the system behind the match is actively failing. Atlas exists to prove that match still happens, correctly and quickly, while a piece of the infrastructure dies mid-request.\n\nThree independently deployable services communicate over **gRPC**/Protocol Buffers: dispatch-service (orchestrator, only public REST surface), pricing-service (pure calculator, no DB, no state), and trip-service (system of record, its own **MySQL** schema), each containerized with **Docker**. Matching runs a **live two-stage pipeline**: a grid-bucket index narrows candidates via widening neighbor rings, then an ephemeral **quad-tree** built fresh per request ranks that narrowed set in logarithmic time, feeding a **lookahead matching algorithm** that scores drivers on projected time-to-pickup, so a driver about to finish a nearby ride can beat a farther idle one. Real road distance comes from the **OSRM** routing API with a hard timeout and automatic fallback to haversine-distance math on failure.\n\nDeployed to **Kubernetes** with replicated pods, fault tolerance was proven by killing a live pod mid-load-test under real concurrent load: failure rate held at **0.2-0.4%** with zero cascading pod restarts, via client-side retry to the surviving replica. Trip requests write a durable REQUESTED row before matching starts, so a pod crash mid-match leaves the attempt recoverable instead of losing it, verified by force-killing a pod under a concurrent burst. A non-blocking OSRM client with a fail-fast admission gate was built and verified; the original throughput target is still not met, now isolated to real external OSRM latency (**1.4-1.9s** measured under concurrency) rather than application thread-pool sizing, which was fixed and ruled out. Missing gRPC deadlines that let requests hang unbounded on downstream outage were fixed with explicit 2-second deadlines, cutting worst-case failure time from 120+ seconds to under 1 second.",
-    "tech": ["Java", "Spring Boot", "gRPC", "Protocol Buffers", "MySQL", "Docker", "Kubernetes", "Grafana", "OSRM API"],
+    "tech": ["Java", "Spring Boot", "gRPC", "Kubernetes", "Docker", "MySQL", "Protocol Buffers", "OSRM API", "Grafana"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/atlas"
   },
   {
     "id": 3,
     "title": "RiskWise",
-    "shortDescription": "Scores how risky a shipping route is right now using live world events, explains why in plain language, and suggests a safer path if needed.",
+    "shortDescription": "A multi-agent research system that scores how risky a shipping route is right now using live world events, explains why in plain language, and proposes a safer route when the risk is too high.",
     "description": "RiskWise answers the question a logistics team actually asks before committing to a route: is this safe right now. Give it a route like Shanghai to Rotterdam and it returns a risk score, a plain-language explanation, and a safer alternative if the numbers say you need one.\n\nThree specialized **LLM agents** split the work. **Athena** gathers what's actually disrupting that specific route from **3 live public sources in parallel** (NASA EONET, USGS Earthquakes, GDELT). **Hermes** scores the risk across **4 independent factors**: weather, labor, geopolitical, congestion. **Apollo** generates a safer alternative if the score crosses threshold.\n\nA **cascading fallback system** (live sources, then database, then LLM synthesis) means the system never returns nothing, even when external APIs are down. The frontend is a **4-page React dashboard** with **MapLibre GL JS** route visualization, a live agent terminal, a threat feed, and trend history, running on **tRPC** and **Drizzle ORM** over PostgreSQL.",
-    "tech": ["React", "TypeScript", "tRPC", "Express", "Drizzle ORM", "PostgreSQL", "MapLibre GL JS", "Recharts", "Tailwind CSS", "LLM", "Agentic AI", "Real-time Data"],
+    "tech": ["React", "TypeScript", "PostgreSQL", "Express", "tRPC", "Drizzle ORM", "MapLibre GL JS", "Recharts", "Tailwind CSS"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/riskwise"
   },
   {
     "id": 4,
     "title": "Donna",
-    "shortDescription": "Books appointments, handles reschedules, and messages clients directly for service businesses, so a missed call never costs a client.",
+    "shortDescription": "A multi-agent orchestration system that books appointments, handles reschedules, and messages clients directly for service businesses, running an isolated agent per client conversation.",
     "description": "Donna handles scheduling, reschedules meetings when plans change, and messages clients directly to keep them in the loop. Book a call, need to move it, cancel last minute: Donna manages that conversation so the business owner doesn't have to.\n\nIt's built as a **multi-agent system** in Python/FastAPI: a **central orchestrator** manages the business owner's side, while an **isolated agent spawns per client conversation**, so no client's context ever bleeds into another's and scheduling conflicts get resolved automatically.\n\nEvery database mutation (booking, rescheduling, cancellation) runs through a **typed MCP tool layer** before it touches anything real, backed by **Redis** for the agent registry and per-conversation state. A **two-stage LLM firewall** screens inbound messages for prompt injection and outbound messages for hallucinated bookings, and an **LLM judge** decides whether a message gets handled autonomously, flagged to the admin, or escalated.",
-    "tech": ["Python", "FastAPI", "Redis", "FastMCP", "LiteLLM", "SQLAlchemy", "Pydantic v2", "Multi-Agent Systems"],
+    "tech": ["Python", "FastAPI", "LiteLLM", "FastMCP", "Redis", "SQLAlchemy", "Pydantic v2"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/donna"
   },
   {
     "id": 5,
     "title": "Heimdall",
-    "shortDescription": "Reviews wholesale orders, checks stock and cost automatically, and hands a human a draft to approve. It can never send a message on its own.",
+    "shortDescription": "An AI agent that reviews wholesale orders, checks stock and cost automatically, and hands a human a draft to approve. It has no ability to send a message on its own.",
     "description": "A wholesale inquiry looks simple but hides real judgment: is this buyer legit, can the order ship from current stock, what does a shortfall cost. Heimdall does that judgment automatically and hands a human a draft to approve.\n\nBuilt on Google's **Agent Development Kit (ADK)** running **Gemini 2.5 Flash Lite**, gated on both ends by callbacks: a **before-model callback** redacts PII and screens for prompt injection before the LLM ever sees the input, and an **after-model callback** re-scans the draft output for leaked PII and auto-send language. The agent calls **5 read-only MCP tools over stdio** for customer, inventory, and production-cost lookups, so it has no direct database access.\n\nThe reasoning chain computes `shortfall = max(0, (DTC velocity + wholesale ask) - stock)` and branches into production-cost estimation when supply falls short. Human-in-the-loop is a **structural guarantee**, not a prompt instruction: every MCP tool is read-only, so there's no code path to an auto-sent message. Backed by a **46-test suite** and deployed to Cloud Run.",
-    "tech": ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "MCP", "Vertex AI", "Agentic AI", "Multi-Agent Systems"],
+    "tech": ["Python", "Google ADK", "Gemini 2.5 Flash Lite", "MCP", "Vertex AI"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/heimdall"
   },
   {
     "id": 6,
     "title": "Clinical Copilot",
-    "shortDescription": "Turns raw patient notes into a structured chart review, with red flags and a medication check, in seconds instead of an afternoon.",
+    "shortDescription": "A multi-agent pipeline that turns raw patient notes into a structured chart review, with red flags and a medication check, generated in seconds instead of an afternoon.",
     "description": "Clinical Copilot turns a pile of raw patient notes into something a clinician can actually use: a structured SOAP note, a red-flag list, and a medication check, generated in seconds instead of an afternoon.\n\nA **6-agent pipeline** in Python/FastAPI runs the analysis, with **deterministic fallback extraction** built into every agent, so the system still returns clinically usable output even if the LLM call fails. **Medication and timeline agents run in parallel**, with risk and synthesis sequenced downstream.\n\nMedication data gets enriched through the **OpenFDA drug label API** for real interaction lookups, not just text summarization. **W&B Weave observability** wraps every agent call, and a single analysis run produces **two reports** from the same data: a clinician-facing structured version and a plain-language patient-facing one.",
-    "tech": ["Python", "FastAPI", "LiteLLM", "W&B Weave", "OpenFDA API", "React", "Tailwind CSS", "Multi-Agent Systems"],
+    "tech": ["Python", "FastAPI", "LiteLLM", "OpenFDA API", "W&B Weave", "React", "Tailwind CSS"],
     "liveDeploymentUrl": "https://clinical-copilot-v5qq.onrender.com",
     "githubLink": "https://github.com/vpk-11/clinical-copilot"
   },
   {
     "id": 7,
     "title": "Deepfake Deconstruction",
-    "shortDescription": "Traces a face-swapped deepfake photo back to the original source image it was built from, instead of just flagging that it's fake.",
+    "shortDescription": "A deep learning pipeline that traces a face-swapped deepfake photo back to the original source image it was built from, instead of just flagging that it's fake.",
     "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
-    "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning", "Machine Learning", "AI Safety"],
+    "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon"
   },
   {
     "id": 8,
     "title": "DKeeper",
-    "shortDescription": "A note-taking app built to keep working even if the usual thing behind every app, a server, goes away entirely.",
+    "shortDescription": "A note-taking app built on blockchain infrastructure to keep working even if the usual thing behind every app, a server, goes away entirely.",
     "description": "DKeeper is a note-taking app built to keep working even if the usual thing behind every app, a server, goes away.\n\nA **React** frontend calls a **Motoko** backend canister directly on the **Internet Computer** through generated **Candid bindings**, with no REST API and no backend server in between. Every note is persisted in **canister stable memory**, so data survives canister upgrades without a database.\n\nType safety runs end to end: **TypeScript bindings** are generated straight from the canister's typed Candid interface, so frontend and backend types can't drift apart.",
-    "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain", "Smart Contracts"],
+    "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/dkeeper"
   },
@@ -85,7 +85,7 @@
     "title": "URL Shortener",
     "shortDescription": "Turns a long link into a short one, and does the one thing most clones get wrong: submitting the same URL twice never creates a duplicate.",
     "description": "URL Shortener does exactly what it says, and does the one thing most clones get wrong: submit the same long URL twice and you get the same short code back, not a duplicate.\n\nA **Node.js/Express/TypeScript** API generates **nanoid**-based short codes backed by **MongoDB**, with deduplication baked into the write path.\n\nEvery submitted URL is checked against an **http/https protocol allowlist** to block javascript: and other XSS-prone schemes, and short-code uniqueness is enforced at the **database layer** with a unique index and a single automatic retry on collision.",
-    "tech": ["Node.js", "Express", "TypeScript", "MongoDB", "REST API"],
+    "tech": ["TypeScript", "Node.js", "Express", "MongoDB", "REST API"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/url-shortener"
   }
