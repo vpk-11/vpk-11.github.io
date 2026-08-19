@@ -75,10 +75,17 @@ const Modal: React.FC<ModalProps> = ({
   if (!isOpen) return null;
 
   return (
+    // Backdrop click-to-close is a redundant convenience, not the only way
+    // to dismiss — Escape (handled above) and the close button both work
+    // without a mouse, so this doesn't need its own keyboard handler.
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       className={backdropClassName ? `modal-backdrop ${backdropClassName}` : 'modal-backdrop'}
       onClick={closeOnBackdrop ? onClose : undefined}
     >
+      {/* onClick here only stops the backdrop's onClick from firing when
+          clicking inside the dialog — not an interactive affordance itself. */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
       <div
         ref={dialogRef}
         className={className ? `modal ${className}` : 'modal'}
