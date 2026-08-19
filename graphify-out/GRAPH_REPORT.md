@@ -1,16 +1,16 @@
-# Graph Report - Portfolio  (2026-07-19)
+# Graph Report - Portfolio  (2026-08-18)
 
 ## Corpus Check
-- 55 files · ~18,631 words
+- 54 files · ~18,492 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 275 nodes · 444 edges · 17 communities (16 shown, 1 thin omitted)
+- 274 nodes · 444 edges · 16 communities (15 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c3049c82`
+- Built from commit: `e87cecbc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,6 @@
 - [[_COMMUNITY_Design System + Deployment|Design System + Deployment]]
 - [[_COMMUNITY_Projects + Experience UI|Projects + Experience UI]]
 - [[_COMMUNITY_Hero, About, Contact|Hero, About, Contact]]
-- [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Community 4|Community 4]]
 - [[_COMMUNITY_App Entry + Composition|App Entry + Composition]]
 - [[_COMMUNITY_Accent + Type Definitions|Accent + Type Definitions]]
@@ -44,35 +43,31 @@
 ## Surprising Connections (you probably didn't know these)
 - `ExpCard()` --calls--> `formatText()`  [EXTRACTED]
   src/pages/Experience/Experience.tsx → src/utils/formatText.tsx
-- `ProjectCard()` --calls--> `formatText()`  [EXTRACTED]
-  src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
+- `SectionHeader()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/components/ui/SectionHeader/SectionHeader.tsx → src/data/sectionOrder.ts
+- `Education()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/pages/Education/Education.tsx → src/data/sectionOrder.ts
+- `Experience()` --calls--> `sectionNumber()`  [EXTRACTED]
+  src/pages/Experience/Experience.tsx → src/data/sectionOrder.ts
 - `Projects()` --calls--> `sectionNumber()`  [EXTRACTED]
   src/pages/Projects/Projects.tsx → src/data/sectionOrder.ts
-- `Projects()` --calls--> `formatText()`  [EXTRACTED]
-  src/pages/Projects/Projects.tsx → src/utils/formatText.tsx
-- `Experience()` --calls--> `formatText()`  [EXTRACTED]
-  src/pages/Experience/Experience.tsx → src/utils/formatText.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (17 total, 1 thin omitted)
+## Communities (16 total, 1 thin omitted)
 
 ### Community 0 - "Design System + Deployment"
 Cohesion: 0.11
-Nodes (17): ParticleWave(), SECTION_ORDER, THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, AppContent() (+9 more)
+Nodes (18): ParticleWave(), SECTION_ORDER, THEME_COLORS, useDynamicFavicon(), ICONS, MOBILE_NAV_ITEMS, { nav: NAV_ITEMS }, App() (+10 more)
 
 ### Community 2 - "Hero, About, Contact"
-Cohesion: 0.14
-Nodes (22): About(), BeyondTheCode(), Button(), ButtonProps, ClosingCTA(), SectionId, sectionNumber(), Education() (+14 more)
-
-### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (16): AboutSidebar, AboutStat, ClosingCta, ClosingCtaChannel, CurrentlyBuildingItem, Headliner, HeadlinerMetric, HeroHeading (+8 more)
+Cohesion: 0.17
+Nodes (17): About(), BeyondTheCode(), Button(), ButtonProps, ClosingCTA(), SectionId, sectionNumber(), Panel() (+9 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.18
-Nodes (13): Card(), CardMeta(), CardMetaItem, CardMetaProps, CardProps, ExpCard(), Experience(), useWindowHeight() (+5 more)
+Cohesion: 0.08
+Nodes (32): Card(), CardMeta(), CardMetaItem, CardMetaProps, CardProps, Education(), ExpCard(), Experience() (+24 more)
 
 ### Community 5 - "App Entry + Composition"
 Cohesion: 0.11
@@ -103,11 +98,11 @@ Cohesion: 0.14
 Nodes (16): InlineAction(), InlineActionProps, Modal(), ModalProps, ProjectCard(), ProjectCardProps, ProjectModal(), ProjectModalProps (+8 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.17
-Nodes (7): MarqueeProps, StatusDot(), StatusDotProps, GeneralData, RIPPLE_DIRECTION, VpkMark(), VpkMarkProps
+Cohesion: 0.16
+Nodes (8): MarqueeProps, StatusDot(), StatusDotProps, GeneralData, ProfileData, RIPPLE_DIRECTION, VpkMark(), VpkMarkProps
 
 ## Knowledge Gaps
-- **156 isolated node(s):** `ProjectModalProps`, `Features`, `Stack`, `Prerequisites`, `Local Development` (+151 more)
+- **155 isolated node(s):** `name`, `private`, `version`, `type`, `packageManager` (+150 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -120,11 +115,11 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `sectionNumber()` connect `Hero, About, Contact` to `Community 4`, `Community 13`, `Community 14`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `ProjectModalProps`, `Features`, `Stack` to the rest of the system?**
-  _156 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `name`, `private`, `version` to the rest of the system?**
+  _155 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System + Deployment` be split into smaller, more focused modules?**
-  _Cohesion score 0.10804597701149425 - nodes in this community are weakly interconnected._
-- **Should `Hero, About, Contact` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
-  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1103448275862069 - nodes in this community are weakly interconnected._
+- **Should `Community 4` be split into smaller, more focused modules?**
+  _Cohesion score 0.07827260458839407 - nodes in this community are weakly interconnected._
+- **Should `App Entry + Composition` be split into smaller, more focused modules?**
+  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

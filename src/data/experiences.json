@@ -23,8 +23,7 @@
     "description": "Research internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)**, part of ISRO Yukthi Sanchita, on 'Development of Computer Vision System for an AI Assistant.'",
     "achievements": [
       "Designed a **modular computer vision pipeline** integrating four image-processing models in **Python (PyTorch and TensorFlow)**, with a unified interface enabling seamless model swapping across frameworks without modifying pipeline logic.",
-      "Reduced real-time image-processing **latency** by over **90%** using threading, **parallel processing**, and internal REST API calls, enabling four models to run concurrently rather than sequentially.",
-      "Architected the system for high availability and scalability, with independently upgradeable components so models can be replaced without destabilizing the pipeline."
+      "Reduced real-time image-processing **latency** by over **90%** using threading, **parallel processing**, and internal REST API calls, enabling four models to run concurrently rather than sequentially."
     ],
     "tech": ["Python", "PyTorch", "TensorFlow", "Computer Vision", "REST APIs", "Multithreading", "Parallel Processing", "Data Pipelines"]
   },
@@ -36,9 +35,7 @@
     "duration": "May 2023 - Jul 2023",
     "description": "**Software Engineering Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
-      "Built a full-stack **MERN** application for Capital Markets Technology (CCIBT), owning UI components, REST APIs, backend logic, and UX design end-to-end.",
-      "Integrated **ML modules** trained on the **Fannie Mae** mortgage loan performance dataset to predict **prepayment risk** on **mortgage-backed securities (MBS)**, using time-series analysis over loan-level performance data.",
-      "Connected model outputs directly into the UI and backend, not just isolated API calls, extending the application into a fully functional end-to-end prototype.",
+      "Built a full-stack **MERN** application for Capital Markets Technology (CCIBT) end to end, owning UI components, REST APIs, backend logic, and UX design, and integrated **ML modules** trained on the **Fannie Mae** mortgage loan dataset to predict **prepayment risk** on **mortgage-backed securities (MBS)**.",
       "Wrote **unit tests** covering backend API endpoints for the MERN application."
     ],
     "tech": ["MongoDB", "Express", "React", "Node.js", "Python", "Jest", "Machine Learning", "Time-Series Analysis", "REST APIs"]
