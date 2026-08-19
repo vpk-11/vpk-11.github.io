@@ -2,13 +2,13 @@
 @use '../../styles/mixins' as *;
 
 // Flat divided list, same treatment as BeyondTheCode's leadership-stack —
-// one solid bg spanning top divider to bottom divider, no per-row box.
+// no card box, no background, just text hierarchy separated by a thin
+// divider line.
 .education-stack {
   border-top: 1px solid;
-  padding: 0 1rem;
 
-  .theme-light & { border-color: rgba($light-text, 0.1); background: $light-bg; }
-  .theme-dark &  { border-color: rgba($dark-text, 0.1); background: $dark-bg; }
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
 }
 
 .edu-row {
