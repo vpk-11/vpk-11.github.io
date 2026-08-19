@@ -124,9 +124,8 @@
 }
 
 // ── Ticker ────────────────────────────────────────────────────────────────────
-// Scroll speed/direction come from RIPPLE_CYCLE_SECONDS (rippleMotion.ts),
-// derived from ParticleWave's own uTime step — kept in sync deliberately,
-// not an independently-tuned CSS duration.
+// Scroll speed/direction come from RIPPLE_CYCLE_SECONDS (rippleMotion.ts) —
+// a tuned constant, not an independently-guessed CSS duration.
 
 .hero-ticker {
   position: relative;

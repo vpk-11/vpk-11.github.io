@@ -16,9 +16,9 @@ import './Hero.scss';
 // scrolled past.
 const HERO_TICKER_REPEAT = 6;
 
-// RIPPLE_CYCLE_SECONDS times the background wave's own motion, which is
-// much faster than a comfortable reading pace for this much repeated text —
-// slow the ticker down to a fraction of that cycle instead of matching it 1:1.
+// RIPPLE_CYCLE_SECONDS alone is much faster than a comfortable reading pace
+// for this much repeated text — slow the ticker down to a fraction of that
+// cycle instead of using it 1:1.
 const HERO_TICKER_SPEED_MULTIPLIER = 6;
 
 const Hero: React.FC = () => {

@@ -23,15 +23,13 @@
   "homepage": "https://vpk-11.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
-    "@types/three": "^0.184.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^0.546.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
-    "sass": "^1.93.2",
-    "three": "^0.184.0"
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
