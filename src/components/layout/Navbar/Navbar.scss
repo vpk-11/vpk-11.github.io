@@ -11,13 +11,13 @@
   transition: $transition-smooth;
   box-sizing: border-box;
 
-  // Solid translucent background, not backdrop-filter: blur over the live
-  // WebGL canvas hits a Chrome compositor bug where the blurred layer
-  // occasionally fails to resample in sync with the canvas's own rAF loop,
-  // flashing raw unblurred canvas through the nav for a frame. A flat
-  // rgba background never samples the canvas at all, so it can't flicker.
-  .theme-light & { background: rgba($light-bg, 0.98); }
-  .theme-dark &  { background: rgba($dark-bg, 0.98); }
+  // Frosted blend over the gradient/content behind it — translucent, not
+  // solid, so the ambient gradient still reads through faintly, but opaque
+  // enough that scrolled section text doesn't collide with nav text.
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  .theme-light & { background: rgba($light-bg, 0.7); }
+  .theme-dark &  { background: rgba($dark-bg, 0.7); }
 
   &.scrolled {
     padding: 0.6rem 0;
