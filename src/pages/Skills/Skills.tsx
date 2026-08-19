@@ -40,7 +40,11 @@ const Skills: React.FC = () => {
           headline={heading ? formatText(heading.headline) : 'Skills & Certifications'}
         />
 
-        {/* Toggle — same pill style as project tabs */}
+        {/* Toggle — same pill style as project tabs. Roving tabindex lives on
+            the child role="tab" buttons (see Tab.tsx), not this wrapper, per
+            the WAI-ARIA APG tabs pattern — the tablist container itself
+            isn't meant to be a separate tab stop. */}
+        {/* eslint-disable-next-line jsx-a11y/interactive-supports-focus */}
         <div className="sk-tabs" role="tablist" aria-label="Skills view" onKeyDown={handleTabsKeyDown}>
           <Tab id="sk-tab-skills" controls={SK_PANEL_ID} active={tab === 'skills'} onClick={() => setTab('skills')} className="sk-tab" icon={<Wrench size={15} />}>
             Skills

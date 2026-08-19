@@ -10,15 +10,18 @@ import Card from '../../components/ui/Card/Card';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
-const CARD_DESC_LIMIT = 200;
+const CARD_DESC_LIMIT = 250;
 const CARD_TECH_LIMIT = 5;
 
+// Mirrors formatText.tsx's token list (kept in sync manually — formatText
+// renders JSX so it can't double as the plain-length source truncate() needs).
 function stripMarkdown(str: string): string {
   return str
     .replace(/\*\*(.*?)\*\*/g, '$1')
     .replace(/\*(.*?)\*/g, '$1')
     .replace(/\{accent\}(.*?)\{\/accent\}/g, '$1')
     .replace(/\{outline\}(.*?)\{\/outline\}/g, '$1')
+    .replace(/\{small\}(.*?)\{\/small\}/g, '$1')
     .replace(/\[(.*?)\]\(.*?\)/g, '$1');
 }
 
