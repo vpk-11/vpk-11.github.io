@@ -2,19 +2,18 @@
 <!-- version: v6.4.1 -->
 ![Version](https://img.shields.io/badge/version-v6.4.1-blue)
 
-Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Three.js, Redux Toolkit, and SCSS. Features an animated Three.js particle wave background and full dark/light mode support.
+Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Redux Toolkit, and SCSS. Features a diagonal gold-to-green ambient gradient background (pure CSS, no canvas) and full dark/light mode support.
 
 Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 
 ## Features
 
-- **Three.js Particle Wave** - Animated WebGL background that adapts to the active theme, guarded so unsupported devices still render the full site (see [No-JS / No-WebGL Fallback](#no-js--no-webgl-fallback))
-- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux; two-tier accent system swaps temperature across themes (see [Accent System](#accent-system))
+- **Dark/Light Mode** - Auto-detects system preference, manual toggle persists in Redux; two-tier accent system swaps per theme (see [Accent System](#accent-system))
 - **Fully Responsive** - Mobile swipe gestures, hamburger menu, adaptive layouts at 768px and 1024px
 - **Content via JSON** - All portfolio data lives in `src/data/`; no rebuild needed for content changes
 - **TypeScript strict mode** - No `any`, interfaces throughout
 - **WCAG 2.1 AA** - Full accessibility pass across nav, modal, tabs, and contrast
-- **No-JS / no-WebGL fallback** - Site renders fully without WebGL support, and serves real static content to non-JS clients (bots, curl, disabled JS) via a `<noscript>` block
+- **No-JS fallback** - Serves real static content to non-JS clients (bots, curl, disabled JS) via a `<noscript>` block
 
 ## Stack
 
@@ -24,7 +23,6 @@ Live at: [vpk-11.github.io/portfolio](https://vpk-11.github.io/portfolio)
 | Build | Vite |
 | State | Redux Toolkit (theme slice) |
 | Styles | SCSS modules (`@use` not `@import`) |
-| Background | Three.js (WebGL particle wave) |
 | Icons | Lucide React |
 | Testing | Vitest + Testing Library |
 | Package Manager | pnpm |
@@ -57,7 +55,7 @@ src/
     ui/             -- reusable primitives, instantiated N times with different props
       Tag/, Card/, Panel/, Button/, InlineAction/, Tab/, SectionHeader/, Modal/, Marquee/, Stat/, StatusDot/
     layout/         -- persistent singletons, never composed differently per page
-      Navbar/, Footer/, ThemeToggle/, Background/ (ParticleWave.tsx), VpkMark/
+      Navbar/, Footer/, ThemeToggle/
   pages/            -- one per section, composes ui/ primitives
     Hero/, About/, Education/, Experience/, Projects/, Skills/, Resume/, BeyondTheCode/, ClosingCTA/
   data/
@@ -78,7 +76,7 @@ src/
   main.tsx
 ```
 
-`ui/` primitives are reusable across pages with page-scoped BEM modifier classes; `layout/` singletons are hardwired to specific data/behavior (Redux theme subscription, nav tree, Three.js canvas) and never instantiated twice; `pages/` is one folder per section. Full component-by-component detail lives in `.claude/CLAUDE.md`.
+`ui/` primitives are reusable across pages with page-scoped BEM modifier classes; `layout/` singletons are hardwired to specific data/behavior (Redux theme subscription, nav tree) and never instantiated twice; `pages/` is one folder per section. Full component-by-component detail lives in `.claude/CLAUDE.md`.
 
 ## Updating Content
 
@@ -86,23 +84,25 @@ All portfolio data lives in `src/data/`. Edit JSON, push to main, GitHub Actions
 
 | File | Controls |
 |---|---|
-| `profile.json` | Name, bio, location, availability, principles, social links, target roles, about stats/sidebar |
+| `profile.json` | Name, bio, location, availability, social links, target roles, about stats/sidebar |
 | `general.json` | Nav tree, section headings, resume meta, closing CTA copy |
 | `experiences.json` | Work experience entries |
 | `education.json` | Degrees and coursework |
-| `projects.json` | Projects with categories, links, tech tags — `shortDescription` must be ≤ 150 chars per line (raw string incl. `**` markers) |
+| `projects.json` | Projects with links, tech tags — `shortDescription` shown on the card (falls back to a 250-char-truncated `description` if absent) |
 | `skills.json` | Skill categories and items |
 | `certifications.json` | Certifications with issuer and date |
 | `extracurriculars.json` | Beyond the Code entries |
 
 ## Accent System
 
-Two-tier global accent system, dark stays warm and light inverts to cool so toggling reads as a real color shift:
+Two-tier global accent system:
 
 | Tier | Light | Dark | Used for |
 |---|---|---|---|
-| Primary | `#2A4A73` (ink blue) | `#C89B5C` (brass) | Interactive elements: buttons, links, nav active state |
-| Secondary | `#7A5F1F` (old gold) | `#5C8891` (steel-teal) | Rare highlight requiring contrast: live-status indicators only |
+| Primary | `#1B502D` (forest green) | `#235735` (forest green, darker) | Interactive elements: buttons, links, nav active-state underline |
+| Secondary | `#7A5F1F` (old gold) | `#A8823A` (antique bronze) | Rare highlight requiring contrast: live-status indicators only |
+
+`$accent-primary-dark` sits below the AA-4.5 text-contrast floor by deliberate choice (background/border/button color only) — a lightened tint (`$accent-primary-dark-text`) is used wherever dark-mode text needs to read as the accent instead.
 
 ## Responsive Breakpoints
 
@@ -110,9 +110,8 @@ Two-tier global accent system, dark stays warm and light inverts to cool so togg
 - Tablet: `< 1024px`
 - Desktop: `> 1024px`
 
-## No-JS / No-WebGL Fallback
+## No-JS Fallback
 
-- **No-WebGL devices**: `isWebGLAvailable()` guards `ParticleWave`'s Three.js init. If unsupported, Three.js is skipped entirely, the rest of the site still renders and hydrates normally.
 - **No-JS clients** (bots, curl, disabled JS): `index.html`'s `<noscript>` block contains real static markup (name, title, bio, location, contact links), present in the raw HTTP response regardless of JS execution.
 
 ## Deployment
@@ -121,9 +120,8 @@ Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-p
 
 ## Typography
 
-- **Space Grotesk** - Hero headings and name
+- **Public Sans** - Sitewide, headings and body — one family, hierarchy from weight/size only
 - **JetBrains Mono** - Skill tags, tech tags, monospace labels
-- **System sans-serif** - Body text
 
 ---
 ## Changelog
