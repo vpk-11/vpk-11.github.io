@@ -181,6 +181,7 @@ const Navbar: React.FC = () => {
                   <ChevronDown
                     size={14}
                     className={`nav-chevron ${openMenu === item.label ? 'flipped' : ''}`}
+                    aria-hidden="true"
                   />
                 )}
                 {(hoveredLabel === item.label || openMenu === item.label) && (

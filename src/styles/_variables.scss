@@ -19,8 +19,8 @@ $dark-text: #e8eaed;
 // highlight requiring contrast, e.g. the live-status indicator). Everything
 // else uses plain theme grayscale.
 $accent-primary-light:   #1B502D; // forest green, ~9:1 on white
-$accent-primary-dark:    #2F7446; // forest green, deliberately darker/moodier
-// than AA-safe (~3.5:1 on $dark-bg) — background/border/button color only,
+$accent-primary-dark:    #235735; // forest green, deliberately darker/moodier
+// than AA-safe (~2.3:1 on $dark-bg) — background/border/button color only,
 // NOT safe as small text/link glyph color. Use $accent-primary-dark-text
 // below wherever the dark-theme accent colors text.
 
