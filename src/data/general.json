@@ -35,17 +35,11 @@
     }
   ],
   "sectionHeadings": {
-    "hero": {
-      "ticker": ["Full Stack", "Agentic AI", "Distributed Systems", "ML Engineering"]
-    },
     "about": {
-      "headline": "I'm an engineer, front and center."
+      "headline": "I build things because I'm curious."
     },
     "skills": {
       "headline": "My Toolbox."
-    },
-    "certifications": {
-      "headline": "My Certifications"
     },
     "education": {
       "headline": "Education"
