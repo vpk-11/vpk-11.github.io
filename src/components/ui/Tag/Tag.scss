@@ -7,26 +7,15 @@
   font-size: 0.85rem;
   font-weight: 500;
   background: transparent;
-  transition: $transition-quick;
 
   .theme-dark & {
     border-color: rgba($dark-text, 0.18);
     color: rgba($dark-text, 0.7);
-
-    &:hover {
-      border-color: rgba($dark-text, 0.4);
-      color: $dark-text;
-    }
   }
 
   .theme-light & {
     border-color: rgba($light-text, 0.18);
     color: rgba($light-text, 0.65);
-
-    &:hover {
-      border-color: rgba($light-text, 0.4);
-      color: $light-text;
-    }
   }
 }
 
@@ -57,34 +46,20 @@
   .theme-light & { background: $light-surface; border-color: rgba($light-text, 0.18); color: #000; }
   .theme-dark &  { background: $dark-surface;  border-color: rgba($dark-text, 0.16);  color: #fff; }
 
-  // hover: slight pop (lift + scale), no text-color change — the tier's own
-  // color drives the border instead of the generic accent hover on .tag
-  &:hover {
-    transform: translateY(-2px) scale(1.03);
-  }
-  .theme-light &:hover { color: #000; }
-  .theme-dark &:hover  { color: #fff; }
-
-  // level 3 (advanced): current focus — primary-accent dot + border, stays accent on hover
+  // level 3 (advanced): primary-accent dot + border
   &.tag--level-3 {
     .theme-light & { border-color: $accent-primary-light; .tag-dot { background: $accent-primary-light; box-shadow: 0 0 6px rgba($accent-primary-light, 0.5); } }
     .theme-dark &  { border-color: $accent-primary-dark;  .tag-dot { background: $accent-primary-dark;  box-shadow: 0 0 6px rgba($accent-primary-dark, 0.5); } }
-    .theme-light &:hover { border-color: $accent-primary-light; }
-    .theme-dark &:hover  { border-color: $accent-primary-dark; }
   }
 
-  // level 2 (middle): secondary-accent dot + border, stays secondary on hover
+  // level 2 (middle): secondary-accent dot
   &.tag--level-2 {
     .tag-dot { background: var(--accent-secondary); }
-    &:hover { border-color: var(--accent-secondary); }
   }
 
-  // level 1 (basic, default when unassigned): muted dot, neutral border —
-  // no tier color to carry, so hover just turns the dot white as feedback
+  // level 1 (basic, default when unassigned): muted dot, neutral border
   &.tag--level-1 {
     .theme-light & { .tag-dot { background: rgba($light-text, 0.3); } }
     .theme-dark &  { .tag-dot { background: rgba($dark-text, 0.3); } }
-    .theme-light &:hover { border-color: rgba($light-text, 0.18); .tag-dot { background: $light-text; } }
-    .theme-dark &:hover  { border-color: rgba($dark-text, 0.16);  .tag-dot { background: #fff; } }
   }
 }
