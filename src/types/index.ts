@@ -11,15 +11,9 @@ export interface SectionHeading {
   tagline?: string;
 }
 
-export interface HeroHeading {
-  ticker: string[];
-}
-
 export interface SectionHeadings {
-  hero: HeroHeading;
   about: SectionHeading;
   skills: SectionHeading;
-  certifications: SectionHeading;
   education: SectionHeading;
   experience: SectionHeading;
   projects: SectionHeading;
