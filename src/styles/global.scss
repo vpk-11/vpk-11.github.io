@@ -56,20 +56,34 @@ body {
 // THEME STYLES
 // ============================================
 
+// Ambient diagonal glow replacing the old ParticleWave canvas — two radial
+// accents fading into the flat bg color, fixed to the viewport so it doesn't
+// scroll with content. Gold top-left (10% spread), green bottom-right
+// (28% spread) in both themes.
 .theme-light {
+  color-scheme: light;
   background-color: $light-bg;
   color: $light-text;
   --accent-color: #{$accent-primary-light};
   --section-accent: #{$accent-primary-light};
   --accent-secondary: #{$accent-secondary-light};
+  background-image:
+    radial-gradient(circle at top left, color-mix(in srgb, $accent-secondary-light 22%, transparent) 0%, transparent 10%),
+    radial-gradient(circle at bottom right, color-mix(in srgb, $accent-primary-light 24%, transparent) 0%, transparent 28%);
+  background-attachment: fixed;
 }
 
 .theme-dark {
+  color-scheme: dark;
   background-color: $dark-bg;
   color: $dark-text;
   --accent-color: #{$accent-primary-dark};
   --section-accent: #{$accent-primary-dark};
   --accent-secondary: #{$accent-secondary-dark};
+  background-image:
+    radial-gradient(circle at top left, color-mix(in srgb, $accent-secondary-dark 38%, transparent) 0%, transparent 10%),
+    radial-gradient(circle at bottom right, color-mix(in srgb, $accent-primary-dark 42%, transparent) 0%, transparent 28%);
+  background-attachment: fixed;
 }
 
 // ============================================
@@ -124,6 +138,10 @@ body {
 
 .accent-word {
   color: var(--section-accent);
+
+  // --section-accent is the raw dark accent in dark mode, below AA-4.5 as
+  // text (see _variables.scss) — use the lightened text-safe tint here.
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .text-small-inline {
@@ -198,10 +216,10 @@ a {
   border-radius: 6px;
   transition: top 0.15s ease;
 
-  // White text passes on light theme's blue accent but fails 4.5:1 on dark
-  // theme's brass accent (2.53:1) — the one moment this link is visible.
+  // Background is the raw accent (forest green in both themes) — white text
+  // clears AA 4.5:1 against both (~9.4:1 light, ~8.5:1 dark).
   .theme-light & { color: #fff; }
-  .theme-dark &  { color: #1a1200; }
+  .theme-dark &  { color: #fff; }
 
   &:focus {
     top: 1rem;

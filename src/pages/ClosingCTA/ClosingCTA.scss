@@ -26,7 +26,7 @@
     .theme-light & { color: var(--accent-color); }
     .theme-dark & {
       color: transparent;
-      -webkit-text-stroke: 2px var(--accent-color);
+      -webkit-text-stroke: 2px $accent-primary-dark-text;
     }
   }
 }

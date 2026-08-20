@@ -1,29 +1,13 @@
 import React from 'react';
 import { Github, Linkedin, FileText, MapPin } from 'lucide-react';
 import profileData from '../../data/profile.json';
-import generalData from '../../data/general.json';
-import type { ProfileData, GeneralData } from '../../types';
-import { RIPPLE_CYCLE_SECONDS, RIPPLE_DIRECTION } from '../../utils/rippleMotion';
+import type { ProfileData } from '../../types';
 import Button from '../../components/ui/Button/Button';
-import Marquee from '../../components/ui/Marquee/Marquee';
 import StatusDot from '../../components/ui/StatusDot/StatusDot';
 import './Hero.scss';
 
-// Marquee duplicates whatever it's given exactly once for a seamless loop,
-// but that only fills wide viewports if each half is already wider than the
-// screen. The phrase list is short, so pad it out before handing it to
-// Marquee — otherwise wide screens see a blank gap once both copies have
-// scrolled past.
-const HERO_TICKER_REPEAT = 6;
-
-// RIPPLE_CYCLE_SECONDS times the background wave's own motion, which is
-// much faster than a comfortable reading pace for this much repeated text —
-// slow the ticker down to a fraction of that cycle instead of matching it 1:1.
-const HERO_TICKER_SPEED_MULTIPLIER = 6;
-
 const Hero: React.FC = () => {
   const profile = profileData as ProfileData;
-  const general = generalData as GeneralData;
   const [firstName, ...rest] = profile.name.split(' ');
   const lastName = rest.join(' ');
   const shortWorkAuth = profile.workAuthorization
@@ -31,11 +15,8 @@ const Hero: React.FC = () => {
     .slice(0, 2)
     .map(s => s.trim())
     .join(' · ');
-  const tickerPhrases = general.sectionHeadings.hero.ticker;
   return (
     <section id="hero" className="section hero-section">
-
-      <div className="hero-watermark" aria-hidden="true">VPK</div>
 
       <div className="container">
         <div className="hero-content">
@@ -48,19 +29,6 @@ const Hero: React.FC = () => {
           <div className="hero-divider" aria-hidden="true" />
 
           <p className="hero-role">{profile.title}</p>
-
-          {tickerPhrases.length > 0 && (
-            <div className="hero-ticker" aria-hidden="true">
-              <Marquee speedSeconds={RIPPLE_CYCLE_SECONDS * HERO_TICKER_SPEED_MULTIPLIER} direction={RIPPLE_DIRECTION}>
-                {Array.from({ length: HERO_TICKER_REPEAT * tickerPhrases.length }, (_, i) => tickerPhrases[i % tickerPhrases.length]).map((phrase, i) => (
-                  <span className="ticker-item" key={i}>
-                    <StatusDot color="primary" />
-                    {phrase}
-                  </span>
-                ))}
-              </Marquee>
-            </div>
-          )}
 
           <div className="hero-status-bar">
             {profile.availability && (

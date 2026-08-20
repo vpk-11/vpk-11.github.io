@@ -10,9 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d dist"
+    "test:watch": "vitest"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -23,15 +21,12 @@
   "homepage": "https://vpk-11.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
-    "@types/three": "^0.184.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^0.546.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
-    "redux": "^5.0.1",
-    "sass": "^1.93.2",
-    "three": "^0.184.0"
+    "sass": "^1.93.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -43,9 +38,9 @@
     "@vitejs/plugin-react": "^5.0.4",
     "baseline-browser-mapping": "^2.10.0",
     "eslint": "^9.36.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
-    "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "jsdom": "^29.1.1",
     "typescript": "~5.9.3",
