@@ -164,7 +164,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
       )}
     </div>
 
-    <TechList tech={project.tech} />
+    <p className="tech-list pr-modal-tech">{project.tech.join(' · ')}</p>
 
     <div className="pr-modal-body">
       {project.description.split('\n\n').map((para, i) => (

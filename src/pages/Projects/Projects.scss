@@ -236,6 +236,22 @@
   margin-left: auto;
 }
 
+// Overrides on top of .tech-list's base look — sized to match the old pill
+// text (0.82rem) instead of the card's smaller 0.76rem, and framed as its
+// own strip (border above/below) instead of floating loose between the
+// links row and the body paragraph.
+.pr-modal-tech {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.08); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.08); }
+}
+
 .pr-modal-body {
   font-size: 1rem;
   line-height: 1.8;
