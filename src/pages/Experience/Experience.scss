@@ -164,21 +164,34 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+// ui/Card's inherited left accent bar (accent-bar-left mixin, grows on
+// hover) is switched off here — reads as a gimmicky animation on a dense
+// stack of cards, no replacement affordance needed.
+.card.experience-card::before {
+  display: none;
+}
+
 // ============================================
-// CARD CONTENT — .experience-card itself needs no overrides on top of
+// CARD CONTENT — .experience-card itself needs no other overrides on top of
 // ui/Card's base .card; Experience's values ARE the primitive's defaults.
 // ============================================
 
 .ex-ct {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+
   .theme-dark & { color: $dark-text; }
   .theme-light & { color: $light-text; }
 }
 
-.ex-cs {
-  color: var(--section-accent);
-  font-family: $font-mono;
+.ex-ct-company {
+  font-size: 1.08em;
+}
 
-  .theme-dark & { color: $accent-primary-dark-text; }
+.ex-ct-sep {
+  opacity: 0.6;
+  font-weight: 400;
 }
 
 .ex-mi {

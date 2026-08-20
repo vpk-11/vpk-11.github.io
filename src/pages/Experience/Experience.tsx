@@ -14,8 +14,11 @@ import './Experience.scss';
 
 const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
   <Card className="experience-card">
-    <h3 className="ex-ct card-title">{exp.role}</h3>
-    <h4 className="ex-cs card-subtitle">{exp.company}</h4>
+    <h3 className="ex-ct card-title">
+      <span className="ex-ct-company">{exp.company}</span>
+      <span className="ex-ct-sep" aria-hidden="true">|</span>
+      <span className="ex-ct-role">{exp.role}</span>
+    </h3>
     <CardMeta
       items={[
         { icon: <Calendar size={14} className="ex-mi meta-icon" />, text: exp.duration, textClassName: 'card-duration' },
