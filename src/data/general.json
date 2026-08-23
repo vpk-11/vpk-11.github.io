@@ -63,10 +63,10 @@
   "closingCta": {
     "eyebrow": "LET'S TALK",
     "headline": "Got something\nworth building?\n{accent}Let's talk{/accent}{small}.{/small}",
-    "tagline": "I like building software that actually ships, not just demos. If you're working on something worth building, reach out. Always down to talk shop.",
+    "tagline": "I like building software that solves real problems and holds up beyond the demo. If you're working on something worth building, reach out.",
     "channels": [
       { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
-      { "label": "VISA_STATUS", "value": "F-1 · CPT Authorized", "caption": "STEM OPT eligible · Long-term H-1B" }
+      { "label": "WORK_AUTHORIZATION", "value": "F-1 · CPT Authorized", "caption": "STEM OPT eligible · Long-term H-1B" }
     ]
   }
 }
