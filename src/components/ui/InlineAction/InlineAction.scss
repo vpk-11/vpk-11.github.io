@@ -31,6 +31,7 @@
 
   .theme-dark & {
     color: rgba($dark-text, 0.65);
-    &:hover { color: var(--section-accent); }
+    svg { color: $accent-primary-dark-text; }
+    &:hover { color: $accent-primary-dark-text; }
   }
 }

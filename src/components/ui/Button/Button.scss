@@ -23,7 +23,9 @@
   border: 1px solid var(--accent-color);
 
   .theme-light & { color: #fff; }
-  .theme-dark &  { color: $dark-bg; font-weight: 700; }
+  // raw dark accent as background is fine, but $dark-bg text on it fails
+  // AA (2.5:1) — white clears ~8.5:1 against the same background.
+  .theme-dark &  { color: #fff; font-weight: 700; }
 
   &:hover {
     opacity: 0.86;
@@ -55,4 +57,7 @@
     color: var(--accent-color);
     transform: translateY(-2px);
   }
+
+  // raw dark accent fails AA-4.5 as text; override just the text color
+  .theme-dark &:hover { color: $accent-primary-dark-text; }
 }

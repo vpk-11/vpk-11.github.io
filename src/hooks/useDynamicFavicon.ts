@@ -2,9 +2,13 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../store/store';
 
+// Mirrors $accent-primary-light / $accent-primary-dark-text in
+// _variables.scss — dark uses the lightened text-safe tint, not the raw
+// $accent-primary-dark, since the letter mark is a glyph fill that needs
+// AA legibility against the bg, same as any other text-color use.
 const THEME_COLORS = {
-  light: { bg: '#fafafa', accent: '#2563EB' },
-  dark:  { bg: '#0a0a0a', accent: '#E09B5F' },
+  light: { bg: '#fafafa', accent: '#1B502D' },
+  dark:  { bg: '#0a0a0a', accent: '#3D8F5C' },
 } as const;
 
 export const PATH_0 = `M473.000000,1025.000000 

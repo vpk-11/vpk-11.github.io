@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ExternalLink, Award, Wrench } from 'lucide-react';
+import React from 'react';
+import { ExternalLink } from 'lucide-react';
 import skillsData from '../../data/skills.json';
 import certificationsData from '../../data/certifications.json';
 import generalData from '../../data/general.json';
@@ -8,27 +8,21 @@ import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
 import Card from '../../components/ui/Card/Card';
-import Tab from '../../components/ui/Tab/Tab';
 import './Skills.scss';
 
+// Certifications continue the same numbered-row dossier as skills — no tab
+// switch, no second header. The cert grid sits in the row's right-hand
+// column same as a skill category's pill wrap.
 const Skills: React.FC = () => {
   const skills = skillsData as Skill[];
   const certifications = certificationsData as Certification[];
   const general = generalData as GeneralData;
-  const [tab, setTab] = useState<'skills' | 'certifications'>('skills');
+  const heading = general.sectionHeadings.skills;
 
-  const heading = tab === 'skills'
-    ? general.sectionHeadings.skills
-    : general.sectionHeadings.certifications;
-
-  const SK_PANEL_ID = 'sk-tabpanel';
-
-  const handleTabsKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-    e.preventDefault();
-    const next = tab === 'skills' ? 'certifications' : 'skills';
-    setTab(next);
-    requestAnimationFrame(() => document.getElementById(`sk-tab-${next}`)?.focus());
+  const certRemainder = certifications.length % 3;
+  const getCertSpanClass = (i: number) => {
+    if (certRemainder === 0 || i >= certRemainder) return '';
+    return certRemainder === 1 ? 'cert-span-full' : 'cert-span-half';
   };
 
   return (
@@ -37,51 +31,32 @@ const Skills: React.FC = () => {
         <SectionHeader
           sectionId="skills"
           label="STACK"
-          headline={heading ? formatText(heading.headline) : 'Skills & Certifications'}
+          headline={heading ? formatText(heading.headline) : 'Skills'}
         />
 
-        {/* Toggle — same pill style as project tabs */}
-        <div className="sk-tabs" role="tablist" aria-label="Skills view" onKeyDown={handleTabsKeyDown}>
-          <Tab id="sk-tab-skills" controls={SK_PANEL_ID} active={tab === 'skills'} onClick={() => setTab('skills')} className="sk-tab" icon={<Wrench size={15} />}>
-            Skills
-          </Tab>
-          <Tab id="sk-tab-certifications" controls={SK_PANEL_ID} active={tab === 'certifications'} onClick={() => setTab('certifications')} className="sk-tab" icon={<Award size={15} />}>
-            Certifications
-          </Tab>
-        </div>
-
-        {/* Skills panel — numbered category rows, tiered pills */}
-        {tab === 'skills' && (
-          <div id={SK_PANEL_ID} role="tabpanel" aria-labelledby="sk-tab-skills" className="skill-stack sk-panel">
-            {skills.map((skillGroup, i) => (
-              <div className="skill-row" key={skillGroup.category}>
-                <div>
-                  <span className="skill-row-index">/ {String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="skill-row-name">{skillGroup.category}</h3>
-                </div>
-                <div className="skill-pills-wrap">
-                  {skillGroup.items.map(item => (
-                    <Tag key={item.name} variant="tiered" level={item.level ?? 1}>
-                      {item.name}
-                    </Tag>
-                  ))}
-                </div>
+        <div className="skill-stack">
+          {skills.map((skillGroup, i) => (
+            <div className="skill-row" key={skillGroup.category}>
+              <div>
+                <span className="skill-row-index">/ {String(i + 1).padStart(2, '0')}</span>
+                <h3 className="skill-row-name">{skillGroup.category}</h3>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="skill-pills-wrap">
+                {skillGroup.items.map(item => (
+                  <Tag key={item.name} variant="tiered" level={item.level ?? 1}>
+                    {item.name}
+                  </Tag>
+                ))}
+              </div>
+            </div>
+          ))}
 
-        {/* Certifications panel — 3-col grid, first row spans remainder */}
-        {tab === 'certifications' && (() => {
-          const total = certifications.length;
-          const remainder = total % 3;
-          const getSpanClass = (i: number) => {
-            if (remainder === 0 || i >= remainder) return '';
-            if (remainder === 1) return 'cert-span-full';
-            return 'cert-span-half';
-          };
-          return (
-            <div id={SK_PANEL_ID} role="tabpanel" aria-labelledby="sk-tab-certifications" className="certifications-list sk-panel">
+          <div className="skill-row cert-row">
+            <div>
+              <span className="skill-row-index">/ {String(skills.length + 1).padStart(2, '0')}</span>
+              <h3 className="skill-row-name">Certifications</h3>
+            </div>
+            <div className="certifications-list">
               {certifications.map((cert, i) => (
                 <Card
                   key={cert.id}
@@ -89,10 +64,10 @@ const Skills: React.FC = () => {
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`certification-item ${getSpanClass(i)}`}
+                  className={`certification-item ${getCertSpanClass(i)}`}
                 >
                   <div className="cert-content">
-                    <h3 className="cert-name">{cert.name}</h3>
+                    <h4 className="cert-name">{cert.name}</h4>
                     <p className="cert-issuer">{cert.issuer}</p>
                     <p className="cert-date">{cert.issueDate}</p>
                   </div>
@@ -100,8 +75,8 @@ const Skills: React.FC = () => {
                 </Card>
               ))}
             </div>
-          );
-        })()}
+          </div>
+        </div>
 
       </div>
     </section>

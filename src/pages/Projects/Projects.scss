@@ -3,7 +3,7 @@
 
 .projects-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.25rem;
   align-items: stretch;
 
   &.pr-cols-1 { grid-template-columns: 1fr; }
@@ -35,20 +35,13 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 1.25rem;
 
-  // Override Card's inherited left accent bar into a full-width top bar,
-  // slides in from left on hover instead of scaling up from the bottom.
+  // Card's inherited left accent bar (ui/Card's accent-bar-left mixin) is
+  // switched off entirely here — the shimmer sweep below is the only hover
+  // affordance, no separate bar/line on top of it.
   &::before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    .theme-light & { background: rgba($light-text, 0.35); }
-    .theme-dark &  { background: rgba($dark-text, 0.35); }
+    display: none;
   }
 
   // Shimmer overlay — sweeps diagonally on hover
@@ -68,12 +61,7 @@
   }
 
   &:hover {
-    // transform-origin repeated here, not just in the base &::before rule
-    // above, since ui/Card's own accent-bar-left hover rule also sets
-    // transform-origin (to top) — stating it explicitly here avoids relying
-    // on the compound selector's specificity edge to win that property.
-    &::before { transform: scaleX(1); transform-origin: left; }
-    &::after  { transform: translateX(100%); }
+    &::after { transform: translateX(100%); }
   }
 }
 
@@ -87,31 +75,35 @@
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .card-description {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .card-description-line {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.55;
   opacity: 0.85;
   margin-bottom: 0.5rem;
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 
   &:last-child { margin-bottom: 0; }
 }
 
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.5rem 0;
+// Plain `·`-joined text, not tags/pills — single line on the card (capped
+// to CARD_TECH_LIMIT + trailing ellipsis in Projects.tsx), full list in the
+// modal. Shared class, same styling both places.
+.tech-list {
+  font-family: $font-mono;
+  font-size: 0.76rem;
+  margin: 0.75rem 0;
+
+  .theme-light & { color: rgba($light-text, 0.6); }
+  .theme-dark &  { color: rgba($dark-text, 0.6); }
 }
 
 // ============================================
@@ -166,17 +158,6 @@
 // Override on top of ui/InlineAction's base .inline-action — only the gap differs here.
 .project-link {
   gap: 0.35rem;
-}
-
-// ============================================
-// TABS
-// ============================================
-
-.pr-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
 }
 
 // ============================================
@@ -253,6 +234,22 @@
 .pr-modal-live {
   position: static;
   margin-left: auto;
+}
+
+// Overrides on top of .tech-list's base look — sized to match the old pill
+// text (0.82rem) instead of the card's smaller 0.76rem, and framed as its
+// own strip (border above/below) instead of floating loose between the
+// links row and the body paragraph.
+.pr-modal-tech {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.08); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.08); }
 }
 
 .pr-modal-body {

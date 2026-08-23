@@ -6,7 +6,7 @@ import type { Education as EducationType, GeneralData } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Tag from '../../components/ui/Tag/Tag';
-import Card, { CardMeta } from '../../components/ui/Card/Card';
+import { CardMeta } from '../../components/ui/Card/Card';
 import './Education.scss';
 
 const Education: React.FC = () => {
@@ -22,40 +22,39 @@ const Education: React.FC = () => {
           label="EDUCATION"
           headline={headline ? formatText(headline) : 'Education'}
         />
-        <div className="education-grid">
+        <div className="education-stack">
           {education.map(edu => (
-            <Card key={edu.id} className="education-card">
+            <div className="edu-row" key={edu.id}>
 
-              <h3 className="ed-ct card-title">{edu.degree}</h3>
-              <h4 className="ed-cs card-subtitle">{edu.institution}</h4>
+              <h3 className="ed-ct edu-degree">{edu.degree}</h3>
+              <h4 className="ed-cs edu-institution">{edu.institution}</h4>
 
               <CardMeta
                 items={[
-                  { icon: <Calendar size={16} className="ed-mi meta-icon" />, text: edu.duration, textClassName: 'card-duration' },
-                  { icon: <MapPin size={16} className="ed-mi meta-icon" />, text: edu.location, textClassName: 'card-location' },
+                  { icon: <Calendar size={14} className="edu-meta-icon" />, text: edu.duration, textClassName: 'edu-meta-text' },
+                  { icon: <MapPin size={14} className="edu-meta-icon" />, text: edu.location, textClassName: 'edu-meta-text' },
                 ]}
               />
 
               {edu.gpa && (
-                <div className="ed-gpa card-gpa">
-                  <Award size={16} className="gpa-icon" />
-                  <span className="gpa-text">GPA: {edu.gpa}</span>
+                <div className="edu-gpa">
+                  <Award size={16} className="edu-gpa-icon" />
+                  <span className="edu-gpa-text">GPA: {edu.gpa}</span>
                 </div>
               )}
 
-              {/* Coursework tags */}
               {edu.coursework && edu.coursework.length > 0 && (
-                <div className="ed-coursework">
-                  <p className="coursework-label">Relevant Coursework</p>
-                  <div className="coursework-tags">
+                <div className="edu-coursework">
+                  <p className="edu-coursework-label">Relevant Coursework</p>
+                  <div className="edu-coursework-tags">
                     {edu.coursework.map(course => (
-                      <Tag key={course} className="ed-coursework-tag">{course}</Tag>
+                      <Tag key={course} className="edu-coursework-tag">{course}</Tag>
                     ))}
                   </div>
                 </div>
               )}
 
-            </Card>
+            </div>
           ))}
         </div>
       </div>
