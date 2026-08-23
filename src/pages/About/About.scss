@@ -17,15 +17,6 @@
   }
 }
 
-// ============================================
-// LEFT — BIO PANEL (scrim fix, About only)
-// ============================================
-
-.about-panel {
-  @include scrim-panel;
-  padding: clamp(1.5rem, 2.5vw, 2.5rem);
-}
-
 .dropcap-p,
 .about-body-p {
   font-size: clamp(1.05rem, 1.1vw + 0.35rem, 1.15rem);

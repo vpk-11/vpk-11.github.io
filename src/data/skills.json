@@ -1,14 +1,14 @@
 [
   {
-    "category": "Programming Languages",
+    "category": "Languages",
     "items": [
       { "name": "Python" },
-      { "name": "JavaScript" },
       { "name": "Java" },
-      { "name": "C#" },
-      { "name": "C++" },
       { "name": "TypeScript" },
+      { "name": "JavaScript" },
+      { "name": "C++" },
       { "name": "C" },
+      { "name": "C#" },
       { "name": "SQL" }
     ]
   },
@@ -16,46 +16,39 @@
     "category": "Frontend",
     "items": [
       { "name": "React" },
+      { "name": "Tailwind CSS" },
       { "name": "Redux" },
       { "name": "Vite" },
-      { "name": "Tailwind CSS" },
       { "name": "HTML5" },
       { "name": "CSS3" },
-      { "name": "SCSS / SASS" },
-      { "name": "Responsive Design" }
+      { "name": "SCSS / SASS" }
     ]
   },
   {
-    "category": "Backend",
+    "category": "Backend & APIs",
     "items": [
       { "name": "FastAPI" },
       { "name": "Node.js" },
       { "name": "Express.js" },
       { "name": "Spring Boot" },
-      { "name": "gRPC" },
       { "name": ".NET" },
       { "name": "Flask" },
-      { "name": "Pydantic" },
-      { "name": "MongoDB" },
-      { "name": "PostgreSQL" },
-      { "name": "MySQL" },
-      { "name": "OracleSQL" },
-      { "name": "Redis" },
-      { "name": "tRPC" },
+      { "name": "gRPC" },
+      { "name": "Protocol Buffers" },
       { "name": "REST APIs" },
-      { "name": "Authentication" },
-      { "name": "Database Design" },
+      { "name": "tRPC" },
+      { "name": "Pydantic" },
       { "name": "Model Context Protocol (MCP)" }
     ]
   },
   {
-    "category": "Machine Learning",
+    "category": "AI & Machine Learning",
     "items": [
       { "name": "PyTorch" },
       { "name": "TensorFlow" },
       { "name": "Scikit-learn" },
-      { "name": "Large Language Models (LLM)" },
-      { "name": "Agentic AI / Pipelines" },
+      { "name": "Large Language Models (LLMs)" },
+      { "name": "Agentic AI" },
       { "name": "Multi-Agent Systems" },
       { "name": "Deep Learning" },
       { "name": "Computer Vision" },
@@ -63,31 +56,26 @@
     ]
   },
   {
-    "category": "Design & UX",
+    "category": "Databases",
     "items": [
-      { "name": "Figma" },
-      { "name": "UI/UX Design" },
-      { "name": "Wireframing" }
+      { "name": "PostgreSQL" },
+      { "name": "MongoDB" },
+      { "name": "MySQL" },
+      { "name": "Oracle SQL" },
+      { "name": "Redis" }
     ]
   },
   {
-    "category": "Tools & DevOps",
+    "category": "Infrastructure & DevOps",
     "items": [
       { "name": "Docker" },
       { "name": "Kubernetes" },
-      { "name": "Grafana" },
+      { "name": "Linux" },
       { "name": "OpenShift" },
       { "name": "GitHub Actions" },
       { "name": "Jenkins" },
       { "name": "CI/CD" },
-      { "name": "Linux" },
-      { "name": "Git" },
-      { "name": "GitHub" },
-      { "name": "Postman" },
-      { "name": "Webpack" },
-      { "name": "Agile" },
-      { "name": "Blockchain" },
-      { "name": "DevOps" }
+      { "name": "Grafana" }
     ]
   }
 ]

@@ -1,41 +1,34 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.education-grid {
-  display: grid;
-  gap: 2rem;
+// Flat divided list, same treatment as BeyondTheCode's leadership-stack —
+// no card box, no background, just text hierarchy separated by a thin
+// divider line.
+.education-stack {
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
 }
 
-// Overrides on top of ui/Card's base .card — only what differs here.
-.education-card {
-  .card-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
+.edu-row {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid;
 
-  .card-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-  }
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
+}
 
-  .card-meta {
-    gap: 1.5rem;
-    margin-bottom: 1.25rem;
+.edu-degree {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 
-    @include respond-to(mobile) { gap: 1rem; }
-  }
-
-  .meta-item {
-    gap: 0.5rem;
-  }
-
-  .card-duration,
-  .card-location {
-    font-size: 0.95rem;
-
-    .theme-dark & { color: rgba($dark-text, 0.75); }
-    .theme-light & { color: rgba($light-text, 0.7); }
-  }
+.edu-institution {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .ed-ct {
@@ -46,42 +39,70 @@
 .ed-cs {
   color: var(--section-accent);
   font-family: $font-mono;
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
-.ed-mi {
-  color: var(--section-accent);
+.edu-row .card-meta {
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+
+  @include respond-to(mobile) { gap: 1rem; }
 }
 
-.ed-gpa.card-gpa {
+.edu-row .meta-item {
+  gap: 0.5rem;
+}
+
+// Meta icons/text stay neutral gray — no accent color here, matches the
+// muted calendar/pin styling in the reference (only institution/GPA carry color).
+.edu-meta-icon {
+  flex-shrink: 0;
+
+  .theme-dark & { color: rgba($dark-text, 0.6); }
+  .theme-light & { color: rgba($light-text, 0.55); }
+}
+
+.edu-meta-text {
+  font-size: 0.95rem;
+  font-family: $font-mono;
+
+  .theme-dark & { color: rgba($dark-text, 0.75); }
+  .theme-light & { color: rgba($light-text, 0.7); }
+}
+
+.edu-gpa {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
 }
 
-.gpa-icon {
+// Secondary accent (gold/bronze) marks GPA, distinct from the institution's
+// primary-accent green — matches the reference's award-ribbon color.
+.edu-gpa-icon {
   flex-shrink: 0;
-  color: var(--accent-color);
+  color: var(--accent-secondary);
 }
 
-.gpa-text {
+.edu-gpa-text {
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.3px;
 
-  .theme-dark & { color: rgba($dark-text, 0.75); }
-  .theme-light & { color: rgba($light-text, 0.7); }
+  .theme-dark & { color: $dark-text; }
+  .theme-light & { color: $light-text; }
 }
 
 // ============================================
 // COURSEWORK TAGS
 // ============================================
 
-.ed-coursework {
+.edu-coursework {
   margin-top: 0.25rem;
 }
 
-.coursework-label {
+.edu-coursework-label {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.7px;
@@ -93,14 +114,14 @@
   .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
-.coursework-tags {
+.edu-coursework-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
 
 // Overrides on top of ui/Tag's base .tag — only what differs here.
-.ed-coursework-tag {
+.edu-coursework-tag {
   padding: 0.3rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;

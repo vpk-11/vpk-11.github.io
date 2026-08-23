@@ -55,6 +55,16 @@
   gap: 0.6rem 0.75rem;
 }
 
+// Certifications continue the same numbered-row dossier as the skill
+// categories above, but the cert grid needs the full row width (not just
+// the 1fr pill column), so this row stacks label-over-content instead of
+// the two-column skill-row layout.
+.cert-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .certifications-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -100,9 +110,11 @@
   text-decoration: none;
   cursor: pointer;
 
-  // accent-bar-left's default transition is 0.4s; this card's was 0.3s.
+  // ui/Card's inherited left accent bar (accent-bar-left mixin, grows on
+  // hover) is switched off here — same call as Experience's cards, gimmicky
+  // on a grid of static (non-Project) cards.
   &::before {
-    transition: transform 0.3s ease;
+    display: none;
   }
 }
 
@@ -129,6 +141,8 @@
   font-weight: 600;
   font-family: $font-mono;
   color: var(--section-accent);
+
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
 .cert-date {
@@ -142,39 +156,8 @@
 
 .cert-icon {
   flex-shrink: 0;
-  transition: $transition-quick;
   color: var(--section-accent);
 
-  .certification-item:hover & {
-    transform: translate(4px, -4px);
-  }
+  .theme-dark & { color: $accent-primary-dark-text; }
 }
 
-// ============================================
-// TABS
-// ============================================
-
-.sk-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-// Override on top of ui/Tab's base .tab — light-theme active text was
-// $light-bg here, not the #fff Tab defaults to (Projects' pr-tab, which
-// uses that default, is the more common case). Compound selector
-// (.tab.sk-tab.active) so this reliably beats Tab's own rule regardless
-// of CSS load order — see CLAUDE.md's page-override specificity note.
-.tab.sk-tab {
-  .theme-light &.active { color: $light-bg; }
-}
-
-.sk-panel {
-  animation: skPanelEnter 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-@keyframes skPanelEnter {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}

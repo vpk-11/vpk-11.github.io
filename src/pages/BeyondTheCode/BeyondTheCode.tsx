@@ -1,10 +1,12 @@
 import React from 'react';
+import { Calendar } from 'lucide-react';
 import extracurricularsData from '../../data/extracurriculars.json';
 import type { BeyondTheCode as BeyondTheCodeType } from '../../types';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
 import Panel from '../../components/ui/Panel/Panel';
 import Stat from '../../components/ui/Stat/Stat';
+import { CardMeta } from '../../components/ui/Card/Card';
 import './BeyondTheCode.scss';
 
 const BeyondTheCode: React.FC = () => {
@@ -27,7 +29,11 @@ const BeyondTheCode: React.FC = () => {
               <div className="leadership-panel">
                 <div className="leadership-role">{block.role}</div>
                 <div className="leadership-org">{block.org}</div>
-                <div className="leadership-dates">{block.dates}</div>
+                <CardMeta
+                  items={[
+                    { icon: <Calendar size={14} className="leadership-meta-icon" />, text: block.dates, textClassName: 'leadership-meta-text' },
+                  ]}
+                />
                 <ul className="leadership-bullets">
                   {block.bullets.map((bullet, j) => (
                     <li key={j}>

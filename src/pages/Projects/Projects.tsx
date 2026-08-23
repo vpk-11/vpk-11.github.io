@@ -4,22 +4,24 @@ import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
 import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
-import Tag from '../../components/ui/Tag/Tag';
 import InlineAction from '../../components/ui/InlineAction/InlineAction';
 import Modal from '../../components/ui/Modal/Modal';
-import Tab from '../../components/ui/Tab/Tab';
 import Card from '../../components/ui/Card/Card';
 import type { Project, GeneralData } from '../../types';
 import './Projects.scss';
 
-const SHORT_DESC_LIMIT = 150;
+const CARD_DESC_LIMIT = 250;
+const CARD_TECH_LIMIT = 5;
 
+// Mirrors formatText.tsx's token list (kept in sync manually — formatText
+// renders JSX so it can't double as the plain-length source truncate() needs).
 function stripMarkdown(str: string): string {
   return str
     .replace(/\*\*(.*?)\*\*/g, '$1')
     .replace(/\*(.*?)\*/g, '$1')
     .replace(/\{accent\}(.*?)\{\/accent\}/g, '$1')
     .replace(/\{outline\}(.*?)\{\/outline\}/g, '$1')
+    .replace(/\{small\}(.*?)\{\/small\}/g, '$1')
     .replace(/\[(.*?)\]\(.*?\)/g, '$1');
 }
 
@@ -34,11 +36,17 @@ function toAbsolute(url?: string) {
   return url.startsWith('http') ? url : `https://${url}`;
 }
 
-function slug(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-}
-
-const PROJECTS_PANEL_ID = 'pr-tabpanel';
+// Plain `·`-joined text, not tags/pills. Card truncates to the first
+// CARD_TECH_LIMIT with a trailing ellipsis; modal always shows the full list.
+const TechList: React.FC<{ tech: string[]; limit?: number }> = ({ tech, limit }) => {
+  const shown = limit ? tech.slice(0, limit) : tech;
+  const truncated = limit != null && tech.length > limit;
+  return (
+    <p className="tech-list">
+      {shown.join(' · ')}{truncated && ' …'}
+    </p>
+  );
+};
 
 // ─── ProjectCard ──────────────────────────────────────────────────────────────
 
@@ -48,9 +56,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
-  const shortLines = project.shortDescription
-    ? project.shortDescription.map(line => truncate(line, SHORT_DESC_LIMIT))
-    : [truncate(project.description, SHORT_DESC_LIMIT)];
+  const shortDesc = truncate(project.shortDescription ?? project.description, CARD_DESC_LIMIT);
 
   return (
     <Card className="project-card">
@@ -63,16 +69,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
 
       <h3 className="pr-ct card-title">{project.title}</h3>
       <div className="card-description">
-        {shortLines.map((line, i) => (
-          <p key={i} className="card-description-line">{formatText(line)}</p>
-        ))}
+        <p className="card-description-line">{formatText(shortDesc)}</p>
       </div>
 
-      <div className="tech-stack">
-        {project.tech.map(t => (
-          <Tag key={t}>{t}</Tag>
-        ))}
-      </div>
+      <TechList tech={project.tech} limit={CARD_TECH_LIMIT} />
 
       <div className="pr-card-footer">
         <div className="project-links">
@@ -164,15 +164,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
       )}
     </div>
 
+    <p className="tech-list pr-modal-tech">{project.tech.join(' · ')}</p>
+
     <div className="pr-modal-body">
       {project.description.split('\n\n').map((para, i) => (
         <p key={i}>{formatText(para)}</p>
-      ))}
-    </div>
-
-    <div className="tech-stack">
-      {project.tech.map(t => (
-        <Tag key={t}>{t}</Tag>
       ))}
     </div>
   </Modal>
@@ -191,45 +187,9 @@ const Projects: React.FC = () => {
   const headline = general.sectionHeadings.projects.headline;
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const categoryTabs = useMemo(() => {
-    const seen = new Set<string>();
-    projects.forEach(p => (p.categories ?? []).forEach((c: string) => seen.add(c)));
-    return Array.from(seen);
-  }, [projects]);
-
-  const tabs = useMemo(() => ['Featured', 'All', ...categoryTabs], [categoryTabs]);
-
-  const [activeTab, setActiveTab] = useState('Featured');
-
-  const filtered = useMemo(() => {
-    if (activeTab === 'Featured') return projects.filter(p => p.featured === true);
-    if (activeTab === 'All') return projects;
-    return projects.filter(p => (p.categories ?? []).includes(activeTab));
-  }, [projects, activeTab]);
-
-  function tabCount(tab: string): number {
-    if (tab === 'Featured') return projects.filter(p => p.featured === true).length;
-    if (tab === 'All') return projects.length;
-    return projects.filter(p => (p.categories ?? []).includes(tab)).length;
-  }
-
-  const colClass = filtered.length === 4
+  const colClass = projects.length === 4
     ? 'pr-cols-4'
-    : `pr-cols-${Math.min(filtered.length, 3)}`;
-
-  const handleTabsKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
-    e.preventDefault();
-    const idx = tabs.indexOf(activeTab);
-    let nextIdx = idx;
-    if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + tabs.length) % tabs.length;
-    if (e.key === 'ArrowRight') nextIdx = (idx + 1) % tabs.length;
-    if (e.key === 'Home') nextIdx = 0;
-    if (e.key === 'End') nextIdx = tabs.length - 1;
-    const next = tabs[nextIdx];
-    setActiveTab(next);
-    requestAnimationFrame(() => document.getElementById(`pr-tab-${slug(next)}`)?.focus());
-  };
+    : `pr-cols-${Math.min(projects.length, 3)}`;
 
   return (
     <section id="projects" className="section projects-section">
@@ -240,31 +200,8 @@ const Projects: React.FC = () => {
           headline={headline ? formatText(headline) : 'Projects'}
         />
 
-        {tabs.length > 0 && (
-          <div className="pr-tabs" role="tablist" aria-label="Project categories" onKeyDown={handleTabsKeyDown}>
-            {tabs.map(tab => (
-              <Tab
-                key={tab}
-                id={`pr-tab-${slug(tab)}`}
-                controls={PROJECTS_PANEL_ID}
-                active={activeTab === tab}
-                onClick={() => setActiveTab(tab)}
-                className="pr-tab"
-                count={tabCount(tab)}
-              >
-                {tab}
-              </Tab>
-            ))}
-          </div>
-        )}
-
-        <div
-          id={PROJECTS_PANEL_ID}
-          className={`projects-grid ${colClass}`}
-          role="tabpanel"
-          aria-labelledby={`pr-tab-${slug(activeTab)}`}
-        >
-          {filtered.map(project => (
+        <div className={`projects-grid ${colClass}`}>
+          {projects.map(project => (
             <ProjectCard key={project.id} project={project} onSelect={setSelected} />
           ))}
         </div>
