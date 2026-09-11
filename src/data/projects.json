@@ -55,21 +55,21 @@
   },
   {
     "id": 7,
-    "title": "Deepfake Deconstruction",
-    "shortDescription": "A deep learning pipeline that traces a face-swapped deepfake photo back to the original source image it was built from, instead of just flagging that it's fake.",
-    "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
-    "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
-    "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon"
-  },
-  {
-    "id": 8,
     "title": "Stroke Biomarker Extraction",
     "shortDescription": "An ML pipeline that extracts movement biomarkers from wrist-accelerometer data to predict stroke-recovery outcomes, and measures which parts of a pretrained movement model's output can actually be trusted.",
     "description": "Wrist trackers are cheap and always worn, so if the movement signal they capture carries real clinical signal, stroke recovery could be monitored without a clinic visit. This project measures how much of that signal a pretrained movement model actually captures, and which parts of its output are reliable enough to trust.\n\nRaw wrist-accelerometer recordings across **61 subjects** and **587,046 windows** are preprocessed into per-visit HDF5 files, then run through a frozen pretrained **transformer** (**Bio-PM**) to produce **1028-d embeddings** per clinical visit. Three extraction-pipeline variants were built across windowing and token-pooling strategies, including a corrected masked-pooling path after finding the model's original pooling averaged over NaN-padded slots.\n\n**Leave-one-subject-out** Ridge regression against continuous ARAT and FMA clinical scores shows the **128-d accelerometer sub-stream alone** predicts impairment better (**R2 approx 0.56**) than the full 1028-d vector (**approx 0.49**), with the unusable 900-d gravity sub-stream root-caused to a **DC-removal artifact** in the source data. A per-dimension **ICC reliability** screen isolates 125 to 127 of 1028 dimensions as stable, all in the accelerometer sub-stream. Graduate course project (CS690R, digital biomarkers, UMass Amherst), built with a team of 3.",
     "tech": ["Python", "PyTorch", "NumPy", "scikit-learn", "h5py"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/690r-project"
+  },
+  {
+    "id": 8,
+    "title": "Deepfake Deconstruction",
+    "shortDescription": "A deep learning pipeline that traces a face-swapped deepfake photo back to the original source image it was built from, instead of just flagging that it's fake.",
+    "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
+    "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
+    "liveDeploymentUrl": "",
+    "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon"
   },
   {
     "id": 9,
