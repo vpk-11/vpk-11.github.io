@@ -21,7 +21,7 @@
   "homepage": "https://vpk-11.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.1",
-    "framer-motion": "^12.42.2",
+    "framer-motion": "^13.4.1",
     "lucide-react": "^0.546.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
