@@ -102,6 +102,7 @@ export interface Project {
   title: string;
   shortDescription?: string;  // shown on card, falls back to a truncated `description` if absent
   description: string;        // shown in modal — full detail
+  fact?: string;              // optional one-line side fact, shown above the modal body
   tech: string[];
   liveDeploymentUrl?: string;    // live deployed URL — shows Live badge if present
   githubLink: string;  // explicit github URL — replaces generic link

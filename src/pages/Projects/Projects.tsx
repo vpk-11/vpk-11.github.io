@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Github, Maximize2 } from 'lucide-react';
+import { ExternalLink, Github, Lightbulb, Maximize2 } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 import generalData from '../../data/general.json';
 import { formatText } from '../../utils/formatText';
@@ -165,6 +165,13 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => (
     </div>
 
     <p className="tech-list pr-modal-tech">{project.tech.join(' · ')}</p>
+
+    {project.fact && (
+      <div className="pr-modal-fact">
+        <Lightbulb size={14} aria-hidden="true" />
+        <p>{project.fact}</p>
+      </div>
+    )}
 
     <div className="pr-modal-body">
       {project.description.split('\n\n').map((para, i) => (
