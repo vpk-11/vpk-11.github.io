@@ -3,78 +3,76 @@
     "category": "Languages",
     "items": [
       { "name": "Python" },
-      { "name": "Java" },
       { "name": "TypeScript" },
       { "name": "JavaScript" },
-      { "name": "C++" },
-      { "name": "C" },
       { "name": "C#" },
+      { "name": "C++" },
+      { "name": "Java" },
+      { "name": "C" },
       { "name": "SQL" }
     ]
   },
   {
-    "category": "Frontend",
-    "items": [
-      { "name": "React" },
-      { "name": "Tailwind CSS" },
-      { "name": "Redux" },
-      { "name": "Vite" },
-      { "name": "HTML5" },
-      { "name": "CSS3" },
-      { "name": "SCSS / SASS" }
-    ]
-  },
-  {
-    "category": "Backend & APIs",
-    "items": [
-      { "name": "FastAPI" },
-      { "name": "Node.js" },
-      { "name": "Express.js" },
-      { "name": "Spring Boot" },
-      { "name": ".NET" },
-      { "name": "Flask" },
-      { "name": "gRPC" },
-      { "name": "Protocol Buffers" },
-      { "name": "REST APIs" },
-      { "name": "tRPC" },
-      { "name": "Pydantic" },
-      { "name": "Model Context Protocol (MCP)" }
-    ]
-  },
-  {
-    "category": "AI & Machine Learning",
+    "category": "AI & ML",
     "items": [
       { "name": "PyTorch" },
       { "name": "TensorFlow" },
-      { "name": "Scikit-learn" },
-      { "name": "Large Language Models (LLMs)" },
-      { "name": "Agentic AI" },
-      { "name": "Multi-Agent Systems" },
-      { "name": "Deep Learning" },
-      { "name": "Computer Vision" },
-      { "name": "Natural Language Processing" }
+      { "name": "LiteLLM" },
+      { "name": "MCP" },
+      { "name": "Pydantic" }
     ]
   },
   {
-    "category": "Databases",
+    "category": "Frameworks",
     "items": [
-      { "name": "PostgreSQL" },
+      { "name": "React" },
+      { "name": "Tailwind CSS" },
+      { "name": "Node.js" },
+      { "name": "Express.js" },
+      { "name": "FastAPI" },
+      { "name": "Flask" },
+      { "name": ".NET" },
+      { "name": "tRPC" },
+      { "name": "Spring Boot" }
+    ]
+  },
+  {
+    "category": "Infrastructure",
+    "items": [
+      { "name": "Linux" },
+      { "name": "Kubernetes" },
+      { "name": "OpenShift" },
+      { "name": "nginx" },
+      { "name": "Docker" },
+      { "name": "GitHub Actions" },
+      { "name": "Google Cloud" },
+      { "name": "Jenkins" },
+      { "name": "CI/CD" },
+      { "name": "Git" }
+    ]
+  },
+  {
+    "category": "APIs & Data",
+    "items": [
+      { "name": "REST APIs" },
+      { "name": "gRPC" },
       { "name": "MongoDB" },
       { "name": "MySQL" },
       { "name": "Oracle SQL" },
+      { "name": "PostgreSQL" },
       { "name": "Redis" }
     ]
   },
   {
-    "category": "Infrastructure & DevOps",
+    "category": "Testing & Observability",
     "items": [
-      { "name": "Docker" },
-      { "name": "Kubernetes" },
-      { "name": "Linux" },
-      { "name": "OpenShift" },
-      { "name": "GitHub Actions" },
-      { "name": "Jenkins" },
-      { "name": "CI/CD" },
+      { "name": "NUnit" },
+      { "name": "xUnit" },
+      { "name": "Jest" },
+      { "name": "Playwright" },
+      { "name": "pytest" },
+      { "name": "JUnit" },
+      { "name": "Prometheus" },
       { "name": "Grafana" }
     ]
   }

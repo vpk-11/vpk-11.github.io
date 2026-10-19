@@ -1,39 +1,38 @@
 [
   {
     "id": 1,
-    "title": "Narada",
-    "shortDescription": "A self-correcting agentic search pipeline that researches any topic and hands back a table of facts, each one linked straight back to its source, and searches again to fill any gaps.",
-    "description": "Narada takes a research topic and returns a structured table of facts, each value linked back to the page it came from. When the first pass leaves gaps, it runs targeted follow-up searches to fill them instead of stopping there.\n\nIt runs as a **self-correcting agentic pipeline** in Python/FastAPI: scrapes the web concurrently, uses **LLM extraction** to turn pages into structured entity data (reading **schema.org** data directly when a page already has it, skipping the LLM call), dedupes across sources by fuzzy name match, and computes a **completeness score** to decide whether another search round is worth running. The loop is capped so a sparse query doesn't run forever. Includes a **43-test pytest suite**.\n\nSource traceability is enforced at the **Pydantic data model** layer. Every extracted value carries its source URL, quote, and confidence, so an unsourced value can't exist, and a conflict between two sources resolves by which one the model was actually more confident in, not an arbitrary tiebreak.\n\nThe LLM layer runs on **LiteLLM** as a provider-agnostic interface, swappable through config with per-step model overrides and automatic failover across **5+ LLM providers and 3 search providers**. Even the public demo runs a **zero-server-side-secret** architecture: user-supplied API keys travel as per-request headers and are never stored server-side.",
-    "fact": "Named after Narada, the Hindu sage who carries news between worlds.",
-    "tech": ["Python", "FastAPI", "React", "LiteLLM", "Pydantic"],
-    "liveDeploymentUrl": "https://narada-heij.onrender.com",
-    "githubLink": "https://github.com/vpk-11/narada"
-  },
-  {
-    "id": 2,
     "title": "Atlas",
-    "shortDescription": "A distributed ride matching system that pairs riders with nearby drivers in real time, and keeps matching correctly and fast even while part of the infrastructure is actively crashing mid-request.",
-    "description": "A rider requesting a ride needs a fast, fair match, even if part of the system is failing mid-request. Atlas proves that match still happens correctly and quickly regardless.\n\nThree independently deployable services communicate over **gRPC**/Protocol Buffers: dispatch-service (orchestrator), pricing-service (pure calculator), and trip-service (system of record, its own **MySQL** schema), each containerized with **Docker**. Matching runs a **two-stage pipeline**: a **grid-bucket index** narrows candidates, then an ephemeral **quad-tree** ranks them in logarithmic time, feeding a **lookahead algorithm** that scores drivers on projected time-to-pickup. Real road distance comes from **OSRM**, with automatic fallback to haversine math on failure.\n\nDeployed to **Kubernetes**, fault tolerance was proven by killing a live pod mid-load-test: failure rate held at **0.2-0.4%** with zero cascading restarts. Trip requests write a durable REQUESTED row before matching starts, so a crash mid-match stays recoverable. A **non-blocking OSRM client** with a fail-fast admission gate isolated the real throughput constraint to external OSRM latency (**1.4-1.9s**), not app-side sizing, and explicit gRPC deadlines cut worst-case failure time from 120+ seconds to under 1 second.",
+    "shortDescription": "A ride-dispatch backend that matches riders to nearby drivers, and keeps matching correctly and fast even while part of the infrastructure is dying mid-request.",
+    "description": "A rider requesting a ride needs a fast, fair match to a driver, even when the system behind the match is actively failing. Atlas exists to prove that the match still happens, correctly and quickly, while a piece of the infrastructure dies mid-request.\n\nThree independently deployable services talk over **gRPC**/Protocol Buffers: dispatch-service (orchestrator), pricing-service (pure calculator), and trip-service (system of record, its own **MySQL** schema), each containerized with **Docker**. Matching is **two-stage**: a grid-bucket index narrows the drivers, a per-request **quad-tree** ranks them, and a **lookahead score** on projected time-to-pickup lets a driver about to finish a nearby ride beat a farther idle one. Road distance comes from **OSRM**, falling back to haversine math on timeout.\n\nDeployed to **Kubernetes** with **Prometheus** and **Grafana**, then chaos-tested by killing a live dispatch pod mid-ramp to **500 req/s** on a routing stub: **0.00%** of **101,249** requests failed via idempotent retry, with no duplicate trips. Ride requests carry a per-rider **Idempotency-Key** with a lease-based claim and fencing tokens, so 30 concurrent same-key requests create one trip. Explicit 2-second gRPC deadlines turn a dead dependency into a fast, clean error instead of an unbounded hang.",
     "fact": "Named after Atlas, the game where every place starts with the last letter of the one before.",
-    "tech": ["Java", "Spring Boot", "gRPC", "Kubernetes", "Docker", "MySQL", "Protocol Buffers", "OSRM API", "Grafana"],
+    "tech": ["Java", "Spring Boot", "gRPC", "Protocol Buffers", "MySQL", "Docker", "Kubernetes", "Prometheus", "Grafana", "OSRM API"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/atlas"
   },
   {
-    "id": 3,
-    "title": "RiskWise",
-    "shortDescription": "A maritime risk intelligence platform that analyzes live world events, scores shipping routes, and suggests safer alternatives when risk is too high.",
-    "description": "RiskWise answers the question a logistics team actually asks before committing to a route: is this safe right now. Give it a route like Shanghai to Rotterdam and it returns a risk score, a plain-language explanation, and a safer alternative if the numbers say you need one.\n\nThree specialized **LLM agents** split the work. **Athena** gathers what's actually disrupting that specific route from **3 live public sources in parallel** (NASA EONET, USGS Earthquakes, GDELT). **Hermes** scores the risk across **4 independent factors**: weather, labor, geopolitical, congestion. **Apollo** generates a safer alternative if the score crosses threshold.\n\nA **cascading fallback system** (live sources, then database, then LLM synthesis) means the system never returns nothing, even when external APIs are down. The frontend is a **4-page React dashboard** with **MapLibre GL JS** route visualization, a live agent terminal, a threat feed, and trend history, running on **tRPC** and **Drizzle ORM** over PostgreSQL.",
-    "fact": "Built for the Manus AI hackathon, Boston Tech Week 2026.",
-    "tech": ["React", "TypeScript", "PostgreSQL", "Express", "tRPC", "Drizzle ORM", "Tailwind CSS"],
+    "id": 2,
+    "title": "Quantico",
+    "shortDescription": "A quantitative research pipeline built so a \"no\" is believable: it tests whether past stock behavior predicts next week's moves, and shows why a null result is not a bug.",
+    "description": "Most trading backtests look better than they are because the test quietly sees the future. Quantico is built so that a \"no\" is believable: when a signal does not hold up, it says so, and it can show why the answer is not a bug. It uses paper money only.\n\nA **Python** pipeline predicts 5-day returns for **20** US large-caps over 19 years of daily data, scored out-of-sample on **expanding walk-forward** folds with a purge gap. Five significance gates were frozen before the first scoring run, and six integrity tests, including **planted-signal recovery** and a shuffle control, prove the harness would catch a real signal. The baseline lands at **IC 0.006** and **t 0.53**: **no validated edge**.\n\nA **C++17** execution simulator is called as a subprocess and checked bit-exact against a Python reference on **3,600** random orders. It runs about **2x** faster end to end at 200k synthetic orders, packing included. Comparing immediate, TWAP, and VWAP execution found no reliable ranking, because the 0.4-0.7 bps gaps sat inside 3.4 bps of cost-model uncertainty. A daily paper loop keeps replay and forward days apart and holds any edge claim behind a pre-registered 52-rebalance rule. A **91-test** pytest suite runs in GitHub Actions.",
+    "tech": ["Python", "C++", "pandas", "scikit-learn", "statsmodels", "SciPy", "SQLite", "pytest", "GitHub Actions"],
     "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/riskwise"
+    "githubLink": "https://github.com/vpk-11/quantico"
+  },
+  {
+    "id": 3,
+    "title": "Narada",
+    "shortDescription": "An agentic search pipeline that turns a topic into a table where every cell links to its source page with a verified quote, and re-searches to fill any gaps.",
+    "description": "Ever wonder where an AI's answer actually came from? Narada is built around that question. Ask it about any topic and every fact it hands back links straight to the page it came from, so you never have to take a summary on faith.\n\nIt runs as an **agentic pipeline** in Python/FastAPI: scrapes the web concurrently, uses **LLM extraction** to turn pages into structured entity data (reading **schema.org** data directly when a page already has it), dedupes across sources by fuzzy name match, and computes a **completeness score**. When cells are still empty it generates targeted follow-up searches, for up to **2 rounds**.\n\nEvery cell carries its source URL and a quote, enforced at the **Pydantic** model layer so an unsourced value cannot exist. Each quote is then checked against the page it cites, and cells that fail stay in the table flagged unverified. The LLM layer is a provider abstraction over a single **LiteLLM** integration, so any LiteLLM-supported LLM and **3 search providers** swap via env config, with per-step model overrides and automatic failover. API keys travel as per-request headers and are never stored. Covered by an **80-test** pytest suite.",
+    "fact": "Named after Narada, the Hindu sage who carries news between worlds.",
+    "tech": ["Python", "FastAPI", "Pydantic", "React", "LiteLLM", "Tavily"],
+    "liveDeploymentUrl": "https://narada-heij.onrender.com",
+    "githubLink": "https://github.com/vpk-11/narada"
   },
   {
     "id": 4,
     "title": "Donna",
-    "shortDescription": "An AI executive assistant that books appointments, handles reschedules, and messages clients for service businesses through a multi-agent orchestration system.",
-    "description": "Donna handles scheduling, reschedules meetings when plans change, and messages clients directly to keep them in the loop. Book a call, need to move it, cancel last minute: Donna manages that conversation so the business owner doesn't have to.\n\nIt's built as a **multi-agent system** in Python/FastAPI: a **central orchestrator** manages the business owner's side, while an **isolated agent spawns per client conversation**, so no client's context ever bleeds into another's and scheduling conflicts get resolved automatically.\n\nEvery database mutation (booking, rescheduling, cancellation) runs through a **typed MCP tool layer** before it touches anything real, with an in-process agent registry and **Redis**-backed conversation state. A **two-stage LLM firewall** screens inbound messages for prompt injection and outbound messages for hallucinated bookings, and an **LLM judge** decides whether a message gets handled autonomously, flagged to the admin, or escalated.",
+    "shortDescription": "An AI executive assistant that books appointments, handles reschedules, and messages clients for service businesses through a multi-agent system.",
+    "description": "Every service business loses time and money to scheduling chaos: missed calls, double-bookings, clients who fall through the cracks because no one followed up. Donna sits between the business owner (a gym, studio, or consultant) and their clients, handling scheduling, reschedules, and client messages so the owner does not have to.\n\nIt is a **multi-agent system** in Python/FastAPI where each agent is an LLM tool-use loop: an orchestrator routes owner and client texts by phone number to **isolated per-client agents**, so no client's context bleeds into another's.\n\nEvery database write runs through typed **FastMCP** tools, with a runtime guard that raises on any bypass. A **two-stage LLM firewall** screens messages for prompt injection and identity spoofing and fails closed on scanner errors. A separate judge model checks each model-written reply against the turn's tool results before it is sent. Verified with a **101-test** pytest suite and **9 of 9** live scenarios on two local models. On a held-out hand-written set the firewall blocked **16 of 20** injections with **0 of 20** benign client messages falsely blocked.",
     "fact": "Inspired by Donna Paulsen from Suits, the assistant who is always a step ahead of what the business needs.",
     "tech": ["Python", "FastAPI", "LiteLLM", "FastMCP", "Redis", "SQLAlchemy", "Pydantic"],
     "liveDeploymentUrl": "",
@@ -41,67 +40,58 @@
   },
   {
     "id": 5,
-    "title": "Heimdall",
-    "shortDescription": "An AI wholesale order assistant that checks customers, stock, and costs before handing a human a draft to review and approve.",
-    "description": "A wholesale inquiry looks simple but hides real judgment: is this buyer legit, can the order ship from current stock, what does a shortfall cost. Heimdall does that judgment automatically and hands a human a draft to approve.\n\nBuilt on Google's **Agent Development Kit (ADK)** running **Gemini**, gated on both ends by callbacks: a **before-model callback** redacts PII and screens for prompt injection before the LLM ever sees the input, and an **after-model callback** re-scans the draft output for leaked PII and auto-send language. The agent calls **4 read-only MCP tools over stdio** for customer, inventory, and production-cost lookups, so it has no direct database access.\n\nThe reasoning chain computes `shortfall = max(0, (DTC velocity + wholesale ask) - stock)` and branches into production-cost estimation when supply falls short. Human-in-the-loop is a **structural guarantee**, not a prompt instruction: every MCP tool is read-only, so there's no code path to an auto-sent message. Backed by a **41-test suite** and was deployed to Google Cloud Run.",
-    "fact": "Named after the Norse watchman of the gods who guards the Bifröst bridge, played by Idris Elba in the Thor films.",
-    "tech": ["Python", "Google ADK", "Google Gemini", "MCP", "Vertex AI"],
+    "title": "RiskWise",
+    "shortDescription": "A maritime route risk scorer that computes a 0-100 score in code from live public events, then has an LLM agent pick reroutes that code computed and scored.",
+    "description": "Shipping companies commit to a route without a clear, real-time picture of what could go wrong along it. RiskWise gives them an honest, reproducible risk score and suggested alternatives before they commit, not after something breaks.\n\nGive it a route and code computes a **0-100** score across **4 factors** (weather, labor, geopolitical, congestion) from live **NASA EONET**, **USGS**, and maritime news events near the route. The LLM never produces a number. When the score is high, a tool-using LLM agent picks among alternative lanes that code computed and scored, with a deterministic fallback if the model fails or names a route no tool returned. Alternatives are computed on a hand-built sea-lane graph, not AIS data.\n\nEvery stored disruption is labeled live, baseline, or LLM-generated, synthetic events stay out of scoring, and evaluations fail with a clear error instead of a made-up score when every live feed is down. The **4-page React dashboard** runs on **tRPC** end-to-end types and Drizzle/PostgreSQL, with a **MapLibre GL JS** map, a live threat feed, and per-route trend sparklines. Pinned by **213** Vitest tests.",
+    "tech": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "tRPC", "Drizzle ORM", "MapLibre GL JS", "LiteLLM", "Tailwind CSS"],
     "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/heimdall"
+    "githubLink": "https://github.com/vpk-11/riskwise"
   },
   {
     "id": 6,
     "title": "Clinical Copilot",
-    "shortDescription": "An AI clinical chart analysis tool that turns raw patient notes into a structured chart review, with red flags and a medication check.",
-    "description": "Clinical Copilot turns a pile of raw patient notes into something a clinician can actually use: a structured SOAP note, a red-flag list, and a medication check, generated in seconds instead of an afternoon.\n\nA **6-agent pipeline** in Python/FastAPI runs the analysis, with **deterministic fallback extraction** built into every agent, so the system still returns clinically usable output even if the LLM call fails. **Medication and timeline agents run in parallel**, with risk and synthesis sequenced downstream.\n\nMedication data gets enriched through the **OpenFDA drug label API** for real interaction lookups, not just text summarization. **W&B Weave observability** wraps every agent call, and a single analysis run produces **two reports** from the same data: a clinician-facing structured version and a plain-language patient-facing one.",
-    "fact": "Built at the W&B hackathon at MIT, Boston Tech Week 2026.",
-    "tech": ["Python", "FastAPI", "React", "LiteLLM", "OpenFDA API", "W&B Weave", "Tailwind CSS"],
+    "shortDescription": "A multi-agent clinical chart analyzer that turns raw patient notes into a SOAP note, red flags, a medication check, and a timeline.",
+    "description": "A clinician reviewing a new patient's notes has to manually rebuild the chart context every time: what medications, what red flags, what timeline. Clinical Copilot builds that chart in seconds instead of an afternoon, and still produces something usable even if the AI call fails.\n\nA **6-agent pipeline** in Python/FastAPI turns uploaded notes (PDF, DOCX, TXT, MD) into a SOAP note, red-flag list, medication reconciliation, and timeline. Every agent pairs **deterministic clinical rules** with LLM extraction, so output survives an LLM failure. **Medication and timeline agents run in parallel** ahead of risk and synthesis.\n\nMedication data is enriched through the **OpenFDA drug label API** for interaction alerts, with a 4s timeout so slow lookups never block. A single run produces two reports from the same data: a clinician-facing version and a plain-language patient-facing one. All LLM calls route through a **LiteLLM** gateway. The live demo on Render takes visitors' own LLM provider key, held in sessionStorage and never logged or persisted.",
+    "fact": "Built with two friends at an MIT hackathon run by SundAI and Weights & Biases.",
+    "tech": ["Python", "FastAPI", "LiteLLM", "W&B Weave", "OpenFDA API", "React", "Tailwind CSS"],
     "liveDeploymentUrl": "https://clinical-copilot-v5qq.onrender.com",
     "githubLink": "https://github.com/vpk-11/clinical-copilot"
   },
   {
     "id": 7,
-    "title": "Stroke Biomarker Extraction",
-    "shortDescription": "An ML pipeline that extracts movement biomarkers from wrist-accelerometer data to predict stroke-recovery outcomes, and measures which parts of a pretrained movement model's output can actually be trusted.",
-    "description": "Wrist trackers are cheap and always worn, so if the movement signal they capture carries real clinical signal, stroke recovery could be monitored without a clinic visit. This project measures how much of that signal a pretrained movement model actually captures, and which parts of its output are reliable enough to trust.\n\nRaw wrist-accelerometer recordings across **61 subjects** and **587,046 windows** are preprocessed into per-visit HDF5 files, then run through a frozen pretrained **transformer** (**Bio-PM**) to produce **1028-d embeddings** per clinical visit. Three extraction-pipeline variants were built across windowing and token-pooling strategies, including a corrected masked-pooling path after finding the model's original pooling averaged over NaN-padded slots.\n\n**Leave-one-subject-out** Ridge regression against continuous ARAT and FMA clinical scores shows the **128-d accelerometer sub-stream alone** predicts impairment better (**R2 approx 0.56**) than the full 1028-d vector (**approx 0.49**), with the unusable 900-d gravity sub-stream root-caused to a **DC-removal artifact** in the source data. A per-dimension **ICC reliability** screen isolates 125 to 127 of 1028 dimensions as stable, all in the accelerometer sub-stream. Graduate course project (CS690R, digital biomarkers, UMass Amherst), built with a team of 3.",
-    "tech": ["Python", "PyTorch", "NumPy", "scikit-learn", "h5py"],
+    "title": "Heimdall",
+    "shortDescription": "An AI agent that triages B2B wholesale inquiries, checking customer, stock, and production cost before handing a human a draft to review and approve.",
+    "description": "A wholesale inquiry (\"I want 500 units, what's your pricing?\") looks simple but hides real judgment: is this buyer legitimate, can the order ship from current stock, what does a shortfall cost in time and money. Heimdall does that judgment automatically and hands a human a draft to approve, never a message that goes out on its own.\n\nIt is a **Gemini ADK agent** (Google Agent Development Kit) that checks customer, stock, and production cost over **read-only MCP tools** on stdio, then drafts a reply held for human approval. The shortfall logic (DTC velocity plus wholesale ask, minus stock) routes to a production-cost estimate only when stock falls short.\n\nInput and output firewalls run as model callbacks. A **before-model callback** redacts **PII** and blocks prompt injection, including zero-width and Unicode evasion, before the LLM sees the input. An **after-model callback** re-scans the draft for leaked PII and language implying an auto-sent action. Because every tool is read-only, there is no write path and no code path to an auto-sent message.",
+    "fact": "Named after the Norse watchman of the gods who guards the Bifröst bridge, played by Idris Elba in the Thor films.",
+    "tech": ["Python", "Google ADK", "Gemini", "MCP"],
     "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/690r-project"
+    "githubLink": "https://github.com/vpk-11/heimdall"
   },
   {
     "id": 8,
     "title": "Deepfake Deconstruction",
-    "shortDescription": "A deep learning pipeline that traces a face-swapped deepfake photo back to the original source image it was built from, instead of just flagging that it's fake.",
-    "description": "Most deepfake tools stop at 'this is fake.' This one goes a step further and traces a face-swapped image back to the actual source photo it was built from.\n\nA **modular deep learning pipeline** built in Python/PyTorch, using **convolutional architectures** with feature extraction layers designed so individual components can be swapped without touching the rest of the pipeline.\n\nTested against a **custom dataset of 10,000+ manipulated images**, identifying the original source image with **85%+ accuracy**. The goal was to treat deepfakes as an **AI safety problem** worth tracing to its origin, not just a detection problem worth flagging.",
-    "tech": ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
+    "shortDescription": "A deep learning pipeline that traces a face-swapped image back to the original source photo it was built from, instead of just flagging that it's fake.",
+    "description": "Most deepfake detection stops at \"this is fake,\" which tells you nothing about where the manipulation actually came from. This project goes a step further: given a face-swapped image, it traces it back to the real source photo.\n\nA **modular PyTorch pipeline** uses **CNN** feature-extraction modules that can be swapped one at a time, so upgrading a single module never forces a pipeline rewrite.\n\nIt reaches **85%+ source-identification accuracy** on a custom dataset of **10,000+** manipulated images. The task is framed as source attribution instead of binary fake/real detection.",
+    "tech": ["Python", "PyTorch"],
     "liveDeploymentUrl": "",
     "githubLink": "https://github.com/vpk-11/fyp-deepfake-decon"
   },
   {
     "id": 9,
-    "title": "DKeeper",
-    "shortDescription": "A decentralized note taking app that stores notes on the Internet Computer blockchain without relying on a traditional backend server.",
-    "description": "DKeeper is a note-taking app built to keep working even if the usual thing behind every app, a server, goes away.\n\nA **React** frontend calls a **Motoko** backend canister directly on the **Internet Computer** through generated **Candid bindings**, with no REST API and no backend server in between. Every note is persisted in **canister stable memory**, so data survives canister upgrades without a database.\n\nType safety runs end to end: **TypeScript bindings** are generated straight from the canister's typed Candid interface, so frontend and backend types can't drift apart.",
-    "tech": ["React", "TypeScript", "Motoko", "DFinity ICP", "Blockchain"],
+    "title": "Stroke Biomarker Extraction",
+    "shortDescription": "An ML pipeline that predicts stroke-recovery clinical scores from wrist-accelerometer data and measures which parts of a pretrained movement model's output can be trusted.",
+    "description": "Wrist trackers are cheap and always worn, so if the movement signal they capture carries a real clinical signal, stroke recovery could be monitored without a clinic visit. This project measures how much of that signal a pretrained movement model actually captures, and which parts of its output are reliable enough to trust.\n\nRaw wrist-accelerometer recordings (**587,046** windows from **61** subjects) are preprocessed into per-visit files and run through a frozen pretrained transformer into **1028-d embeddings**. The pretrained model was provided by the course and never trained or fine-tuned by the team.\n\n**Leave-one-subject-out** ablations show the **128-d accelerometer stream alone** beats the full 1028-d embedding on ARAT (R2 approx 0.49 to 0.56) and FMA (approx 0.41 to 0.48), while the 900-d gravity stream is noise. Engineered movement biomarkers on top of the frozen embeddings, validated for reliability and responsiveness, reach ARAT R2 approx 0.61 with the top 100 Spearman-selected features. A graduate course team project (CS690R, UMass Amherst).",
+    "tech": ["Python", "PyTorch", "NumPy", "scikit-learn", "h5py"],
     "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/dkeeper"
+    "githubLink": ""
   },
   {
     "id": 10,
-    "title": "File Vault",
-    "shortDescription": "A personal file hosting service that lets users upload, download, and delete files while enforcing ownership on every request.",
-    "description": "File Vault is a personal file hosting service: upload, download, or delete a file, and only the account that owns it can touch it.\n\nA **React** SPA talks to an **Express/TypeScript API** backed by **MongoDB**, checking ownership on every file route before anything happens to it.\n\nFile access is hardened against **path traversal** with a filename allowlist and a resolved-path boundary check, paired with **bcrypt** password hashing and a MongoDB-backed session store. Uploads use UUID-prefixed storage with filename sanitization at write time.",
-    "tech": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "REST API"],
+    "title": "DKeeper",
+    "shortDescription": "A note-taking app on the Internet Computer, with a React frontend calling a Motoko canister directly and no REST API or database.",
+    "description": "Most apps assume a server is always there. DKeeper explores the alternative: a note-taking app whose backend is a canister on the Internet Computer rather than a server and a database.\n\nA **React** and **TypeScript** frontend calls a **Motoko** canister directly through generated **Candid** bindings, with no REST API or backend server in between. Notes persist in canister stable variables with canister-assigned IDs, so data survives upgrades with no database.\n\nTypeScript types are generated straight from the canister's typed Candid interface, so client and canister cannot drift apart. It runs locally and is deliberately scoped small, with no authentication.",
+    "tech": ["React", "TypeScript", "Motoko", "ICP Blockchain"],
     "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/file-vault"
-  },
-  {
-    "id": 11,
-    "title": "URL Shortener",
-    "shortDescription": "A URL shortener that turns long links into unique short codes while preventing duplicate entries and unsafe URL schemes.",
-    "description": "URL Shortener does exactly what it says, and does the one thing most clones get wrong: submit the same long URL twice and you get the same short code back, not a duplicate.\n\nA **Node.js/Express/TypeScript** API generates **nanoid**-based short codes backed by **MongoDB**, with deduplication baked into the write path.\n\nEvery submitted URL is checked against an **http/https protocol allowlist** to block javascript: and other XSS-prone schemes, and short-code uniqueness is enforced at the **database layer** with a unique index and a single automatic retry on collision.",
-    "tech": ["TypeScript", "Node.js", "Express", "MongoDB", "REST API"],
-    "liveDeploymentUrl": "",
-    "githubLink": "https://github.com/vpk-11/url-shortener"
+    "githubLink": "https://github.com/vpk-11/dkeeper"
   }
 ]

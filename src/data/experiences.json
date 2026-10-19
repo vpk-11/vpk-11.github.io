@@ -7,12 +7,13 @@
     "duration": "Aug 2024 - Jul 2025",
     "description": "**Software Engineer** in the Investment Portfolio Technology division (CCIBT, Commercial & Corporate Investment Banking).",
     "achievements": [
-      "Built **React** UI components, **.NET** APIs, and **Python** backend utilities for portfolio management applications handling **$400B+** in assets, owning each feature from API design and component architecture through backend logic and deployment.",
-      "Designed the **OpenShift (Kubernetes)** deployment architecture for the team, achieving **100% adoption across the division**, and migrated applications to the cloud, improving performance and reducing infrastructure dependencies.",
-      "Ran on-call production operations across **Agile** sprint cycles, investigating user-reported issues, analyzing logs, and applying targeted fixes to keep critical financial systems stable and available.",
-      "Wrote unit tests for **.NET** microservices (NUnit, xUnit, split by service) and **React** components (Jest), plus **Playwright** end-to-end tests, to guard portfolio management workflows against regressions."
+      "Built **React** UI components from Figma designs, **.NET** APIs, and **Python** wrappers for external-service integrations in portfolio management applications handling **$400B+ in assets**.",
+      "Designed a new deployment architecture for the team's React client on **OpenShift**, replacing its .NET config wrapper with nginx, a server-side env-injection script, and a custom GitHub Actions workflow, making deploys **3x faster**.",
+      "Migrated the team's .NET microservice and React client to Kubernetes-based OpenShift, moving their Jenkins pipelines to GitHub Actions, then integrated the new architecture into **4 other React apps** across the division.",
+      "Raised unit test coverage from **80% to 95%** across four .NET microservices (NUnit, xUnit), alongside Jest and Playwright tests guarding portfolio workflows against regressions.",
+      "Ran on-call **production operations** across Agile sprints, investigating user-reported issues, analyzing logs, and applying targeted fixes to live portfolio systems."
     ],
-    "tech": ["React", ".NET", "Python", "OpenShift", "NUnit", "xUnit", "Jest", "Playwright", "Agile"]
+    "tech": ["React", ".NET", "Python", "OpenShift", "nginx", "GitHub Actions", "NUnit", "xUnit", "Jest", "Playwright"]
   },
   {
     "id": 2,
@@ -22,10 +23,10 @@
     "duration": "Mar 2024 - Jul 2024",
     "description": "Research internship under **Dr. M. Sridevi (Associate Professor, NIT Trichy CSE)**, part of ISRO Yukthi Sanchita, on 'Development of Computer Vision System for an AI Assistant.'",
     "achievements": [
-      "Designed a **modular computer vision pipeline** integrating four image-processing models in **Python (PyTorch and TensorFlow)**, with a unified interface enabling seamless model swapping across frameworks without modifying pipeline logic.",
-      "Reduced real-time image-processing **latency** by over **90%** using threading, **parallel processing**, and internal REST API calls, enabling four models to run concurrently rather than sequentially."
+      "Designed a modular computer vision pipeline in Python (**PyTorch**, TensorFlow) running five models as independent **REST** services, behind a unified interface that swaps models without touching pipeline logic.",
+      "Cut per-frame latency by **90% (20s to 2s)** by turning sequential model loading into always-running REST services called concurrently, with **YOLO** person cropping so models process only detected regions."
     ],
-    "tech": ["Python", "PyTorch", "TensorFlow", "Computer Vision", "REST APIs", "Multithreading", "Parallel Processing", "Data Pipelines"]
+    "tech": ["Python", "PyTorch", "TensorFlow", "Flask", "YOLOv8", "REST APIs"]
   },
   {
     "id": 3,
@@ -33,11 +34,10 @@
     "company": "Wells Fargo",
     "location": "Bengaluru, KA, India",
     "duration": "May 2023 - Jul 2023",
-    "description": "**Software Engineering Intern** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking).",
+    "description": "**Intern Analyst** in the Capital Markets Technology division (CCIBT, Commercial & Corporate Investment Banking). Converted to the full-time Software Engineer role.",
     "achievements": [
-      "Built a full-stack **MERN** application for Capital Markets Technology (CCIBT) end to end, owning UI components, REST APIs, backend logic, and UX design, and integrated **ML modules** trained on the **Fannie Mae** mortgage loan dataset to predict **prepayment risk** on **mortgage-backed securities (MBS)**.",
-      "Wrote **unit tests** covering backend API endpoints for the MERN application."
+      "Built a full-stack **MERN** app for Capital Markets Technology forecasting mortgage prepayment risk via a Flask-served **LSTM** on Fannie Mae data, cutting latency **6x** with server-side caching and DB indexing."
     ],
-    "tech": ["MongoDB", "Express", "React", "Node.js", "Python", "Jest", "Machine Learning", "Time-Series Analysis", "REST APIs"]
+    "tech": ["MongoDB", "Express", "React", "Node.js", "Flask", "Python", "TensorFlow", "scikit-learn"]
   }
 ]
