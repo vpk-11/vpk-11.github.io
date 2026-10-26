@@ -1,7 +1,7 @@
 {
   "name": "Kaushik Parthasarathy",
-  "title": "Software Engineer building Intelligent Systems | Full-Stack & AI/ML",
-  "bio": "Most of what I build starts with a gap, something I haven't worked with yet, or something happening in the industry I want to understand by building it instead of just reading about it. That's how a handful of agentic AI projects came together (Donna, Narada, RiskWise, Clinical Copilot, Heimdall), and it's also why I built Atlas, a distributed rider-driver dispatch system, to get real depth outside AI work.\n\n I'm comfortable across the stack, Python and FastAPI, Java and Spring Boot, .NET, React, TypeScript, and I adapt to whatever the problem or role actually calls for rather than sticking to one language. At Wells Fargo, I owned production features end to end on portfolio management systems handling $400B+ in assets, from backend logic to the React UI to the OpenShift deployment, and the OpenShift deployment architecture I co-designed made deploys 3x faster and was adopted by 4 other React apps in the division. At ISRO, I designed a modular computer vision pipeline running five models as independent REST services in PyTorch and TensorFlow, cutting per-frame latency by 90% (20s to 2s).\n\n I'm pursuing an MS in Computer Science at UMass Amherst, and I'm looking for the next problem that makes me learn something I don't know yet. Open to SWE and AI/ML roles, internship or full-time.",
+  "title": "Software Engineer | Backend and Distributed Systems",
+  "bio": "Most of what I build starts with a gap. Something I haven't worked with yet, or something I want to understand by building it instead of just reading about it. Lately that gap has been systems that have to stay correct when part of them fails.\n\nAtlas is the clearest example. I built a ride-dispatch backend as three gRPC microservices on Kubernetes, in Java because I was learning it at the time, then killed a live pod mid-ramp to 500 req/s on a routing stub. 0.00% of 101,249 requests failed and no trip was duplicated. Quantico came from the same instinct, a Python research pipeline with a C++ execution simulator, built so that a \"no edge\" result can actually be trusted.\n\nAt Wells Fargo, I worked across the stack on portfolio management systems handling $400B+ in assets, from React to .NET APIs to OpenShift. I designed a deployment architecture that made deploys 3x faster and was adopted by 4 other React apps in the division, and I ran on-call for production. At ISRO, I cut per-frame latency in a computer vision pipeline from 20s to 2s by running five models as concurrent REST services.\n\nPython is what I reach for first, but I adapt to whatever the problem calls for. I didn't know .NET going into Wells Fargo, and I learned Java for Atlas.\n\nCurrently pursuing an MS in Computer Science at UMass Amherst. Open to full-time software engineering roles.",
   "linkedin": "https://linkedin.com/in/kaushikparthasarathy",
   "github": "https://github.com/vpk-11",
   "resume": "https://drive.google.com/file/d/1dGTLIkyNHbv8OMUUEAz_KWescgxd_f3J/view?usp=drive_link",
@@ -9,16 +9,11 @@
   "availability": "Open to Work",
   "targetRoles": [
     "Software Engineering",
-    "AI / ML Engineering",
-    "Full-Stack",
-    "Frontend",
     "Backend",
-    "Research",
-    "Data Science",
-    "Systems Engineering"
+    "Distributed Systems"
   ],
   "workAuthorization": "F-1 · CPT authorized · STEM OPT eligible · Will require H-1B sponsorship",
-  "tagline": "Software engineer building intelligent systems across full-stack applications, AI/ML pipelines, and distributed backend systems.",
+  "tagline": "Software engineer building backend systems that stay correct when parts of them fail.",
   "aboutStats": [
     { "value": "3.95", "label": "GPA · MS CS, UMass" },
     { "value": "3", "label": "Languages spoken: English, Tamil, Hindi" }
@@ -27,8 +22,8 @@
     "currentlyBuilding": [],
     "openTo": [
       "Software Engineering",
-      "Full-Stack Engineering",
-      "AI/ML Engineering"
+      "Backend Engineering",
+      "Distributed Systems"
     ]
   }
 }
