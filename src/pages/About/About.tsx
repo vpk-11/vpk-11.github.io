@@ -43,17 +43,19 @@ const About: React.FC = () => {
           {/* Right — sidebar cards */}
           {sidebar && (
             <div className="about-sidebar">
-              <Panel className="side-card">
-                <div className="side-card-title">Currently Building</div>
-                <div className="side-list">
-                  {sidebar.currentlyBuilding.map((item, i) => (
-                    <div className="side-list-item" key={i}>
-                      <span className="dot" aria-hidden="true" />
-                      {item.name} · {item.description}
-                    </div>
-                  ))}
-                </div>
-              </Panel>
+              {sidebar.currentlyBuilding.length > 0 && (
+                <Panel className="side-card">
+                  <div className="side-card-title">Currently Building</div>
+                  <div className="side-list">
+                    {sidebar.currentlyBuilding.map((item, i) => (
+                      <div className="side-list-item" key={i}>
+                        <span className="dot" aria-hidden="true" />
+                        {item.name} · {item.description}
+                      </div>
+                    ))}
+                  </div>
+                </Panel>
+              )}
 
               <Panel className="side-card">
                 <div className="side-card-title">Open To</div>

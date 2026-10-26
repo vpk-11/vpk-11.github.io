@@ -24,11 +24,7 @@
     { "value": "3", "label": "Languages spoken: English, Tamil, Hindi" }
   ],
   "aboutSidebar": {
-    "currentlyBuilding": [
-      { "name": "Donna V3", "description": "AI executive assistant" },
-      { "name": "Heimdall", "description": "B2B inquiry triage agent" },
-      { "name": "Atlas", "description": "Distributed rider-driver dispatch system" }
-    ],
+    "currentlyBuilding": [],
     "openTo": [
       "Software Engineering",
       "Full-Stack Engineering",
