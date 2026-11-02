@@ -20,15 +20,11 @@ const About: React.FC = () => {
     <section id="about" className="section about-section">
       <div className="container">
 
-        <SectionHeader
-          sectionId="about"
-          label="ABOUT"
-          headline={heading ? formatText(heading.headline) : 'About Me'}
-        />
+        <SectionHeader headline={heading ? formatText(heading.headline) : 'About Me'} />
 
         <div className="about-grid">
 
-          {/* Left — bio panel */}
+          {/* Left: bio panel */}
           <div className="about-panel">
             {bioParagraphs.map((para, i) => (
               <React.Fragment key={i}>
@@ -40,7 +36,7 @@ const About: React.FC = () => {
             ))}
           </div>
 
-          {/* Right — sidebar cards */}
+          {/* Right: sidebar cards */}
           {sidebar && (
             <div className="about-sidebar">
               {sidebar.currentlyBuilding.length > 0 && (
@@ -50,7 +46,7 @@ const About: React.FC = () => {
                     {sidebar.currentlyBuilding.map((item, i) => (
                       <div className="side-list-item" key={i}>
                         <span className="dot" aria-hidden="true" />
-                        {item.name} · {item.description}
+                        {item.name}: {item.description}
                       </div>
                     ))}
                   </div>
@@ -68,20 +64,18 @@ const About: React.FC = () => {
                   ))}
                 </div>
               </Panel>
+
+              {stats.length > 0 && (
+                <Panel className="side-card side-stats">
+                  {stats.map((stat, i) => (
+                    <Stat key={i} value={stat.value} label={stat.label} variant="panel" />
+                  ))}
+                </Panel>
+              )}
             </div>
           )}
 
         </div>
-
-        {stats.length > 0 && (
-          <div className="stat-row">
-            {stats.map((stat, i) => (
-              <div className="stat-card" key={i}>
-                <Stat value={stat.value} label={stat.label} variant="floating" />
-              </div>
-            ))}
-          </div>
-        )}
 
       </div>
     </section>

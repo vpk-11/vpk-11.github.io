@@ -41,13 +41,30 @@
 }
 
 // ============================================
-// RIGHT — SIDEBAR CARDS
+// RIGHT: SIDEBAR CARDS
 // ============================================
 
 .about-sidebar {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  // Follows the bio down the page while there is bio left to read.
+  position: sticky;
+  top: 6rem;
+
+  @include respond-to(tablet) {
+    position: static;
+  }
+}
+
+// Stats stacked in one panel, hairline between them.
+.side-stats .stat + .stat {
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid;
+
+  .theme-light & { border-color: rgba($light-text, 0.1); }
+  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
 }
 
 .side-card-title {
@@ -56,8 +73,8 @@
   font-size: 1.25rem;
   margin-bottom: 0.9rem;
 
-  .theme-light & { color: #000; }
-  .theme-dark &  { color: #fff; }
+  .theme-light & { color: $light-text; }
+  .theme-dark &  { color: $dark-text; }
 }
 
 .side-list {
@@ -85,49 +102,3 @@
   flex-shrink: 0;
   background: var(--section-accent);
 }
-
-// ============================================
-// STAT ROW
-// ============================================
-
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0;
-  margin-top: 2.75rem;
-  border-top: 1px solid;
-
-  .theme-light & { border-color: rgba($light-text, 0.1); }
-  .theme-dark &  { border-color: rgba($dark-text, 0.1); }
-
-  @include respond-to(mobile) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-.stat-card {
-  padding: 1.6rem 1.75rem 0;
-  border-left: 1px solid transparent;
-
-  &:not(:first-child) {
-    .theme-light & { border-left-color: rgba($light-text, 0.1); }
-    .theme-dark &  { border-left-color: rgba($dark-text, 0.1); }
-  }
-
-  // Stacked on mobile — the divider belongs between rows, not columns.
-  @include respond-to(mobile) {
-    border-left: none;
-    padding: 1.5rem 0 0;
-    border-top: 1px solid transparent;
-
-    &:first-child { border-top: none; }
-
-    &:not(:first-child) {
-      border-left-color: transparent;
-      .theme-light & { border-top-color: rgba($light-text, 0.1); }
-      .theme-dark &  { border-top-color: rgba($dark-text, 0.1); }
-    }
-  }
-}
-
