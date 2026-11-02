@@ -32,3 +32,5 @@ mockups/
 
 # Graphify output
 graphify-out/
+# Playwright MCP output
+.playwright-mcp/
