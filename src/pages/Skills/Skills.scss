@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 // ============================================
-// SKILLS — numbered category rows + tiered pills
+// SKILLS: category rows + tiered pills
 // ============================================
 
 .skill-stack {
@@ -27,17 +27,6 @@
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
-}
-
-.skill-row-index {
-  display: block;
-  font-family: $font-mono;
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.4rem;
-
-  .theme-light & { color: rgba($light-text, 0.65); }
-  .theme-dark &  { color: rgba($dark-text, 0.65); }
 }
 
 .skill-row-name {
@@ -80,8 +69,8 @@
 }
 
 // First-row spanning when total not divisible by 3
-.cert-span-half { grid-column: span 3; }   // remainder 2 — takes half row each
-.cert-span-full { grid-column: span 6; }   // remainder 1 — takes full row
+.cert-span-half { grid-column: span 3; }   // remainder 2: takes half row each
+.cert-span-full { grid-column: span 6; }   // remainder 1: takes full row
 
 @include respond-to(tablet) {
   .cert-span-half { grid-column: span 2; }
@@ -100,7 +89,7 @@
   .certification-item:not(.cert-span-half):not(.cert-span-full) { grid-column: span 1; }
 }
 
-// Overrides on top of ui/Card's base .card — layout + the two values that
+// Overrides on top of ui/Card's base .card: layout + the two values that
 // differ from Education/Experience's use of the same primitive.
 .certification-item {
   display: flex;
@@ -111,7 +100,7 @@
   cursor: pointer;
 
   // ui/Card's inherited left accent bar (accent-bar-left mixin, grows on
-  // hover) is switched off here — same call as Experience's cards, gimmicky
+  // hover) is switched off here: same call as Experience's cards, gimmicky
   // on a grid of static (non-Project) cards.
   &::before {
     display: none;

@@ -88,7 +88,7 @@ All portfolio data lives in `src/data/`. Edit JSON, push to main, GitHub Actions
 | `general.json` | Nav tree, section headings, resume meta, closing CTA copy |
 | `experiences.json` | Work experience entries |
 | `education.json` | Degrees and coursework |
-| `projects.json` | Projects with links, tech tags — `shortDescription` shown on the card (falls back to a 250-char-truncated `description` if absent) |
+| `projects.json` | Projects with links, tech tags: `shortDescription` shown on the card (falls back to a 250-char-truncated `description` if absent) |
 | `skills.json` | Skill categories and items |
 | `certifications.json` | Certifications with issuer and date |
 | `extracurriculars.json` | Beyond the Code entries |
@@ -102,7 +102,7 @@ Two-tier global accent system:
 | Primary | `#1B502D` (forest green) | `#235735` (forest green, darker) | Interactive elements: buttons, links, nav active-state underline |
 | Secondary | `#7A5F1F` (old gold) | `#A8823A` (antique bronze) | Rare highlight requiring contrast: live-status indicators only |
 
-`$accent-primary-dark` sits below the AA-4.5 text-contrast floor by deliberate choice (background/border/button color only) — a lightened tint (`$accent-primary-dark-text`) is used wherever dark-mode text needs to read as the accent instead.
+`$accent-primary-dark` sits below the AA-4.5 text-contrast floor by deliberate choice (background/border/button color only): a lightened tint (`$accent-primary-dark-text`) is used wherever dark-mode text needs to read as the accent instead.
 
 ## Responsive Breakpoints
 
@@ -120,7 +120,7 @@ Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-p
 
 ## Typography
 
-- **Public Sans** - Sitewide, headings and body — one family, hierarchy from weight/size only
+- **Public Sans** - Sitewide, headings and body: one family, hierarchy from weight/size only
 - **JetBrains Mono** - Skill tags, tech tags, monospace labels
 
 ---
@@ -137,58 +137,58 @@ Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-p
 - **v7.2.2** (2026-09-25): patch bump
 - **v7.2.1** (2026-09-25): patch bump
 - **v7.2.0** (2026-09-25): minor bump
-- **v7.1.2** (2026-09-11) — patch bump
-- **v7.1.1** (2026-09-11) — patch bump
-- **v7.1.0** (2026-08-24) — minor bump
-- **v7.0.1** (2026-08-24) — patch bump
-- **v7.0.0** (2026-08-23) — major bump
-- **v6.4.1** (2026-08-19) — patch bump
-- **v6.4.0** (2026-08-19) — minor bump
-- **v6.3.0** (2026-08-18) — minor bump
-- **v6.2.1** (2026-07-24) — patch bump
-- **v6.2.0** (2026-07-19) — minor bump
-- **v6.1.0** (2026-07-18) — minor bump
-- **v6.0.0** (2026-07-18) — major bump
-- **v5.2.0** (2026-07-18) — minor bump
-- **v5.1.1** (2026-07-10) — patch bump
-- **v5.1.0** (2026-07-09) — minor bump
-- **v5.0.0** (2026-07-08) — major bump
-- **v4.5.0** (2026-06-27) — minor bump
-- **v4.4.0** (2026-06-27) — minor bump
-- **v4.3.0** (2026-06-27) — minor bump
-- **v4.2.0** (2026-06-23) — minor bump
-- **v4.1.3** (2026-06-21) — patch bump
-- **v4.1.2** (2026-06-10) — patch bump
-- **v4.1.1** (2026-06-10) — patch bump
-- **v4.1.0** (2026-06-08) — minor bump
-- **v4.0.4** (2026-06-08) — patch bump
-- **v4.0.3** (2026-06-07) — patch bump
-- **v4.0.2** (2026-06-06) — patch bump
-- **v4.0.1** (2026-06-06) — patch bump
-- **v4.0.0** (2026-05-19) — major bump
-- **v3.9.0** (2026-05-14) — minor bump
-- **v3.8.1** (2026-04-17) — patch bump
-- **v3.8.0** (2026-04-17) — minor bump
-- **v3.7.0** (2026-04-08) — minor bump
-- **v3.6.0** (2026-04-04) — minor bump
-- **v3.5.0** (2026-04-02) — minor bump
-- **v3.4.0** (2026-04-02) — minor bump
-- **v3.3.2** (2026-03-22) — patch bump
-- **v3.3.1** (2026-03-18) — patch bump
-- **v3.3.0** (2026-03-17) — minor bump
-- **v3.2.2** (2026-03-16) — patch bump
-- **v3.2.1** (2026-03-13) — patch bump
-- **v3.2.0** (2026-03-13) — minor bump
-- **v3.0.0** (2026-03-13) — major bump (Test bump)
-- **v3.0.0** (2026-03-13) — major bump
-- **v2.6.1** (2026-03-08) — patch bump
-- **v2.6.0** (2026-03-08) — minor bump
-- **v2.5** (2026-03-04) — minor bump via direct push
-- **v2.4** (2026-03-04) — minor bump via direct push
-- **v2.3** (2026-03-04) — minor bump via direct push
-- **v2.2** (2026-03-04) — minor bump via direct push
-- **v2.1** (2026-03-04) — minor bump via direct push
-- **v2.0** (2026-03-04) — major bump via PR merge
+- **v7.1.2** (2026-09-11): patch bump
+- **v7.1.1** (2026-09-11): patch bump
+- **v7.1.0** (2026-08-24): minor bump
+- **v7.0.1** (2026-08-24): patch bump
+- **v7.0.0** (2026-08-23): major bump
+- **v6.4.1** (2026-08-19): patch bump
+- **v6.4.0** (2026-08-19): minor bump
+- **v6.3.0** (2026-08-18): minor bump
+- **v6.2.1** (2026-07-24): patch bump
+- **v6.2.0** (2026-07-19): minor bump
+- **v6.1.0** (2026-07-18): minor bump
+- **v6.0.0** (2026-07-18): major bump
+- **v5.2.0** (2026-07-18): minor bump
+- **v5.1.1** (2026-07-10): patch bump
+- **v5.1.0** (2026-07-09): minor bump
+- **v5.0.0** (2026-07-08): major bump
+- **v4.5.0** (2026-06-27): minor bump
+- **v4.4.0** (2026-06-27): minor bump
+- **v4.3.0** (2026-06-27): minor bump
+- **v4.2.0** (2026-06-23): minor bump
+- **v4.1.3** (2026-06-21): patch bump
+- **v4.1.2** (2026-06-10): patch bump
+- **v4.1.1** (2026-06-10): patch bump
+- **v4.1.0** (2026-06-08): minor bump
+- **v4.0.4** (2026-06-08): patch bump
+- **v4.0.3** (2026-06-07): patch bump
+- **v4.0.2** (2026-06-06): patch bump
+- **v4.0.1** (2026-06-06): patch bump
+- **v4.0.0** (2026-05-19): major bump
+- **v3.9.0** (2026-05-14): minor bump
+- **v3.8.1** (2026-04-17): patch bump
+- **v3.8.0** (2026-04-17): minor bump
+- **v3.7.0** (2026-04-08): minor bump
+- **v3.6.0** (2026-04-04): minor bump
+- **v3.5.0** (2026-04-02): minor bump
+- **v3.4.0** (2026-04-02): minor bump
+- **v3.3.2** (2026-03-22): patch bump
+- **v3.3.1** (2026-03-18): patch bump
+- **v3.3.0** (2026-03-17): minor bump
+- **v3.2.2** (2026-03-16): patch bump
+- **v3.2.1** (2026-03-13): patch bump
+- **v3.2.0** (2026-03-13): minor bump
+- **v3.0.0** (2026-03-13): major bump (Test bump)
+- **v3.0.0** (2026-03-13): major bump
+- **v2.6.1** (2026-03-08): patch bump
+- **v2.6.0** (2026-03-08): minor bump
+- **v2.5** (2026-03-04): minor bump via direct push
+- **v2.4** (2026-03-04): minor bump via direct push
+- **v2.3** (2026-03-04): minor bump via direct push
+- **v2.2** (2026-03-04): minor bump via direct push
+- **v2.1** (2026-03-04): minor bump via direct push
+- **v2.0** (2026-03-04): major bump via PR merge
 
 ---
 **Built with ❤️**

@@ -20,7 +20,7 @@ $dark-text: #e8eaed;
 // else uses plain theme grayscale.
 $accent-primary-light:   #1B502D; // forest green, ~9:1 on white
 $accent-primary-dark:    #235735; // forest green, deliberately darker/moodier
-// than AA-safe (~2.3:1 on $dark-bg) — background/border/button color only,
+// than AA-safe (~2.3:1 on $dark-bg): background/border/button color only,
 // NOT safe as small text/link glyph color. Use $accent-primary-dark-text
 // below wherever the dark-theme accent colors text.
 

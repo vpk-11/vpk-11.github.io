@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
   labelledBy, className, backdropClassName,
 }) => {
   const dialogRef = useRef<HTMLDivElement>(null);
-  // Captured here, at render time, not inside the effect below — the close
+  // Captured here, at render time, not inside the effect below: the close
   // button's `autoFocus` moves focus during commit, which happens before
   // any effect runs. Capturing in an effect meant this ref ended up holding
   // the modal's own (about-to-unmount) close button instead of whatever
@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     // Backdrop click-to-close is a redundant convenience, not the only way
-    // to dismiss — Escape (handled above) and the close button both work
+    // to dismiss: Escape (handled above) and the close button both work
     // without a mouse, so this doesn't need its own keyboard handler.
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
@@ -84,7 +84,7 @@ const Modal: React.FC<ModalProps> = ({
       onClick={closeOnBackdrop ? onClose : undefined}
     >
       {/* onClick here only stops the backdrop's onClick from firing when
-          clicking inside the dialog — not an interactive affordance itself. */}
+          clicking inside the dialog: not an interactive affordance itself. */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
       <div
         ref={dialogRef}

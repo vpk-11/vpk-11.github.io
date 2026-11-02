@@ -41,6 +41,23 @@
 // CARD STYLE
 // ============================================
 
+// Short accent bar as a list marker. Put on an empty span whose
+// line-height matches the bullet text so the bar centres on line one.
+@mixin dash-bullet {
+  flex-shrink: 0;
+  user-select: none;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0.5em;
+    height: 2px;
+    margin-right: 0.1em;
+    vertical-align: middle;
+    background: currentColor;
+  }
+}
+
 @mixin card-base {
   padding: 2rem;
   border-radius: 12px;

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Linkedin } from 'lucide-react';
 import generalData from '../../data/general.json';
-import type { GeneralData } from '../../types';
+import type { GeneralData, ProfileData } from '../../types';
 import { formatText } from '../../utils/formatText';
-import SectionHeader from '../../components/ui/SectionHeader/SectionHeader';
+import profileData from '../../data/profile.json';
+import Button from '../../components/ui/Button/Button';
 import Panel from '../../components/ui/Panel/Panel';
 import './ClosingCTA.scss';
 
@@ -16,12 +18,6 @@ const ClosingCTA: React.FC = () => {
     <section id="closing-cta" className="section closing-cta-section">
       <div className="container">
 
-        <SectionHeader
-          sectionId="closing-cta"
-          label={cta.eyebrow ?? ''}
-          show={!!cta.eyebrow}
-        />
-
         <h2 className="closing-cta-headline">
           {headlineLines.map((line, i) => (
             <span className="closing-cta-line" key={i}>{formatText(line)}</span>
@@ -30,11 +26,22 @@ const ClosingCTA: React.FC = () => {
 
         <p className="closing-cta-tagline">{formatText(cta.tagline)}</p>
 
+        <Button
+          variant="primary"
+          href={(profileData as ProfileData).linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="closing-cta-contact"
+          icon={<Linkedin size={18} />}
+        >
+          Message me on LinkedIn
+        </Button>
+
         {cta.channels.length > 0 && (
           <div className="closing-cta-channels">
             {cta.channels.map((channel, i) => (
               <Panel className="cta-channel-card" key={i}>
-                <div className="cta-channel-label">// {channel.label}</div>
+                <div className="cta-channel-label">{channel.label}</div>
                 <div className="cta-channel-value">{channel.value}</div>
                 <div className="cta-channel-caption">{channel.caption}</div>
               </Panel>

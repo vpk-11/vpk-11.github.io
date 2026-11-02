@@ -36,7 +36,7 @@
 }
 
 
-// Sizing/hierarchy matches Education's edu-degree/edu-institution/meta-row —
+// Sizing/hierarchy matches Education's edu-degree/edu-institution/meta-row:
 // same "flat divided list" vibe, same type scale.
 .leadership-role {
   font-size: 1.5rem;
@@ -97,18 +97,10 @@
   }
 }
 
-// Real "—" glyph as the bullet mark, same technique as Experience's
-// .ex-bullet — reads as a thicker, bolder line than a hand-drawn CSS bar.
 .leadership-bullet-mark {
-  flex-shrink: 0;
-  display: inline-block;
-  transform: scaleX(0.5);
-  transform-origin: left center;
-  margin-right: -0.4em;
+  @include dash-bullet;
   color: var(--section-accent);
-  font-weight: 700;
   line-height: 1.85;
-  user-select: none;
 
   .theme-dark & { color: $accent-primary-dark-text; }
 }
@@ -119,7 +111,7 @@
   gap: 0.65rem;
 }
 
-// Overrides on top of ui/Panel's base .panel — only radius/padding differ here.
+// Overrides on top of ui/Panel's base .panel: only radius/padding differ here.
 .lmetric {
   border-radius: 8px;
   padding: 0.85rem 1rem;

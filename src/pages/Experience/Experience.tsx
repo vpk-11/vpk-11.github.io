@@ -30,7 +30,7 @@ const ExpCard: React.FC<{ exp: ExperienceType }> = ({ exp }) => (
       <ul className="ex-achievements">
         {exp.achievements.map((item, i) => (
           <li key={i} className="ex-achievement-item">
-            <span className="ex-bullet" aria-hidden="true">—</span>
+            <span className="ex-bullet" aria-hidden="true" />
             <span>{formatText(item)}</span>
           </li>
         ))}
@@ -96,11 +96,7 @@ const Experience: React.FC = () => {
   return (
     <section id="experience" className="section experience-section">
       <div className="container">
-        <SectionHeader
-          sectionId="experience"
-          label="EXPERIENCE"
-          headline={headline ? formatText(headline) : 'Experience'}
-        />
+        <SectionHeader headline={headline ? formatText(headline) : 'Experience'} />
 
         <div className="exp-layout">
 

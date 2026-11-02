@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 // Boxless icon+text clickable (Projects' GitHub/Live Demo/View Details).
-// No border, no background — just icon + text, unlike ui/Button.
+// No border, no background: just icon + text, unlike ui/Button.
 .inline-action {
   display: inline-flex;
   align-items: center;

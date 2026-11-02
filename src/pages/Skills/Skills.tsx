@@ -10,7 +10,7 @@ import Tag from '../../components/ui/Tag/Tag';
 import Card from '../../components/ui/Card/Card';
 import './Skills.scss';
 
-// Certifications continue the same numbered-row dossier as skills — no tab
+// Certifications continue the same numbered-row dossier as skills: no tab
 // switch, no second header. The cert grid sits in the row's right-hand
 // column same as a skill category's pill wrap.
 const Skills: React.FC = () => {
@@ -28,17 +28,12 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="section skills-section">
       <div className="container">
-        <SectionHeader
-          sectionId="skills"
-          label="STACK"
-          headline={heading ? formatText(heading.headline) : 'Skills'}
-        />
+        <SectionHeader headline={heading ? formatText(heading.headline) : 'Skills'} />
 
         <div className="skill-stack">
-          {skills.map((skillGroup, i) => (
+          {skills.map(skillGroup => (
             <div className="skill-row" key={skillGroup.category}>
               <div>
-                <span className="skill-row-index">/ {String(i + 1).padStart(2, '0')}</span>
                 <h3 className="skill-row-name">{skillGroup.category}</h3>
               </div>
               <div className="skill-pills-wrap">
@@ -53,7 +48,6 @@ const Skills: React.FC = () => {
 
           <div className="skill-row cert-row">
             <div>
-              <span className="skill-row-index">/ {String(skills.length + 1).padStart(2, '0')}</span>
               <h3 className="skill-row-name">Certifications</h3>
             </div>
             <div className="certifications-list">

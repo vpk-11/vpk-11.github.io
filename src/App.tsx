@@ -44,7 +44,7 @@ const AppContent: React.FC = () => {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <main className="app" id="main-content">
       <Navbar />
-      {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts — reorder both together */}
+      {/* Section order here must match SECTION_ORDER in data/sectionOrder.ts: reorder both together */}
       <Hero />
       <About />
       <Education />

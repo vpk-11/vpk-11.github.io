@@ -20,12 +20,12 @@ export const formatText = (text: string): ReactNode => {
       return <span key={index} className="accent-word">{part.slice(8, -9)}</span>;
     }
 
-    // Outline word: {outline}text{/outline} — transparent fill, stroked outline
+    // Outline word: {outline}text{/outline}: transparent fill, stroked outline
     if (part.startsWith('{outline}') && part.endsWith('{/outline}')) {
       return <span key={index} className="outline-word">{part.slice(9, -10)}</span>;
     }
 
-    // Small: {small}text{/small} — shrinks inline text below the surrounding font-size
+    // Small: {small}text{/small}: shrinks inline text below the surrounding font-size
     if (part.startsWith('{small}') && part.endsWith('{/small}')) {
       return <span key={index} className="text-small-inline">{part.slice(7, -8)}</span>;
     }

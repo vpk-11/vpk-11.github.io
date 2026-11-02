@@ -6,7 +6,6 @@ export interface ThemeState {
 // Data Types
 
 export interface SectionHeading {
-  eyebrow?: string;
   headline: string;
   tagline?: string;
 }
@@ -38,7 +37,6 @@ export interface AboutSidebar {
 export interface ResumeMeta {
   updated: string;
   format: string;
-  bestFor: string;
 }
 
 export interface ClosingCtaChannel {
@@ -48,7 +46,6 @@ export interface ClosingCtaChannel {
 }
 
 export interface ClosingCta {
-  eyebrow?: string;
   headline: string;
   tagline: string;
   channels: ClosingCtaChannel[];
@@ -70,7 +67,7 @@ export interface ProfileData {
   aboutSidebar?: AboutSidebar;
 }
 
-// Nav Types (site chrome, not profile content — see data/general.json)
+// Nav Types (site chrome, not profile content: see data/general.json)
 
 export interface SubMenuItem {
   label: string;
@@ -101,14 +98,14 @@ export interface Project {
   id: number;
   title: string;
   shortDescription?: string;  // shown on card, falls back to a truncated `description` if absent
-  description: string;        // shown in modal — full detail
+  description: string;        // shown in modal: full detail
   fact?: string;              // optional one-line side fact, shown above the modal body
   tech: string[];
-  liveDeploymentUrl?: string;    // live deployed URL — shows Live badge if present
-  githubLink: string;  // explicit github URL — replaces generic link
+  liveDeploymentUrl?: string;    // live deployed URL: shows Live badge if present
+  githubLink: string;  // explicit github URL: replaces generic link
 }
 
-// Skill proficiency legend (open content gap — mechanism built, levels
+// Skill proficiency legend (open content gap: mechanism built, levels
 // assigned per-skill in skills.json whenever):
 //   1 = basic     (used before, not a current focus)
 //   2 = middle    (comfortable, regularly used)
