@@ -26,7 +26,7 @@ describe('Experience timeline window bounds', () => {
     expect(computeWindowStart(1, 2, 2)).toBe(0);
   });
 
-  it('single card shown — window always equals clicked index clamped', () => {
+  it('single card shown: window always equals clicked index clamped', () => {
     expect(computeWindowStart(3, 5, 1)).toBe(3);
     expect(computeWindowStart(4, 5, 1)).toBe(4);
   });

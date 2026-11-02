@@ -29,7 +29,7 @@
 // ============================================
 
 // .project-card extends ui/Card (card-base + accent-bar-left), overridden
-// below to a top horizontal bar instead of Card's default left vertical one —
+// below to a top horizontal bar instead of Card's default left vertical one:
 // the only piece that can't be shared, since the shape itself differs.
 .card.project-card {
   display: flex;
@@ -38,13 +38,13 @@
   padding: 1.25rem;
 
   // Card's inherited left accent bar (ui/Card's accent-bar-left mixin) is
-  // switched off entirely here — the shimmer sweep below is the only hover
+  // switched off entirely here: the shimmer sweep below is the only hover
   // affordance, no separate bar/line on top of it.
   &::before {
     display: none;
   }
 
-  // Shimmer overlay — sweeps diagonally on hover
+  // Shimmer overlay: sweeps diagonally on hover
   &::after {
     content: '';
     position: absolute;
@@ -94,7 +94,7 @@
   &:last-child { margin-bottom: 0; }
 }
 
-// Plain `·`-joined text, not tags/pills — single line on the card (capped
+// Plain `·`-joined text, not tags/pills: single line on the card (capped
 // to CARD_TECH_LIMIT + trailing ellipsis in Projects.tsx), full list in the
 // modal. Shared class, same styling both places.
 .tech-list {
@@ -107,7 +107,7 @@
 }
 
 // ============================================
-// BADGES — absolute top right
+// BADGES: absolute top right
 // ============================================
 
 .live-badge {
@@ -155,7 +155,7 @@
   flex-wrap: wrap;
 }
 
-// Override on top of ui/InlineAction's base .inline-action — only the gap differs here.
+// Override on top of ui/InlineAction's base .inline-action: only the gap differs here.
 .project-link {
   gap: 0.35rem;
 }
@@ -179,14 +179,14 @@
 }
 
 // ============================================
-// MODAL — overrides on top of ui/Modal's base .modal-backdrop/.modal.
+// MODAL: overrides on top of ui/Modal's base .modal-backdrop/.modal.
 // Mobile bottom-sheet treatment lives here, not in the shared primitive,
 // since Projects is still the only Modal consumer.
 // ============================================
 
 // Compound selectors (not just .pr-modal-backdrop/.pr-modal alone) so these
 // win over ui/Modal's unconditional base rules regardless of which CSS file
-// the bundler happens to emit last — an unconditional rule with equal
+// the bundler happens to emit last: an unconditional rule with equal
 // specificity emitted after a media-scoped one would otherwise clobber it.
 .modal-backdrop.pr-modal-backdrop {
   @include respond-to(mobile) {
@@ -237,7 +237,7 @@
   margin-left: auto;
 }
 
-// Overrides on top of .tech-list's base look — sized to match the old pill
+// Overrides on top of .tech-list's base look: sized to match the old pill
 // text (0.82rem) instead of the card's smaller 0.76rem, and framed as its
 // own strip (border above/below) instead of floating loose between the
 // links row and the body paragraph.

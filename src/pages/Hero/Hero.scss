@@ -94,7 +94,7 @@
 .hero-status-bar {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.75rem 1.5rem;
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
   animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
@@ -118,13 +118,6 @@
   border: 1px solid var(--accent-secondary);
   color: var(--accent-secondary);
   background: color-mix(in srgb, var(--accent-secondary) 10%, transparent);
-}
-
-.hero-meta-sep {
-  font-size: 0.75rem;
-
-  .theme-light & { color: rgba($light-text, 0.38); }
-  .theme-dark &  { color: rgba($dark-text, 0.35); }
 }
 
 .hero-meta {
@@ -153,7 +146,7 @@
   }
 }
 
-// Overrides on top of ui/Button's base .btn — only what differs here.
+// Overrides on top of ui/Button's base .btn: only what differs here.
 .hero-link {
   padding: 0.65rem 1.4rem;
   font-size: 0.88rem;

@@ -13,10 +13,10 @@ interface InlineActionProps {
   rel?: string;
 }
 
-// Boxless icon+text clickable — no border, no background. Renders <a> or
+// Boxless icon+text clickable: no border, no background. Renders <a> or
 // <button> depending on whether it navigates or triggers an in-page action;
 // the tag differs but the look doesn't, so this isn't called "Link" (it
-// isn't always one) or "Button" (it has no box/shape — use ui/Button for that).
+// isn't always one) or "Button" (it has no box/shape: use ui/Button for that).
 const InlineAction: React.FC<InlineActionProps> = ({
   as = 'a', href, icon, className, children, onClick, ariaLabel, target, rel,
 }) => {

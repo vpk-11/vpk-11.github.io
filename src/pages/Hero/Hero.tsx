@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
     .split('·')
     .slice(0, 2)
     .map(s => s.trim())
-    .join(' · ');
+    .join(', ');
   return (
     <section id="hero" className="section hero-section">
 
@@ -37,12 +37,10 @@ const Hero: React.FC = () => {
                 {profile.availability.toLowerCase()}
               </span>
             )}
-            <span className="hero-meta-sep" aria-hidden="true">·</span>
             <span className="hero-meta">
               <MapPin size={16} />
               {profile.location}
             </span>
-            <span className="hero-meta-sep" aria-hidden="true">·</span>
             <span className="hero-meta">{shortWorkAuth}</span>
           </div>
 
@@ -77,7 +75,7 @@ const Hero: React.FC = () => {
             >
               Resume
             </Button>
-            {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
+            {/* Book a Call: commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
             {/* <Button variant="secondary" href="#contact" className="hero-link" icon={<CalendarClock size={18} />}>Book a Call</Button> */}
           </div>
 

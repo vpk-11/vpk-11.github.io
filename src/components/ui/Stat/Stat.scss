@@ -2,7 +2,7 @@
 @use '../../../styles/mixins' as *;
 
 // Base stat number + label pairing, shared across About (floating) and
-// BeyondTheCode (panel) — only font-size differs between the two contexts.
+// BeyondTheCode (panel): only font-size differs between the two contexts.
 .stat-num {
   font-family: $font-safe;
   font-weight: 500;

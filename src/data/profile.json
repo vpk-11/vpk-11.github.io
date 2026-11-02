@@ -12,10 +12,10 @@
     "Backend",
     "Distributed Systems"
   ],
-  "workAuthorization": "F-1 · CPT authorized · STEM OPT eligible · Will require H-1B sponsorship",
+  "workAuthorization": "F-1 · CPT authorized · OPT and STEM OPT eligible · Will require H-1B sponsorship long term",
   "tagline": "Software engineer building backend systems that stay correct when parts of them fail.",
   "aboutStats": [
-    { "value": "3.95", "label": "GPA · MS CS, UMass" },
+    { "value": "3.95", "label": "MS CS GPA, UMass" },
     { "value": "3", "label": "Languages spoken: English, Tamil, Hindi" }
   ],
   "aboutSidebar": {

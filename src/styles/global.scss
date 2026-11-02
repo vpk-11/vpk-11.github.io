@@ -54,7 +54,7 @@ body {
 // THEME STYLES
 // ============================================
 
-// Ambient diagonal glow replacing the old ParticleWave canvas — two radial
+// Ambient diagonal glow replacing the old ParticleWave canvas: two radial
 // accents fading into the flat bg color, fixed to the viewport so it doesn't
 // scroll with content. Gold top-left (10% spread), green bottom-right
 // (28% spread) in both themes.
@@ -138,7 +138,7 @@ body {
   color: var(--section-accent);
 
   // --section-accent is the raw dark accent in dark mode, below AA-4.5 as
-  // text (see _variables.scss) — use the lightened text-safe tint here.
+  // text (see _variables.scss): use the lightened text-safe tint here.
   .theme-dark & { color: $accent-primary-dark-text; }
 }
 
@@ -189,7 +189,7 @@ a {
   }
 }
 
-// Visually hidden but announced by screen readers — used for "opens in
+// Visually hidden but announced by screen readers: used for "opens in
 // new tab" hints and the skip-to-content link's text.
 .sr-only {
   position: absolute;
@@ -215,7 +215,7 @@ a {
   transform: translateY(calc(-100% - 1rem));
   transition: transform 0.15s ease;
 
-  // Background is the raw accent (forest green in both themes) — white text
+  // Background is the raw accent (forest green in both themes): white text
   // clears AA 4.5:1 against both (~9.4:1 light, ~8.5:1 dark).
   .theme-light & { color: #fff; }
   .theme-dark &  { color: #fff; }

@@ -3,7 +3,7 @@ import './Card.scss';
 
 interface CardProps {
   children: React.ReactNode;
-  className?: string;   // page's own card class, e.g. "education-card" — carries any hover-transform override
+  className?: string;   // page's own card class, e.g. "education-card": carries any hover-transform override
   as?: 'div' | 'a';
   href?: string;
   target?: string;
@@ -13,7 +13,7 @@ interface CardProps {
 // card-base + accent-bar-left, shared by Education, Experience,
 // Certifications, and Projects. Each page adds its own hover transform
 // (or none) and can override the accent bar's shape as a page-level
-// override — see pages/Education/Education.scss and pages/Skills/Skills.scss
+// override: see pages/Education/Education.scss and pages/Skills/Skills.scss
 // for the translateX distances, pages/Projects/Projects.scss for the
 // left-bar-to-top-bar override.
 const Card: React.FC<CardProps> = ({ children, className, as = 'div', href, target, rel }) => {

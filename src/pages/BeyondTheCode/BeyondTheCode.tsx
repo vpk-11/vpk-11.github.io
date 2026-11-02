@@ -16,11 +16,7 @@ const BeyondTheCode: React.FC = () => {
     <section id="beyond-the-code" className="section beyond-section">
       <div className="container">
 
-        <SectionHeader
-          sectionId="beyond-the-code"
-          label="BEYOND THE CODE"
-          headline={formatText(data.headline)}
-        />
+        <SectionHeader headline={formatText(data.headline)} />
         <p className="beyond-tagline">{data.tagline}</p>
 
         <div className="leadership-stack">
@@ -37,7 +33,7 @@ const BeyondTheCode: React.FC = () => {
                 <ul className="leadership-bullets">
                   {block.bullets.map((bullet, j) => (
                     <li key={j}>
-                      <span className="leadership-bullet-mark" aria-hidden="true">—</span>
+                      <span className="leadership-bullet-mark" aria-hidden="true" />
                       <span>{bullet}</span>
                     </li>
                   ))}

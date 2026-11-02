@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../store/store';
 
 // Mirrors $accent-primary-light / $accent-primary-dark-text in
-// _variables.scss — dark uses the lightened text-safe tint, not the raw
+// _variables.scss: dark uses the lightened text-safe tint, not the raw
 // $accent-primary-dark, since the letter mark is a glyph fill that needs
 // AA legibility against the bg, same as any other text-color use.
 const THEME_COLORS = {

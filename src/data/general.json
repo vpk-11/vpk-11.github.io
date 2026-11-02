@@ -51,22 +51,19 @@
       "headline": "Projects"
     },
     "resume": {
-      "eyebrow": "RESUME",
-      "headline": "One page. No fluff."
+      "headline": "Resume"
     }
   },
   "resumeMeta": {
     "updated": "Oct 2026",
-    "format": "PDF · 1 page · ATS-safe",
-    "bestFor": "Backend · Distributed Systems"
+    "format": "PDF, 1 page, ATS-safe"
   },
   "closingCta": {
-    "eyebrow": "LET'S TALK",
     "headline": "Got something\nworth building?\n{accent}Let's talk{/accent}{small}.{/small}",
     "tagline": "I like building software that solves real problems and holds up beyond the demo. If you're working on something worth building, reach out.",
     "channels": [
-      { "label": "GEO_LOCATION", "value": "Amherst, MA", "caption": "Eastern Time" },
-      { "label": "WORK_AUTHORIZATION", "value": "F-1 · CPT Authorized", "caption": "STEM OPT eligible · Long-term H-1B" }
+      { "label": "Location", "value": "Amherst, MA", "caption": "Eastern Time" },
+      { "label": "Work authorization", "value": "F-1, CPT authorized", "caption": "OPT and STEM OPT eligible, H-1B sponsorship needed long term" }
     ]
   }
 }

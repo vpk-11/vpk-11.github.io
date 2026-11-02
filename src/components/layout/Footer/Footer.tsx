@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
         <div className="footer-col footer-signature-col">
           <p className="footer-copyright">&copy; {year} {profile.name}</p>
           <div className="footer-brandmark">
-            <span>&mdash; A VPK Product</span>
+            <span>A VPK Product</span>
           </div>
         </div>
 

@@ -24,18 +24,12 @@ const Resume: React.FC = () => {
     <section id="resume" className="section resume-section">
       <div className="container">
 
-        <SectionHeader
-          sectionId="resume"
-          label={heading?.eyebrow ?? ''}
-          show={!!heading?.eyebrow}
-          headline={heading ? formatText(heading.headline) : 'Resume'}
-        />
+        <SectionHeader headline={heading ? formatText(heading.headline) : 'Resume'} />
 
         <div className="resume-grid">
           <Panel className="resume-card">
-            <div className="resume-card-label">// resume · PDF</div>
             <div className="resume-name">
-              {profile.name} <span className="role">{shortTitle}</span>
+              <span className="role">{shortTitle}</span>
             </div>
             <p className="resume-desc">{profile.tagline}</p>
 
@@ -54,13 +48,11 @@ const Resume: React.FC = () => {
               <>
                 <div className="resume-meta-row"><span>Updated</span><span>{meta.updated}</span></div>
                 <div className="resume-meta-row"><span>Format</span><span>{meta.format}</span></div>
-                <div className="resume-meta-row"><span>Best for</span><span>{meta.bestFor}</span></div>
               </>
             )}
           </Panel>
 
           <Panel className="resume-preview-panel">
-            <span className="resume-preview-tag">// live preview</span>
             <iframe
               src={toPreviewUrl(profile.resume)}
               title={`${profile.name} resume preview`}

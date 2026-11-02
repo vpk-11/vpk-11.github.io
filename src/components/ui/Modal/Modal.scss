@@ -4,7 +4,7 @@
 // Generic dialog shell: backdrop + box + close button. Page-specific content
 // (title, links, body, tech tags) is passed as children and styled by the
 // page. Mobile bottom-sheet treatment is a page-level override (see
-// pages/Projects/Projects.scss) — not baked in here since there's only one
+// pages/Projects/Projects.scss): not baked in here since there's only one
 // consumer so far.
 
 .modal-backdrop {

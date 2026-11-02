@@ -13,7 +13,7 @@ import './Projects.scss';
 const CARD_DESC_LIMIT = 250;
 const CARD_TECH_LIMIT = 5;
 
-// Mirrors formatText.tsx's token list (kept in sync manually — formatText
+// Mirrors formatText.tsx's token list (kept in sync manually: formatText
 // renders JSX so it can't double as the plain-length source truncate() needs).
 function stripMarkdown(str: string): string {
   return str
@@ -43,7 +43,7 @@ const TechList: React.FC<{ tech: string[]; limit?: number }> = ({ tech, limit })
   const truncated = limit != null && tech.length > limit;
   return (
     <p className="tech-list">
-      {shown.join(' · ')}{truncated && ' …'}
+      {shown.join(' · ')}{truncated && '\u00a0…'}
     </p>
   );
 };
@@ -201,11 +201,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="section projects-section">
       <div className="container">
-        <SectionHeader
-          sectionId="projects"
-          label="PROJECTS"
-          headline={headline ? formatText(headline) : 'Projects'}
-        />
+        <SectionHeader headline={headline ? formatText(headline) : 'Projects'} />
 
         <div className={`projects-grid ${colClass}`}>
           {projects.map(project => (
