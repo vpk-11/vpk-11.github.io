@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 .btn {
   display: inline-flex;
@@ -6,7 +7,9 @@
   gap: 0.6rem;
   text-decoration: none;
   font-weight: 600;
-  transition: $transition-quick;
+  transition: color $transition-quick, background-color $transition-quick,
+    border-color $transition-quick, opacity $transition-quick,
+    transform $transition-quick;
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -27,7 +30,7 @@
   // AA (2.5:1) — white clears ~8.5:1 against the same background.
   .theme-dark &  { color: #fff; font-weight: 700; }
 
-  &:hover {
+  @include hover {
     opacity: 0.86;
     transform: translateY(-2px);
   }
@@ -52,12 +55,12 @@
     color: rgba($dark-text, 0.7);
   }
 
-  &:hover {
+  @include hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
     transform: translateY(-2px);
   }
 
   // raw dark accent fails AA-4.5 as text; override just the text color
-  .theme-dark &:hover { color: $accent-primary-dark-text; }
+  .theme-dark & { @include hover { color: $accent-primary-dark-text; } }
 }
