@@ -5,10 +5,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1000;
   padding: 0.9rem 0;
-  transition: $transition-smooth;
+  transition: padding $transition-smooth, background-color $transition-smooth;
   box-sizing: border-box;
 
   // Frosted blend over the gradient/content behind it — translucent, not
@@ -43,11 +43,11 @@
   box-sizing: border-box;
   position: relative;
 
-  @media (min-width: 1600px) {
+  @media (min-width: 100rem) {
     max-width: 1500px;
   }
   
-  @media (min-width: 2000px) {
+  @media (min-width: 125rem) {
     max-width: 1600px;
   }
   
@@ -131,14 +131,14 @@
   font-weight: 700;
   text-decoration: none;
   background: var(--accent-color);
-  transition: $transition-quick;
+  transition: opacity $transition-quick, transform $transition-quick;
 
   // $dark-bg text on the raw accent background fails AA (2.5:1); white
   // clears ~8.5:1 against the same background.
   .theme-light & { color: #fff; }
   .theme-dark &  { color: #fff; }
 
-  &:hover {
+  @include hover {
     opacity: 0.86;
     transform: translateY(-1px);
   }
@@ -274,12 +274,13 @@
   border-radius: 8px;
   border: 1px solid;
   flex-shrink: 0;
-  transition: $transition-quick;
+  transition: background-color $transition-quick, border-color $transition-quick,
+    color $transition-quick;
 
   .theme-light & { border-color: rgba($light-text, 0.15); color: rgba($light-text, 0.7); }
   .theme-dark &  { border-color: rgba($dark-text, 0.15); color: rgba($dark-text, 0.7); }
 
-  .nav-submenu-link:hover & {
+  @include hover('.nav-submenu-link') {
     background: var(--accent-color);
     border-color: var(--accent-color);
   }
@@ -287,8 +288,8 @@
   // Icon color flips to white on hover in both themes: the light accent bg
   // needs it for contrast, and the dark accent bg is now dark forest green
   // ($dark-bg text on it would fail AA, same as elsewhere with this accent).
-  .theme-light .nav-submenu-link:hover & { color: #fff; }
-  .theme-dark  .nav-submenu-link:hover & { color: #fff; }
+  @include hover('.theme-light .nav-submenu-link') { color: #fff; }
+  @include hover('.theme-dark .nav-submenu-link')  { color: #fff; }
 }
 
 .nav-submenu-text {
@@ -313,8 +314,8 @@
   .theme-light & { color: rgba($light-text, 0.65); }
   .theme-dark &  { color: rgba($dark-text, 0.65); }
 
-  .theme-light .nav-submenu-link:hover & { color: $light-text; }
-  .theme-dark  .nav-submenu-link:hover & { color: $dark-text; }
+  @include hover('.theme-light .nav-submenu-link') { color: $light-text; }
+  @include hover('.theme-dark .nav-submenu-link')  { color: $dark-text; }
 }
 
 .hamburger {
@@ -325,10 +326,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: $transition-quick;
+  transition: color $transition-quick;
   color: inherit;
 
-  &:hover {
+  @include hover {
     color: var(--accent-color);
 
     .theme-dark & { color: $accent-primary-dark-text; }
@@ -372,7 +373,8 @@
   cursor: pointer;
   text-align: left;
   padding: 0.75rem 0;
-  transition: $transition-quick;
+  transition: transform $transition-quick, opacity $transition-quick,
+    color $transition-quick;
   position: relative;
   
   // No accent text color — active state reads via the left bar below only.
@@ -390,16 +392,17 @@
     top: 50%;
     transform: translateY(-50%);
     width: 4px;
-    height: 0;
+    height: 70%;
     background: var(--accent-color);
-    transition: height 0.3s ease;
+    transform: translateY(-50%) scaleY(0);
+    transition: transform 0.3s ease;
   }
 
   &.active::before {
-    height: 70%;
+    transform: translateY(-50%) scaleY(1);
   }
 
-  &:hover {
+  @include hover {
     transform: translateX(10px);
     
     .theme-dark & {

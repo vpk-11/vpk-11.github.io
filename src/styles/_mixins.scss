@@ -23,6 +23,21 @@
 }
 
 // ============================================
+// HOVER (pointer devices only)
+// ============================================
+
+// $ancestor: hover on a parent/ancestor selector styles the current element.
+@mixin hover($ancestor: null) {
+  @media (hover: hover) and (pointer: fine) {
+    @if $ancestor {
+      #{$ancestor}:hover & { @content; }
+    } @else {
+      &:hover { @content; }
+    }
+  }
+}
+
+// ============================================
 // CARD STYLE
 // ============================================
 
@@ -30,7 +45,8 @@
   padding: 2rem;
   border-radius: 12px;
   border: 2px solid transparent;
-  transition: $transition-smooth;
+  transition: background-color $transition-smooth, border-color $transition-smooth,
+    box-shadow $transition-smooth;
   position: relative;
   overflow: hidden;
 
@@ -68,8 +84,10 @@
     .theme-dark &  { background: rgba($dark-text, 0.35); }
   }
 
-  &:hover::before {
-    transform: scaleY(1);
-    transform-origin: top;
+  @include hover {
+    &::before {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
   }
 }

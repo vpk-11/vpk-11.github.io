@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 // Boxless icon+text clickable (Projects' GitHub/Live Demo/View Details).
 // No border, no background — just icon + text, unlike ui/Button.
@@ -13,7 +14,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  transition: $transition-quick;
+  transition: color $transition-quick;
 
   &:focus:not(:focus-visible) {
     outline: none;
@@ -26,12 +27,12 @@
 
   .theme-light & {
     color: rgba($light-text, 0.7);
-    &:hover { color: var(--section-accent); }
+    @include hover { color: var(--section-accent); }
   }
 
   .theme-dark & {
     color: rgba($dark-text, 0.65);
     svg { color: $accent-primary-dark-text; }
-    &:hover { color: $accent-primary-dark-text; }
+    @include hover { color: $accent-primary-dark-text; }
   }
 }

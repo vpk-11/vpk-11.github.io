@@ -5,6 +5,7 @@
 
 .hero-section {
   min-height: 100vh;
+  min-height: 100svh;
   padding-top: clamp(80px, 10vh, 120px);
   padding-bottom: clamp(4rem, 8vh, 8rem);
   display: flex;

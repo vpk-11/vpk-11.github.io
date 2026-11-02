@@ -37,16 +37,16 @@ $accent-secondary-dark:  #A8823A; // antique bronze, ~5.6:1 on near-black
 // BREAKPOINTS
 // ============================================
 
-$mobile: 768px;
-$tablet: 1024px;
-$desktop: 1440px;
+$mobile: 48rem;
+$tablet: 64rem;
+$desktop: 90rem;
 
 // ============================================
 // TRANSITIONS
 // ============================================
 
-$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-$transition-quick: all 0.2s ease;
+$transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-quick: 0.2s ease;
 
 // ============================================
 // SPACING
