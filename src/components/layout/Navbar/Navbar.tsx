@@ -17,7 +17,7 @@ const ICONS: Record<string, React.ElementType> = {
 
 const { nav: NAV_ITEMS } = generalData as GeneralData;
 
-// Mobile menu is a flat list — derive it from the same nav tree so
+// Mobile menu is a flat list: derive it from the same nav tree so
 // there's one source of truth for labels/ids instead of a second array.
 const MOBILE_NAV_ITEMS: { name: string; id: string }[] = NAV_ITEMS.flatMap(item => {
   if (item.id) return [{ name: item.label, id: item.id }];
@@ -33,6 +33,8 @@ const Navbar: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
   const navTriggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  // Label of the dropdown that hover (not a click) opened, if any.
+  const hoverOpenedRef = useRef<string | null>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -108,8 +110,22 @@ const Navbar: React.FC = () => {
   const isGroupActive = (item: NavItem) =>
     item.subMenus?.some(group => group.items.some(i => i.id === activeSection)) ?? false;
 
-  const toggleMenu = (label: string) => {
+  // On a mouse, hover opens the menu before the click lands, so a plain
+  // toggle closed the menu the user was clicking to open. The first click
+  // after a hover-open keeps it open; later clicks toggle as usual.
+  const handleTriggerClick = (label: string) => {
+    if (hoverOpenedRef.current === label) {
+      hoverOpenedRef.current = null;
+      return;
+    }
     setOpenMenu(prev => (prev === label ? null : label));
+  };
+
+  // Mouse enter opens (label), mouse leave closes (null).
+  const handleItemHover = (item: NavItem, label: string | null) => {
+    if (!item.subMenus || !canHover) return;
+    hoverOpenedRef.current = label;
+    setOpenMenu(label);
   };
 
   // Only devices with real hover (mouse/trackpad) get hover-to-open.
@@ -117,7 +133,7 @@ const Navbar: React.FC = () => {
   // was racing with the click handler and closing the menu it just opened.
   const canHover = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
 
-  // Click outside closes an open dropdown — makes the menu touch-friendly
+  // Click outside closes an open dropdown: makes the menu touch-friendly
   // (hover alone doesn't persist on tap for touch devices).
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -130,7 +146,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   // Escape closes an open dropdown and returns focus to the button that
-  // opened it — standard expected behavior for a disclosure menu, previously
+  // opened it: standard expected behavior for a disclosure menu, previously
   // only click-outside closed it, stranding keyboard users with no way to
   // dismiss without a mouse.
   useEffect(() => {
@@ -162,8 +178,8 @@ const Navbar: React.FC = () => {
             <li
               key={item.label}
               className="nav-item"
-              onMouseEnter={() => item.subMenus && canHover && setOpenMenu(item.label)}
-              onMouseLeave={() => item.subMenus && canHover && setOpenMenu(null)}
+              onMouseEnter={() => handleItemHover(item, item.label)}
+              onMouseLeave={() => handleItemHover(item, null)}
             >
               <button
                 ref={el => { navTriggerRefs.current[item.label] = el; }}
@@ -171,7 +187,7 @@ const Navbar: React.FC = () => {
                 onMouseEnter={() => setHoveredLabel(item.label)}
                 onMouseLeave={() => setHoveredLabel(null)}
                 onClick={() => {
-                  if (item.subMenus) toggleMenu(item.label);
+                  if (item.subMenus) handleTriggerClick(item.label);
                   else if (item.id) scrollToSection(item.id);
                 }}
                 aria-expanded={item.subMenus ? openMenu === item.label : undefined}
@@ -193,9 +209,9 @@ const Navbar: React.FC = () => {
                 {openMenu === item.label && item.subMenus && (
                   <motion.div
                     className="nav-submenu"
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
+                    initial={{ opacity: 0, x: '-50%', y: 6 }}
+                    animate={{ opacity: 1, x: '-50%', y: 0 }}
+                    exit={{ opacity: 0, x: '-50%', y: 6 }}
                     transition={{ duration: 0.16 }}
                   >
                     {item.subMenus.map(group => (
@@ -231,7 +247,7 @@ const Navbar: React.FC = () => {
 
         <div className="nav-actions">
           <ThemeToggle />
-          {/* Book a Call — commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
+          {/* Book a Call: commented out, Cal.com integration deferred (see .claude/v5-todo.md) */}
           {/* <a href="#closing-cta" className="nav-book-call">Book a Call</a> */}
         </div>
 
