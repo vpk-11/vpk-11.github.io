@@ -26,9 +26,6 @@ importers:
       react-redux:
         specifier: ^9.2.0
         version: 9.2.0(@types/react@19.2.2)(react@19.2.0)(redux@5.0.1)
-      redux:
-        specifier: ^5.0.1
-        version: 5.0.1
       sass:
         specifier: ^1.93.2
         version: 1.93.2
@@ -54,9 +51,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.0.4
         version: 5.0.4(vite@7.3.8(@types/node@24.8.1)(sass@1.93.2))
-      baseline-browser-mapping:
-        specifier: ^2.11.38
-        version: 2.11.38
       eslint:
         specifier: ^9.36.0
         version: 9.38.0
