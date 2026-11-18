@@ -1,6 +1,6 @@
 # Portfolio Website
-<!-- version: v7.9.0 -->
-![Version](https://img.shields.io/badge/version-v7.9.0-blue)
+<!-- version: v7.10.0 -->
+![Version](https://img.shields.io/badge/version-v7.10.0-blue)
 
 Personal portfolio for Kaushik Parthasarathy. Built with React 19, TypeScript, Redux Toolkit, and SCSS. Features a diagonal gold-to-green ambient gradient background (pure CSS, no canvas) and full dark/light mode support.
 
@@ -125,6 +125,7 @@ Push to `main`. The `deploy.yml` workflow builds and pushes `dist/` to the `gh-p
 
 ---
 ## Changelog
+- **v7.10.0** (2026-11-18): minor bump
 - **v7.9.0** (2026-11-18): minor bump
 - **v7.8.0** (2026-11-02): minor bump
 - **v7.7.0** (2026-11-02): minor bump
